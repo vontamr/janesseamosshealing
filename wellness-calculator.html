@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wellness Calculator | Janesse's Seamoss Creation</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script>
+        function initTailwind() {
+            tailwind.config = {
+                theme: {
+                    extend: {
+                        colors: {
+                            deep: '#260B3A',
+                            purple: '#5E0089',
+                            lightpurple: '#EAD5F8',
+                        }
+                    }
+                }
+            }
+        }
+        window.addEventListener('load', initTailwind);
+    </script>
+</head>
+<body class="bg-white text-deep font-sans">
+
+    <!-- Navigation -->
+    <nav class="bg-white border-b sticky top-0 z-50 shadow-sm">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex items-center justify-between h-20">
+                <a href="index.html" class="flex items-center gap-4">
+                    <img src="images/logo.png" alt="Janesse's Seamoss Creation" class="h-12">
+                </a>
+
+                <div class="hidden md:flex items-center gap-10 text-sm font-medium">
+                    <a href="index.html" class="hover:text-purple">Home</a>
+                    <a href="build.html" class="hover:text-purple">Build Your Blend</a>
+                    <a href="shop.html" class="hover:text-purple">Shop</a>
+                    <a href="wellness-calculator.html" class="text-purple">Wellness Calculator</a>
+                    <a href="about.html" class="hover:text-purple">Our Story</a>
+                </div>
+
+                <a href="contact.html" class="bg-purple hover:bg-deep text-white px-8 py-4 rounded-3xl font-semibold transition-all">
+                    Shop Now
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Tool Header -->
+    <section class="bg-gradient-to-br from-deep to-purple py-20 text-white">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h1 class="text-5xl md:text-6xl font-light tracking-tighter mb-6">
+                Sea Moss Wellness Calculator
+            </h1>
+            <p class="text-xl text-lightpurple">
+                Answer a few questions and get a personalized sea moss recommendation tailored to your health goals.
+            </p>
+        </div>
+    </section>
+
+    <div class="max-w-2xl mx-auto px-6 py-16">
+        <div class="bg-white border border-lightpurple rounded-3xl p-10 shadow-sm">
+
+            <!-- Question 1 -->
+            <div class="mb-10">
+                <label class="block text-lg font-medium mb-4">What is your main wellness goal?</label>
+                <div class="grid grid-cols-2 gap-4">
+                    <button onclick="selectGoal(this, 'energy')" class="goal-btn p-6 border-2 border-gray-200 rounded-3xl text-left hover:border-purple transition-all">
+                        Energy & Focus
+                    </button>
+                    <button onclick="selectGoal(this, 'immunity')" class="goal-btn p-6 border-2 border-gray-200 rounded-3xl text-left hover:border-purple transition-all">
+                        Immunity Boost
+                    </button>
+                    <button onclick="selectGoal(this, 'skin')" class="goal-btn p-6 border-2 border-gray-200 rounded-3xl text-left hover:border-purple transition-all">
+                        Skin & Hair Health
+                    </button>
+                    <button onclick="selectGoal(this, 'thyroid')" class="goal-btn p-6 border-2 border-gray-200 rounded-3xl text-left hover:border-purple transition-all">
+                        Thyroid Support
+                    </button>
+                </div>
+            </div>
+
+            <!-- Question 2 -->
+            <div class="mb-10">
+                <label class="block text-lg font-medium mb-4">How old are you?</label>
+                <input type="number" id="age" placeholder="35" 
+                       class="w-full p-5 border border-gray-300 rounded-3xl text-lg focus:border-purple outline-none">
+            </div>
+
+            <!-- Results Area -->
+            <div id="results" class="hidden mt-12 bg-lightpurple/30 rounded-3xl p-10">
+                <h3 class="text-2xl font-medium mb-6">Your Personalized Recommendation</h3>
+                
+                <div id="recommendation" class="text-xl leading-relaxed"></div>
+                
+                <div class="mt-10 pt-8 border-t border-purple/30">
+                    <div class="flex justify-between text-lg">
+                        <span>Recommended Blend:</span>
+                        <span id="blend-name" class="font-semibold text-purple"></span>
+                    </div>
+                    <div class="flex justify-between text-lg mt-4">
+                        <span>Daily Dosage:</span>
+                        <span id="dosage" class="font-semibold"></span>
+                    </div>
+                    <div class="flex justify-between text-lg mt-4">
+                        <span>Monthly Cost:</span>
+                        <span id="monthly-cost" class="font-semibold text-purple"></span>
+                    </div>
+                </div>
+
+                <a href="build.html" 
+                   class="block w-full text-center bg-purple hover:bg-deep text-white py-6 rounded-3xl mt-10 text-xl font-semibold transition-all">
+                    Create This Blend Now →
+                </a>
+            </div>
+
+            <button onclick="calculateWellness()" 
+                    class="w-full bg-purple hover:bg-deep text-white py-7 rounded-3xl text-2xl font-semibold mt-8 transition-all">
+                Get My Recommendation
+            </button>
+        </div>
+    </div>
+
+    <script>
+        let selectedGoal = '';
+
+        function selectGoal(btn, goal) {
+            document.querySelectorAll('.goal-btn').forEach(b => {
+                b.classList.remove('border-purple', 'bg-lightpurple');
+            });
+            btn.classList.add('border-purple', 'bg-lightpurple');
+            selectedGoal = goal;
+        }
+
+        function calculateWellness() {
+            const age = parseInt(document.getElementById('age').value) || 35;
+
+            let recommendation = '';
+            let blend = '';
+            let dosage = '';
+            let monthlyCost = '';
+
+            if (selectedGoal === 'energy') {
+                blend = "Energy & Focus Blend (Moringa + Ginger)";
+                recommendation = "Your body needs sustained energy and mental clarity. This blend supports natural energy without crashes.";
+                dosage = "2 tablespoons daily";
+                monthlyCost = "$48";
+            } else if (selectedGoal === 'immunity') {
+                blend = "Immune Defense Blend (Soursop + Elderberry)";
+                recommendation = "Great choice for strengthening your immune system naturally with powerful antioxidants.";
+                dosage = "2 tablespoons daily";
+                monthlyCost = "$52";
+            } else if (selectedGoal === 'skin') {
+                blend = "Skin & Beauty Blend (Collagen Support)";
+                recommendation = "Sea moss is excellent for collagen production and glowing skin from within.";
+                dosage = "1.5 tablespoons daily";
+                monthlyCost = "$45";
+            } else if (selectedGoal === 'thyroid') {
+                blend = "Thyroid Support Blend (Bladderwrack + Burdock)";
+                recommendation = "This blend is rich in natural iodine and supports healthy thyroid function.";
+                dosage = "2 tablespoons daily";
+                monthlyCost = "$50";
+            } else {
+                blend = "Signature Original Sea Moss";
+                recommendation = "Start with our classic wild-harvested sea moss for overall wellness.";
+                dosage = "2 tablespoons daily";
+                monthlyCost = "$42";
+            }
+
+            document.getElementById('blend-name').textContent = blend;
+            document.getElementById('recommendation').innerHTML = recommendation;
+            document.getElementById('dosage').textContent = dosage;
+            document.getElementById('monthly-cost').textContent = monthlyCost;
+
+            document.getElementById('results').classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>

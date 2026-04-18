@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Build Your Blend | Janesse's Seamoss Creation</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script>
+        function initTailwind() {
+            tailwind.config = {
+                theme: {
+                    extend: {
+                        colors: {
+                            deep: '#260B3A',
+                            purple: '#5E0089',
+                            lightpurple: '#EAD5F8',
+                        }
+                    }
+                }
+            }
+        }
+        window.addEventListener('load', initTailwind);
+    </script>
+</head>
+<body class="bg-white text-deep font-sans">
+
+    <!-- Navigation -->
+    <nav class="bg-white border-b sticky top-0 z-50 shadow-sm">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex items-center justify-between h-20">
+                <a href="index.html" class="flex items-center gap-4">
+                    <img src="images/logo.png" alt="Janesse's Seamoss Creation" class="h-12">
+                </a>
+
+                <div class="hidden md:flex items-center gap-10 text-sm font-medium">
+                    <a href="index.html" class="hover:text-purple">Home</a>
+                    <a href="build.html" class="text-purple">Build Your Blend</a>
+                    <a href="shop.html" class="hover:text-purple">Shop</a>
+                    <a href="wellness-calculator.html" class="hover:text-purple">Wellness Tools</a>
+                    <a href="about.html" class="hover:text-purple">Our Story</a>
+                </div>
+
+                <a href="contact.html" 
+                   class="bg-purple hover:bg-deep text-white px-9 py-4 rounded-3xl font-semibold transition-all">
+                    Shop Now
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Build Hero -->
+    <section class="bg-gradient-to-br from-deep to-purple py-20 text-white">
+        <div class="max-w-5xl mx-auto px-6 text-center">
+            <h1 class="text-5xl md:text-6xl font-light tracking-tighter mb-6">
+                Build Your Perfect Sea Moss Blend
+            </h1>
+            <p class="text-xl max-w-2xl mx-auto">
+                Choose your base, add powerful herbs, and create a custom gel tailored to your wellness goals.
+            </p>
+        </div>
+    </section>
+
+    <div class="max-w-7xl mx-auto px-6 py-16 grid lg:grid-cols-12 gap-16">
+
+        <!-- Left: Customization Steps -->
+        <div class="lg:col-span-7 space-y-16">
+
+            <!-- Step 1: Base -->
+            <div>
+                <h3 class="text-2xl font-medium mb-6 flex items-center gap-3">
+                    <span class="text-purple">01</span> Choose Your Base
+                </h3>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <button onclick="selectBase(this, 35, 'Original Irish Sea Moss')" 
+                            class="base-btn p-8 border-2 border-gray-200 rounded-3xl text-left hover:border-purple transition-all">
+                        <div class="font-semibold text-xl">Original Irish Sea Moss</div>
+                        <div class="text-sm text-gray-600 mt-2">Classic wild-harvested base • Pure &amp; simple</div>
+                        <div class="text-purple font-medium mt-6">$35 • 16oz</div>
+                    </button>
+                    <button onclick="selectBase(this, 42, 'Bladderwrack + Burdock')" 
+                            class="base-btn p-8 border-2 border-gray-200 rounded-3xl text-left hover:border-purple transition-all">
+                        <div class="font-semibold text-xl">Bladderwrack + Burdock</div>
+                        <div class="text-sm text-gray-600 mt-2">Thyroid &amp; detox support</div>
+                        <div class="text-purple font-medium mt-6">$42 • 16oz</div>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Step 2: Add Herbs -->
+            <div>
+                <h3 class="text-2xl font-medium mb-6 flex items-center gap-3">
+                    <span class="text-purple">02</span> Add Powerful Herbs
+                </h3>
+                <div class="grid grid-cols-2 gap-4">
+                    <label class="flex items-center gap-4 p-6 border border-gray-200 rounded-3xl cursor-pointer hover:border-purple">
+                        <input type="checkbox" class="w-6 h-6 accent-purple" onchange="updatePreview()">
+                        <span class="text-lg">Soursop (Immune Support)</span>
+                    </label>
+                    <label class="flex items-center gap-4 p-6 border border-gray-200 rounded-3xl cursor-pointer hover:border-purple">
+                        <input type="checkbox" class="w-6 h-6 accent-purple" onchange="updatePreview()">
+                        <span class="text-lg">Turmeric + Ginger</span>
+                    </label>
+                    <label class="flex items-center gap-4 p-6 border border-gray-200 rounded-3xl cursor-pointer hover:border-purple">
+                        <input type="checkbox" class="w-6 h-6 accent-purple" onchange="updatePreview()">
+                        <span class="text-lg">Moringa</span>
+                    </label>
+                    <label class="flex items-center gap-4 p-6 border border-gray-200 rounded-3xl cursor-pointer hover:border-purple">
+                        <input type="checkbox" class="w-6 h-6 accent-purple" onchange="updatePreview()">
+                        <span class="text-lg">Elderberry</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Step 3: Size -->
+            <div>
+                <h3 class="text-2xl font-medium mb-6 flex items-center gap-3">
+                    <span class="text-purple">03</span> Choose Size
+                </h3>
+                <select id="size" onchange="updatePreview()" 
+                        class="w-full p-6 border border-gray-300 rounded-3xl text-lg focus:border-purple">
+                    <option value="35">16 oz Jar — $35</option>
+                    <option value="60">32 oz Jar — $60 (Best Value)</option>
+                </select>
+            </div>
+
+            <button onclick="addToCart()" 
+                    class="w-full bg-purple hover:bg-deep text-white py-8 rounded-3xl text-2xl font-semibold transition-all">
+                Add to Cart — $<span id="total-price">35</span>
+            </button>
+        </div>
+
+        <!-- Right: Live Preview -->
+        <div class="lg:col-span-5">
+            <div class="sticky top-24 bg-white border border-lightpurple rounded-3xl p-10">
+                <h3 class="text-2xl font-medium mb-8 text-center">Your Custom Blend Preview</h3>
+                
+                <div id="preview-box" 
+                     class="aspect-square bg-gradient-to-br from-purple to-deep rounded-3xl flex items-center justify-center text-white text-9xl mb-10 shadow-inner">
+                    🌊
+                </div>
+
+                <div class="space-y-6 text-lg">
+                    <div class="flex justify-between">
+                        <span class="text-gray-600">Base:</span>
+                        <span id="preview-base" class="font-medium">Original Irish Sea Moss</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span class="text-gray-600">Herbs Added:</span>
+                        <span id="preview-herbs" class="font-medium text-right">None selected</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span class="text-gray-600">Size:</span>
+                        <span id="preview-size" class="font-medium">16 oz</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentPrice = 35;
+        let selectedBase = "Original Irish Sea Moss";
+
+        function selectBase(btn, price, name) {
+            document.querySelectorAll('.base-btn').forEach(b => b.classList.remove('border-purple', 'bg-lightpurple'));
+            btn.classList.add('border-purple', 'bg-lightpurple');
+            
+            selectedBase = name;
+            currentPrice = price;
+            document.getElementById('preview-base').textContent = name;
+            updatePrice();
+        }
+
+        function updatePreview() {
+            const size = document.getElementById('size').value;
+            currentPrice = size === "60" ? 60 : 35;
+            updatePrice();
+        }
+
+        function updatePrice() {
+            document.getElementById('total-price').textContent = currentPrice;
+        }
+
+        function addToCart() {
+            alert(`✅ Added to cart!\n\n${selectedBase}\nSize: ${document.getElementById('size').value === "60" ? "32 oz" : "16 oz"}\nPrice: $${currentPrice}`);
+        }
+
+        window.addEventListener('load', () => {
+            document.getElementById('size').addEventListener('change', updatePreview);
+        });
+    </script>
+</body>
+</html>
