@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Build Your Blend | Janesse's Seamoss Creation</title>
+    <meta name="description" content="Create your custom sea moss blend. Start with wild-harvested Irish Sea Moss and add fruits, herbs & consistency.">
     
-    <script src="https://cdn.tailwindcss.com"></script>
-    
+    <script src="https://cdn.tailwindcss.com" async></script>
     <script>
         function initTailwind() {
             tailwind.config = {
+                content: ["./**/*.{html,js}"],
                 theme: {
                     extend: {
                         colors: {
@@ -19,177 +20,368 @@
                         }
                     }
                 }
-            }
+            };
         }
         window.addEventListener('load', initTailwind);
     </script>
+
+    <style>
+        .marquee { overflow: hidden; white-space: nowrap; }
+        .marquee-content { display: inline-flex; animation: marquee 35s linear infinite; }
+        @keyframes marquee {
+            from { transform: translateX(0); }
+            to { transform: translateX(-50%); }
+        }
+    </style>
 </head>
-<body class="bg-white text-deep font-sans">
+<body class="bg-white text-deep font-sans antialiased">
 
     <!-- Navigation -->
     <nav class="bg-white border-b sticky top-0 z-50 shadow-sm">
         <div class="max-w-7xl mx-auto px-6">
             <div class="flex items-center justify-between h-20">
-                <a href="index.html" class="flex items-center gap-4">
-                    <img src="images/logo.png" alt="Janesse's Seamoss Creation" class="h-12">
+                <a href="index.html" class="flex items-center gap-3">
+                    <img src="images/logo.png" alt="Janesse's Seamoss Creation Logo" class="h-12">
                 </a>
-
                 <div class="hidden md:flex items-center gap-10 text-sm font-medium">
-                    <a href="index.html" class="hover:text-purple">Home</a>
-                    <a href="build.html" class="text-purple">Build Your Blend</a>
-                    <a href="shop.html" class="hover:text-purple">Shop</a>
-                    <a href="wellness-calculator.html" class="hover:text-purple">Wellness Tools</a>
-                    <a href="about.html" class="hover:text-purple">Our Story</a>
+                    <a href="index.html" class="hover:text-purple transition-colors">Home</a>
+                    <a href="build.html" class="text-purple font-semibold">Build Your Blend</a>
+                    <a href="shop.html" class="hover:text-purple transition-colors">Shop</a>
+                    <a href="wellness-calculator.html" class="hover:text-purple transition-colors">Wellness Tools</a>
+                    <a href="about.html" class="hover:text-purple transition-colors">Our Story</a>
                 </div>
-
-                <a href="contact.html" 
-                   class="bg-purple hover:bg-deep text-white px-9 py-4 rounded-3xl font-semibold transition-all">
-                    Shop Now
-                </a>
+                <a href="shop.html" class="bg-purple hover:bg-deep text-white px-8 py-3.5 rounded-3xl font-semibold transition-all">Shop Now</a>
             </div>
         </div>
     </nav>
 
-    <!-- Build Hero -->
-    <section class="bg-gradient-to-br from-deep to-purple py-20 text-white">
-        <div class="max-w-5xl mx-auto px-6 text-center">
-            <h1 class="text-5xl md:text-6xl font-light tracking-tighter mb-6">
-                Build Your Perfect Sea Moss Blend
-            </h1>
-            <p class="text-xl max-w-2xl mx-auto">
-                Choose your base, add powerful herbs, and create a custom gel tailored to your wellness goals.
-            </p>
-        </div>
-    </section>
-
-    <div class="max-w-7xl mx-auto px-6 py-16 grid lg:grid-cols-12 gap-16">
-
-        <!-- Left: Customization Steps -->
-        <div class="lg:col-span-7 space-y-16">
-
-            <!-- Step 1: Base -->
-            <div>
-                <h3 class="text-2xl font-medium mb-6 flex items-center gap-3">
-                    <span class="text-purple">01</span> Choose Your Base
-                </h3>
-                <div class="grid md:grid-cols-2 gap-6">
-                    <button onclick="selectBase(this, 35, 'Original Irish Sea Moss')" 
-                            class="base-btn p-8 border-2 border-gray-200 rounded-3xl text-left hover:border-purple transition-all">
-                        <div class="font-semibold text-xl">Original Irish Sea Moss</div>
-                        <div class="text-sm text-gray-600 mt-2">Classic wild-harvested base • Pure &amp; simple</div>
-                        <div class="text-purple font-medium mt-6">$35 • 16oz</div>
-                    </button>
-                    <button onclick="selectBase(this, 42, 'Bladderwrack + Burdock')" 
-                            class="base-btn p-8 border-2 border-gray-200 rounded-3xl text-left hover:border-purple transition-all">
-                        <div class="font-semibold text-xl">Bladderwrack + Burdock</div>
-                        <div class="text-sm text-gray-600 mt-2">Thyroid &amp; detox support</div>
-                        <div class="text-purple font-medium mt-6">$42 • 16oz</div>
-                    </button>
-                </div>
-            </div>
-
-            <!-- Step 2: Add Herbs -->
-            <div>
-                <h3 class="text-2xl font-medium mb-6 flex items-center gap-3">
-                    <span class="text-purple">02</span> Add Powerful Herbs
-                </h3>
-                <div class="grid grid-cols-2 gap-4">
-                    <label class="flex items-center gap-4 p-6 border border-gray-200 rounded-3xl cursor-pointer hover:border-purple">
-                        <input type="checkbox" class="w-6 h-6 accent-purple" onchange="updatePreview()">
-                        <span class="text-lg">Soursop (Immune Support)</span>
-                    </label>
-                    <label class="flex items-center gap-4 p-6 border border-gray-200 rounded-3xl cursor-pointer hover:border-purple">
-                        <input type="checkbox" class="w-6 h-6 accent-purple" onchange="updatePreview()">
-                        <span class="text-lg">Turmeric + Ginger</span>
-                    </label>
-                    <label class="flex items-center gap-4 p-6 border border-gray-200 rounded-3xl cursor-pointer hover:border-purple">
-                        <input type="checkbox" class="w-6 h-6 accent-purple" onchange="updatePreview()">
-                        <span class="text-lg">Moringa</span>
-                    </label>
-                    <label class="flex items-center gap-4 p-6 border border-gray-200 rounded-3xl cursor-pointer hover:border-purple">
-                        <input type="checkbox" class="w-6 h-6 accent-purple" onchange="updatePreview()">
-                        <span class="text-lg">Elderberry</span>
-                    </label>
-                </div>
-            </div>
-
-            <!-- Step 3: Size -->
-            <div>
-                <h3 class="text-2xl font-medium mb-6 flex items-center gap-3">
-                    <span class="text-purple">03</span> Choose Size
-                </h3>
-                <select id="size" onchange="updatePreview()" 
-                        class="w-full p-6 border border-gray-300 rounded-3xl text-lg focus:border-purple">
-                    <option value="35">16 oz Jar — $35</option>
-                    <option value="60">32 oz Jar — $60 (Best Value)</option>
-                </select>
-            </div>
-
-            <button onclick="addToCart()" 
-                    class="w-full bg-purple hover:bg-deep text-white py-8 rounded-3xl text-2xl font-semibold transition-all">
-                Add to Cart — $<span id="total-price">35</span>
-            </button>
-        </div>
-
-        <!-- Right: Live Preview -->
-        <div class="lg:col-span-5">
-            <div class="sticky top-24 bg-white border border-lightpurple rounded-3xl p-10">
-                <h3 class="text-2xl font-medium mb-8 text-center">Your Custom Blend Preview</h3>
-                
-                <div id="preview-box" 
-                     class="aspect-square bg-gradient-to-br from-purple to-deep rounded-3xl flex items-center justify-center text-white text-9xl mb-10 shadow-inner">
-                    🌊
-                </div>
-
-                <div class="space-y-6 text-lg">
-                    <div class="flex justify-between">
-                        <span class="text-gray-600">Base:</span>
-                        <span id="preview-base" class="font-medium">Original Irish Sea Moss</span>
-                    </div>
-                    <div class="flex justify-between">
-                        <span class="text-gray-600">Herbs Added:</span>
-                        <span id="preview-herbs" class="font-medium text-right">None selected</span>
-                    </div>
-                    <div class="flex justify-between">
-                        <span class="text-gray-600">Size:</span>
-                        <span id="preview-size" class="font-medium">16 oz</span>
-                    </div>
-                </div>
+    <!-- Marquee -->
+    <div class="bg-lightpurple/30 py-3 text-purple font-medium text-sm border-b">
+        <div class="marquee">
+            <div class="marquee-content flex gap-12">
+                <span>🌿 Wild-Harvested Irish Sea Moss • 92+ Minerals • Naturally Sweetened by Bees • Build Your Perfect Blend</span>
             </div>
         </div>
     </div>
 
-    <script>
-        let currentPrice = 35;
-        let selectedBase = "Original Irish Sea Moss";
+    <!-- Hero -->
+    <header class="bg-gradient-to-br from-deep/5 to-lightpurple/30 py-16">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <h1 class="text-5xl md:text-6xl font-light tracking-tighter mb-4">Build Your Blend</h1>
+            <p class="text-xl text-gray-600 max-w-2xl mx-auto">Start with our signature Irish Sea Moss and customize with fruits, herbs, and consistency.</p>
+        </div>
+    </header>
 
-        function selectBase(btn, price, name) {
-            document.querySelectorAll('.base-btn').forEach(b => b.classList.remove('border-purple', 'bg-lightpurple'));
-            btn.classList.add('border-purple', 'bg-lightpurple');
+    <div class="max-w-7xl mx-auto px-6 py-12 grid md:grid-cols-2 gap-12">
+        
+        <!-- Customization Options -->
+        <div class="space-y-10">
+
+            <!-- Base -->
+            <div>
+                <h2 class="text-2xl font-medium mb-4">Base</h2>
+                <div class="bg-white border-2 border-purple rounded-3xl p-6">
+                    <div class="flex justify-between items-center">
+                        <div class="flex items-center gap-4">
+                            <div class="text-4xl">🌿</div>
+                            <div>
+                                <p class="font-semibold text-lg">Original Irish Sea Moss</p>
+                                <p class="text-sm text-gray-600">Wild-harvested • 92+ minerals</p>
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <p class="font-semibold text-xl">$30</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Fruit Bases -->
+            <div>
+                <h2 class="text-2xl font-medium mb-3">Fruit Base 
+                    <span class="text-sm font-normal text-purple">(Highly Recommended)</span>
+                </h2>
+                <p class="text-sm text-gray-600 mb-4">Helps balance flavor — herbs can taste bitter without fruit.</p>
+                
+                <div class="grid grid-cols-2 gap-3" id="fruit-options">
+                    <label class="fruit-option flex items-center gap-3 bg-white border border-gray-200 hover:border-purple rounded-2xl p-4 cursor-pointer transition-all">
+                        <input type="radio" name="fruit" value="None" class="accent-purple" checked>
+                        <span>None</span>
+                    </label>
+                    <label class="fruit-option flex items-center gap-3 bg-white border border-gray-200 hover:border-purple rounded-2xl p-4 cursor-pointer transition-all">
+                        <input type="radio" name="fruit" value="Mango" class="accent-purple">
+                        <span>Mango</span>
+                    </label>
+                    <label class="fruit-option flex items-center gap-3 bg-white border border-gray-200 hover:border-purple rounded-2xl p-4 cursor-pointer transition-all">
+                        <input type="radio" name="fruit" value="Guava" class="accent-purple">
+                        <span>Guava</span>
+                    </label>
+                    <label class="fruit-option flex items-center gap-3 bg-white border border-gray-200 hover:border-purple rounded-2xl p-4 cursor-pointer transition-all">
+                        <input type="radio" name="fruit" value="Strawberry" class="accent-purple">
+                        <span>Strawberry</span>
+                    </label>
+                    <label class="fruit-option flex items-center gap-3 bg-white border border-gray-200 hover:border-purple rounded-2xl p-4 cursor-pointer transition-all">
+                        <input type="radio" name="fruit" value="Blackberry" class="accent-purple">
+                        <span>Blackberry</span>
+                    </label>
+                    <label class="fruit-option flex items-center gap-3 bg-white border border-gray-200 hover:border-purple rounded-2xl p-4 cursor-pointer transition-all">
+                        <input type="radio" name="fruit" value="Passionfruit" class="accent-purple">
+                        <span>Passionfruit</span>
+                    </label>
+                    <label class="fruit-option flex items-center gap-3 bg-white border border-gray-200 hover:border-purple rounded-2xl p-4 cursor-pointer transition-all">
+                        <input type="radio" name="fruit" value="Pineapple" class="accent-purple">
+                        <span>Pineapple</span>
+                    </label>
+                    <label class="fruit-option flex items-center gap-3 bg-white border border-gray-200 hover:border-purple rounded-2xl p-4 cursor-pointer transition-all">
+                        <input type="radio" name="fruit" value="Soursop" class="accent-purple">
+                        <span>Soursop</span>
+                    </label>
+                    <label class="fruit-option flex items-center gap-3 bg-white border border-gray-200 hover:border-purple rounded-2xl p-4 cursor-pointer transition-all">
+                        <input type="radio" name="fruit" value="Elderberry" class="accent-purple">
+                        <span>Elderberry</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Herbs with Benefits -->
+            <div>
+                <h2 class="text-2xl font-medium mb-4">Add Herbs <span class="text-sm font-normal text-gray-500">(Optional)</span></h2>
+                <div class="space-y-3" id="herb-options">
+
+                    <label class="herb-option flex justify-between items-start bg-white border border-gray-200 hover:border-purple rounded-2xl p-5 cursor-pointer transition-all">
+                        <div class="flex-1">
+                            <input type="checkbox" value="Burdock Root" class="accent-purple">
+                            <span class="font-medium ml-3">Burdock Root</span>
+                            <p class="text-sm text-gray-600 mt-1">Supports detoxification, skin health &amp; digestion</p>
+                        </div>
+                        <span class="text-purple font-medium mt-1">+$4.00</span>
+                    </label>
+
+                    <label class="herb-option flex justify-between items-start bg-white border border-gray-200 hover:border-purple rounded-2xl p-5 cursor-pointer transition-all">
+                        <div class="flex-1">
+                            <input type="checkbox" value="Bladderwrack" class="accent-purple">
+                            <span class="font-medium ml-3">Bladderwrack</span>
+                            <p class="text-sm text-gray-600 mt-1">Rich in iodine • Supports thyroid &amp; cardiovascular health</p>
+                        </div>
+                        <span class="text-purple font-medium mt-1">+$4.00</span>
+                    </label>
+
+                    <label class="herb-option flex justify-between items-start bg-white border border-gray-200 hover:border-purple rounded-2xl p-5 cursor-pointer transition-all">
+                        <div class="flex-1">
+                            <input type="checkbox" value="Horny Goat Weed" class="accent-purple">
+                            <span class="font-medium ml-3">Horny Goat Weed</span>
+                            <p class="text-sm text-gray-600 mt-1">Boosts energy, libido &amp; stamina</p>
+                        </div>
+                        <span class="text-purple font-medium mt-1">+$6.00</span>
+                    </label>
+
+                    <label class="herb-option flex justify-between items-start bg-white border border-gray-200 hover:border-purple rounded-2xl p-5 cursor-pointer transition-all">
+                        <div class="flex-1">
+                            <input type="checkbox" value="Shilajit" class="accent-purple">
+                            <span class="font-medium ml-3">Shilajit</span>
+                            <p class="text-sm text-gray-600 mt-1">Enhances energy, vitality &amp; mineral absorption</p>
+                        </div>
+                        <span class="text-purple font-medium mt-1">+$10.00</span>
+                    </label>
+
+                    <label class="herb-option flex justify-between items-start bg-white border border-gray-200 hover:border-purple rounded-2xl p-5 cursor-pointer transition-all">
+                        <div class="flex-1">
+                            <input type="checkbox" value="Blackseed Oil" class="accent-purple">
+                            <span class="font-medium ml-3">Blackseed Oil</span>
+                            <p class="text-sm text-gray-600 mt-1">Powerful anti-inflammatory • Joint &amp; immune support</p>
+                        </div>
+                        <span class="text-purple font-medium mt-1">+$5.00</span>
+                    </label>
+
+                    <label class="herb-option flex justify-between items-start bg-white border border-gray-200 hover:border-purple rounded-2xl p-5 cursor-pointer transition-all">
+                        <div class="flex-1">
+                            <input type="checkbox" value="Maca Root" class="accent-purple">
+                            <span class="font-medium ml-3">Maca Root</span>
+                            <p class="text-sm text-gray-600 mt-1">Balances hormones • Boosts energy &amp; mood</p>
+                        </div>
+                        <span class="text-purple font-medium mt-1">+$6.00</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Consistency -->
+            <div>
+                <h2 class="text-2xl font-medium mb-4">Consistency <span class="text-sm font-normal text-gray-500">(We recommend Regular)</span></h2>
+                <div class="space-y-3">
+                    <label class="consistency-option flex justify-between items-center bg-white border border-gray-200 hover:border-purple rounded-2xl p-5 cursor-pointer transition-all">
+                        <div>
+                            <span class="font-medium">Regular</span>
+                            <p class="text-sm text-gray-600">Applesauce-like consistency</p>
+                        </div>
+                        <span class="text-green-600 font-medium">Free</span>
+                    </label>
+                    <label class="consistency-option flex justify-between items-center bg-white border border-gray-200 hover:border-purple rounded-2xl p-5 cursor-pointer transition-all">
+                        <div>
+                            <span class="font-medium">Creamy</span>
+                            <p class="text-sm text-gray-600">Smooth pudding consistency</p>
+                        </div>
+                        <span class="text-purple font-medium">+$1.50</span>
+                    </label>
+                    <label class="consistency-option flex justify-between items-center bg-white border border-gray-200 hover:border-purple rounded-2xl p-5 cursor-pointer transition-all">
+                        <div>
+                            <span class="font-medium">Thick</span>
+                            <p class="text-sm text-gray-600">Firm jello-like consistency</p>
+                        </div>
+                        <span class="text-purple font-medium">+$3.50</span>
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <!-- Live Summary -->
+        <div class="bg-white border border-purple/30 rounded-3xl p-8 sticky top-24 h-fit">
+            <h2 class="text-2xl font-medium mb-6">Your Custom Blend</h2>
             
-            selectedBase = name;
-            currentPrice = price;
-            document.getElementById('preview-base').textContent = name;
-            updatePrice();
+            <div id="summary" class="space-y-6 text-sm">
+                <div>
+                    <p class="text-gray-500">Base</p>
+                    <p class="font-medium">Original Irish Sea Moss — $30</p>
+                </div>
+                <div id="fruit-summary">
+                    <p class="text-gray-500">Fruit Base</p>
+                    <p class="font-medium text-gray-400">None selected</p>
+                </div>
+                <div id="herbs-summary">
+                    <p class="text-gray-500">Herbs</p>
+                    <p class="font-medium text-gray-400">None selected</p>
+                </div>
+                <div id="consistency-summary">
+                    <p class="text-gray-500">Consistency</p>
+                    <p class="font-medium">Regular (Recommended)</p>
+                </div>
+            </div>
+
+            <div class="border-t pt-6 mt-8">
+                <div class="flex justify-between items-baseline">
+                    <span class="text-lg font-medium">Total</span>
+                    <span id="total-price" class="font-semibold text-3xl">$30.00</span>
+                </div>
+            </div>
+
+            <button onclick="addCustomBlendToCart()" 
+                    class="mt-8 w-full bg-purple hover:bg-deep text-white py-5 rounded-3xl font-semibold text-lg transition-all active:scale-95">
+                Add Custom Blend to Cart
+            </button>
+            
+            <p class="text-center text-xs text-gray-500 mt-6">
+                Freshly prepared to order • Ships within 48 hours
+            </p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-deep text-white py-16">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <p class="mb-6 text-lg">Handcrafted with intention in Central Florida</p>
+            <p class="text-sm opacity-75 max-w-md mx-auto">
+                These statements have not been evaluated by the FDA. This product is not intended to diagnose, treat, cure, or prevent any disease.
+            </p>
+            <div class="mt-12 text-xs opacity-60">
+                © 2026 Janesse's Seamoss Creation • Built by VSIT Solutions
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        let basePrice = 30;
+        let selectedFruit = "None";
+        let selectedHerbs = [];
+        let selectedConsistency = "Regular";
+        let consistencyPrice = 0;
+
+        const herbPrices = {
+            "Burdock Root": 4,
+            "Bladderwrack": 4,
+            "Horny Goat Weed": 6,
+            "Shilajit": 10,
+            "Blackseed Oil": 5,
+            "Maca Root": 6
+        };
+
+        function updateSummary() {
+            // Fruit
+            const fruitText = selectedFruit === "None" ? "None selected" : selectedFruit + " (+$3.00)";
+            document.getElementById('fruit-summary').innerHTML = `
+                <p class="text-gray-500">Fruit Base</p>
+                <p class="font-medium">${fruitText}</p>
+            `;
+
+            // Herbs
+            const herbsText = selectedHerbs.length ? selectedHerbs.join(', ') : 'None selected';
+            document.getElementById('herbs-summary').innerHTML = `
+                <p class="text-gray-500">Herbs</p>
+                <p class="font-medium">${herbsText}</p>
+            `;
+
+            // Consistency
+            let consDisplay = selectedConsistency;
+            if (selectedConsistency === "Creamy") consDisplay += " (+$1.50)";
+            if (selectedConsistency === "Thick") consDisplay += " (+$3.50)";
+
+            document.getElementById('consistency-summary').innerHTML = `
+                <p class="text-gray-500">Consistency</p>
+                <p class="font-medium">${consDisplay}</p>
+            `;
+
+            // Calculate Total
+            let total = basePrice;
+            if (selectedFruit !== "None") total += 3;
+            selectedHerbs.forEach(herb => total += herbPrices[herb] || 0);
+            total += consistencyPrice;
+
+            document.getElementById('total-price').textContent = '$' + total.toFixed(2);
         }
 
-        function updatePreview() {
-            const size = document.getElementById('size').value;
-            currentPrice = size === "60" ? 60 : 35;
-            updatePrice();
-        }
-
-        function updatePrice() {
-            document.getElementById('total-price').textContent = currentPrice;
-        }
-
-        function addToCart() {
-            alert(`✅ Added to cart!\n\n${selectedBase}\nSize: ${document.getElementById('size').value === "60" ? "32 oz" : "16 oz"}\nPrice: $${currentPrice}`);
-        }
-
-        window.addEventListener('load', () => {
-            document.getElementById('size').addEventListener('change', updatePreview);
+        // Fruit Selection
+        document.querySelectorAll('input[name="fruit"]').forEach(radio => {
+            radio.addEventListener('change', () => {
+                selectedFruit = radio.value;
+                updateSummary();
+            });
         });
+
+        // Herb Selection
+        document.querySelectorAll('.herb-option input[type="checkbox"]').forEach(checkbox => {
+            checkbox.addEventListener('change', () => {
+                if (checkbox.checked) {
+                    selectedHerbs.push(checkbox.value);
+                } else {
+                    selectedHerbs = selectedHerbs.filter(h => h !== checkbox.value);
+                }
+                updateSummary();
+            });
+        });
+
+        // Consistency Selection
+        document.querySelectorAll('.consistency-option').forEach(option => {
+            option.addEventListener('click', () => {
+                document.querySelectorAll('.consistency-option').forEach(opt => {
+                    opt.classList.remove('border-purple', 'bg-purple/5');
+                });
+                option.classList.add('border-purple', 'bg-purple/5');
+
+                selectedConsistency = option.querySelector('span.font-medium').textContent.trim();
+
+                consistencyPrice = 0;
+                if (selectedConsistency === "Creamy") consistencyPrice = 1.50;
+                if (selectedConsistency === "Thick") consistencyPrice = 3.50;
+
+                updateSummary();
+            });
+        });
+
+        function addCustomBlendToCart() {
+            const total = parseFloat(document.getElementById('total-price').textContent.replace('$', ''));
+            alert(`✅ Your custom blend has been added to cart!\n\nTotal: $${total.toFixed(2)}\n\nFreshly made to order.`);
+        }
+
+        // Initialize
+        window.addEventListener('load', updateSummary);
     </script>
 </body>
 </html>
