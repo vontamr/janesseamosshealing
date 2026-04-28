@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Pickup & Delivery | Janesse's Seamoss Creation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script> /* same initTailwind as your other pages */ 
+        function initTailwind() { tailwind.config = { theme: { extend: { colors: { deep: '#260B3A', purple: '#5E0089', lightpurple: '#EAD5F8' } } } }; } 
+        window.addEventListener('load', initTailwind);
+    </script>
+</head>
+<body class="bg-white text-deep font-sans antialiased">
+    <!-- Paste your full nav from index.html here (updated version below) -->
+    <header class="bg-gradient-to-br from-deep/5 to-lightpurple/30 py-20 text-center">
+        <div class="max-w-2xl mx-auto px-6">
+            <h1 class="text-5xl font-light tracking-tighter mb-4">🌿 Fresh Local Pickup &amp; Delivery</h1>
+            <p class="text-xl text-gray-600">Handcrafted weekly in Central Florida. Pick up with intention or have it delivered fresh to your door.</p>
+        </div>
+    </header>
+    <div class="max-w-4xl mx-auto px-6 py-16">
+        <div class="grid md:grid-cols-2 gap-12">
+            <div class="bg-white border border-lightpurple rounded-3xl p-10">
+                <h2 class="text-2xl font-medium mb-6">Orlando Area Pickup</h2>
+                <p class="text-gray-600 mb-6">Schedule a same-week pickup at our Central Florida studio. Come connect with the source — feel the energy of the batch made just for you.</p>
+                <p class="font-medium">📍 Central Florida (Orlando area) • Text (407) XXX-XXXX to schedule</p>
+                <p class="text-sm text-purple mt-8">Free • Fresh within 48 hours • Refrigeration recommended for peak mineral potency</p>
+            </div>
+            <div class="bg-white border border-lightpurple rounded-3xl p-10">
+                <h2 class="text-2xl font-medium mb-6">Local Delivery Options</h2>
+                <p class="text-gray-600">Central Florida same-day or next-day delivery. Supporting local keeps the Hive strong and your wellness uninterrupted.</p>
+                <ul class="space-y-4 mt-8 text-sm">
+                    <li class="flex gap-3"><span class="text-green-600">✓</span> Orlando Metro – $8</li>
+                    <li class="flex gap-3"><span class="text-green-600">✓</span> Greater Central FL – $12</li>
+                    <li class="flex gap-3"><span class="text-green-600">✓</span> National shipping also available via cold-pack</li>
+                </ul>
+            </div>
+        </div>
+        <a href="shop.html" class="mt-12 block w-full text-center bg-purple hover:bg-deep text-white py-6 rounded-3xl text-xl font-medium">Shop Fresh Batches Now →</a>
+    </div>
+    <!-- Paste your footer here -->
+</body>
+</html>

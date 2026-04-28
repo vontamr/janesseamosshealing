@@ -3,18 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Janesse's Seamoss Creation | Wild-Harvested Sea Moss Gel – Central Florida</title>
-    <meta name="description" content="Handcrafted wild-harvested Irish sea moss gels with 92+ minerals. No fillers. Fresh weekly in Central Florida. Build your custom blend for joint support, energy &amp; wellness.">
+    <title>Janesse's Seamoss Creation | Wild-Harvested Caribbean Sea Moss – Central Florida</title>
+    <meta name="description" content="Premium wild-harvested Irish sea moss from the pristine waters of Antigua & St. Lucia. 92+ minerals. Handcrafted fresh weekly in Central Florida.">
     
     <!-- Open Graph / Social -->
-    <meta property="og:title" content="Janesse's Seamoss Creation • Wild-Harvested Sea Moss">
-    <meta property="og:description" content="Pure sea moss gels crafted with intention in Central Florida. 92+ minerals, herb-infused, and fruit-flavored options.">
-    <meta property="og:image" content="https://janesseamosshealing.com/images/IMG_7251 Background Removed 2.jpeg">
+    <meta property="og:title" content="Janesse's Seamoss Creation • Wild-Harvested Caribbean Sea Moss">
+    <meta property="og:description" content="Pure sea moss gels from Antigua & St. Lucia. 92+ minerals, herb-infused, fruit-flavored. Handcrafted with intention in Central Florida.">
+    <meta property="og:image" content="https://janesseamosshealing.com/assets/images/IMG_7251 Background Removed 2.jpeg">
     <meta property="og:url" content="https://janesseamosshealing.com">
     <meta property="og:type" content="website">
 
-    <!-- Tailwind -->
     <script src="https://cdn.tailwindcss.com" async></script>
+    <link rel="stylesheet" href="styles.css">
+
     <script>
         function initTailwind() {
             tailwind.config = {
@@ -27,7 +28,7 @@
                             lightpurple: '#EAD5F8',
                         },
                         fontFamily: {
-                            sans: ['Inter', 'system_ui', 'sans-serif'], // smoother modern font
+                            sans: ['Inter', 'system_ui', 'sans-serif'],
                         }
                     }
                 }
@@ -37,43 +38,34 @@
     </script>
 
     <style>
-        .marquee {
-            overflow: hidden;
-            white-space: nowrap;
-        }
-        .marquee-content {
-            display: inline-flex;
-            animation: marquee 35s linear infinite;
-        }
+        .marquee { overflow: hidden; white-space: nowrap; }
+        .marquee-content { display: inline-flex; animation: marquee 35s linear infinite; }
         @keyframes marquee {
             from { transform: translateX(0); }
             to { transform: translateX(-50%); }
         }
-        /* Smooth scroll & focus improvements */
-        html {
-            scroll-behavior: smooth;
-        }
-        a:focus-visible {
-            outline: 3px solid #5E0089;
-            outline-offset: 4px;
-        }
+        html { scroll-behavior: smooth; }
+        a:focus-visible { outline: 3px solid #5E0089; outline-offset: 4px; }
+        .discover-scroll { scrollbar-width: none; }
+        .discover-scroll::-webkit-scrollbar { display: none; }
     </style>
 </head>
 <body class="bg-white text-deep font-sans antialiased">
 
-    <!-- Skip to main content (accessibility) -->
+    <!-- Skip to main content -->
     <a href="#main-content" class="sr-only focus:not-sr-only fixed top-4 left-4 bg-purple text-white px-4 py-2 rounded-3xl z-50">
         Skip to main content
     </a>
 
-    <!-- Navigation -->
+    <!-- Navigation with Hamburger -->
     <nav class="bg-white border-b sticky top-0 z-50 shadow-sm">
         <div class="max-w-7xl mx-auto px-6">
             <div class="flex items-center justify-between h-20">
                 <a href="index.html" class="flex items-center gap-3 group">
-                    <img src="images/logo.png" alt="Janesse's Seamoss Creation Logo" class="h-12 w-auto transition-transform group-hover:scale-105">
+                    <img src="assets/images/IMG_7251 Background Removed 2.jpeg" alt="Janesse's Seamoss Creation Logo" class="h-12 w-auto transition-transform group-hover:scale-105">
                 </a>
-                
+
+                <!-- Desktop Menu -->
                 <div class="hidden md:flex items-center gap-8 text-sm font-medium">
                     <a href="index.html" class="hover:text-purple transition-colors">Home</a>
                     <a href="build.html" class="hover:text-purple transition-colors">Build Your Blend</a>
@@ -82,8 +74,32 @@
                     <a href="about.html" class="hover:text-purple transition-colors">Our Story</a>
                 </div>
 
-                <a href="shop.html" 
-                   class="bg-purple hover:bg-deep text-white px-8 py-3.5 rounded-3xl font-semibold transition-all active:scale-95">
+                <div class="flex items-center gap-4">
+                    <a href="shop.html" class="hidden md:block bg-purple hover:bg-deep text-white px-8 py-3.5 rounded-3xl font-semibold transition-all active:scale-95">
+                        Shop Now
+                    </a>
+                    <!-- Hamburger -->
+                    <button id="hamburger" class="md:hidden text-3xl focus:outline-none px-2">
+                        ☰
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t py-8">
+            <div class="px-6 flex flex-col space-y-6 text-lg font-medium">
+                <a href="index.html" class="hover:text-purple">Home</a>
+                <a href="build.html" class="hover:text-purple">Build Your Blend</a>
+                <a href="shop.html" class="hover:text-purple">Shop</a>
+                <a href="wellness-calculator.html" class="hover:text-purple">Wellness Tools</a>
+                <a href="community.html" class="hover:text-purple">The Hive</a>
+                <a href="pickup-delivery.html" class="hover:text-purple">Local Pickup & Delivery</a>
+                <a href="affiliates.html" class="hover:text-purple">Hive Ambassadors</a>
+                <a href="wholesale.html" class="hover:text-purple">Wholesale</a>
+                <a href="about.html" class="hover:text-purple">Our Story</a>
+                
+                <a href="shop.html" class="mt-6 bg-purple hover:bg-deep text-white py-5 rounded-3xl text-center font-semibold text-lg">
                     Shop Now
                 </a>
             </div>
@@ -94,9 +110,8 @@
     <div class="bg-lightpurple/30 py-3 text-purple font-medium text-sm border-b">
         <div class="marquee">
             <div class="marquee-content flex gap-12">
-                <span>🌿 Wild-Harvested Irish Sea Moss • 92+ Minerals • No Fillers • Fresh Weekly in Central Florida •</span>
-                <span>🌿 Handcrafted with Intention • Local Pickup &amp; Delivery • Supports Joints, Energy &amp; Immunity •</span>
-                <span>🌿 Wild-Harvested Irish Sea Moss • 92+ Minerals • No Fillers • Fresh Weekly in Central Florida •</span>
+                <span>🌿 Wild-Harvested from Antigua & St. Lucia • 92+ Minerals • Fresh Weekly in Central Florida</span>
+                <span>🌿 Handcrafted with Intention • Local Pickup &amp; Delivery • Pure Ocean Vitality</span>
             </div>
         </div>
     </div>
@@ -106,120 +121,154 @@
         <div id="main-content" class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 lg:gap-16 items-center pt-12 pb-20">
             <div class="space-y-8">
                 <div class="inline-flex items-center gap-3 bg-white/90 backdrop-blur px-6 py-3 rounded-3xl shadow text-sm font-medium">
-                    <span class="text-green-600">🌿</span>
-                    <span class="text-purple">Wild-Harvested • Central Florida</span>
+                    <span class="text-green-600">🌊</span>
+                    <span class="text-purple">Wild-Harvested • Antigua &amp; St. Lucia</span>
                 </div>
 
                 <h1 class="text-5xl md:text-6xl lg:text-7xl font-light leading-none tracking-tighter">
-                    Pure Sea Moss.<br>
+                    Pure Caribbean Sea Moss.<br>
                     <span class="text-purple font-medium">Crafted with Intention.</span>
                 </h1>
 
                 <p class="text-xl md:text-2xl text-gray-700 max-w-lg">
-                    Handcrafted gels packed with 92+ minerals from the ocean. 
-                    No fillers. Real results from nature’s pharmacy.
+                    Wild-harvested from the crystal-clear waters of Antigua and St. Lucia. 
+                    Handcrafted fresh weekly in Central Florida with 92+ minerals and zero fillers.
                 </p>
 
                 <div class="flex flex-col sm:flex-row gap-4">
-                    <a href="build.html"
-                       class="bg-purple hover:bg-deep text-white px-10 py-6 rounded-3xl text-xl font-semibold transition-all active:scale-95 text-center">
+                    <a href="build.html" class="bg-purple hover:bg-deep text-white px-10 py-6 rounded-3xl text-xl font-semibold transition-all active:scale-95 text-center">
                         Build Your Blend
                     </a>
-                    <a href="shop.html"
-                       class="border-2 border-purple text-purple hover:bg-purple hover:text-white px-10 py-6 rounded-3xl text-xl font-medium transition-all active:scale-95 text-center">
+                    <a href="shop.html" class="border-2 border-purple text-purple hover:bg-purple hover:text-white px-10 py-6 rounded-3xl text-xl font-medium transition-all active:scale-95 text-center">
                         Shop Collection
                     </a>
                 </div>
 
                 <p class="text-sm text-gray-500 flex items-center gap-2">
                     <span class="text-green-500">✓</span> 
-                    Local pickup in Orlando area • Fresh batches weekly
+                    Local Pickup in Orlando • Fresh Batches Weekly
                 </p>
             </div>
 
             <div class="flex justify-center md:justify-end">
-                <img src="images/IMG_7251 Background Removed 2.jpeg" 
-                     alt="Jar of Janesse's wild-harvested sea moss gel with fresh herbs"
+                <img src="assets/images/DSCF1813.JPG" 
+                     alt="Premium Caribbean Sea Moss Gel Jar"
                      loading="eager"
                      class="rounded-3xl shadow-2xl max-w-md md:max-w-lg w-full h-auto object-cover">
             </div>
         </div>
     </header>
 
-    <!-- Discover Our World -->
+    <!-- Discover Our World - Improved -->
     <section class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-6">
-            <h2 class="text-4xl md:text-5xl font-light text-center mb-4">Discover Our World</h2>
-            <p class="text-center text-gray-600 mb-12 max-w-md mx-auto">
-                From herb-infused gels to ready-to-drink options — crafted for your wellness journey.
-            </p>
+            <div class="text-center mb-12">
+                <h2 class="text-4xl md:text-5xl font-light tracking-tight">Discover Our World</h2>
+                <p class="text-gray-600 mt-4 max-w-md mx-auto">
+                    Pure sea moss expressions crafted with intention — each one supporting your body’s natural harmony.
+                </p>
+            </div>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8">
-                <!-- Cards improved with better hover and consistent sizing -->
-                <div class="bg-white rounded-3xl shadow hover:shadow-xl transition-all p-8 text-center group">
-                    <div class="text-6xl mb-6 group-hover:scale-110 transition-transform">🌿</div>
-                    <h3 class="text-2xl font-medium mb-2">Herb Infused Gels</h3>
-                    <p class="text-gray-600">Bladderwrack, Burdock, Soursop &amp; more</p>
+            <div class="discover-scroll grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 md:gap-8 overflow-x-auto pb-8 snap-x snap-mandatory md:overflow-visible">
+                <div class="group bg-white rounded-3xl shadow-sm hover:shadow-xl transition-all duration-300 p-6 md:p-8 text-center flex flex-col h-full snap-center min-w-[calc(50%-12px)] md:min-w-0">
+                    <div class="text-6xl mb-6 group-hover:scale-110 transition-transform duration-300">🌿</div>
+                    <h3 class="text-2xl font-medium mb-3">Herb Infused Gels</h3>
+                    <p class="text-gray-600 flex-1">Bladderwrack, Burdock Root, Blackseed &amp; more — mineral-rich blends for deep daily support.</p>
+                    <div class="mt-6 pt-6 border-t border-gray-100 text-purple text-sm font-medium">Thyroid • Detox • Immunity</div>
                 </div>
+                <div class="group bg-white rounded-3xl shadow-sm hover:shadow-xl transition-all duration-300 p-6 md:p-8 text-center flex flex-col h-full snap-center min-w-[calc(50%-12px)] md:min-w-0">
+                    <div class="text-6xl mb-6 group-hover:scale-110 transition-transform duration-300">🍓</div>
+                    <h3 class="text-2xl font-medium mb-3">Fruit Flavored Gels</h3>
+                    <p class="text-gray-600 flex-1">Mango, Soursop, Pineapple, Strawberry — naturally sweetened by bees.</p>
+                    <div class="mt-6 pt-6 border-t border-gray-100 text-purple text-sm font-medium">Vitamins • Antioxidants • Great Taste</div>
+                </div>
+                <div class="group bg-white rounded-3xl shadow-sm hover:shadow-xl transition-all duration-300 p-6 md:p-8 text-center flex flex-col h-full snap-center min-w-[calc(50%-12px)] md:min-w-0">
+                    <div class="text-6xl mb-6 group-hover:scale-110 transition-transform duration-300">🥤</div>
+                    <h3 class="text-2xl font-medium mb-3">Sea Moss Juices</h3>
+                    <p class="text-gray-600 flex-1">Ready-to-drink wellness shots for on-the-go nourishment.</p>
+                    <div class="mt-6 pt-6 border-t border-gray-100 text-purple text-sm font-medium">Convenient • Refreshing • Potent</div>
+                </div>
+                <div class="group bg-white rounded-3xl shadow-sm hover:shadow-xl transition-all duration-300 p-6 md:p-8 text-center flex flex-col h-full snap-center min-w-[calc(50%-12px)] md:min-w-0">
+                    <div class="text-6xl mb-6 group-hover:scale-110 transition-transform duration-300">🧴</div>
+                    <h3 class="text-2xl font-medium mb-3">Skincare Gels</h3>
+                    <p class="text-gray-600 flex-1">Topical sea moss for glowing skin &amp; natural collagen support.</p>
+                    <div class="mt-6 pt-6 border-t border-gray-100 text-purple text-sm font-medium">Radiance from Within &amp; Without</div>
+                </div>
+                <div class="group bg-white rounded-3xl shadow-sm hover:shadow-xl transition-all duration-300 p-6 md:p-8 text-center flex flex-col h-full snap-center min-w-[calc(50%-12px)] md:min-w-0">
+                    <div class="text-6xl mb-6 group-hover:scale-110 transition-transform duration-300">💪</div>
+                    <h3 class="text-2xl font-medium mb-3">Fitness Recovery</h3>
+                    <p class="text-gray-600 flex-1">Post-workout blends rich in minerals for joints, energy &amp; muscle restoration.</p>
+                    <div class="mt-6 pt-6 border-t border-gray-100 text-purple text-sm font-medium">Movement • Strength • Recovery</div>
+                </div>
+            </div>
 
-                <div class="bg-white rounded-3xl shadow hover:shadow-xl transition-all p-8 text-center group">
-                    <div class="text-6xl mb-6 group-hover:scale-110 transition-transform">🍓</div>
-                    <h3 class="text-2xl font-medium mb-2">Fruit Flavored Gels</h3>
-                    <p class="text-gray-600">Mango, Pineapple, Berry blends</p>
-                </div>
-
-                <div class="bg-white rounded-3xl shadow hover:shadow-xl transition-all p-8 text-center group">
-                    <div class="text-6xl mb-6 group-hover:scale-110 transition-transform">🥤</div>
-                    <h3 class="text-2xl font-medium mb-2">Sea Moss Juices</h3>
-                    <p class="text-gray-600">Ready-to-drink wellness shots</p>
-                </div>
-
-                <div class="bg-white rounded-3xl shadow hover:shadow-xl transition-all p-8 text-center group">
-                    <div class="text-6xl mb-6 group-hover:scale-110 transition-transform">🧴</div>
-                    <h3 class="text-2xl font-medium mb-2">Skincare Gels</h3>
-                    <p class="text-gray-600">Topical sea moss for glowing skin</p>
-                </div>
-
-                <div class="bg-white rounded-3xl shadow hover:shadow-xl transition-all p-8 text-center group">
-                    <div class="text-6xl mb-6 group-hover:scale-110 transition-transform">💪</div>
-                    <h3 class="text-2xl font-medium mb-2">Fitness Recovery</h3>
-                    <p class="text-gray-600">Post-workout support blends</p>
-                </div>
+            <div class="text-center mt-12">
+                <a href="shop.html" class="inline-flex items-center gap-3 bg-purple hover:bg-deep text-white px-10 py-4 rounded-3xl font-medium transition-all active:scale-95">
+                    Explore Full Collection →
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- Wellness Tools -->
+    <!-- Wellness Tools Section -->
     <section class="py-20 bg-lightpurple/30">
         <div class="max-w-6xl mx-auto px-6">
-            <h2 class="text-4xl font-light text-center mb-4">Wellness Tools</h2>
-            <p class="text-center text-gray-600 mb-12">Personalized guidance for your sea moss journey</p>
+            <div class="text-center mb-12">
+                <h2 class="text-4xl md:text-5xl font-light tracking-tight">Begin Your Wellness Journey</h2>
+                <p class="text-gray-600 mt-4">Tools, guidance &amp; fresh sea moss — all designed to support your body’s natural intelligence.</p>
+            </div>
 
-            <div class="grid md:grid-cols-2 gap-10">
-                <a href="wellness-calculator.html" 
-                   class="group bg-white rounded-3xl p-10 shadow hover:shadow-2xl transition-all">
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Wellness Calculator -->
+                <a href="wellness-calculator.html" class="group bg-white rounded-3xl p-10 shadow hover:shadow-2xl transition-all flex flex-col h-full">
                     <div class="text-6xl mb-6">🧪</div>
                     <h3 class="text-3xl font-medium mb-3">Sea Moss Wellness Calculator</h3>
-                    <p class="text-gray-600">Get a personalized recommendation based on your health goals in under 60 seconds.</p>
-                    <p class="text-purple mt-8 font-medium group-hover:underline flex items-center gap-2">
-                        Try it free →
-                    </p>
+                    <p class="text-gray-600 flex-1">Answer 2 quick questions and receive a personalized sea moss recommendation tailored to your goals.</p>
+                    <div class="mt-8 text-purple font-medium group-hover:underline flex items-center gap-2">
+                        Get Your Recommendation Free →
+                    </div>
                 </a>
 
-                <div class="bg-white rounded-3xl p-10 shadow">
+                <!-- Jane's AI -->
+                <div class="bg-white rounded-3xl p-10 shadow flex flex-col h-full">
                     <div class="text-6xl mb-6">🌿</div>
                     <h3 class="text-3xl font-medium mb-3">Ask Jane's AI</h3>
-                    <p class="text-gray-600">Chat with our holistic AI guide specialized in sea moss, herbs, and natural wellness.</p>
-                    <button onclick="alert('Janes AI chat is coming soon! Focused on sea moss, herbs &amp; holistic health.')"
+                    <p class="text-gray-600 flex-1">Chat with our holistic AI guide trained on sea moss, herbs, rituals &amp; natural wellness wisdom.</p>
+                    <button onclick="alert('Jane’s AI is coming soon! She’ll help you choose the perfect blend for your unique needs.')"
                             class="mt-8 w-full bg-purple text-white py-6 rounded-3xl font-semibold hover:bg-deep transition-all active:scale-95">
-                        Start Chatting with Jane's AI
+                        Start Chatting with Jane →
                     </button>
                 </div>
+
+                <!-- Local Pickup -->
+                <a href="pickup-delivery.html" class="group bg-gradient-to-br from-purple/5 to-lightpurple/40 border-2 border-purple/20 rounded-3xl p-10 shadow hover:shadow-2xl transition-all flex flex-col h-full relative overflow-hidden">
+                    <div class="absolute top-6 right-6 text-5xl">📍</div>
+                    <div class="text-6xl mb-6">🌱</div>
+                    <h3 class="text-3xl font-medium mb-3">Local Pickup in Orlando</h3>
+                    <p class="text-gray-600 flex-1">Get your sea moss the same day it’s made. Maximum mineral potency, zero shipping wait.</p>
+                    <div class="mt-8 inline-flex items-center gap-2 text-purple font-medium group-hover:underline">
+                        Schedule Your Fresh Pickup →
+                    </div>
+                    <div class="mt-6 text-xs bg-white/70 px-4 py-2 rounded-2xl inline-block">
+                        Central Florida Studio • Same-week availability
+                    </div>
+                </a>
+            </div>
+
+            <!-- Daily Intention -->
+            <div class="mt-16 bg-white rounded-3xl p-10 max-w-2xl mx-auto text-center border border-lightpurple">
+                <div class="text-5xl mb-4">🌊</div>
+                <h3 class="text-2xl font-medium mb-3">Today’s Sea Moss Intention</h3>
+                <p class="text-gray-600 italic">"I nourish my body with the ocean’s wisdom and trust my natural vitality."</p>
+                <button onclick="alert('💫 Take a deep breath. Sip your sea moss slowly. You are exactly where you need to be.')"
+                        class="mt-8 text-purple hover:text-deep font-medium underline">
+                    Save this intention →
+                </button>
             </div>
         </div>
     </section>
 
-    <!-- Simple Trust / Footer -->
+    <!-- Footer -->
     <footer class="bg-deep text-white py-12">
         <div class="max-w-7xl mx-auto px-6 text-center">
             <p class="mb-4">Handcrafted in Central Florida with love and intention.</p>
@@ -227,15 +276,32 @@
                 These statements have not been evaluated by the FDA. 
                 This product is not intended to diagnose, treat, cure, or prevent any disease.
             </p>
-            <div class="mt-8 pt-8 border-t border-white/20 text-xs opacity-60">
+            <div class="mt-8 pt-8 border-t border-white/20 text-sm opacity-75 flex flex-wrap justify-center gap-x-8 gap-y-2">
+                <a href="pickup-delivery.html" class="hover:text-lightpurple transition-colors">Local Pickup &amp; Delivery</a>
+                <a href="community.html" class="hover:text-lightpurple transition-colors">The Hive Community</a>
+                <a href="affiliates.html" class="hover:text-lightpurple transition-colors">Hive Ambassadors</a>
+                <a href="wholesale.html" class="hover:text-lightpurple transition-colors">Wholesale</a>
+                <a href="about.html" class="hover:text-lightpurple transition-colors">Our Story</a>
+            </div>
+            <div class="mt-8 text-xs opacity-60">
                 © 2026 Janesse's Seamoss Creation • 
                 <a href="https://vontamr.github.io/vsit-solutions-sECURED/" target="_blank" class="hover:text-lightpurple underline">Built by VSIT Solutions</a>
             </div>
         </div>
     </footer>
 
+    <script src="script.js"></script>
     <script>
-        console.log('%cJanesse\'s Seamoss Creation – Wild-Harvested Wellness', 'color:#5E0089; font-weight:bold');
+        // Hamburger Menu
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        hamburger.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            hamburger.textContent = mobileMenu.classList.contains('hidden') ? '☰' : '✕';
+        });
+
+        console.log('%cJanesse\'s Seamoss Creation – Premium Caribbean Sea Moss', 'color:#5E0089; font-weight:bold');
     </script>
 </body>
 </html>

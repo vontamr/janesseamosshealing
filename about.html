@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Story | Janesse's Seamoss Creation – Wild-Harvested Caribbean Sea Moss</title>
+    <meta name="description" content="Learn the story behind Janesse's Seamoss Creation — wildcrafted from Antigua, handcrafted with intention in Central Florida. Purity, transparency, and wellness above all.">
+    
+    <script src="https://cdn.tailwindcss.com" async></script>
+    <link rel="stylesheet" href="styles.css">
+
+    <script>
+        function initTailwind() {
+            tailwind.config = {
+                content: ["./**/*.{html,js}"],
+                theme: {
+                    extend: {
+                        colors: {
+                            deep: '#260B3A',
+                            purple: '#5E0089',
+                            lightpurple: '#EAD5F8',
+                        }
+                    }
+                }
+            };
+        }
+        window.addEventListener('load', initTailwind);
+    </script>
+
+    <style>
+        .marquee { overflow: hidden; white-space: nowrap; }
+        .marquee-content { display: inline-flex; animation: marquee 35s linear infinite; }
+        @keyframes marquee {
+            from { transform: translateX(0); }
+            to { transform: translateX(-50%); }
+        }
+    </style>
+</head>
+<body class="bg-white text-deep font-sans antialiased">
+
+    <!-- Navigation -->
+    <nav class="bg-white border-b sticky top-0 z-50 shadow-sm">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex items-center justify-between h-20">
+                <a href="index.html" class="flex items-center gap-3 group">
+                    <img src="assets/images/IMG_7251 Background Removed 2.jpeg" alt="Janesse's Seamoss Creation Logo" class="h-12 w-auto transition-transform group-hover:scale-105">
+                </a>
+
+                <div class="hidden md:flex items-center gap-8 text-sm font-medium">
+                    <a href="index.html" class="hover:text-purple transition-colors">Home</a>
+                    <a href="build.html" class="hover:text-purple transition-colors">Build Your Blend</a>
+                    <a href="shop.html" class="hover:text-purple transition-colors">Shop</a>
+                    <a href="wellness-calculator.html" class="hover:text-purple transition-colors">Wellness Tools</a>
+                    <a href="about.html" class="text-purple font-semibold">Our Story</a>
+                </div>
+
+                <a href="shop.html" class="bg-purple hover:bg-deep text-white px-8 py-3.5 rounded-3xl font-semibold transition-all active:scale-95">
+                    Shop Now
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Marquee -->
+    <div class="bg-lightpurple/30 py-3 text-purple font-medium text-sm border-b">
+        <div class="marquee">
+            <div class="marquee-content flex gap-12">
+                <span>🌿 Wild-Harvested from Antigua & St. Lucia • 92+ Minerals • Handcrafted with Intention in Central Florida</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero -->
+    <header class="bg-gradient-to-br from-deep/5 to-lightpurple/30 py-24 text-center">
+        <div class="max-w-3xl mx-auto px-6">
+            <h1 class="text-5xl md:text-6xl font-light tracking-tighter mb-6">Our Story</h1>
+            <p class="text-xl text-gray-600">Purity. Intention. Ocean Wisdom.</p>
+        </div>
+    </header>
+
+    <div class="max-w-4xl mx-auto px-6 py-16 prose prose-lg">
+        
+        <h2 class="text-3xl font-medium text-deep mb-8">What Makes Jane’s Seamoss Creations Different</h2>
+        
+        <p class="text-gray-700 leading-relaxed">
+            At Jane’s Seamoss Creations, purity, sourcing, and intention are at the heart of everything we create. 
+            Our sea moss is carefully selected, thoughtfully prepared, and infused with nature — never shortcuts.
+        </p>
+
+        <h3 class="text-2xl font-medium mt-12 mb-6">Wildcrafted Sea Moss from Antigua</h3>
+        <p class="text-gray-700 leading-relaxed">
+            Our sea moss is wildcrafted and sourced from the pristine waters of Antigua, an island known for its clean ocean environment and mineral-rich sea plants. 
+            We partner with trusted harvesters who practice sustainable, ethical collection methods to protect both the ocean and its ecosystems.
+        </p>
+
+        <div class="my-12 bg-lightpurple/30 rounded-3xl p-10">
+            <h4 class="font-medium mb-4">Every batch of sea moss is:</h4>
+            <ul class="space-y-3 text-gray-700">
+                <li class="flex gap-3"><span class="text-green-600">✓</span> Thoroughly cleaned and hand-inspected</li>
+                <li class="flex gap-3"><span class="text-green-600">✓</span> Slowly soaked in 100% distilled water (never tap water)</li>
+                <li class="flex gap-3"><span class="text-green-600">✓</span> Prepared in small batches for quality and consistency</li>
+            </ul>
+        </div>
+
+        <p class="text-gray-700 leading-relaxed">
+            This intentional process allows us to deliver a clean, high-quality gel that retains its full spectrum of 92+ minerals.
+        </p>
+
+        <h3 class="text-2xl font-medium mt-12 mb-6">Naturally Sweetened by Bees</h3>
+        <p class="text-gray-700 leading-relaxed">
+            Our infused sea moss gels are made with real fruit sourced from Colombia, where the fruit is naturally sweetened through traditional pollination by bees — not added sugars. 
+            The result is a smooth, flavorful gel that honors the natural sweetness of the fruit without compromising wellness.
+        </p>
+
+        <div class="my-12 p-8 border border-purple/20 rounded-3xl bg-white">
+            <h4 class="font-medium text-purple mb-4">What You’ll Never Find In Our Products:</h4>
+            <ul class="grid grid-cols-1 md:grid-cols-2 gap-3 text-gray-700">
+                <li class="flex gap-3"><span class="text-red-400">✕</span> No preservatives</li>
+                <li class="flex gap-3"><span class="text-red-400">✕</span> No fillers</li>
+                <li class="flex gap-3"><span class="text-red-400">✕</span> No artificial colors</li>
+                <li class="flex gap-3"><span class="text-red-400">✕</span> No artificial flavors</li>
+            </ul>
+            <p class="mt-6 text-sm text-gray-600 font-medium">Only pure sea moss, distilled water, and real fruit — that’s it.</p>
+        </div>
+
+        <h2 class="text-3xl font-medium text-deep mt-16 mb-6">🤍 Crafted with Integrity & Purpose</h2>
+        <p class="text-gray-700 leading-relaxed">
+            Jane’s Seamoss Creations was created with transparency, care, and wellness in mind. We believe you deserve to know where your sea moss comes from, how it’s processed, and what’s in it — because quality matters.
+        </p>
+
+        <div class="mt-16 text-center">
+            <a href="shop.html" class="inline-block bg-purple hover:bg-deep text-white px-12 py-6 rounded-3xl text-xl font-semibold transition-all active:scale-95">
+                Experience the Difference →
+            </a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-deep text-white py-12">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <p class="mb-4">Handcrafted in Central Florida with love and intention.</p>
+            <p class="text-sm opacity-75">
+                These statements have not been evaluated by the FDA. 
+                This product is not intended to diagnose, treat, cure, or prevent any disease.
+            </p>
+            <div class="mt-8 pt-8 border-t border-white/20 text-sm opacity-75 flex flex-wrap justify-center gap-x-8 gap-y-2">
+                <a href="pickup-delivery.html" class="hover:text-lightpurple">Local Pickup &amp; Delivery</a>
+                <a href="community.html" class="hover:text-lightpurple">The Hive Community</a>
+                <a href="affiliates.html" class="hover:text-lightpurple">Hive Ambassadors</a>
+                <a href="wholesale.html" class="hover:text-lightpurple">Wholesale</a>
+                <a href="about.html" class="hover:text-lightpurple">Our Story</a>
+            </div>
+            <div class="mt-8 text-xs opacity-60">
+                © 2026 Janesse's Seamoss Creation • Built by VSIT Solutions
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
