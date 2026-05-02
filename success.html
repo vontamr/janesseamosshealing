@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You | Janesse's Seamoss Creation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://js.stripe.com/v3/"></script>
+</head>
+<body class="bg-gradient-to-br from-lightpurple/30 to-white min-h-screen font-sans">
+
+<div class="max-w-2xl mx-auto px-6 py-24 text-center">
+    <div class="text-7xl mb-8">🌊✨</div>
+    <h1 class="text-5xl font-light text-deep mb-4">Thank You for Your Order!</h1>
+    <p class="text-2xl text-purple mb-10">Your sea moss is being prepared with love in Central Florida.</p>
+    
+    <div class="bg-white rounded-3xl p-10 shadow-sm mb-12">
+        <p class="text-lg mb-6">Order Confirmation has been sent to your email.</p>
+        <p id="order-info" class="text-gray-600"></p>
+    </div>
+
+    <a href="index.html" 
+       class="inline-block bg-purple hover:bg-deep text-white px-12 py-6 rounded-3xl text-xl font-semibold transition-all">
+        Return Home
+    </a>
+
+    <p class="mt-12 text-sm text-gray-500">
+        Fresh • Handcrafted • Full of 92+ Minerals<br>
+        Ships within 48 hours • Local pickup available in Orlando
+    </p>
+</div>
+
+<script>
+    // Optional: Show session details
+    const urlParams = new URLSearchParams(window.location.search);
+    const sessionId = urlParams.get('session_id');
+    
+    if (sessionId) {
+        document.getElementById('order-info').innerHTML = `
+            Order Reference: <strong>${sessionId.slice(0,12)}...</strong><br>
+            Thank you for supporting wild-harvested wellness 🌿
+        `;
+    }
+</script>
+</body>
+</html>
