@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wholesale Partners | Janesse's Seamoss Creation</title>
+    <meta name="description" content="Premium wild-harvested sea moss for retailers, wellness centers, and businesses. Competitive wholesale pricing and reliable supply.">
+    
+    <script src="https://cdn.tailwindcss.com" async></script>
+    <link rel="stylesheet" href="styles.css">
+    
+    <script>
+        function initTailwind() {
+            tailwind.config = {
+                content: ["./**/*.{html,js}"],
+                theme: {
+                    extend: {
+                        colors: {
+                            deep: '#260B3A',
+                            purple: '#5E0089',
+                            lightpurple: '#EAD5F8',
+                        }
+                    }
+                }
+            };
+        }
+        window.addEventListener('load', initTailwind);
+    </script>
+
+    <style>
+        .marquee { overflow: hidden; white-space: nowrap; }
+        .marquee-content { display: inline-flex; animation: marquee 35s linear infinite; }
+        @keyframes marquee {
+            from { transform: translateX(0); }
+            to { transform: translateX(-50%); }
+        }
+        
+        .pricing-tier {
+            transition: all 0.3s ease;
+        }
+        .pricing-tier:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+        }
+        
+        .pricing-tier.popular {
+            border: 2px solid #5E0089;
+            position: relative;
+        }
+        .pricing-tier.popular::before {
+            content: "MOST POPULAR";
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #5E0089;
+            color: white;
+            font-size: 10px;
+            font-weight: 700;
+            padding: 2px 14px;
+            border-radius: 9999px;
+            letter-spacing: 0.5px;
+        }
+    </style>
+</head>
+<body class="bg-white text-deep font-sans antialiased">
+
+    <!-- Navigation -->
+    <nav class="bg-white border-b sticky top-0 z-50 shadow-sm">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex items-center justify-between h-20">
+                <a href="index.html" class="flex items-center gap-3">
+                    <img src="assets/images/IMG_7251 Background Removed 2.jpeg" alt="Janesse's Seamoss Creation Logo" class="h-12">
+                </a>
+                
+                <div class="hidden md:flex items-center gap-10 text-sm font-medium">
+                    <a href="index.html" class="hover:text-purple transition-colors">Home</a>
+                    <a href="build.html" class="hover:text-purple transition-colors">Build Your Blend</a>
+                    <a href="shop.html" class="hover:text-purple transition-colors">Shop</a>
+                    <a href="community.html" class="hover:text-purple transition-colors">The Circle</a>
+                    <a href="wholesale.html" class="text-purple font-semibold">Wholesale</a>
+                </div>
+
+                <a href="shop.html" class="bg-purple hover:bg-deep text-white px-8 py-3.5 rounded-3xl font-semibold transition-all">Shop Now</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <header class="bg-gradient-to-br from-deep to-purple py-24 text-white">
+        <div class="max-w-5xl mx-auto px-6 text-center">
+            <div class="inline-flex items-center gap-3 bg-white/10 backdrop-blur px-6 py-3 rounded-3xl mb-6">
+                <span class="text-2xl">🏢</span>
+                <span class="font-medium">For Retailers &amp; Businesses</span>
+            </div>
+            
+            <h1 class="text-6xl md:text-7xl font-light tracking-tighter mb-6">
+                Wholesale Partners
+            </h1>
+            <p class="text-2xl text-lightpurple max-w-3xl mx-auto">
+                Premium wild-harvested sea moss at scale. Reliable supply, competitive pricing, and full support for your business.
+            </p>
+            
+            <div class="mt-10">
+                <a href="#apply" class="inline-block bg-white text-purple hover:bg-lightpurple px-12 py-6 rounded-3xl text-xl font-semibold transition-all">
+                    Apply for Wholesale Account →
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Trust Signals -->
+    <div class="max-w-6xl mx-auto px-6 -mt-10 relative z-30">
+        <div class="bg-white rounded-3xl shadow-xl p-8 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+            <div>
+                <div class="text-4xl font-semibold text-purple">50+</div>
+                <div class="text-sm text-gray-500 mt-1">Active Wholesale Partners</div>
+            </div>
+            <div>
+                <div class="text-4xl font-semibold text-purple">12</div>
+                <div class="text-sm text-gray-500 mt-1">Countries Served</div>
+            </div>
+            <div>
+                <div class="text-4xl font-semibold text-purple">98%</div>
+                <div class="text-sm text-gray-500 mt-1">On-Time Delivery Rate</div>
+            </div>
+            <div>
+                <div class="text-4xl font-semibold text-purple">4.9/5</div>
+                <div class="text-sm text-gray-500 mt-1">Partner Satisfaction</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Benefits -->
+    <section class="max-w-6xl mx-auto px-6 py-20">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl font-light tracking-tight">Why Leading Businesses Choose Us</h2>
+        </div>
+        
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="bg-white rounded-3xl p-10 border border-purple/10">
+                <div class="text-5xl mb-6">🌿</div>
+                <h3 class="text-2xl font-semibold mb-4">Premium Quality</h3>
+                <p class="text-gray-600">Wild-harvested from the cleanest waters of Antigua &amp; St. Lucia. Every batch tested for purity and potency.</p>
+            </div>
+            
+            <div class="bg-white rounded-3xl p-10 border border-purple/10">
+                <div class="text-5xl mb-6">📦</div>
+                <h3 class="text-2xl font-semibold mb-4">Reliable Supply</h3>
+                <p class="text-gray-600">Consistent weekly production with flexible MOQs. We scale with your business growth.</p>
+            </div>
+            
+            <div class="bg-white rounded-3xl p-10 border border-purple/10">
+                <div class="text-5xl mb-6">🤝</div>
+                <h3 class="text-2xl font-semibold mb-4">Full Support</h3>
+                <p class="text-gray-600">Dedicated account manager, co-branded marketing materials, and private labeling options available.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Tiers -->
+    <section class="bg-lightpurple/20 py-20">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-light tracking-tight">Wholesale Pricing</h2>
+                <p class="text-gray-600 mt-3">Transparent tiered pricing based on volume</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- Tier 1 -->
+                <div class="pricing-tier bg-white rounded-3xl p-8 border border-gray-200">
+                    <div class="text-sm uppercase tracking-widest text-gray-500 mb-2">STARTER</div>
+                    <div class="text-5xl font-semibold mb-1">10–24</div>
+                    <div class="text-gray-500 mb-6">units per order</div>
+                    
+                    <div class="space-y-3 text-sm">
+                        <div class="flex justify-between"><span>Sea Moss Gel (8oz)</span> <span class="font-semibold">$22</span></div>
+                        <div class="flex justify-between"><span>Fruit Flavored Gels</span> <span class="font-semibold">$24</span></div>
+                        <div class="flex justify-between"><span>Herb Infused Gels</span> <span class="font-semibold">$26</span></div>
+                    </div>
+                    
+                    <div class="mt-8 pt-6 border-t text-sm text-gray-500">
+                        Minimum order: 10 units
+                    </div>
+                </div>
+                
+                <!-- Tier 2 - Popular -->
+                <div class="pricing-tier popular bg-white rounded-3xl p-8">
+                    <div class="text-sm uppercase tracking-widest text-purple mb-2">GROWTH</div>
+                    <div class="text-5xl font-semibold mb-1">25–49</div>
+                    <div class="text-gray-500 mb-6">units per order</div>
+                    
+                    <div class="space-y-3 text-sm">
+                        <div class="flex justify-between"><span>Sea Moss Gel (8oz)</span> <span class="font-semibold">$19</span></div>
+                        <div class="flex justify-between"><span>Fruit Flavored Gels</span> <span class="font-semibold">$21</span></div>
+                        <div class="flex justify-between"><span>Herb Infused Gels</span> <span class="font-semibold">$23</span></div>
+                    </div>
+                    
+                    <div class="mt-8 pt-6 border-t text-sm text-gray-500">
+                        Free shipping on orders over $500
+                    </div>
+                </div>
+                
+                <!-- Tier 3 -->
+                <div class="pricing-tier bg-white rounded-3xl p-8 border border-gray-200">
+                    <div class="text-sm uppercase tracking-widest text-gray-500 mb-2">ENTERPRISE</div>
+                    <div class="text-5xl font-semibold mb-1">50+</div>
+                    <div class="text-gray-500 mb-6">units per order</div>
+                    
+                    <div class="space-y-3 text-sm">
+                        <div class="flex justify-between"><span>Sea Moss Gel (8oz)</span> <span class="font-semibold">$17</span></div>
+                        <div class="flex justify-between"><span>Fruit Flavored Gels</span> <span class="font-semibold">$19</span></div>
+                        <div class="flex justify-between"><span>Herb Infused Gels</span> <span class="font-semibold">$21</span></div>
+                    </div>
+                    
+                    <div class="mt-8 pt-6 border-t text-sm text-gray-500">
+                        Custom labeling available • Dedicated account manager
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-10 text-sm text-gray-500">
+                All prices in USD. Pricing subject to change. Contact us for custom formulations and private labeling.
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="max-w-5xl mx-auto px-6 py-20">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl font-light tracking-tight">How Wholesale Works</h2>
+        </div>
+        
+        <div class="grid md:grid-cols-4 gap-8 text-center">
+            <div>
+                <div class="text-6xl mb-4">1</div>
+                <h3 class="font-semibold text-lg mb-2">Apply</h3>
+                <p class="text-sm text-gray-600">Submit your wholesale application. We review within 48 hours.</p>
+            </div>
+            <div>
+                <div class="text-6xl mb-4">2</div>
+                <h3 class="font-semibold text-lg mb-2">Get Approved</h3>
+                <p class="text-sm text-gray-600">Receive your wholesale pricing, catalog, and login to our partner portal.</p>
+            </div>
+            <div>
+                <div class="text-6xl mb-4">3</div>
+                <h3 class="font-semibold text-lg mb-2">Place Orders</h3>
+                <p class="text-sm text-gray-600">Order online or via your dedicated account manager. Flexible payment terms available.</p>
+            </div>
+            <div>
+                <div class="text-6xl mb-4">4</div>
+                <h3 class="font-semibold text-lg mb-2">Receive &amp; Sell</h3>
+                <p class="text-sm text-gray-600">Fresh product delivered. We support you with marketing and reordering.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Application Form -->
+    <section id="apply" class="bg-deep text-white py-20">
+        <div class="max-w-2xl mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-5xl font-light tracking-tight mb-4">Ready to partner with us?</h2>
+                <p class="text-xl text-lightpurple">Apply below and we’ll get back to you within 48 hours.</p>
+            </div>
+            
+            <form class="bg-white/10 backdrop-blur rounded-3xl p-10">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-sm mb-2">Business Name</label>
+                        <input type="text" class="w-full bg-white/90 text-deep rounded-2xl px-5 py-4" placeholder="Your Business Name">
+                    </div>
+                    <div>
+                        <label class="block text-sm mb-2">Contact Name</label>
+                        <input type="text" class="w-full bg-white/90 text-deep rounded-2xl px-5 py-4" placeholder="Full Name">
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+                    <div>
+                        <label class="block text-sm mb-2">Email Address</label>
+                        <input type="email" class="w-full bg-white/90 text-deep rounded-2xl px-5 py-4" placeholder="business@email.com">
+                    </div>
+                    <div>
+                        <label class="block text-sm mb-2">Phone Number</label>
+                        <input type="tel" class="w-full bg-white/90 text-deep rounded-2xl px-5 py-4" placeholder="(407) 555-1234">
+                    </div>
+                </div>
+                
+                <div class="mt-6">
+                    <label class="block text-sm mb-2">Type of Business</label>
+                    <select class="w-full bg-white/90 text-deep rounded-2xl px-5 py-4">
+                        <option>Retail Store</option>
+                        <option>Wellness Center / Spa</option>
+                        <option>Health Food Store</option>
+                        <option>Online Store / E-commerce</option>
+                        <option>Restaurant / Café</option>
+                        <option>Distributor</option>
+                        <option>Other</option>
+                    </select>
+                </div>
+                
+                <div class="mt-6">
+                    <label class="block text-sm mb-2">Estimated Monthly Volume</label>
+                    <select class="w-full bg-white/90 text-deep rounded-2xl px-5 py-4">
+                        <option>10–25 units</option>
+                        <option>25–50 units</option>
+                        <option>50–100 units</option>
+                        <option>100+ units</option>
+                    </select>
+                </div>
+                
+                <div class="mt-6">
+                    <label class="block text-sm mb-2">Additional Notes (optional)</label>
+                    <textarea rows="3" class="w-full bg-white/90 text-deep rounded-2xl px-5 py-4" placeholder="We're interested in private labeling..."></textarea>
+                </div>
+                
+                <button type="submit" class="mt-8 w-full bg-purple hover:bg-lightpurple hover:text-deep text-white py-6 rounded-3xl text-xl font-semibold transition-all">
+                   

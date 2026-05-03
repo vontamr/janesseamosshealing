@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Sea Moss Circle | Janesse's Seamoss Creation</title>
+    <meta name="description" content="Join our growing community of sea moss lovers. Share your journey, connect, and grow together.">
+    
+    <script src="https://cdn.tailwindcss.com" async></script>
+    <link rel="stylesheet" href="styles.css">
+    
+    <script>
+        function initTailwind() {
+            tailwind.config = {
+                content: ["./**/*.{html,js}"],
+                theme: {
+                    extend: {
+                        colors: {
+                            deep: '#260B3A',
+                            purple: '#5E0089',
+                            lightpurple: '#EAD5F8',
+                        }
+                    }
+                }
+            };
+        }
+        window.addEventListener('load', initTailwind);
+    </script>
+
+    <style>
+        .marquee { overflow: hidden; white-space: nowrap; }
+        .marquee-content { display: inline-flex; animation: marquee 35s linear infinite; }
+        @keyframes marquee {
+            from { transform: translateX(0); }
+            to { transform: translateX(-50%); }
+        }
+        
+        .community-card {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .community-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+        }
+        
+        .masonry-grid {
+            column-count: 1;
+            column-gap: 1.5rem;
+        }
+        @media (min-width: 768px) {
+            .masonry-grid { column-count: 2; }
+        }
+        @media (min-width: 1024px) {
+            .masonry-grid { column-count: 3; }
+        }
+        
+        .bee {
+            position: absolute;
+            font-size: 28px;
+            opacity: 0.6;
+            pointer-events: none;
+            z-index: 10;
+            animation: beeFlight 28s linear infinite;
+        }
+    </style>
+</head>
+<body class="bg-white text-deep font-sans antialiased">
+
+    <!-- Navigation -->
+    <nav class="bg-white border-b sticky top-0 z-50 shadow-sm">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex items-center justify-between h-20">
+                <a href="index.html" class="flex items-center gap-3">
+                    <img src="assets/images/IMG_7251 Background Removed 2.jpeg" alt="Janesse's Seamoss Creation Logo" class="h-12">
+                </a>
+                
+                <div class="hidden md:flex items-center gap-10 text-sm font-medium">
+                    <a href="index.html" class="hover:text-purple transition-colors">Home</a>
+                    <a href="build.html" class="hover:text-purple transition-colors">Build Your Blend</a>
+                    <a href="shop.html" class="hover:text-purple transition-colors">Shop</a>
+                    <a href="wellness-calculator.html" class="hover:text-purple transition-colors">Wellness Tools</a>
+                    <a href="community.html" class="text-purple font-semibold">The Circle</a>
+                </div>
+
+                <a href="shop.html" class="bg-purple hover:bg-deep text-white px-8 py-3.5 rounded-3xl font-semibold transition-all">Shop Now</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Marquee -->
+    <div class="bg-lightpurple/30 py-3 text-purple font-medium text-sm border-b">
+        <div class="marquee">
+            <div class="marquee-content flex gap-12">
+                <span>🌿 Join 2,847 sea moss lovers • Share your journey • Connect with The Circle</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero -->
+    <header class="relative bg-gradient-to-br from-deep via-purple/90 to-deep py-24 text-white overflow-hidden">
+        <div class="bee bee1" style="top: 15%; left: 8%; animation-delay: 0s;">🐝</div>
+        <div class="bee bee2" style="top: 65%; right: 12%; animation-delay: -12s;">🐝</div>
+        
+        <div class="max-w-4xl mx-auto px-6 text-center relative z-20">
+            <div class="inline-flex items-center gap-3 bg-white/10 backdrop-blur px-6 py-3 rounded-3xl mb-6">
+                <span class="text-2xl">🌊</span>
+                <span class="font-medium">Welcome to The Sea Moss Circle</span>
+            </div>
+            
+            <h1 class="text-6xl md:text-7xl font-light tracking-tighter mb-6">
+                Our Growing<br>Community
+            </h1>
+            <p class="text-2xl text-lightpurple max-w-2xl mx-auto">
+                Real people. Real journeys. Real healing with sea moss.
+            </p>
+        </div>
+    </header>
+
+    <!-- Stats -->
+    <div class="max-w-5xl mx-auto px-6 -mt-12 relative z-30">
+        <div class="bg-white rounded-3xl shadow-xl p-8 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+            <div>
+                <div class="text-4xl font-semibold text-purple">2,847</div>
+                <div class="text-sm text-gray-500 mt-1">Circle Members</div>
+            </div>
+            <div>
+                <div class="text-4xl font-semibold text-purple">18,392</div>
+                <div class="text-sm text-gray-500 mt-1">Photos Shared</div>
+            </div>
+            <div>
+                <div class="text-4xl font-semibold text-purple">4,291</div>
+                <div class="text-sm text-gray-500 mt-1">Healing Stories</div>
+            </div>
+            <div>
+                <div class="text-4xl font-semibold text-purple">94</div>
+                <div class="text-sm text-gray-500 mt-1">Countries Represented</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Upload Section -->
+    <section class="max-w-3xl mx-auto px-6 py-20">
+        <div class="text-center mb-12">
+            <h2 class="text-4xl font-light tracking-tight">Share Your Journey</h2>
+            <p class="text-gray-600 mt-3">Your story could inspire someone today. Upload a photo and tell us how sea moss has helped you.</p>
+        </div>
+
+        <div class="bg-white border border-purple/20 rounded-3xl p-10 shadow-sm">
+            <form id="community-form" class="space-y-6">
+                <div>
+                    <label class="block text-sm font-medium mb-2">Your Name</label>
+                    <input type="text" id="name" required 
+                           class="w-full border border-gray-300 rounded-2xl px-5 py-4 focus:outline-none focus:border-purple text-lg"
+                           placeholder="Alex Rivera">
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium mb-2">Your Photo</label>
+                    <div class="border-2 border-dashed border-purple/30 rounded-3xl p-8 text-center hover:border-purple transition-colors cursor-pointer" onclick="document.getElementById('photo-upload').click()">
+                        <input type="file" id="photo-upload" accept="image/*" class="hidden" onchange="previewImage(this)">
+                        <div id="upload-area">
+                            <div class="text-6xl mb-4">📸</div>
+                            <p class="font-medium">Click to upload your photo</p>
+                            <p class="text-sm text-gray-500 mt-1">JPG, PNG up to 5MB</p>
+                        </div>
+                        <div id="preview-area" class="hidden">
+                            <img id="image-preview" class="mx-auto max-h-64 rounded-2xl shadow-lg">
+                            <button type="button" onclick="removePreview()" class="mt-4 text-sm text-red-500 hover:text-red-600">Remove photo</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium mb-2">Your Story (optional)</label>
+                    <textarea id="message" rows="4" 
+                              class="w-full border border-gray-300 rounded-2xl px-5 py-4 focus:outline-none focus:border-purple text-lg resize-y"
+                              placeholder="Sea moss helped me with my energy and skin..."></textarea>
+                </div>
+
+                <button type="submit" 
+                        class="w-full bg-purple hover:bg-deep text-white py-6 rounded-3xl text-xl font-semibold transition-all active:scale-[0.985]">
+                    Share with The Circle →
+                </button>
+                
+                <p class="text-center text-xs text-gray-500">Your post will be reviewed and added to our community gallery within 24 hours.</p>
+            </form>
+        </div>
+    </section>
+
+    <!-- Community Gallery -->
+    <section class="bg-lightpurple/20 py-20">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-light tracking-tight">Circle Highlights</h2>
+                <p class="text-gray-600 mt-3">Real moments from real people in our community</p>
+            </div>
+
+            <div id="gallery" class="masonry-grid gap-6">
+                <!-- Populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <div class="bg-deep text-white py-20 text-center">
+        <div class="max-w-xl mx-auto px-6">
+            <h2 class="text-5xl font-light tracking-tight mb-6">Ready to join The Sea Moss Circle?</h2>
+            <p class="text-xl text-lightpurple mb-10">Start your sea moss journey today and become part of something bigger.</p>
+            
+            <a href="shop.html" class="inline-block bg-purple hover:bg-white hover:text-deep px-12 py-6 rounded-3xl text-xl font-semibold transition-all">
+                Shop Sea Moss Now →
+            </a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-deep text-white py-12 border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-6 text-center text-sm opacity-75">
+            <p>© 2026 Janesse's Seamoss Creation • The Sea Moss Circle</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    
+    <script>
+        // Image preview
+        let selectedFile = null;
+        
+        function previewImage(input) {
+            if (input.files && input.files[0]) {
+                selectedFile = input.files[0];
+                const reader = new FileReader();
+                
+                reader.onload = function(e) {
+                    document.getElementById('upload-area').classList.add('hidden');
+                    document.getElementById('preview-area').classList.remove('hidden');
+                    document.getElementById('image-preview').src = e.target.result;
+                }
+                
+                reader.readAsDataURL(selectedFile);
+            }
+        }
+        
+        function removePreview() {
+            selectedFile = null;
+            document.getElementById('upload-area').classList.remove('hidden');
+            document.getElementById('preview-area').classList.add('hidden');
+            document.getElementById('photo-upload').value = '';
+        }
+
+        // Handle form submission
+        document.getElementById('community-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const message = document.getElementById('message').value || "Sea moss has transformed my wellness journey!";
+            
+            // Create new post
+            const newPost = {
+                id: Date.now(),
+                name: name,
+                message: message,
+                image: selectedFile ? URL.createObjectURL(selectedFile) : 'https://picsum.photos/id/1027/600/400',
+                date: 'Just now',
+                likes: 0
+            };
+            
+            // Add to gallery
+            addPostToGallery(newPost);
+            
+            // Reset form
+            this.reset();
+            removePreview();
+            
+            // Success message
+            const btn = this.querySelector('button[type="submit"]');
+            const originalText = btn.innerHTML;
+            btn.innerHTML = '🌿 Thank you! Your post was shared!';
+            btn.disabled = true;
+            
+            setTimeout(() => {
+                btn.innerHTML = originalText;
+                btn.disabled = false;
+                alert('Thank you! Your post has been added to The Sea Moss Circle gallery.');
+            }, 1800);
+        });
+
+        // Add post to gallery
+        function addPostToGallery(post) {
+            const gallery = document.getElementById('gallery');

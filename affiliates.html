@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sea Moss Circle Ambassadors | Earn with Janesse's</title>
+    <meta name="description" content="Join the Sea Moss Circle Ambassador program. Earn 20% commission while sharing the healing power of sea moss.">
+    
+    <script src="https://cdn.tailwindcss.com" async></script>
+    <link rel="stylesheet" href="styles.css">
+    
+    <script>
+        function initTailwind() {
+            tailwind.config = {
+                content: ["./**/*.{html,js}"],
+                theme: {
+                    extend: {
+                        colors: {
+                            deep: '#260B3A',
+                            purple: '#5E0089',
+                            lightpurple: '#EAD5F8',
+                        }
+                    }
+                }
+            };
+        }
+        window.addEventListener('load', initTailwind);
+    </script>
+
+    <style>
+        .marquee { overflow: hidden; white-space: nowrap; }
+        .marquee-content { display: inline-flex; animation: marquee 35s linear infinite; }
+        @keyframes marquee {
+            from { transform: translateX(0); }
+            to { transform: translateX(-50%); }
+        }
+        
+        .bee {
+            position: absolute;
+            font-size: 26px;
+            opacity: 0.5;
+            pointer-events: none;
+            z-index: 10;
+            animation: beeFlight 30s linear infinite;
+        }
+        
+        .earning-card {
+            transition: all 0.3s ease;
+        }
+        .earning-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 25px -5px rgb(94 0 137 / 0.1), 0 8px 10px -6px rgb(94 0 137 / 0.1);
+        }
+    </style>
+</head>
+<body class="bg-white text-deep font-sans antialiased">
+
+    <!-- Navigation -->
+    <nav class="bg-white border-b sticky top-0 z-50 shadow-sm">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex items-center justify-between h-20">
+                <a href="index.html" class="flex items-center gap-3">
+                    <img src="assets/images/IMG_7251 Background Removed 2.jpeg" alt="Janesse's Seamoss Creation Logo" class="h-12">
+                </a>
+                
+                <div class="hidden md:flex items-center gap-10 text-sm font-medium">
+                    <a href="index.html" class="hover:text-purple transition-colors">Home</a>
+                    <a href="build.html" class="hover:text-purple transition-colors">Build Your Blend</a>
+                    <a href="shop.html" class="hover:text-purple transition-colors">Shop</a>
+                    <a href="community.html" class="hover:text-purple transition-colors">The Circle</a>
+                    <a href="affiliates.html" class="text-purple font-semibold">Ambassadors</a>
+                </div>
+
+                <a href="shop.html" class="bg-purple hover:bg-deep text-white px-8 py-3.5 rounded-3xl font-semibold transition-all">Shop Now</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <header class="relative bg-gradient-to-br from-deep via-purple to-deep py-24 text-white overflow-hidden">
+        <div class="bee bee1" style="top: 20%; left: 10%; animation-delay: 0s;">🐝</div>
+        <div class="bee bee2" style="top: 70%; right: 15%; animation-delay: -15s;">🐝</div>
+        
+        <div class="max-w-4xl mx-auto px-6 text-center relative z-20">
+            <div class="inline-flex items-center gap-3 bg-white/10 backdrop-blur px-6 py-3 rounded-3xl mb-6">
+                <span class="text-2xl">💰</span>
+                <span class="font-medium">Earn While You Heal</span>
+            </div>
+            
+            <h1 class="text-6xl md:text-7xl font-light tracking-tighter mb-6">
+                Sea Moss Circle<br>Ambassadors
+            </h1>
+            <p class="text-2xl text-lightpurple max-w-2xl mx-auto mb-10">
+                Share the power of sea moss and earn up to <span class="font-semibold text-white">20% commission</span> on every sale.
+            </p>
+            
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#join" class="bg-white text-purple hover:bg-lightpurple px-10 py-6 rounded-3xl text-xl font-semibold transition-all">Join Now — It's Free</a>
+                <a href="#how" class="border-2 border-white/50 hover:bg-white/10 px-10 py-6 rounded-3xl text-xl font-medium transition-all">How It Works</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Trust Bar -->
+    <div class="max-w-5xl mx-auto px-6 -mt-8 relative z-30">
+        <div class="bg-white rounded-3xl shadow-xl p-8 flex flex-wrap justify-center items-center gap-x-12 gap-y-4 text-center">
+            <div class="flex items-center gap-3">
+                <span class="text-3xl">✅</span>
+                <span class="font-medium">No monthly fees</span>
+            </div>
+            <div class="flex items-center gap-3">
+                <span class="text-3xl">✅</span>
+                <span class="font-medium">Instant payouts</span>
+            </div>
+            <div class="flex items-center gap-3">
+                <span class="text-3xl">✅</span>
+                <span class="font-medium">Marketing materials provided</span>
+            </div>
+            <div class="flex items-center gap-3">
+                <span class="text-3xl">✅</span>
+                <span class="font-medium">Real-time dashboard</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- How It Works -->
+    <section id="how" class="max-w-6xl mx-auto px-6 py-20">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl font-light tracking-tight">How It Works</h2>
+            <p class="text-gray-600 mt-3 max-w-md mx-auto">Three simple steps to start earning</p>
+        </div>
+        
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="bg-white rounded-3xl p-10 text-center border border-purple/10">
+                <div class="w-20 h-20 bg-purple/10 rounded-full flex items-center justify-center mx-auto mb-6 text-4xl">1</div>
+                <h3 class="text-2xl font-semibold mb-4">Join for Free</h3>
+                <p class="text-gray-600">Sign up in under 2 minutes. No fees, no commitments. Get instant access to your personal dashboard and marketing tools.</p>
+            </div>
+            
+            <div class="bg-white rounded-3xl p-10 text-center border border-purple/10">
+                <div class="w-20 h-20 bg-purple/10 rounded-full flex items-center justify-center mx-auto mb-6 text-4xl">2</div>
+                <h3 class="text-2xl font-semibold mb-4">Share Your Link</h3>
+                <p class="text-gray-600">Get your unique referral link and beautiful marketing assets. Share via Instagram, TikTok, WhatsApp, or your blog.</p>
+            </div>
+            
+            <div class="bg-white rounded-3xl p-10 text-center border border-purple/10">
+                <div class="w-20 h-20 bg-purple/10 rounded-full flex items-center justify-center mx-auto mb-6 text-4xl">3</div>
+                <h3 class="text-2xl font-semibold mb-4">Earn Commission</h3>
+                <p class="text-gray-600">Earn <span class="font-bold text-purple">20% commission</span> on every sale made through your link. Paid weekly via PayPal or bank transfer.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Commission Structure -->
+    <section class="bg-lightpurple/20 py-20">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-light tracking-tight">Your Earning Potential</h2>
+                <p class="text-gray-600 mt-3">Transparent and rewarding commission structure</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="earning-card bg-white rounded-3xl p-8 text-center border-2 border-purple">
+                    <div class="text-purple text-6xl mb-4">20%</div>
+                    <h3 class="text-2xl font-semibold mb-2">Standard Rate</h3>
+                    <p class="text-gray-600">Earn 20% on every order placed through your unique link. No minimums.</p>
+                    <div class="mt-6 text-sm bg-purple/10 text-purple px-4 py-1 rounded-full inline-block">Most Popular</div>
+                </div>
+                
+                <div class="earning-card bg-white rounded-3xl p-8 text-center border border-gray-200">
+                    <div class="text-purple text-6xl mb-4">25%</div>
+                    <h3 class="text-2xl font-semibold mb-2">Top Performers</h3>
+                    <p class="text-gray-600">Ambassadors who refer 10+ customers per month automatically unlock 25% commission.</p>
+                </div>
+                
+                <div class="earning-card bg-white rounded-3xl p-8 text-center border border-gray-200">
+                    <div class="text-purple text-6xl mb-4">30%</div>
+                    <h3 class="text-2xl font-semibold mb-2">Elite Circle</h3>
+                    <p class="text-gray-600">Our top 10 ambassadors each month earn 30% commission + exclusive bonuses.</p>
+                </div>
+            </div>
+            
+            <div class="text-center mt-10 text-sm text-gray-500">
+                Example: Sell $2,000 worth of sea moss in a month = <span class="font-semibold text-purple">$400–$600 earned</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits -->
+    <section class="max-w-6xl mx-auto px-6 py-20">
+        <div class="text-center mb-12">
+            <h2 class="text-4xl font-light tracking-tight">Why Ambassadors Love Us</h2>
+        </div>
+        
+        <div class="grid md:grid-cols-2 gap-8">
+            <div class="flex gap-6">
+                <div class="text-4xl flex-shrink-0">📦</div>
+                <div>
+                    <h3 class="text-xl font-semibold mb-2">Free Product Samples</h3>
+                    <p class="text-gray-600">Receive monthly product samples so you can experience and authentically recommend what you love.</p>
+                </div>
+            </div>
+            <div class="flex gap-6">
+                <div class="text-4xl flex-shrink-0">🎨</div>
+                <div>
+                    <h3 class="text-xl font-semibold mb-2">Professional Marketing Kit</h3>
+                    <p class="text-gray-600">Beautiful graphics, Reels templates, email sequences, and product photos ready to use.</p>
+                </div>
+            </div>
+            <div class="flex gap-6">
+                <div class="text-4xl flex-shrink-0">📊</div>
+                <div>
+                    <h3 class="text-xl font-semibold mb-2">Real-Time Dashboard</h3>
+                    <p class="text-gray-600">Track clicks, conversions, and earnings in one beautiful dashboard. Know exactly how you're performing.</p>
+                </div>
+            </div>
+            <div class="flex gap-6">
+                <div class="text-4xl flex-shrink-0">🤝</div>
+                <div>
+                    <h3 class="text-xl font-semibold mb-2">Dedicated Support</h3>
+                    <p class="text-gray-600">Access to our private Ambassador Slack channel + monthly strategy calls with Janesse.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Join Form -->
+    <section id="join" class="bg-deep text-white py-20">
+        <div class="max-w-xl mx-auto px-6 text-center">
+            <h2 class="text-5xl font-light tracking-tight mb-6">Ready to start earning?</h2>
+            <p class="text-xl text-lightpurple mb-10">Join hundreds of ambassadors already earning with sea moss.</p>
+            
+            <form class="bg-white/10 backdrop-blur rounded-3xl p-10 text-left">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-sm mb-2">Full Name</label>
+                        <input type="text" class="w-full bg-white/90 text-deep rounded-2xl px-5 py-4" placeholder="Your name">
+                    </div>
+                    <div>
+                        <label class="block text-sm mb-2">Email Address</label>
+                        <input type="email" class="w-full bg-white/90 text-deep rounded-2xl px-5 py-4" placeholder="you@email.com">
+                    </div>
+                </div>
+                
+                <div class="mt-6">
+                    <label class="block text-sm mb-2">Instagram / TikTok Handle (optional)</label>
+                    <input type="text" class="w-full bg-white/90 text-deep rounded-2xl px-5 py-4" placeholder="@yourhandle">
+                </div>
+                
+                <div class="mt-6">
+                    <label class="block text-sm mb-2">Why do you want to become an ambassador?</label>
+                    <textarea rows="3" class="w-full bg-white/90 text-deep rounded-2xl px-5 py-4" placeholder="I love sea moss and want to share it with my community..."></textarea>
+                </div>
+                
+                <button type="submit" class="mt-8 w-full bg-purple hover:bg-lightpurple hover:text-deep text-white py-6 rounded-3xl text-xl font-semibold transition-all">
+                    Apply to Join the Circle →
+                </button>
+                
+                <p class="text-center text-xs text-lightpurple mt-4">We'll review your application within 48 hours.</p>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-deep text-white py-12 border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-6 text-center text-sm opacity-75">
+            <p>© 2026 Janesse's Seamoss Creation • Sea Moss Circle Ambassadors</p>
+        </div>
+    </footer>
+
+</body>
+</html>
