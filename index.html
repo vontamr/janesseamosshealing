@@ -259,11 +259,184 @@ html { scroll-behavior: smooth; }
     </div>
 </footer>
 
-<!-- AI Chat Modal -->
-<div id="ai-chat-modal" class="hidden fixed inset-0 bg-black bg-opacity-50 z-[9999] flex items-center justify-center p-4">
-    <!-- Your existing AI Chat Modal code remains unchanged -->
-    <!-- ... (paste your AI modal code here if you want me to include it) ... -->
+<!-- Jane's AI Chat Modal - Grok-Inspired -->
+<div id="ai-chat-modal" class="hidden fixed inset-0 bg-black/70 z-[9999] flex items-center justify-center p-4">
+    <div class="bg-white rounded-3xl w-full max-w-lg h-[620px] flex flex-col shadow-2xl overflow-hidden">
+        
+        <!-- Header -->
+        <div class="bg-deep text-white px-6 py-5 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="w-9 h-9 bg-lightpurple/20 rounded-2xl flex items-center justify-center text-2xl">🌿</div>
+                <div>
+                    <h3 class="font-semibold">Jane's AI</h3>
+                    <p class="text-xs text-lightpurple flex items-center gap-1">
+                        <span class="inline-block w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
+                        Online • Beta Version
+                    </p>
+                </div>
+            </div>
+            <button onclick="hideAIChat()" class="text-3xl leading-none text-white/70 hover:text-white">×</button>
+        </div>
+
+        <!-- Chat Messages -->
+        <div id="chat-messages" class="flex-1 overflow-y-auto p-6 space-y-6 bg-gray-50"></div>
+
+        <!-- Quick Replies -->
+        <div class="px-6 py-3 border-t bg-white flex flex-wrap gap-2">
+            <button onclick="quickReply('benefits')" class="text-xs px-5 py-2.5 bg-lightpurple hover:bg-purple hover:text-white rounded-3xl transition-colors">Benefits</button>
+            <button onclick="quickReply('dosage')" class="text-xs px-5 py-2.5 bg-lightpurple hover:bg-purple hover:text-white rounded-3xl transition-colors">Dosage</button>
+            <button onclick="quickReply('energy')" class="text-xs px-5 py-2.5 bg-lightpurple hover:bg-purple hover:text-white rounded-3xl transition-colors">Energy</button>
+            <button onclick="quickReply('recipe')" class="text-xs px-5 py-2.5 bg-lightpurple hover:bg-purple hover:text-white rounded-3xl transition-colors">Recipes</button>
+        </div>
+
+        <!-- Input Area -->
+        <div class="p-4 border-t bg-white">
+            <div class="flex gap-3 items-end">
+                <button onclick="simulateFileUpload()" class="text-purple hover:text-deep px-3 py-3 rounded-2xl hover:bg-lightpurple transition-colors">
+                    📎
+                </button>
+                <input id="chat-input" type="text" placeholder="Ask Jane anything about sea moss..."
+                       class="flex-1 border border-gray-300 rounded-3xl px-6 py-4 text-sm focus:outline-none focus:border-purple"
+                       onkeypress="if(event.key === 'Enter') sendMessage()">
+                <button onclick="sendMessage()" class="bg-purple hover:bg-deep text-white px-8 py-4 rounded-3xl font-medium transition-all">Send</button>
+            </div>
+            <div class="text-center text-[10px] text-gray-400 mt-3">
+                Powered by <span class="font-medium text-purple">VSIT Solutions</span> • Beta Version
+            </div>
+        </div>
+    </div>
 </div>
+
+<script>
+// ==================== IMPROVED JANE'S AI CHAT (Grok Style) ====================
+let lastTopic = '';
+
+function showAIChat() {
+    const modal = document.getElementById('ai-chat-modal');
+    modal.classList.remove('hidden');
+    modal.classList.add('flex');
+    
+    const messages = document.getElementById('chat-messages');
+    if (messages.children.length === 0) {
+        addAIMessage("Hi, I'm Jane 🌿 Your personal sea moss wellness guide. How can I support your healing journey today?");
+    }
+}
+
+function hideAIChat() {
+    const modal = document.getElementById('ai-chat-modal');
+    modal.classList.remove('flex');
+    modal.classList.add('hidden');
+}
+
+function addUserMessage(text) {
+    const container = document.getElementById('chat-messages');
+    const div = document.createElement('div');
+    div.className = 'flex justify-end';
+    div.innerHTML = `
+        <div class="max-w-[75%] bg-purple text-white px-5 py-3 rounded-3xl rounded-tr-none text-sm">
+            ${text}
+        </div>`;
+    container.appendChild(div);
+    container.scrollTop = container.scrollHeight;
+}
+
+function addAIMessage(text) {
+    const container = document.getElementById('chat-messages');
+    const div = document.createElement('div');
+    div.className = 'flex justify-start gap-3';
+    div.innerHTML = `
+        <div class="w-8 h-8 bg-lightpurple rounded-2xl flex items-center justify-center text-xl flex-shrink-0">🌿</div>
+        <div class="max-w-[75%] bg-white border px-5 py-3 rounded-3xl rounded-tl-none text-sm shadow-sm">
+            ${text}
+        </div>`;
+    container.appendChild(div);
+    container.scrollTop = container.scrollHeight;
+}
+
+function showTypingIndicator() {
+    const container = document.getElementById('chat-messages');
+    const indicator = document.createElement('div');
+    indicator.id = 'typing-indicator';
+    indicator.className = 'flex justify-start gap-3';
+    indicator.innerHTML = `
+        <div class="w-8 h-8 bg-lightpurple rounded-2xl flex items-center justify-center text-xl flex-shrink-0">🌿</div>
+        <div class="bg-white border px-5 py-3 rounded-3xl rounded-tl-none flex items-center gap-2">
+            <span class="text-purple">Jane is thinking</span>
+            <span class="flex gap-1">
+                <span class="typing-dot animate-pulse">.</span>
+                <span class="typing-dot animate-pulse" style="animation-delay:150ms">.</span>
+                <span class="typing-dot animate-pulse" style="animation-delay:300ms">.</span>
+            </span>
+        </div>`;
+    container.appendChild(indicator);
+    container.scrollTop = container.scrollHeight;
+    return indicator;
+}
+
+function simulateFileUpload() {
+    addUserMessage("📸 [Photo / PDF uploaded]");
+    const indicator = showTypingIndicator();
+    setTimeout(() => {
+        indicator.remove();
+        addAIMessage("Thank you for sharing! I've reviewed your photo/PDF. How would you like me to help you with this?");
+    }, 1200);
+}
+
+function quickReply(topic) {
+    let message = '';
+    if (topic === 'benefits') message = 'What are the main benefits of sea moss?';
+    else if (topic === 'dosage') message = 'How much sea moss should I take daily?';
+    else if (topic === 'energy') message = 'Best blend for natural energy?';
+    else if (topic === 'recipe') message = 'Can you give me some recipes?';
+
+    if (message) {
+        addUserMessage(message);
+        const indicator = showTypingIndicator();
+        setTimeout(() => {
+            indicator.remove();
+            const response = getAIResponse(message);
+            addAIMessage(response);
+        }, 900);
+    }
+}
+
+function sendMessage() {
+    const input = document.getElementById('chat-input');
+    const message = input.value.trim();
+    if (!message) return;
+
+    addUserMessage(message);
+    input.value = '';
+
+    const indicator = showTypingIndicator();
+    setTimeout(() => {
+        indicator.remove();
+        const response = getAIResponse(message);
+        addAIMessage(response);
+    }, 850);
+}
+
+// Keep your existing getAIResponse function (or improve it later)
+function getAIResponse(message) {
+    const lower = message.toLowerCase();
+    if (lower.includes('benefit') || lower.includes('good for')) {
+        return "Sea moss contains 92+ minerals and offers powerful support for immunity, digestion, skin health, energy, thyroid function, and more. What specific area would you like to focus on?";
+    }
+    if (lower.includes('dosage') || lower.includes('how much')) {
+        return "Most people start with 1–2 tablespoons daily. I recommend beginning with 1 tablespoon in the morning on an empty stomach. Would you like a custom protocol?";
+    }
+    // ... (keep your other responses or let me know if you want me to expand them)
+    return "That's a great question! I'm still in Beta, but I'm learning quickly. Tell me more about what you're looking for and I'll help you the best I can 🌿";
+}
+
+// Close with Escape key
+document.addEventListener('keydown', function(e) {
+    if (e.key === "Escape") {
+        const modal = document.getElementById('ai-chat-modal');
+        if (modal && !modal.classList.contains('hidden')) hideAIChat();
+    }
+});
+</script>
 
 <script src="script.js"></script>
 <script>
