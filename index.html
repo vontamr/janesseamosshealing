@@ -267,8 +267,54 @@ html { scroll-behavior: smooth; }
 
 <script src="script.js"></script>
 <script>
-    // Your existing script for hamburger menu, AI chat, carousel, etc. goes here
-    // (I kept it the same as your last version)
-</script>
+    // Mobile Menu Toggle – Supporting effortless navigation for your wellness journey
+    document.addEventListener('DOMContentLoaded', function() {
+      const mobileBtn = document.getElementById('mobile-menu-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
+      
+      if (mobileBtn && mobileMenu) {
+        let isOpen = false;
+        
+        mobileBtn.addEventListener('click', function() {
+          isOpen = !isOpen;
+          
+          // Toggle menu visibility
+          if (isOpen) {
+            mobileMenu.classList.remove('hidden');
+          } else {
+            mobileMenu.classList.add('hidden');
+          }
+          
+          // Toggle icon: Hamburger → X
+          const svg = mobileBtn.querySelector('svg');
+          if (svg) {
+            if (isOpen) {
+              // X icon
+              svg.innerHTML = `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />`;
+            } else {
+              // Hamburger icon
+              svg.innerHTML = `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />`;
+            }
+          }
+        });
+        
+        // Close menu when tapping any link (smooth user flow)
+        const menuLinks = mobileMenu.querySelectorAll('a');
+        menuLinks.forEach(link => {
+          link.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+            isOpen = false;
+            // Reset icon
+            const svg = mobileBtn.querySelector('svg');
+            if (svg) {
+              svg.innerHTML = `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />`;
+            }
+          });
+        });
+      }
+    });
+    
+    console.log('%c🌊 Janesse’s Seamoss Creation – Mobile navigation flowing naturally!', 'color:#5E0089; font-weight:bold');
+  </script>
 </body>
 </html>
