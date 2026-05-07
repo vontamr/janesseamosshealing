@@ -43,11 +43,10 @@ function updateQuantity(id, change) {
 function updateCartUI() {
     const countEl = document.getElementById('cart-count');
     const viewCartBtn = document.getElementById('view-cart-btn');
-    
     const totalItems = cart.reduce((sum, i) => sum + i.qty, 0);
-    
+
     if (countEl) countEl.textContent = totalItems;
-    
+
     if (viewCartBtn) {
         if (totalItems > 0) {
             viewCartBtn.classList.remove('hidden');
@@ -57,8 +56,7 @@ function updateCartUI() {
             viewCartBtn.classList.remove('flex');
         }
     }
-    
-    // Update modal if open
+
     const modal = document.getElementById('cart-modal');
     if (modal && !modal.classList.contains('hidden')) {
         renderCartModal();
@@ -75,8 +73,7 @@ function renderCartModal() {
             <div class="text-center py-12 text-gray-400">
                 <div class="text-6xl mb-4">🌊</div>
                 <p>Your wellness basket is empty</p>
-            </div>
-        `;
+            </div>`;
         totalEl.textContent = '$0.00';
         return;
     }
@@ -99,8 +96,7 @@ function renderCartModal() {
                     </div>
                     <button onclick="removeFromCart('${item.id}'); renderCartModal();" class="text-red-400 text-xs mt-4 hover:text-red-600">Remove</button>
                 </div>
-            </div>
-        `;
+            </div>`;
     });
 
     container.innerHTML = html;
@@ -120,6 +116,7 @@ function hideCartModal() {
     if (modal) modal.classList.add('hidden');
 }
 
+// ==================== LIVE STRIPE CHECKOUT - CONNECTED TO RENDER ====================
 async function proceedToCheckout() {
     hideCartModal();
     const total = calculateTotal();
@@ -129,21 +126,27 @@ async function proceedToCheckout() {
     }
 
     try {
-        const response = await fetch('http://localhost:3000/create-checkout-session', {
+        console.log("🟢 Sending cart to Render backend...", cart);
+
+        const response = await fetch('https://janesse-seamoss-backend.onrender.com/create-checkout-session', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ cart: cart })
         });
 
         const data = await response.json();
+        console.log("📥 Backend response:", data);
+
         if (!response.ok) throw new Error(data.error || 'Payment error');
 
+        // ←←← YOUR REAL STRIPE PUBLISHABLE KEY ←←←
         const stripe = Stripe('pk_live_51TREXTIeLXeJ9tb9RCUiY0hHSBBY5hbqPfwgnVpyUDS0nAYTgwhls3y2ffClfgUu7ZJjVPDVpr6tPZZWNBKcec8Q00BbSr1yQc');
+
         await stripe.redirectToCheckout({ sessionId: data.id });
 
     } catch (error) {
-        console.error(error);
-        alert("⚠️ Unable to connect to payment. Make sure backend is running.");
+        console.error("❌ Checkout Error:", error);
+        alert("⚠️ We couldn't connect to the secure checkout right now.\n\nError: " + error.message + "\n\nPlease try again or contact us.");
     }
 }
 

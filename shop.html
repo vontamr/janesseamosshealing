@@ -1,340 +1,358 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shop | Janesse's Seamoss Creation</title>
-    <meta name="description" content="Wild-harvested sea moss gels • Naturally sweetened by bees • No added sweeteners">
-    
-    <script src="https://cdn.tailwindcss.com" async></script>
-    <link rel="stylesheet" href="styles.css">
-    <script src="https://js.stripe.com/v3/"></script>
-    
-    <script>
-        function initTailwind() {
-            tailwind.config = {
-                content: ["./**/*.{html,js}"],
-                theme: {
-                    extend: {
-                        colors: {
-                            deep: '#260B3A',
-                            purple: '#5E0089',
-                            lightpurple: '#EAD5F8',
-                        }
-                    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shop | Janesse's Seamoss Creation</title>
+<meta name="description" content="Wild-harvested sea moss gels • Naturally sweetened by bees • No added sweeteners">
+<script src="https://cdn.tailwindcss.com" async></script>
+<link rel="stylesheet" href="styles.css">
+<script src="https://js.stripe.com/v3/"></script>
+<script>
+function initTailwind() {
+    tailwind.config = {
+        content: ["./**/*.{html,js}"],
+        theme: {
+            extend: {
+                colors: {
+                    deep: '#260B3A',
+                    purple: '#5E0089',
+                    lightpurple: '#EAD5F8',
                 }
-            };
+            }
         }
-        window.addEventListener('load', initTailwind);
-    </script>
-
-    <style>
-        .marquee { overflow: hidden; white-space: nowrap; }
-        .marquee-content { display: inline-flex; animation: marquee 35s linear infinite; }
-        @keyframes marquee {
-            from { transform: translateX(0); }
-            to { transform: translateX(-50%); }
-        }
-        .product-card img { transition: transform 0.7s ease; }
-        .product-card:hover img { transform: scale(1.06); }
-        
-        .bee {
-            position: absolute;
-            font-size: 34px;
-            opacity: 0.75;
-            pointer-events: none;
-            z-index: 10;
-            animation: beeFlight 26s linear infinite;
-        }
-        .bee1 { animation-delay: 0s; left: 12%; top: 28%; }
-        .bee2 { animation-delay: -13s; right: 15%; top: 42%; }
-        @keyframes beeFlight {
-            0% { transform: translate(0, 0) rotate(-8deg); }
-            33% { transform: translate(110px, -45px) rotate(10deg); }
-            66% { transform: translate(-40px, 65px) rotate(-12deg); }
-            100% { transform: translate(0, 0) rotate(-8deg); }
-        }
-    </style>
+    };
+}
+window.addEventListener('load', initTailwind);
+</script>
+<style>
+.marquee { overflow: hidden; white-space: nowrap; }
+.marquee-content { display: inline-flex; animation: marquee 35s linear infinite; }
+@keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+}
+.product-card img { transition: transform 0.7s ease; }
+.product-card:hover img { transform: scale(1.06); }
+.bee {
+    position: absolute;
+    font-size: 34px;
+    opacity: 0.75;
+    pointer-events: none;
+    z-index: 10;
+    animation: beeFlight 26s linear infinite;
+}
+.bee1 { animation-delay: 0s; left: 12%; top: 28%; }
+.bee2 { animation-delay: -13s; right: 15%; top: 42%; }
+@keyframes beeFlight {
+    0% { transform: translate(0, 0) rotate(-8deg); }
+    33% { transform: translate(110px, -45px) rotate(10deg); }
+    66% { transform: translate(-40px, 65px) rotate(-12deg); }
+    100% { transform: translate(0, 0) rotate(-8deg); }
+}
+</style>
 </head>
 <body class="bg-white text-deep font-sans antialiased">
 
-    <!-- Navigation -->
-    <nav class="bg-white border-b sticky top-0 z-50 shadow-sm">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="flex items-center justify-between h-20">
-                <a href="index.html" class="flex items-center gap-3">
-                    <img src="assets/images/IMG_7251 Background Removed 2.jpeg" alt="Janesse's Seamoss Creation Logo" class="h-12">
-                </a>
-                
-                <div class="hidden md:flex items-center gap-10 text-sm font-medium">
-                    <a href="index.html" class="hover:text-purple transition-colors">Home</a>
-                    <a href="build.html" class="hover:text-purple transition-colors">Build Your Blend</a>
-                    <a href="shop.html" class="text-purple font-semibold">Shop</a>
-                    <a href="wellness-calculator.html" class="hover:text-purple transition-colors">Wellness Tools</a>
-                    <a href="about.html" class="hover:text-purple transition-colors">Our Story</a>
-                </div>
+<!-- Navigation -->
+<nav class="bg-white border-b sticky top-0 z-50 shadow-sm">
+<div class="max-w-7xl mx-auto px-6">
+<div class="flex items-center justify-between h-20">
+<a href="index.html" class="flex items-center gap-3">
+<img src="assets/images/IMG_7251 Background Removed 2.jpeg" alt="Janesse's Seamoss Creation Logo" class="h-12">
+</a>
+<div class="hidden md:flex items-center gap-10 text-sm font-medium">
+<a href="index.html" class="hover:text-purple transition-colors">Home</a>
+<a href="build.html" class="hover:text-purple transition-colors">Build Your Blend</a>
+<a href="shop.html" class="text-purple font-semibold">Shop</a>
+<a href="wellness-calculator.html" class="hover:text-purple transition-colors">Wellness Tools</a>
+<a href="about.html" class="hover:text-purple transition-colors">Our Story</a>
+</div>
+<div class="flex items-center gap-4">
+<button id="view-cart-btn" onclick="showCartModal()" class="hidden items-center gap-2 bg-purple text-white px-5 py-2.5 rounded-2xl text-sm font-medium hover:bg-deep transition-all">
+<span>🛒</span>
+<span id="cart-count">0</span>
+</button>
+<a href="shop.html" class="bg-purple hover:bg-deep text-white px-8 py-3.5 rounded-3xl font-semibold transition-all">Shop Now</a>
+</div>
+</div>
+</div>
+</nav>
 
-                <div class="flex items-center gap-4">
-                    <!-- View Cart Button -->
-                    <button id="view-cart-btn" onclick="showCartModal()" 
-                            class="hidden items-center gap-2 bg-purple text-white px-5 py-2.5 rounded-2xl text-sm font-medium hover:bg-deep transition-all">
-                        <span>🛒</span>
-                        <span id="cart-count">0</span>
-                    </button>
-                    
-                    <a href="shop.html" class="bg-purple hover:bg-deep text-white px-8 py-3.5 rounded-3xl font-semibold transition-all">Shop Now</a>
-                </div>
-            </div>
-        </div>
-    </nav>
+<!-- Marquee -->
+<div class="bg-lightpurple/30 py-3 text-purple font-medium text-sm border-b">
+<div class="marquee">
+<div class="marquee-content flex gap-12">
+<span>🌿 Wild-Harvested Irish Sea Moss • 92+ Minerals • Naturally Sweetened by Bees • No Added Sweeteners • Fresh Weekly in Central Florida</span>
+</div>
+</div>
+</div>
 
-    <!-- Marquee -->
-    <div class="bg-lightpurple/30 py-3 text-purple font-medium text-sm border-b">
-        <div class="marquee">
-            <div class="marquee-content flex gap-12">
-                <span>🌿 Wild-Harvested Irish Sea Moss • 92+ Minerals • Naturally Sweetened by Bees • No Added Sweeteners • Fresh Weekly in Central Florida</span>
-            </div>
-        </div>
-    </div>
+<!-- Hero -->
+<header class="min-h-[55vh] flex items-center justify-center bg-gradient-to-br from-deep/5 to-lightpurple/20 relative overflow-hidden">
+<div class="bee bee1">🐝</div>
+<div class="bee bee2">🐝</div>
+<div class="text-center px-6 relative z-20">
+<h1 class="text-6xl md:text-7xl font-light tracking-tighter mb-4">The Collection</h1>
+<p class="text-xl text-gray-600">Pure sea moss gels. Our flavors are naturally sweetened by bees through pollination using sugar canes.</p>
+</div>
+</header>
 
-    <!-- Hero -->
-    <header class="min-h-[55vh] flex items-center justify-center bg-gradient-to-br from-deep/5 to-lightpurple/20 relative overflow-hidden">
-        <div class="bee bee1">🐝</div>
-        <div class="bee bee2">🐝</div>
-        
-        <div class="text-center px-6 relative z-20">
-            <h1 class="text-6xl md:text-7xl font-light tracking-tighter mb-4">The Collection</h1>
-            <p class="text-xl text-gray-600">Pure sea moss gels. Our flavors are naturally sweetened by bees through pollination using sugar canes.</p>
-        </div>
-    </header>
+<!-- Category Tabs -->
+<div class="border-b bg-white sticky top-20 z-40">
+<div class="max-w-7xl mx-auto px-6">
+<div class="flex gap-6 md:gap-10 text-sm font-medium overflow-x-auto py-6 whitespace-nowrap">
+<button onclick="filterCategory('all')" class="active-filter text-purple border-b-2 border-purple pb-1">ALL</button>
+<button onclick="filterCategory('fruit')" class="hover:text-purple transition-colors">FRUIT FLAVORED</button>
+<button onclick="filterCategory('herb')" class="hover:text-purple transition-colors">HERB INFUSED</button>
+<button onclick="filterCategory('fitness')" class="hover:text-purple transition-colors">FITNESS + WELLNESS</button>
+<button onclick="filterCategory('mens')" class="hover:text-purple transition-colors">MEN’S</button>
+<button onclick="filterCategory('womens')" class="hover:text-purple transition-colors">WOMEN’S</button>
+<button onclick="filterCategory('pets')" class="hover:text-purple transition-colors">PETS</button>
+</div>
+</div>
+</div>
 
-    <!-- Category Tabs -->
-    <div class="border-b bg-white sticky top-20 z-40">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="flex gap-6 md:gap-10 text-sm font-medium overflow-x-auto py-6 whitespace-nowrap">
-                <button onclick="filterCategory('all')" class="active-filter text-purple border-b-2 border-purple pb-1">ALL</button>
-                <button onclick="filterCategory('fruit')" class="hover:text-purple transition-colors">FRUIT FLAVORED</button>
-                <button onclick="filterCategory('herb')" class="hover:text-purple transition-colors">HERB INFUSED</button>
-                <button onclick="filterCategory('fitness')" class="hover:text-purple transition-colors">FITNESS + WELLNESS</button>
-                <button onclick="filterCategory('mens')" class="hover:text-purple transition-colors">MEN’S</button>
-                <button onclick="filterCategory('womens')" class="hover:text-purple transition-colors">WOMEN’S</button>
-                <button onclick="filterCategory('pets')" class="hover:text-purple transition-colors">PETS</button>
-            </div>
-        </div>
-    </div>
+<!-- Product Grid -->
+<section class="py-16 bg-white">
+<div class="max-w-7xl mx-auto px-6">
+<div id="product-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-8 gap-y-16">
 
-    <!-- Product Grid -->
-    <section class="py-16 bg-white">
-        <div class="max-w-7xl mx-auto px-6">
-            <div id="product-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-8 gap-y-16">
+<!-- Fruit Flavored -->
+<div class="product-card group" data-category="fruit">
+<div class="overflow-hidden rounded-3xl shadow-sm">
+<img src="assets/images/IMG_1754.PNG" alt="Mango Sea Moss Gel" class="w-full aspect-square object-cover">
+</div>
+<div class="mt-6 text-center">
+<h3 class="text-2xl font-light">Mango</h3>
+<p class="text-purple text-sm mt-1">Vitamin A &amp; C • Skin &amp; Immune Support</p>
+<button onclick="addToCart({id:'mango', name:'Mango Sea Moss Gel', price:35, details:'Vitamin A & C'})" class="mt-6 w-full bg-deep hover:bg-purple text-white py-4 rounded-3xl font-medium transition-all">Add to Cart</button>
+</div>
+</div>
 
-                <!-- Fruit Flavored -->
-                <div class="product-card group" data-category="fruit">
-                    <div class="overflow-hidden rounded-3xl shadow-sm">
-                        <img src="assets/images/IMG_1754.PNG" alt="Mango Sea Moss Gel" class="w-full aspect-square object-cover">
-                    </div>
-                    <div class="mt-6 text-center">
-                        <h3 class="text-2xl font-light">Mango</h3>
-                        <p class="text-purple text-sm mt-1">Vitamin A &amp; C • Skin &amp; Immune Support</p>
-                        <button onclick="addToCart({id:'mango', name:'Mango Sea Moss Gel', price:35, details:'Vitamin A & C'})" class="mt-6 w-full bg-deep hover:bg-purple text-white py-4 rounded-3xl font-medium transition-all">Add to Cart</button>
-                    </div>
-                </div>
+<div class="product-card group" data-category="fruit">
+<div class="overflow-hidden rounded-3xl shadow-sm">
+<img src="assets/images/tamarind.jpg" alt="Tamarind" class="w-full aspect-square object-cover">
+</div>
+<div class="mt-6 text-center">
+<h3 class="text-2xl font-light">Tamarind</h3>
+<p class="text-purple text-sm mt-1">Sweet &amp; Sour • Digestion &amp; Heart Health</p>
+<button onclick="addToCart({id:'tamarind', name:'Tamarind Sea Moss Gel', price:35, details:'Digestion'})" class="mt-6 w-full bg-deep hover:bg-purple text-white py-4 rounded-3xl font-medium transition-all">Add to Cart</button>
+</div>
+</div>
 
-                <div class="product-card group" data-category="fruit">
-                    <div class="overflow-hidden rounded-3xl shadow-sm">
-                        <img src="images/tamarind.jpg" alt="Tamarind" class="w-full aspect-square object-cover">
-                    </div>
-                    <div class="mt-6 text-center">
-                        <h3 class="text-2xl font-light">Tamarind</h3>
-                        <p class="text-purple text-sm mt-1">Sweet &amp; Sour • Digestion &amp; Heart Health</p>
-                        <button onclick="addToCart({id:'tamarind', name:'Tamarind Sea Moss Gel', price:35, details:'Digestion'})" class="mt-6 w-full bg-deep hover:bg-purple text-white py-4 rounded-3xl font-medium transition-all">Add to Cart</button>
-                    </div>
-                </div>
+<div class="product-card group" data-category="fruit">
+<div class="overflow-hidden rounded-3xl shadow-sm">
+<img src="assets/images/passionfruit.jpg" alt="Passionfruit" class="w-full aspect-square object-cover">
+</div>
+<div class="mt-6 text-center">
+<h3 class="text-2xl font-light">Passionfruit</h3>
+<p class="text-purple text-sm mt-1">High Vitamin C • Digestion &amp; Immunity</p>
+<button onclick="addToCart({id:'passionfruit', name:'Passionfruit Sea Moss Gel', price:35, details:'Immunity'})" class="mt-6 w-full bg-deep hover:bg-purple text-white py-4 rounded-3xl font-medium transition-all">Add to Cart</button>
+</div>
+</div>
 
-                <div class="product-card group" data-category="fruit">
-                    <div class="overflow-hidden rounded-3xl shadow-sm">
-                        <img src="images/passionfruit.jpg" alt="Passionfruit" class="w-full aspect-square object-cover">
-                    </div>
-                    <div class="mt-6 text-center">
-                        <h3 class="text-2xl font-light">Passionfruit</h3>
-                        <p class="text-purple text-sm mt-1">High Vitamin C • Digestion &amp; Immunity</p>
-                        <button onclick="addToCart({id:'passionfruit', name:'Passionfruit Sea Moss Gel', price:35, details:'Immunity'})" class="mt-6 w-full bg-deep hover:bg-purple text-white py-4 rounded-3xl font-medium transition-all">Add to Cart</button>
-                    </div>
-                </div>
+<div class="product-card group" data-category="fruit">
+<div class="overflow-hidden rounded-3xl shadow-sm">
+<img src="assets/images/blackberry.jpg" alt="Blackberry" class="w-full aspect-square object-cover">
+</div>
+<div class="mt-6 text-center">
+<h3 class="text-2xl font-light">Blackberry</h3>
+<p class="text-purple text-sm mt-1">Antioxidants • Heart, Brain &amp; Digestion</p>
+<button onclick="addToCart({id:'blackberry', name:'Blackberry Sea Moss Gel', price:35, details:'Antioxidants'})" class="mt-6 w-full bg-deep hover:bg-purple text-white py-4 rounded-3xl font-medium transition-all">Add to Cart</button>
+</div>
+</div>
 
-                <div class="product-card group" data-category="fruit">
-                    <div class="overflow-hidden rounded-3xl shadow-sm">
-                        <img src="images/blackberry.jpg" alt="Blackberry" class="w-full aspect-square object-cover">
-                    </div>
-                    <div class="mt-6 text-center">
-                        <h3 class="text-2xl font-light">Blackberry</h3>
-                        <p class="text-purple text-sm mt-1">Antioxidants • Heart, Brain &amp; Digestion</p>
-                        <button onclick="addToCart({id:'blackberry', name:'Blackberry Sea Moss Gel', price:35, details:'Antioxidants'})" class="mt-6 w-full bg-deep hover:bg-purple text-white py-4 rounded-3xl font-medium transition-all">Add to Cart</button>
-                    </div>
-                </div>
+<div class="product-card group" data-category="fruit">
+<div class="overflow-hidden rounded-3xl shadow-sm">
+<img src="assets/images/IMG_1753.PNG" alt="Soursop" class="w-full aspect-square object-cover">
+</div>
+<div class="mt-6 text-center">
+<h3 class="text-2xl font-light">Soursop</h3>
+<p class="text-purple text-sm mt-1">Antioxidants • Immune &amp; Skin Support</p>
+<button onclick="addToCart({id:'soursop', name:'Soursop Sea Moss Gel', price:35, details:'Immune Support'})" class="mt-6 w-full bg-deep hover:bg-purple text-white py-4 rounded-3xl font-medium transition-all">Add to Cart</button>
+</div>
+</div>
 
-                <div class="product-card group" data-category="fruit">
-                    <div class="overflow-hidden rounded-3xl shadow-sm">
-                        <img src="assets/images/IMG_1753.PNG" alt="Soursop" class="w-full aspect-square object-cover">
-                    </div>
-                    <div class="mt-6 text-center">
-                        <h3 class="text-2xl font-light">Soursop</h3>
-                        <p class="text-purple text-sm mt-1">Antioxidants • Immune &amp; Skin Support</p>
-                        <button onclick="addToCart({id:'soursop', name:'Soursop Sea Moss Gel', price:35, details:'Immune Support'})" class="mt-6 w-full bg-deep hover:bg-purple text-white py-4 rounded-3xl font-medium transition-all">Add to Cart</button>
-                    </div>
-                </div>
+<div class="product-card group" data-category="fruit">
+<div class="overflow-hidden rounded-3xl shadow-sm">
+<img src="assets/images/strawberry.jpg" alt="Strawberry" class="w-full aspect-square object-cover">
+</div>
+<div class="mt-6 text-center">
+<h3 class="text-2xl font-light">Strawberry</h3>
+<p class="text-purple text-sm mt-1">Vitamin C • Heart &amp; Immune Support</p>
+<button onclick="addToCart({id:'strawberry', name:'Strawberry Sea Moss Gel', price:35, details:'Vitamin C'})" class="mt-6 w-full bg-deep hover:bg-purple text-white py-4 rounded-3xl font-medium transition-all">Add to Cart</button>
+</div>
+</div>
 
-                <div class="product-card group" data-category="fruit">
-                    <div class="overflow-hidden rounded-3xl shadow-sm">
-                        <img src="images/strawberry.jpg" alt="Strawberry" class="w-full aspect-square object-cover">
-                    </div>
-                    <div class="mt-6 text-center">
-                        <h3 class="text-2xl font-light">Strawberry</h3>
-                        <p class="text-purple text-sm mt-1">Vitamin C • Heart &amp; Immune Support</p>
-                        <button onclick="addToCart({id:'strawberry', name:'Strawberry Sea Moss Gel', price:35, details:'Vitamin C'})" class="mt-6 w-full bg-deep hover:bg-purple text-white py-4 rounded-3xl font-medium transition-all">Add to Cart</button>
-                    </div>
-                </div>
+<div class="product-card group" data-category="fruit">
+<div class="overflow-hidden rounded-3xl shadow-sm">
+<img src="assets/images/pineapple.jpg" alt="Pineapple" class="w-full aspect-square object-cover">
+</div>
+<div class="mt-6 text-center">
+<h3 class="text-2xl font-light">Pineapple</h3>
+<p class="text-purple text-sm mt-1">Bromelain • Anti-inflammatory &amp; Digestion</p>
+<button onclick="addToCart({id:'pineapple', name:'Pineapple Sea Moss Gel', price:35, details:'Anti-inflammatory'})" class="mt-6 w-full bg-deep hover:bg-purple text-white py-4 rounded-3xl font-medium transition-all">Add to Cart</button>
+</div>
+</div>
 
-                <div class="product-card group" data-category="fruit">
-                    <div class="overflow-hidden rounded-3xl shadow-sm">
-                        <img src="images/pineapple.jpg" alt="Pineapple" class="w-full aspect-square object-cover">
-                    </div>
-                    <div class="mt-6 text-center">
-                        <h3 class="text-2xl font-light">Pineapple</h3>
-                        <p class="text-purple text-sm mt-1">Bromelain • Anti-inflammatory &amp; Digestion</p>
-                        <button onclick="addToCart({id:'pineapple', name:'Pineapple Sea Moss Gel', price:35, details:'Anti-inflammatory'})" class="mt-6 w-full bg-deep hover:bg-purple text-white py-4 rounded-3xl font-medium transition-all">Add to Cart</button>
-                    </div>
-                </div>
+<!-- Herb Infused -->
+<div class="product-card group" data-category="herb">
+<div class="overflow-hidden rounded-3xl shadow-sm">
+<img src="assets/images/blood-pressure.jpg" alt="Blood Pressure Balance Gel" class="w-full aspect-square object-cover">
+</div>
+<div class="mt-6 text-center">
+<h3 class="text-2xl font-light">Blood Pressure Balance</h3>
+<p class="text-purple text-sm mt-1">Bladderwrack • Cardiovascular Health</p>
+<button onclick="addToCart({id:'bloodpressure', name:'Blood Pressure Balance', price:38, details:'Cardiovascular'})" class="mt-6 w-full bg-deep hover:bg-purple text-white py-4 rounded-3xl font-medium transition-all">Add to Cart</button>
+</div>
+</div>
 
-                <!-- Herb Infused -->
-                <div class="product-card group" data-category="herb">
-                    <div class="overflow-hidden rounded-3xl shadow-sm">
-                        <img src="images/blood-pressure.jpg" alt="Blood Pressure Balance Gel" class="w-full aspect-square object-cover">
-                    </div>
-                    <div class="mt-6 text-center">
-                        <h3 class="text-2xl font-light">Blood Pressure Balance</h3>
-                        <p class="text-purple text-sm mt-1">Bladderwrack • Cardiovascular Health</p>
-                        <button onclick="addToCart({id:'bloodpressure', name:'Blood Pressure Balance', price:38, details:'Cardiovascular'})" class="mt-6 w-full bg-deep hover:bg-purple text-white py-4 rounded-3xl font-medium transition-all">Add to Cart</button>
-                    </div>
-                </div>
+<div class="product-card group" data-category="herb">
+<div class="overflow-hidden rounded-3xl shadow-sm">
+<img src="assets/images/vitality.jpg" alt="Vitality Gel" class="w-full aspect-square object-cover">
+</div>
+<div class="mt-6 text-center">
+<h3 class="text-2xl font-light">Vitality</h3>
+<p class="text-purple text-sm mt-1">Horny Goat Weed • Energy &amp; Libido</p>
+<button onclick="addToCart({id:'vitality', name:'Vitality Gel', price:38, details:'Energy & Libido'})" class="mt-6 w-full bg-deep hover:bg-purple text-white py-4 rounded-3xl font-medium transition-all">Add to Cart</button>
+</div>
+</div>
 
-                <div class="product-card group" data-category="herb">
-                    <div class="overflow-hidden rounded-3xl shadow-sm">
-                        <img src="images/vitality.jpg" alt="Vitality Gel" class="w-full aspect-square object-cover">
-                    </div>
-                    <div class="mt-6 text-center">
-                        <h3 class="text-2xl font-light">Vitality</h3>
-                        <p class="text-purple text-sm mt-1">Horny Goat Weed • Energy &amp; Libido</p>
-                        <button onclick="addToCart({id:'vitality', name:'Vitality Gel', price:38, details:'Energy & Libido'})" class="mt-6 w-full bg-deep hover:bg-purple text-white py-4 rounded-3xl font-medium transition-all">Add to Cart</button>
-                    </div>
-                </div>
+<div class="product-card group" data-category="herb">
+<div class="overflow-hidden rounded-3xl shadow-sm">
+<img src="assets/images/powerhouse.jpg" alt="Powerhouse Gel" class="w-full aspect-square object-cover">
+</div>
+<div class="mt-6 text-center">
+<h3 class="text-2xl font-light">Powerhouse</h3>
+<p class="text-purple text-sm mt-1">Shilajit • Energy &amp; Vitality</p>
+<button onclick="addToCart({id:'powerhouse', name:'Powerhouse Gel', price:45, details:'Energy & Vitality'})" class="mt-6 w-full bg-deep hover:bg-purple text-white py-4 rounded-3xl font-medium transition-all">Add to Cart</button>
+</div>
+</div>
 
-                <div class="product-card group" data-category="herb">
-                    <div class="overflow-hidden rounded-3xl shadow-sm">
-                        <img src="images/powerhouse.jpg" alt="Powerhouse Gel" class="w-full aspect-square object-cover">
-                    </div>
-                    <div class="mt-6 text-center">
-                        <h3 class="text-2xl font-light">Powerhouse</h3>
-                        <p class="text-purple text-sm mt-1">Shilajit • Energy &amp; Vitality</p>
-                        <button onclick="addToCart({id:'powerhouse', name:'Powerhouse Gel', price:45, details:'Energy & Vitality'})" class="mt-6 w-full bg-deep hover:bg-purple text-white py-4 rounded-3xl font-medium transition-all">Add to Cart</button>
-                    </div>
-                </div>
+<div class="product-card group" data-category="herb">
+<div class="overflow-hidden rounded-3xl shadow-sm">
+<img src="assets/images/immunity.jpg" alt="Immunity Boost Gel" class="w-full aspect-square object-cover">
+</div>
+<div class="mt-6 text-center">
+<h3 class="text-2xl font-light">Immunity Boost</h3>
+<p class="text-purple text-sm mt-1">Ginger • Immune &amp; Anti-inflammatory</p>
+<button onclick="addToCart({id:'immunity', name:'Immunity Boost Gel', price:35, details:'Immune Support'})" class="mt-6 w-full bg-deep hover:bg-purple text-white py-4 rounded-3xl font-medium transition-all">Add to Cart</button>
+</div>
+</div>
 
-                <div class="product-card group" data-category="herb">
-                    <div class="overflow-hidden rounded-3xl shadow-sm">
-                        <img src="images/immunity.jpg" alt="Immunity Boost Gel" class="w-full aspect-square object-cover">
-                    </div>
-                    <div class="mt-6 text-center">
-                        <h3 class="text-2xl font-light">Immunity Boost</h3>
-                        <p class="text-purple text-sm mt-1">Ginger • Immune &amp; Anti-inflammatory</p>
-                        <button onclick="addToCart({id:'immunity', name:'Immunity Boost Gel', price:35, details:'Immune Support'})" class="mt-6 w-full bg-deep hover:bg-purple text-white py-4 rounded-3xl font-medium transition-all">Add to Cart</button>
-                    </div>
-                </div>
+<div class="product-card group" data-category="herb">
+<div class="overflow-hidden rounded-3xl shadow-sm">
+<img src="assets/images/joint-relief.jpg" alt="Joint Relief Gel" class="w-full aspect-square object-cover">
+</div>
+<div class="mt-6 text-center">
+<h3 class="text-2xl font-light">Joint Relief</h3>
+<p class="text-purple text-sm mt-1">Blackseed Oil • Anti-inflammatory</p>
+<button onclick="addToCart({id:'joint', name:'Joint Relief Gel', price:38, details:'Joint Support'})" class="mt-6 w-full bg-deep hover:bg-purple text-white py-4 rounded-3xl font-medium transition-all">Add to Cart</button>
+</div>
+</div>
 
-                <div class="product-card group" data-category="herb">
-                    <div class="overflow-hidden rounded-3xl shadow-sm">
-                        <img src="images/joint-relief.jpg" alt="Joint Relief Gel" class="w-full aspect-square object-cover">
-                    </div>
-                    <div class="mt-6 text-center">
-                        <h3 class="text-2xl font-light">Joint Relief</h3>
-                        <p class="text-purple text-sm mt-1">Blackseed Oil • Anti-inflammatory</p>
-                        <button onclick="addToCart({id:'joint', name:'Joint Relief Gel', price:38, details:'Joint Support'})" class="mt-6 w-full bg-deep hover:bg-purple text-white py-4 rounded-3xl font-medium transition-all">Add to Cart</button>
-                    </div>
-                </div>
+<div class="product-card group" data-category="herb">
+<div class="overflow-hidden rounded-3xl shadow-sm">
+<img src="assets/images/brain-support.jpg" alt="Brain Support Gel" class="w-full aspect-square object-cover">
+</div>
+<div class="mt-6 text-center">
+<h3 class="text-2xl font-light">Brain Support</h3>
+<p class="text-purple text-sm mt-1">Ashwagandha • Stress Relief &amp; Focus</p>
+<button onclick="addToCart({id:'brain', name:'Brain Support Gel', price:38, details:'Stress & Focus'})" class="mt-6 w-full bg-deep hover:bg-purple text-white py-4 rounded-3xl font-medium transition-all">Add to Cart</button>
+</div>
+</div>
 
-                <div class="product-card group" data-category="herb">
-                    <div class="overflow-hidden rounded-3xl shadow-sm">
-                        <img src="images/brain-support.jpg" alt="Brain Support Gel" class="w-full aspect-square object-cover">
-                    </div>
-                    <div class="mt-6 text-center">
-                        <h3 class="text-2xl font-light">Brain Support</h3>
-                        <p class="text-purple text-sm mt-1">Ashwagandha • Stress Relief &amp; Focus</p>
-                        <button onclick="addToCart({id:'brain', name:'Brain Support Gel', price:38, details:'Stress & Focus'})" class="mt-6 w-full bg-deep hover:bg-purple text-white py-4 rounded-3xl font-medium transition-all">Add to Cart</button>
-                    </div>
-                </div>
+<!-- Pets -->
+<div class="product-card group" data-category="pets">
+<div class="overflow-hidden rounded-3xl shadow-sm">
+<img src="assets/images/pets-placeholder.jpg" alt="Pet Wellness Gel" class="w-full aspect-square object-cover">
+</div>
+<div class="mt-6 text-center">
+<h3 class="text-2xl font-light">Pet Wellness Gel</h3>
+<p class="text-sm mt-3 text-gray-600">The first sea moss gel formulated specifically for dogs &amp; cats.<br><span class="font-medium text-purple">Launching soon — Be the first to know.</span></p>
+<button onclick="alert('Pet Wellness Gel is coming soon! Sign up for early access and exclusive launch offers.')" class="mt-6 w-full bg-purple hover:bg-deep text-white py-4 rounded-3xl font-medium transition-all">Get Early Access</button>
+</div>
+</div>
 
-                <!-- Pets -->
-                <div class="product-card group" data-category="pets">
-                    <div class="overflow-hidden rounded-3xl shadow-sm">
-                        <img src="images/pets-placeholder.jpg" alt="Pet Wellness Gel" class="w-full aspect-square object-cover">
-                    </div>
-                    <div class="mt-6 text-center">
-                        <h3 class="text-2xl font-light">Pet Wellness Gel</h3>
-                        <p class="text-sm mt-3 text-gray-600">The first sea moss gel formulated specifically for dogs &amp; cats.<br><span class="font-medium text-purple">Launching soon — Be the first to know.</span></p>
-                        <button onclick="alert('Pet Wellness Gel is coming soon! Sign up for early access and exclusive launch offers.')" class="mt-6 w-full bg-purple hover:bg-deep text-white py-4 rounded-3xl font-medium transition-all">Get Early Access</button>
-                    </div>
-                </div>
+</div>
+</div>
+</section>
 
-            </div>
-        </div>
-    </section>
+<!-- Footer -->
+<footer class="bg-deep text-white py-16">
+<div class="max-w-7xl mx-auto px-6 text-center">
+<p class="mb-6 text-lg">Handcrafted with intention in Central Florida</p>
+<p class="text-sm opacity-75 max-w-md mx-auto">
+These statements have not been evaluated by the FDA. This product is not intended to diagnose, treat, cure, or prevent any disease.
+</p>
+<div class="mt-12 text-xs opacity-60">
+© 2026 Janesse's Seamoss Creation • Built by VSIT Solutions
+</div>
+</div>
+</footer>
 
-    <!-- Footer -->
-    <footer class="bg-deep text-white py-16">
-        <div class="max-w-7xl mx-auto px-6 text-center">
-            <p class="mb-6 text-lg">Handcrafted with intention in Central Florida</p>
-            <p class="text-sm opacity-75 max-w-md mx-auto">
-                These statements have not been evaluated by the FDA. This product is not intended to diagnose, treat, cure, or prevent any disease.
-            </p>
-            <div class="mt-12 text-xs opacity-60">
-                © 2026 Janesse's Seamoss Creation • Built by VSIT Solutions
-            </div>
-        </div>
-    </footer>
+<!-- Cart Modal -->
+<div id="cart-modal" class="hidden fixed inset-0 bg-black bg-opacity-50 z-[9999] flex items-center justify-center p-4">
+<div class="bg-white rounded-3xl max-w-md w-full max-h-[80vh] flex flex-col">
+<div class="p-6 border-b flex justify-between items-center">
+<h2 class="text-2xl font-medium">Your Wellness Basket</h2>
+<button onclick="hideCartModal()" class="text-4xl text-gray-400 hover:text-deep">×</button>
+</div>
+<div id="cart-items" class="flex-1 overflow-auto p-6"></div>
+<div class="p-6 border-t">
+<div class="flex justify-between text-xl mb-6">
+<span>Total</span>
+<span id="cart-total" class="font-semibold text-purple">$0.00</span>
+</div>
+<button onclick="proceedToCheckout()" class="w-full bg-purple hover:bg-deep text-white py-6 rounded-3xl font-semibold">
+Proceed to Secure Checkout →
+</button>
+</div>
+</div>
+</div>
 
-    <!-- Cart Modal -->
-    <div id="cart-modal" class="hidden fixed inset-0 bg-black bg-opacity-50 z-[9999] flex items-center justify-center p-4">
-        <div class="bg-white rounded-3xl max-w-md w-full max-h-[80vh] flex flex-col">
-            <div class="p-6 border-b flex justify-between items-center">
-                <h2 class="text-2xl font-medium">Your Wellness Basket</h2>
-                <button onclick="hideCartModal()" class="text-4xl text-gray-400 hover:text-deep">×</button>
-            </div>
-            <div id="cart-items" class="flex-1 overflow-auto p-6"></div>
-            <div class="p-6 border-t">
-                <div class="flex justify-between text-xl mb-6">
-                    <span>Total</span>
-                    <span id="cart-total" class="font-semibold text-purple">$0.00</span>
-                </div>
-                <button onclick="proceedToCheckout()" class="w-full bg-purple hover:bg-deep text-white py-6 rounded-3xl font-semibold">
-                    Proceed to Secure Checkout →
-                </button>
-            </div>
-        </div>
-    </div>
+<script src="script.js"></script>
+<script>
+// ==================== LIVE STRIPE CHECKOUT - CONNECTED TO RENDER ====================
+async function proceedToCheckout() {
+    hideCartModal();
+    const total = calculateTotal();
+    if (total <= 0) {
+        alert("🌿 Your wellness basket is empty! Add some sea moss gels to continue.");
+        return;
+    }
 
-    <script src="script.js"></script>
-    
-    <script>
-        function filterCategory(cat) {
-            const cards = document.querySelectorAll('.product-card');
-            cards.forEach(card => {
-                if (cat === 'all') {
-                    card.style.display = card.dataset.category === 'pets' ? 'none' : 'block';
-                } else {
-                    card.style.display = card.dataset.category === cat ? 'block' : 'none';
-                }
-            });
+    try {
+        const response = await fetch('https://janesse-seamoss-backend.onrender.com/create-checkout-session', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ cart: cart })
+        });
+
+        const data = await response.json();
+        if (!response.ok) throw new Error(data.error || "Something went wrong with checkout");
+
+        const stripe = Stripe('pk_live_51TREXTIeLXeJ9tb9RCUiY0hHSBBY5hbqPfwgnVpyUDS0nAYTgwhls3y2ffClfgUu7ZJjVPDVpr6tPZZWNBKcec8Q00BbSr1yQc');   // ← CHANGE THIS TO YOUR REAL KEY
+
+        await stripe.redirectToCheckout({ sessionId: data.id });
+
+    } catch (error) {
+        console.error("Checkout error:", error);
+        alert("⚠️ We couldn't connect to the secure checkout right now.\n\nPlease try again or contact us for help.");
+    }
+}
+
+function filterCategory(cat) {
+    const cards = document.querySelectorAll('.product-card');
+    cards.forEach(card => {
+        if (cat === 'all') {
+            card.style.display = card.dataset.category === 'pets' ? 'none' : 'block';
+        } else {
+            card.style.display = card.dataset.category === cat ? 'block' : 'none';
         }
-    </script>
+    });
+}
+</script>
 </body>
 </html>
