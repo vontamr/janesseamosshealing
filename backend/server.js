@@ -1,25 +1,22 @@
-// server.js - Janesse's Seamoss Creation Backend
+// server.js - Janesse's Seamoss Creation Backend (Fixed)
 require('dotenv').config();
 const express = require('express');
 const Stripe = require('stripe');
 const cors = require('cors');
 
 const app = express();
-const stripe = Stripe(process.env.STRIPE_SECRET_KEY);
+const stripe = Stripe(process.env.STRIPE_SECRET_KEY);   // ← Use your secret key from .env
 
 app.use(cors({ origin: '*' }));
 app.use(express.json());
 
 app.post('/create-checkout-session', async (req, res) => {
   try {
-    const { cart, name, email } = req.body;
+    const { cart } = req.body;
 
     if (!cart || cart.length === 0) {
       return res.status(400).json({ error: "Cart is empty" });
     }
-
-    // Generate beautiful Order ID
-    const orderId = 'JAN-' + Date.now().toString().slice(-8);
 
     const lineItems = cart.map(item => ({
       price_data: {
@@ -27,9 +24,8 @@ app.post('/create-checkout-session', async (req, res) => {
         product_data: {
           name: item.name,
           description: item.details || "Wild-Harvested Irish Sea Moss Gel",
-          images: item.image ? [item.image] : [],
         },
-        unit_amount: Math.round(item.price * 100),
+        unit_amount: Math.round(item.price * 100),   // convert dollars to cents
       },
       quantity: item.qty || 1,
     }));
@@ -38,18 +34,11 @@ app.post('/create-checkout-session', async (req, res) => {
       payment_method_types: ['card'],
       line_items: lineItems,
       mode: 'payment',
-      success_url: 'http://localhost:3000/success.html?session_id={CHECKOUT_SESSION_ID}',
-      cancel_url: 'http://localhost:3000/cancel.html',
-      metadata: {
-        order_id: orderId,
-        customer_name: name || 'Valued Customer',
-        customer_email: email || '',
-        items: cart.map(i => `${i.name} x${i.qty}`).join(', ')
-      },
+      success_url: req.body.success_url || 'https://vontamr.github.io/janesseamosshealing/shop.html?success=true',
+      cancel_url: req.body.cancel_url || 'https://vontamr.github.io/janesseamosshealing/cancel.html',
     });
 
-    console.log(`✅ New Order Created → ${orderId}`);
-    res.json({ id: session.id, orderId: orderId });
+    res.json({ id: session.id });
 
   } catch (error) {
     console.error("Stripe Error:", error);
@@ -57,7 +46,7 @@ app.post('/create-checkout-session', async (req, res) => {
   }
 });
 
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-  console.log(`🌊 Janesse Seamoss Backend flowing on http://localhost:${PORT}`);
+  console.log(`🌊 Janesse Seamoss Backend running on port ${PORT}`);
 });
