@@ -28,18 +28,22 @@ function initTailwind() {
 window.addEventListener('load', initTailwind);
 </script>
 <style>
-.marquee { overflow: hidden; white-space: nowrap; }
-.marquee-content { display: inline-flex; animation: marquee 35s linear infinite; }
-@keyframes marquee {
-    from { transform: translateX(0); }
-    to { transform: translateX(-50%); }
-}
-html { scroll-behavior: smooth; }
-.discover-scroll::-webkit-scrollbar { display: none; }
-.discover-scroll { scrollbar-width: none; }
-.hide-scrollbar::-webkit-scrollbar { display: none; }
-.hide-scrollbar { scrollbar-width: none; }
-</style>
+    .marquee {
+        overflow: hidden;
+        white-space: nowrap;
+    }
+    
+    .marquee-content {
+        display: inline-flex;
+        gap: 3rem;
+        animation: marquee 10s linear infinite;   /* Smooth & readable speed */
+    }
+    
+    @keyframes marquee {
+        from { transform: translateX(0); }
+        to { transform: translateX(-50%); }   /* -50% because we duplicated content */
+    }
+    </style>
 </head>
 <body class="bg-white text-deep font-sans antialiased">
 
@@ -93,11 +97,16 @@ html { scroll-behavior: smooth; }
 </nav>
 
 <!-- Marquee -->
-<div class="bg-lightpurple/30 py-3 text-purple font-medium text-sm border-b">
+<div class="bg-lightpurple/30 py-3 text-purple font-medium text-sm border-b overflow-hidden">
     <div class="marquee">
-        <div class="marquee-content flex gap-12">
-            <span>🌿 Wild-Harvested from Antigua &amp; St. Lucia • 92+ Minerals • Fresh Weekly in Central Florida</span>
-            <span>🌿 Handcrafted with Intention • Local Pickup &amp; Delivery</span>
+        <div class="marquee-content flex gap-12 items-center">
+            <!-- First copy -->
+            <span>🌿 Wild-Harvested from Antigua &amp; St. Lucia • 92+ Minerals • Fresh Weekly in Central Florida • Handcrafted with Intention</span>
+            <span>🌿 Local Pickup &amp; Delivery Available • Pure Caribbean Sea Moss • No Fillers • Naturally Sweetened</span>
+            
+            <!-- Second copy (for seamless loop) -->
+            <span>🌿 Wild-Harvested from Antigua &amp; St. Lucia • 92+ Minerals • Fresh Weekly in Central Florida • Handcrafted with Intention</span>
+            <span>🌿 Local Pickup &amp; Delivery Available • Pure Caribbean Sea Moss • No Fillers • Naturally Sweetened</span>
         </div>
     </div>
 </div>
@@ -133,54 +142,83 @@ html { scroll-behavior: smooth; }
     </div>
 </header>
 
-<!-- Discover Our World -->
+<!-- Discover Our World - Upgraded -->
 <section class="py-20 bg-white">
     <div class="max-w-7xl mx-auto px-6">
         <div class="text-center mb-12">
             <h2 class="text-4xl md:text-5xl font-light tracking-tight">Discover Our World</h2>
-            <p class="text-center text-gray-600 mt-4 max-w-md mx-auto">Pure sea moss expressions crafted with intention — each one supporting your body’s natural harmony.</p>
+            <p class="text-center text-gray-600 mt-4 max-w-lg mx-auto">
+                Each blend is handcrafted with intention to support different aspects of your wellness journey.
+            </p>
         </div>
-        <div class="discover-scroll grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 md:gap-8 overflow-x-auto pb-8 snap-x snap-mandatory md:overflow-visible">
-            <!-- 1. Herb Infused Gels -->
-            <div class="group bg-white rounded-3xl shadow-sm hover:shadow-xl transition-all p-6 md:p-8 text-center flex flex-col h-full snap-center min-w-[calc(50%-12px)] md:min-w-0">
-                <div class="mb-6 group-hover:scale-110 transition-transform overflow-hidden rounded-3xl">
-                    <img src="assets/images/joint-relief-seamoss.jpg" alt="Herb Infused Sea Moss Gels" class="w-full h-80 md:h-64 object-contain">
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-8">
+
+            <!-- 1. Herb Infused -->
+            <div class="group bg-white border border-gray-100 rounded-3xl overflow-hidden hover:shadow-2xl transition-all duration-300">
+                <div class="h-64 bg-gray-100 overflow-hidden">
+                    <img src="assets/images/joint-relief-seamoss.jpg" alt="Herb Infused" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                 </div>
-                <h3 class="text-2xl font-medium mb-3">Herb Infused Gels</h3>
-                <p class="text-gray-600 flex-1">Bladderwrack, Burdock Root, Blackseed &amp; more</p>
-            </div>
-            <!-- 2. Fruit Flavored Gels -->
-            <div class="group bg-white rounded-3xl shadow-sm hover:shadow-xl transition-all p-6 md:p-8 text-center flex flex-col h-full snap-center min-w-[calc(50%-12px)] md:min-w-0">
-                <div class="mb-6 group-hover:scale-110 transition-transform overflow-hidden rounded-3xl">
-                    <img src="assets/images/passion-fruit-seamoss.jpg" alt="Fruit Flavored Sea Moss Gels" class="w-full h-80 md:h-64 object-contain">
+                <div class="p-8">
+                    <h3 class="text-2xl font-medium mb-2">Herb Infused Gels</h3>
+                    <p class="text-purple text-sm mb-4">Targeted Healing</p>
+                    <p class="text-gray-600 text-[15px]">Thyroid, joints, energy, hormones & detoxification support.</p>
+                    <a href="shop.html" class="mt-6 inline-flex items-center gap-2 text-purple font-medium hover:text-deep">Explore →</a>
                 </div>
-                <h3 class="text-2xl font-medium mb-3">Fruit Flavored Gels</h3>
-                <p class="text-gray-600 flex-1">Mango, Soursop, Pineapple, Strawberry</p>
             </div>
+
+            <!-- 2. Fruit Flavored -->
+            <div class="group bg-white border border-gray-100 rounded-3xl overflow-hidden hover:shadow-2xl transition-all duration-300">
+                <div class="h-64 bg-gray-100 overflow-hidden">
+                    <img src="assets/images/passion-fruit-seamoss.jpg" alt="Fruit Flavored" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                </div>
+                <div class="p-8">
+                    <h3 class="text-2xl font-medium mb-2">Fruit Flavored Gels</h3>
+                    <p class="text-purple text-sm mb-4">Daily Delight</p>
+                    <p class="text-gray-600 text-[15px]">Mango, Passion Fruit, Soursop, Pineapple & more.</p>
+                    <a href="shop.html" class="mt-6 inline-flex items-center gap-2 text-purple font-medium hover:text-deep">Shop Flavors →</a>
+                </div>
+            </div>
+
             <!-- 3. Sea Moss Juices -->
-            <div class="group bg-white rounded-3xl shadow-sm hover:shadow-xl transition-all p-6 md:p-8 text-center flex flex-col h-full snap-center min-w-[calc(50%-12px)] md:min-w-0">
-                <div class="mb-6 group-hover:scale-110 transition-transform overflow-hidden rounded-3xl">
-                    <img src="assets/images/sea-moss-juices.jpg" alt="Sea Moss Juices - Ready-to-drink wellness shots" class="w-full h-80 md:h-64 object-contain">
+            <div class="group bg-white border border-gray-100 rounded-3xl overflow-hidden hover:shadow-2xl transition-all duration-300">
+                <div class="h-64 bg-gray-100 overflow-hidden">
+                    <img src="assets/images/sea-moss-juices.jpg" alt="Juices" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                 </div>
-                <h3 class="text-2xl font-medium mb-3">Sea Moss Juices</h3>
-                <p class="text-gray-600 flex-1">Ready-to-drink wellness shots</p>
-            </div>
-            <!-- 4. Skincare Gels -->
-            <div class="group bg-white rounded-3xl shadow-sm hover:shadow-xl transition-all p-6 md:p-8 text-center flex flex-col h-full snap-center min-w-[calc(50%-12px)] md:min-w-0">
-                <div class="mb-6 group-hover:scale-110 transition-transform overflow-hidden rounded-3xl">
-                    <img src="assets/images/skincare-gels.jpg" alt="Skincare Sea Moss Gels - Glowing skin" class="w-full h-80 md:h-64 object-contain">
+                <div class="p-8">
+                    <h3 class="text-2xl font-medium mb-2">Ready-to-Drink Juices</h3>
+                    <p class="text-purple text-sm mb-4">On-the-Go Wellness</p>
+                    <p class="text-gray-600 text-[15px]">Convenient mineral shots for busy lifestyles.</p>
+                    <a href="shop.html" class="mt-6 inline-flex items-center gap-2 text-purple font-medium hover:text-deep">Shop Juices →</a>
                 </div>
-                <h3 class="text-2xl font-medium mb-3">Skincare Gels</h3>
-                <p class="text-gray-600 flex-1">Topical sea moss for glowing skin</p>
             </div>
+
+            <!-- 4. Skincare -->
+            <div class="group bg-white border border-gray-100 rounded-3xl overflow-hidden hover:shadow-2xl transition-all duration-300">
+                <div class="h-64 bg-gray-100 overflow-hidden">
+                    <img src="assets/images/skincare-gels.jpg" alt="Skincare" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                </div>
+                <div class="p-8">
+                    <h3 class="text-2xl font-medium mb-2">Skincare Gels</h3>
+                    <p class="text-purple text-sm mb-4">Glow from Within & Out</p>
+                    <p class="text-gray-600 text-[15px]">Topical sea moss for radiant, nourished skin.</p>
+                    <a href="shop.html" class="mt-6 inline-flex items-center gap-2 text-purple font-medium hover:text-deep">Discover Skincare →</a>
+                </div>
+            </div>
+
             <!-- 5. Fitness Recovery -->
-            <div class="group bg-white rounded-3xl shadow-sm hover:shadow-xl transition-all p-6 md:p-8 text-center flex flex-col h-full snap-center min-w-[calc(50%-12px)] md:min-w-0">
-                <div class="mb-6 group-hover:scale-110 transition-transform overflow-hidden rounded-3xl">
-                    <img src="assets/images/IMG_8064 Background Removed 2.png" alt="Fitness Recovery Sea Moss - Guy flexing biceps" class="w-full h-80 md:h-64 object-contain">
+            <div class="group bg-white border border-gray-100 rounded-3xl overflow-hidden hover:shadow-2xl transition-all duration-300">
+                <div class="h-64 bg-gray-100 overflow-hidden">
+                    <img src="assets/images/IMG_8064 Background Removed 2.png" alt="Fitness Recovery" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                 </div>
-                <h3 class="text-2xl font-medium mb-3">Fitness Recovery</h3>
-                <p class="text-gray-600 flex-1">Post-workout mineral support</p>
+                <div class="p-8">
+                    <h3 class="text-2xl font-medium mb-2">Fitness Recovery</h3>
+                    <p class="text-purple text-sm mb-4">Post-Workout Support</p>
+                    <p class="text-gray-600 text-[15px]">Replenish minerals, reduce inflammation & support muscle recovery.</p>
+                    <a href="shop.html" class="mt-6 inline-flex items-center gap-2 text-purple font-medium hover:text-deep">Shop Recovery →</a>
+                </div>
             </div>
+
         </div>
     </div>
 </section>
