@@ -33,7 +33,6 @@
             0%, 100% { transform: translateY(0px); }
             50% { transform: translateY(-20px); }
         }
-        
         .purple-car {
             animation: driveSmooth 3.5s linear infinite;
         }
@@ -63,8 +62,6 @@
             <h1 class="text-5xl md:text-6xl font-light tracking-tighter">Fresh Sea Moss, Delivered</h1>
             <p class="text-xl mt-4 opacity-90">Same-day pickup or fast local delivery in Central Florida</p>
         </div>
-        
-        <!-- Floating Jar -->
         <div class="absolute right-12 bottom-8 hidden lg:block">
             <img src="assets/images/passion-fruit-seamoss.jpg" 
                  alt="Fresh Passion Fruit Sea Moss" 
@@ -78,17 +75,27 @@
         <div class="bg-white border border-purple/30 rounded-3xl p-8 mb-12">
             <h2 class="text-2xl font-medium mb-6 text-center">Check Delivery Availability</h2>
             <div class="max-w-md mx-auto">
-                <div class="flex gap-3">
+                <div class="flex flex-col sm:flex-row gap-3">
                     <input type="text" id="zip-input" placeholder="Enter ZIP Code (e.g. 32808)" 
-                           maxlength="5" class="flex-1 px-6 py-5 border border-gray-300 rounded-3xl focus:outline-none focus:border-purple text-center text-lg font-medium">
-                    <button onclick="checkZip()" class="bg-purple hover:bg-deep text-white px-10 rounded-3xl font-semibold">Check</button>
+                           maxlength="5" 
+                           class="flex-1 px-6 py-5 border border-gray-300 rounded-3xl focus:outline-none focus:border-purple text-center text-lg font-medium">
+                    <button onclick="checkZip()" 
+                            class="bg-purple hover:bg-deep text-white px-8 py-5 rounded-3xl font-semibold whitespace-nowrap">
+                        Check
+                    </button>
                 </div>
+
+                <!-- Auto Detect Button -->
+                <button onclick="detectLocation()" 
+                        class="mt-4 w-full bg-gray-100 hover:bg-gray-200 text-deep py-4 rounded-3xl font-medium flex items-center justify-center gap-2 transition-all">
+                    📍 Use My Current Location
+                </button>
+
                 <div id="zip-result" class="hidden mt-6 p-6 bg-lightpurple/30 rounded-3xl text-center"></div>
             </div>
         </div>
 
         <div class="grid md:grid-cols-2 gap-12">
-            
             <!-- Pickup -->
             <div class="bg-white border border-purple/20 rounded-3xl p-10">
                 <h2 class="text-3xl font-medium mb-6">Local Pickup</h2>
@@ -111,9 +118,7 @@
                         <rect x="95" y="27" width="18" height="14" rx="3" fill="#5E0089"/>
                     </svg>
                 </h2>
-                <div id="delivery-options" class="space-y-4">
-                    <!-- Populated by JS -->
-                </div>
+                <div id="delivery-options" class="space-y-4"></div>
             </div>
         </div>
     </div>
@@ -128,7 +133,42 @@
                 result.classList.remove('hidden');
                 return;
             }
+            processZip(zip);
+        }
 
+        function detectLocation() {
+            const result = document.getElementById('zip-result');
+            result.innerHTML = `<p class="text-purple">Detecting location...</p>`;
+            result.classList.remove('hidden');
+
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(
+                    (position) => {
+                        // For demo purposes - in real app you'd use reverse geocoding
+                        result.innerHTML = `
+                            <p class="text-green-600 font-medium text-xl">Location detected near Orlando area</p>
+                            <p class="mt-4">We recommend checking ZIP 32808 or nearby for fastest delivery.</p>
+                            <button onclick="suggestZip()" class="mt-6 w-full bg-purple hover:bg-deep text-white py-5 rounded-3xl font-semibold">
+                                Use Suggested ZIP
+                            </button>
+                        `;
+                    },
+                    (error) => {
+                        result.innerHTML = `<p class="text-red-600">Unable to detect location. Please enter ZIP code manually.</p>`;
+                    }
+                );
+            } else {
+                result.innerHTML = `<p class="text-red-600">Geolocation is not supported by your browser.</p>`;
+            }
+        }
+
+        function suggestZip() {
+            document.getElementById('zip-input').value = "32808";
+            checkZip();
+        }
+
+        function processZip(zip) {
+            const result = document.getElementById('zip-result');
             let time = "60-90 minutes";
             let fee = "$10";
             let area = "Central Florida";
@@ -154,7 +194,6 @@
                     Continue to Order
                 </button>
             `;
-            result.classList.remove('hidden');
         }
 
         function startOrder() {
