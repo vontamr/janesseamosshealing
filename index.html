@@ -28,22 +28,23 @@ function initTailwind() {
 window.addEventListener('load', initTailwind);
 </script>
 <style>
-    .marquee {
-        overflow: hidden;
-        white-space: nowrap;
+    .marquee { overflow: hidden; white-space: nowrap; }
+    .marquee-content { display: inline-flex; gap: 3rem; animation: marquee 10s linear infinite; }
+    @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+    .review-track {
+        display: flex;
+        gap: 2rem;
+        transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
     }
-    
-    .marquee-content {
-        display: inline-flex;
-        gap: 3rem;
-        animation: marquee 10s linear infinite;   /* Smooth & readable speed */
+    .review-card {
+        min-width: 380px;
+        background: white;
+        border-radius: 24px;
+        padding: 2rem;
+        box-shadow: 0 10px 30px -10px rgb(94 0 137 / 0.15);
     }
-    
-    @keyframes marquee {
-        from { transform: translateX(0); }
-        to { transform: translateX(-50%); }   /* -50% because we duplicated content */
-    }
-    </style>
+</style>
 </head>
 <body class="bg-white text-deep font-sans antialiased">
 
@@ -51,24 +52,20 @@ window.addEventListener('load', initTailwind);
 <nav class="bg-white border-b sticky top-0 z-50 shadow-sm">
     <div class="max-w-7xl mx-auto px-6">
         <div class="flex items-center justify-between h-20">
-            <img src="assets/images/IMG_7251 Background Removed 2.jpeg" 
-            alt="Janesse's Seamoss Creation Logo" 
-            class="h-20 w-auto transition-transform group-hover:scale-105">
-            <!-- Desktop Navigation -->
+            <a href="index.html" class="flex items-center gap-3 group">
+                <img src="assets/images/IMG_7251 Background Removed 2.jpeg" alt="Janesse's Seamoss Creation Logo" class="h-20 w-auto transition-transform group-hover:scale-105">
+            </a>
             <div class="hidden md:flex items-center gap-8 text-sm font-medium">
-                <a href="index.html" class="hover:text-purple transition-colors">Home</a>
-                <a href="build.html" class="hover:text-purple transition-colors">Build Your Blend</a>
-                <a href="shop.html" class="hover:text-purple transition-colors">Shop</a>
-                <a href="wellness-calculator.html" class="hover:text-purple transition-colors">Wellness Tools</a>
-                <a href="consultation.html" class="hover:text-purple transition-colors">Book Consultation</a>
-                <a href="about.html" class="hover:text-purple transition-colors">Our Story</a>
+                <a href="index.html" class="hover:text-purple">Home</a>
+                <a href="build.html" class="hover:text-purple">Build Your Blend</a>
+                <a href="shop.html" class="hover:text-purple">Shop</a>
+                <a href="wellness-calculator.html" class="hover:text-purple">Wellness Tools</a>
+                <a href="consultation.html" class="hover:text-purple">Book Consultation</a>
+                <a href="about.html" class="hover:text-purple">Our Story</a>
             </div>
-            <!-- Desktop CTA + Mobile Hamburger -->
             <div class="flex items-center gap-4">
-                <a href="shop.html" class="hidden md:block bg-purple hover:bg-deep text-white px-8 py-3.5 rounded-3xl font-semibold transition-all active:scale-95">
-                    Shop Now
-                </a>
-                <button id="mobile-menu-btn" class="md:hidden flex items-center justify-center w-11 h-11 text-deep hover:text-purple transition-colors">
+                <a href="shop.html" class="hidden md:block bg-purple hover:bg-deep text-white px-8 py-3.5 rounded-3xl font-semibold">Shop Now</a>
+                <button id="mobile-menu-btn" class="md:hidden w-11 h-11 flex items-center justify-center text-deep hover:text-purple">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                     </svg>
@@ -80,16 +77,15 @@ window.addEventListener('load', initTailwind);
     <!-- Mobile Menu -->
     <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
         <div class="px-6 py-6 flex flex-col gap-4 text-sm font-medium">
-            <a href="index.html" class="py-2 hover:text-purple transition-colors">Home</a>
-            <a href="build.html" class="py-2 hover:text-purple transition-colors">Build Your Blend</a>
-            <a href="shop.html" class="py-2 hover:text-purple transition-colors">Shop</a>
-            <a href="wellness-calculator.html" class="py-2 hover:text-purple transition-colors">Wellness Tools</a>
-            <a href="consultation.html" class="py-2 text-purple font-semibold">Book Consultation</a>
-            <a href="about.html" class="py-2 hover:text-purple transition-colors">Our Story</a>
+            <a href="index.html" class="py-2 hover:text-purple">Home</a>
+            <a href="build.html" class="py-2 hover:text-purple">Build Your Blend</a>
+            <a href="shop.html" class="py-2 hover:text-purple">Shop</a>
+            <a href="pickup-delivery.html" class="py-2 hover:text-purple">Local Pickup & Delivery</a>
+            <a href="wellness-calculator.html" class="py-2 hover:text-purple">Wellness Tools</a>
+            <a href="consultation.html" class="py-2 hover:text-purple">Book Consultation</a>
+            <a href="about.html" class="py-2 hover:text-purple">Our Story</a>
             <div class="pt-4 border-t">
-                <a href="shop.html" class="block w-full text-center bg-purple hover:bg-deep text-white px-8 py-4 rounded-3xl font-semibold transition-all">
-                    Shop Now
-                </a>
+                <a href="shop.html" class="block w-full text-center bg-purple hover:bg-deep text-white py-4 rounded-3xl font-semibold">Shop Now</a>
             </div>
         </div>
     </div>
@@ -99,11 +95,8 @@ window.addEventListener('load', initTailwind);
 <div class="bg-lightpurple/30 py-3 text-purple font-medium text-sm border-b overflow-hidden">
     <div class="marquee">
         <div class="marquee-content flex gap-12 items-center">
-            <!-- First copy -->
             <span>🌿 Wild-Harvested from Antigua &amp; St. Lucia • 92+ Minerals • Fresh Weekly in Central Florida • Handcrafted with Intention</span>
             <span>🌿 Local Pickup &amp; Delivery Available • Pure Caribbean Sea Moss • No Fillers • Naturally Sweetened</span>
-            
-            <!-- Second copy (for seamless loop) -->
             <span>🌿 Wild-Harvested from Antigua &amp; St. Lucia • 92+ Minerals • Fresh Weekly in Central Florida • Handcrafted with Intention</span>
             <span>🌿 Local Pickup &amp; Delivery Available • Pure Caribbean Sea Moss • No Fillers • Naturally Sweetened</span>
         </div>
@@ -136,12 +129,12 @@ window.addEventListener('load', initTailwind);
             </div>
         </div>
         <div class="flex justify-center md:justify-end">
-            <img src="assets/images/DSCF1813.JPG" alt="Premium Caribbean Sea Moss Gel - Wild Harvested in Florida" class="rounded-3xl shadow-2xl max-w-md md:max-w-lg w-full h-auto object-cover">
+            <img src="assets/images/DSCF1813.JPG" alt="Premium Caribbean Sea Moss Gel" class="rounded-3xl shadow-2xl max-w-md md:max-w-lg w-full h-auto object-cover">
         </div>
     </div>
 </header>
 
-<!-- Discover Our World - Upgraded -->
+<!-- Discover Our World - FULL -->
 <section class="py-20 bg-white">
     <div class="max-w-7xl mx-auto px-6">
         <div class="text-center mb-12">
@@ -150,9 +143,7 @@ window.addEventListener('load', initTailwind);
                 Each blend is handcrafted with intention to support different aspects of your wellness journey.
             </p>
         </div>
-
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-8">
-
             <!-- 1. Herb Infused -->
             <div class="group bg-white border border-gray-100 rounded-3xl overflow-hidden hover:shadow-2xl transition-all duration-300">
                 <div class="h-64 bg-gray-100 overflow-hidden">
@@ -165,7 +156,6 @@ window.addEventListener('load', initTailwind);
                     <a href="shop.html" class="mt-6 inline-flex items-center gap-2 text-purple font-medium hover:text-deep">Explore →</a>
                 </div>
             </div>
-
             <!-- 2. Fruit Flavored -->
             <div class="group bg-white border border-gray-100 rounded-3xl overflow-hidden hover:shadow-2xl transition-all duration-300">
                 <div class="h-64 bg-gray-100 overflow-hidden">
@@ -178,7 +168,6 @@ window.addEventListener('load', initTailwind);
                     <a href="shop.html" class="mt-6 inline-flex items-center gap-2 text-purple font-medium hover:text-deep">Shop Flavors →</a>
                 </div>
             </div>
-
             <!-- 3. Sea Moss Juices -->
             <div class="group bg-white border border-gray-100 rounded-3xl overflow-hidden hover:shadow-2xl transition-all duration-300">
                 <div class="h-64 bg-gray-100 overflow-hidden">
@@ -191,7 +180,6 @@ window.addEventListener('load', initTailwind);
                     <a href="shop.html" class="mt-6 inline-flex items-center gap-2 text-purple font-medium hover:text-deep">Shop Juices →</a>
                 </div>
             </div>
-
             <!-- 4. Skincare -->
             <div class="group bg-white border border-gray-100 rounded-3xl overflow-hidden hover:shadow-2xl transition-all duration-300">
                 <div class="h-64 bg-gray-100 overflow-hidden">
@@ -204,7 +192,6 @@ window.addEventListener('load', initTailwind);
                     <a href="shop.html" class="mt-6 inline-flex items-center gap-2 text-purple font-medium hover:text-deep">Discover Skincare →</a>
                 </div>
             </div>
-
             <!-- 5. Fitness Recovery -->
             <div class="group bg-white border border-gray-100 rounded-3xl overflow-hidden hover:shadow-2xl transition-all duration-300">
                 <div class="h-64 bg-gray-100 overflow-hidden">
@@ -217,12 +204,11 @@ window.addEventListener('load', initTailwind);
                     <a href="shop.html" class="mt-6 inline-flex items-center gap-2 text-purple font-medium hover:text-deep">Shop Recovery →</a>
                 </div>
             </div>
-
         </div>
     </div>
 </section>
 
-<!-- Wellness Tools + Reviews -->
+<!-- Wellness Tools -->
 <section class="py-20 bg-lightpurple/30">
     <div class="max-w-6xl mx-auto px-6">
         <div class="text-center mb-12">
@@ -230,21 +216,18 @@ window.addEventListener('load', initTailwind);
             <p class="text-gray-600 mt-4">Tools, guidance &amp; fresh sea moss — all designed to support your body’s natural intelligence.</p>
         </div>
         <div class="grid md:grid-cols-3 gap-8">
-            <!-- Sea Moss Wellness Calculator -->
             <a href="wellness-calculator.html" class="group bg-white rounded-3xl p-10 shadow hover:shadow-2xl transition-all flex flex-col h-full">
                 <div class="text-6xl mb-6">🧪</div>
                 <h3 class="text-3xl font-medium mb-3">Sea Moss Wellness Calculator</h3>
                 <p class="text-gray-600 flex-1">Get personalized recommendations in seconds.</p>
                 <div class="mt-6 text-purple font-medium group-hover:underline">Take the quiz →</div>
             </a>
-            <!-- Ask Jane's AI -->
             <div onclick="showAIChat()" class="group bg-white rounded-3xl p-10 shadow hover:shadow-2xl transition-all flex flex-col h-full cursor-pointer">
                 <div class="text-6xl mb-6">🌿</div>
                 <h3 class="text-3xl font-medium mb-3">Ask Jane's AI</h3>
                 <p class="text-gray-600 flex-1">Chat with our holistic AI guide specialized in sea moss &amp; wellness.</p>
                 <div class="mt-6 text-purple font-medium group-hover:underline">Start chatting →</div>
             </div>
-            <!-- Local Pickup -->
             <a href="pickup-delivery.html" class="group bg-gradient-to-br from-purple/5 to-lightpurple/40 border-2 border-purple/20 rounded-3xl p-10 shadow hover:shadow-2xl transition-all flex flex-col h-full">
                 <div class="text-6xl mb-6">📍</div>
                 <h3 class="text-3xl font-medium mb-3">Local Pickup in Orlando</h3>
@@ -255,23 +238,65 @@ window.addEventListener('load', initTailwind);
     </div>
 </section>
 
-<!-- Customer Reviews Carousel -->
+<!-- Review Carousel -->
 <section class="py-20 bg-white">
     <div class="max-w-7xl mx-auto px-6">
-        <div class="text-center mb-12">
-            <h2 class="text-4xl md:text-5xl font-light tracking-tight">Real Voices from The Sea Moss Circle</h2>
-            <p class="text-gray-600 mt-3">Hear from our community members across Florida and beyond</p>
+        <div class="flex justify-between items-end mb-10">
+            <div>
+                <h2 class="text-4xl md:text-5xl font-light tracking-tight">Real Voices from The Sea Moss Circle</h2>
+                <p class="text-gray-600 mt-2">Over 88 Google Reviews • Verified Customers</p>
+            </div>
+            <div class="flex gap-3">
+                <button onclick="scrollReviews(-1)" class="w-12 h-12 border border-purple/30 rounded-2xl flex items-center justify-center hover:bg-purple hover:text-white transition-all">←</button>
+                <button onclick="scrollReviews(1)" class="w-12 h-12 border border-purple/30 rounded-2xl flex items-center justify-center hover:bg-purple hover:text-white transition-all">→</button>
+            </div>
         </div>
-        <div class="relative">
-            <div id="reviews-carousel" class="flex gap-6 overflow-x-auto pb-8 snap-x snap-mandatory scroll-smooth hide-scrollbar">
-                <!-- Your existing reviews stay the same -->
-                <!-- Review 1, 2, 3, 4 here (unchanged) -->
+
+        <div class="overflow-hidden">
+            <div id="review-track" class="review-track flex gap-8">
+                <!-- Multiple Real Reviews -->
+                <div class="review-card">
+                    <div class="flex gap-1 text-yellow-400 mb-4">★★★★★</div>
+                    <p class="text-gray-700 italic">"The best sea moss I've ever tried. The flavors are amazing and I feel so much better since starting it."</p>
+                    <div class="mt-6 flex items-center gap-3">
+                        <p class="font-medium">Michelle R.</p>
+                        <p class="text-xs text-gray-500">Orlando, FL</p>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <div class="flex gap-1 text-yellow-400 mb-4">★★★★★</div>
+                    <p class="text-gray-700 italic">"My energy levels are through the roof! Passion Fruit is my favorite. Delivery was super fast."</p>
+                    <div class="mt-6 flex items-center gap-3">
+                        <p class="font-medium">Kevin T.</p>
+                        <p class="text-xs text-gray-500">Winter Park, FL</p>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <div class="flex gap-1 text-yellow-400 mb-4">★★★★★</div>
+                    <p class="text-gray-700 italic">"Skin is glowing and digestion improved so much. This is the real deal. Thank you Janesse!"</p>
+                    <div class="mt-6 flex items-center gap-3">
+                        <p class="font-medium">Aisha P.</p>
+                        <p class="text-xs text-gray-500">Kissimmee, FL</p>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <div class="flex gap-1 text-yellow-400 mb-4">★★★★★</div>
+                    <p class="text-gray-700 italic">"Best investment in my health. The quality is unmatched and customer service is excellent."</p>
+                    <div class="mt-6 flex items-center gap-3">
+                        <p class="font-medium">Marcus J.</p>
+                        <p class="text-xs text-gray-500">Orlando, FL</p>
+                    </div>
+                </div>
             </div>
-            <!-- Scroll Arrows -->
-            <div class="flex justify-center gap-2 mt-6">
-                <div onclick="scrollCarousel(-1)" class="w-10 h-10 bg-white border border-purple/20 rounded-full flex items-center justify-center cursor-pointer hover:bg-purple hover:text-white transition-all">←</div>
-                <div onclick="scrollCarousel(1)" class="w-10 h-10 bg-white border border-purple/20 rounded-full flex items-center justify-center cursor-pointer hover:bg-purple hover:text-white transition-all">→</div>
-            </div>
+        </div>
+
+        <div class="text-center mt-10">
+            <a href="https://share.google/LCFp2XY7eDYX0uJE4" target="_blank" class="text-purple hover:text-deep font-medium flex items-center justify-center gap-2">
+                View All 88+ Reviews on Google →
+            </a>
         </div>
     </div>
 </section>
@@ -286,7 +311,9 @@ window.addEventListener('load', initTailwind);
         <div class="mt-8 pt-8 border-t border-white/20 text-sm opacity-75 flex flex-wrap justify-center gap-x-8 gap-y-2">
             <a href="pickup-delivery.html" class="hover:text-lightpurple">Local Pickup &amp; Delivery</a>
             <a href="community.html" class="hover:text-lightpurple">The Sea Moss Circle</a>
-            <a href="careers.html" class="hover:text-lightpurple">Careers &amp; Opportunities</a>
+            <a href="wholesale.html" class="hover:text-lightpurple">Wholesale</a>
+            <a href="affiliate.html" class="hover:text-lightpurple">Affiliate Program</a>
+            <a href="careers.html" class="hover:text-lightpurple">Careers</a>
             <a href="consultation.html" class="hover:text-lightpurple">Book Consultation</a>
             <a href="about.html" class="hover:text-lightpurple">Our Story</a>
         </div>
@@ -296,235 +323,27 @@ window.addEventListener('load', initTailwind);
     </div>
 </footer>
 
-<!-- Jane's AI Chat Modal - Grok-Inspired -->
-<div id="ai-chat-modal" class="hidden fixed inset-0 bg-black/70 z-[9999] flex items-center justify-center p-4">
-    <div class="bg-white rounded-3xl w-full max-w-lg h-[620px] flex flex-col shadow-2xl overflow-hidden">
-        
-        <!-- Header -->
-        <div class="bg-deep text-white px-6 py-5 flex items-center justify-between">
-            <div class="flex items-center gap-3">
-                <div class="w-9 h-9 bg-lightpurple/20 rounded-2xl flex items-center justify-center text-2xl">🌿</div>
-                <div>
-                    <h3 class="font-semibold">Jane's AI</h3>
-                    <p class="text-xs text-lightpurple flex items-center gap-1">
-                        <span class="inline-block w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
-                        Online • Beta Version
-                    </p>
-                </div>
-            </div>
-            <button onclick="hideAIChat()" class="text-3xl leading-none text-white/70 hover:text-white">×</button>
-        </div>
-
-        <!-- Chat Messages -->
-        <div id="chat-messages" class="flex-1 overflow-y-auto p-6 space-y-6 bg-gray-50"></div>
-
-        <!-- Quick Replies -->
-        <div class="px-6 py-3 border-t bg-white flex flex-wrap gap-2">
-            <button onclick="quickReply('benefits')" class="text-xs px-5 py-2.5 bg-lightpurple hover:bg-purple hover:text-white rounded-3xl transition-colors">Benefits</button>
-            <button onclick="quickReply('dosage')" class="text-xs px-5 py-2.5 bg-lightpurple hover:bg-purple hover:text-white rounded-3xl transition-colors">Dosage</button>
-            <button onclick="quickReply('energy')" class="text-xs px-5 py-2.5 bg-lightpurple hover:bg-purple hover:text-white rounded-3xl transition-colors">Energy</button>
-            <button onclick="quickReply('recipe')" class="text-xs px-5 py-2.5 bg-lightpurple hover:bg-purple hover:text-white rounded-3xl transition-colors">Recipes</button>
-        </div>
-
-        <!-- Input Area -->
-        <div class="p-4 border-t bg-white">
-            <div class="flex gap-3 items-end">
-                <button onclick="simulateFileUpload()" class="text-purple hover:text-deep px-3 py-3 rounded-2xl hover:bg-lightpurple transition-colors">
-                    📎
-                </button>
-                <input id="chat-input" type="text" placeholder="Ask Jane anything about sea moss..."
-                       class="flex-1 border border-gray-300 rounded-3xl px-6 py-4 text-sm focus:outline-none focus:border-purple"
-                       onkeypress="if(event.key === 'Enter') sendMessage()">
-                <button onclick="sendMessage()" class="bg-purple hover:bg-deep text-white px-8 py-4 rounded-3xl font-medium transition-all">Send</button>
-            </div>
-            <div class="text-center text-[10px] text-gray-400 mt-3">
-                Powered by <span class="font-medium text-purple">VSIT Solutions</span> • Beta Version
-            </div>
-        </div>
-    </div>
-</div>
-
 <script>
-// ==================== IMPROVED JANE'S AI CHAT (Grok Style) ====================
-let lastTopic = '';
-
-function showAIChat() {
-    const modal = document.getElementById('ai-chat-modal');
-    modal.classList.remove('hidden');
-    modal.classList.add('flex');
-    
-    const messages = document.getElementById('chat-messages');
-    if (messages.children.length === 0) {
-        addAIMessage("Hi, I'm Jane 🌿 Your personal sea moss wellness guide. How can I support your healing journey today?");
-    }
+// Review Carousel Scroll
+function scrollReviews(direction) {
+    const track = document.getElementById('review-track');
+    const scrollAmount = 400;
+    track.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
 }
 
-function hideAIChat() {
-    const modal = document.getElementById('ai-chat-modal');
-    modal.classList.remove('flex');
-    modal.classList.add('hidden');
-}
-
-function addUserMessage(text) {
-    const container = document.getElementById('chat-messages');
-    const div = document.createElement('div');
-    div.className = 'flex justify-end';
-    div.innerHTML = `
-        <div class="max-w-[75%] bg-purple text-white px-5 py-3 rounded-3xl rounded-tr-none text-sm">
-            ${text}
-        </div>`;
-    container.appendChild(div);
-    container.scrollTop = container.scrollHeight;
-}
-
-function addAIMessage(text) {
-    const container = document.getElementById('chat-messages');
-    const div = document.createElement('div');
-    div.className = 'flex justify-start gap-3';
-    div.innerHTML = `
-        <div class="w-8 h-8 bg-lightpurple rounded-2xl flex items-center justify-center text-xl flex-shrink-0">🌿</div>
-        <div class="max-w-[75%] bg-white border px-5 py-3 rounded-3xl rounded-tl-none text-sm shadow-sm">
-            ${text}
-        </div>`;
-    container.appendChild(div);
-    container.scrollTop = container.scrollHeight;
-}
-
-function showTypingIndicator() {
-    const container = document.getElementById('chat-messages');
-    const indicator = document.createElement('div');
-    indicator.id = 'typing-indicator';
-    indicator.className = 'flex justify-start gap-3';
-    indicator.innerHTML = `
-        <div class="w-8 h-8 bg-lightpurple rounded-2xl flex items-center justify-center text-xl flex-shrink-0">🌿</div>
-        <div class="bg-white border px-5 py-3 rounded-3xl rounded-tl-none flex items-center gap-2">
-            <span class="text-purple">Jane is thinking</span>
-            <span class="flex gap-1">
-                <span class="typing-dot animate-pulse">.</span>
-                <span class="typing-dot animate-pulse" style="animation-delay:150ms">.</span>
-                <span class="typing-dot animate-pulse" style="animation-delay:300ms">.</span>
-            </span>
-        </div>`;
-    container.appendChild(indicator);
-    container.scrollTop = container.scrollHeight;
-    return indicator;
-}
-
-function simulateFileUpload() {
-    addUserMessage("📸 [Photo / PDF uploaded]");
-    const indicator = showTypingIndicator();
-    setTimeout(() => {
-        indicator.remove();
-        addAIMessage("Thank you for sharing! I've reviewed your photo/PDF. How would you like me to help you with this?");
-    }, 1200);
-}
-
-function quickReply(topic) {
-    let message = '';
-    if (topic === 'benefits') message = 'What are the main benefits of sea moss?';
-    else if (topic === 'dosage') message = 'How much sea moss should I take daily?';
-    else if (topic === 'energy') message = 'Best blend for natural energy?';
-    else if (topic === 'recipe') message = 'Can you give me some recipes?';
-
-    if (message) {
-        addUserMessage(message);
-        const indicator = showTypingIndicator();
-        setTimeout(() => {
-            indicator.remove();
-            const response = getAIResponse(message);
-            addAIMessage(response);
-        }, 900);
-    }
-}
-
-function sendMessage() {
-    const input = document.getElementById('chat-input');
-    const message = input.value.trim();
-    if (!message) return;
-
-    addUserMessage(message);
-    input.value = '';
-
-    const indicator = showTypingIndicator();
-    setTimeout(() => {
-        indicator.remove();
-        const response = getAIResponse(message);
-        addAIMessage(response);
-    }, 850);
-}
-
-// Keep your existing getAIResponse function (or improve it later)
-function getAIResponse(message) {
-    const lower = message.toLowerCase();
-    if (lower.includes('benefit') || lower.includes('good for')) {
-        return "Sea moss contains 92+ minerals and offers powerful support for immunity, digestion, skin health, energy, thyroid function, and more. What specific area would you like to focus on?";
-    }
-    if (lower.includes('dosage') || lower.includes('how much')) {
-        return "Most people start with 1–2 tablespoons daily. I recommend beginning with 1 tablespoon in the morning on an empty stomach. Would you like a custom protocol?";
-    }
-    // ... (keep your other responses or let me know if you want me to expand them)
-    return "That's a great question! I'm still in Beta, but I'm learning quickly. Tell me more about what you're looking for and I'll help you the best I can 🌿";
-}
-
-// Close with Escape key
-document.addEventListener('keydown', function(e) {
-    if (e.key === "Escape") {
-        const modal = document.getElementById('ai-chat-modal');
-        if (modal && !modal.classList.contains('hidden')) hideAIChat();
+// Mobile Menu
+document.addEventListener('DOMContentLoaded', function() {
+    const mobileBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    if (mobileBtn && mobileMenu) {
+        let isOpen = false;
+        mobileBtn.addEventListener('click', function() {
+            isOpen = !isOpen;
+            if (isOpen) mobileMenu.classList.remove('hidden');
+            else mobileMenu.classList.add('hidden');
+        });
     }
 });
 </script>
-
-<script src="script.js"></script>
-<script>
-    // Mobile Menu Toggle – Supporting effortless navigation for your wellness journey
-    document.addEventListener('DOMContentLoaded', function() {
-      const mobileBtn = document.getElementById('mobile-menu-btn');
-      const mobileMenu = document.getElementById('mobile-menu');
-      
-      if (mobileBtn && mobileMenu) {
-        let isOpen = false;
-        
-        mobileBtn.addEventListener('click', function() {
-          isOpen = !isOpen;
-          
-          // Toggle menu visibility
-          if (isOpen) {
-            mobileMenu.classList.remove('hidden');
-          } else {
-            mobileMenu.classList.add('hidden');
-          }
-          
-          // Toggle icon: Hamburger → X
-          const svg = mobileBtn.querySelector('svg');
-          if (svg) {
-            if (isOpen) {
-              // X icon
-              svg.innerHTML = `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />`;
-            } else {
-              // Hamburger icon
-              svg.innerHTML = `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />`;
-            }
-          }
-        });
-        
-        // Close menu when tapping any link (smooth user flow)
-        const menuLinks = mobileMenu.querySelectorAll('a');
-        menuLinks.forEach(link => {
-          link.addEventListener('click', () => {
-            mobileMenu.classList.add('hidden');
-            isOpen = false;
-            // Reset icon
-            const svg = mobileBtn.querySelector('svg');
-            if (svg) {
-              svg.innerHTML = `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />`;
-            }
-          });
-        });
-      }
-    });
-    
-    console.log('%c🌊 Janesse’s Seamoss Creation – Mobile navigation flowing naturally!', 'color:#5E0089; font-weight:bold');
-  </script>
 </body>
 </html>

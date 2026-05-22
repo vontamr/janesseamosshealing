@@ -3,41 +3,202 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Local Pickup & Delivery | Janesse's Seamoss Creation</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script> /* same initTailwind as your other pages */ 
-        function initTailwind() { tailwind.config = { theme: { extend: { colors: { deep: '#260B3A', purple: '#5E0089', lightpurple: '#EAD5F8' } } } }; } 
+    <title>Local Pickup & Delivery • Janesse's Seamoss Creation</title>
+    <script src="https://cdn.tailwindcss.com" async></script>
+    <link rel="stylesheet" href="styles.css">
+    
+    <script>
+        function initTailwind() {
+            tailwind.config = {
+                content: ["./**/*.{html,js}"],
+                theme: {
+                    extend: {
+                        colors: {
+                            deep: '#260B3A',
+                            purple: '#5E0089',
+                            lightpurple: '#EAD5F8',
+                        }
+                    }
+                }
+            };
+        }
         window.addEventListener('load', initTailwind);
     </script>
+
+    <style>
+        .floating-jar {
+            animation: gentleFloat 4s ease-in-out infinite;
+        }
+        @keyframes gentleFloat {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .purple-car {
+            animation: driveSmooth 3.5s linear infinite;
+        }
+        @keyframes driveSmooth {
+            0% { transform: translateX(-25px); }
+            100% { transform: translateX(25px); }
+        }
+    </style>
 </head>
 <body class="bg-white text-deep font-sans antialiased">
-    <!-- Paste your full nav from index.html here (updated version below) -->
-    <header class="bg-gradient-to-br from-deep/5 to-lightpurple/30 py-20 text-center">
-        <div class="max-w-2xl mx-auto px-6">
-            <h1 class="text-5xl font-light tracking-tighter mb-4">🌿 Fresh Local Pickup &amp; Delivery</h1>
-            <p class="text-xl text-gray-600">Handcrafted weekly in Central Florida. Pick up with intention or have it delivered fresh to your door.</p>
+
+    <!-- Navigation -->
+    <nav class="bg-white border-b sticky top-0 z-50 shadow-sm">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex items-center justify-between h-20">
+                <a href="index.html" class="flex items-center gap-3">
+                    <img src="assets/images/IMG_7251 Background Removed 2.jpeg" alt="Janesse's Seamoss Creation" class="h-20">
+                </a>
+                <a href="shop.html" class="bg-purple hover:bg-deep text-white px-8 py-3.5 rounded-3xl font-semibold">Shop Now</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <header class="bg-gradient-to-br from-deep to-purple text-white py-20 relative overflow-hidden">
+        <div class="max-w-5xl mx-auto px-6 text-center relative z-10">
+            <h1 class="text-5xl md:text-6xl font-light tracking-tighter">Fresh Sea Moss, Delivered</h1>
+            <p class="text-xl mt-4 opacity-90">Same-day pickup or fast local delivery in Central Florida</p>
+        </div>
+        
+        <!-- Floating Jar -->
+        <div class="absolute right-12 bottom-8 hidden lg:block">
+            <img src="assets/images/passion-fruit-seamoss.jpg" 
+                 alt="Fresh Passion Fruit Sea Moss" 
+                 class="floating-jar w-56 h-56 object-cover rounded-3xl shadow-2xl border-8 border-white/30">
         </div>
     </header>
-    <div class="max-w-4xl mx-auto px-6 py-16">
-        <div class="grid md:grid-cols-2 gap-12">
-            <div class="bg-white border border-lightpurple rounded-3xl p-10">
-                <h2 class="text-2xl font-medium mb-6">Orlando Area Pickup</h2>
-                <p class="text-gray-600 mb-6">Schedule a same-week pickup at our Central Florida studio. Come connect with the source — feel the energy of the batch made just for you.</p>
-                <p class="font-medium">📍 Central Florida (Orlando area) • Text or call (407) 752-7864 to schedule</p>
-                <p class="text-sm text-purple mt-8">Free • Fresh within 48 hours • Refrigeration recommended for peak mineral potency</p>
-            </div>
-            <div class="bg-white border border-lightpurple rounded-3xl p-10">
-                <h2 class="text-2xl font-medium mb-6">Local Delivery Options</h2>
-                <p class="text-gray-600">Central Florida same-day or next-day delivery. Supporting local keeps the community strong and your wellness uninterrupted.</p>
-                <ul class="space-y-4 mt-8 text-sm">
-                    <li class="flex gap-3"><span class="text-green-600">✓</span> Orlando Metro – $8</li>
-                    <li class="flex gap-3"><span class="text-green-600">✓</span> Greater Central FL – $12</li>
-                    <li class="flex gap-3"><span class="text-green-600">✓</span> National shipping also available via cold-pack</li>
-                </ul>
+
+    <div class="max-w-5xl mx-auto px-6 py-12">
+        
+        <!-- Zip Code Estimator -->
+        <div class="bg-white border border-purple/30 rounded-3xl p-8 mb-12">
+            <h2 class="text-2xl font-medium mb-6 text-center">Check Delivery Availability</h2>
+            <div class="max-w-md mx-auto">
+                <div class="flex gap-3">
+                    <input type="text" id="zip-input" placeholder="Enter ZIP Code (e.g. 32808)" 
+                           maxlength="5" class="flex-1 px-6 py-5 border border-gray-300 rounded-3xl focus:outline-none focus:border-purple text-center text-lg font-medium">
+                    <button onclick="checkZip()" class="bg-purple hover:bg-deep text-white px-10 rounded-3xl font-semibold">Check</button>
+                </div>
+                <div id="zip-result" class="hidden mt-6 p-6 bg-lightpurple/30 rounded-3xl text-center"></div>
             </div>
         </div>
-        <a href="shop.html" class="mt-12 block w-full text-center bg-purple hover:bg-deep text-white py-6 rounded-3xl text-xl font-medium">Shop Fresh Batches Now →</a>
+
+        <div class="grid md:grid-cols-2 gap-12">
+            
+            <!-- Pickup -->
+            <div class="bg-white border border-purple/20 rounded-3xl p-10">
+                <h2 class="text-3xl font-medium mb-6">Local Pickup</h2>
+                <p class="text-purple font-medium mb-2">Free • Same Day Available</p>
+                <p class="text-gray-600 mb-8">Pick up your fresh, handcrafted sea moss gel at our Central Florida studio.</p>
+                <button onclick="schedulePickup()" class="w-full bg-purple hover:bg-deep text-white py-6 rounded-3xl font-semibold text-lg">
+                    Schedule Free Pickup
+                </button>
+            </div>
+
+            <!-- Delivery -->
+            <div class="bg-white border border-purple/20 rounded-3xl p-10">
+                <h2 class="text-3xl font-medium mb-6 flex items-center gap-4">
+                    Fast Local Delivery
+                    <svg width="120" height="55" viewBox="0 0 120 55" fill="none" xmlns="http://www.w3.org/2000/svg" class="purple-car">
+                        <rect x="15" y="22" width="78" height="24" rx="6" fill="#5E0089"/>
+                        <rect x="28" y="13" width="32" height="14" rx="3" fill="#4C1D95"/>
+                        <circle cx="38" cy="46" r="9" fill="#1F2937"/>
+                        <circle cx="82" cy="46" r="9" fill="#1F2937"/>
+                        <rect x="95" y="27" width="18" height="14" rx="3" fill="#5E0089"/>
+                    </svg>
+                </h2>
+                <div id="delivery-options" class="space-y-4">
+                    <!-- Populated by JS -->
+                </div>
+            </div>
+        </div>
     </div>
-    <!-- Paste your footer here -->
+
+    <script>
+        function checkZip() {
+            const zip = document.getElementById('zip-input').value.trim();
+            const result = document.getElementById('zip-result');
+            
+            if (!zip || zip.length !== 5) {
+                result.innerHTML = `<p class="text-red-600">Please enter a valid 5-digit ZIP code.</p>`;
+                result.classList.remove('hidden');
+                return;
+            }
+
+            let time = "60-90 minutes";
+            let fee = "$10";
+            let area = "Central Florida";
+
+            if (["32808","32805","32818","32810","32811","32819"].includes(zip)) {
+                time = "25-45 minutes"; fee = "$7"; area = "Richmond Heights / Pine Hills";
+            } else if (["32801","32803","32804","32789","32814"].includes(zip)) {
+                time = "35-55 minutes"; fee = "$8"; area = "Downtown / Winter Park";
+            } else if (["32703","32712","32751"].includes(zip)) {
+                time = "45-70 minutes"; fee = "$9"; area = "Apopka / Altamonte";
+            } else if (["34741","34744","34743"].includes(zip)) {
+                time = "70-100 minutes"; fee = "$12"; area = "Kissimmee";
+            } else if (["32771","32746"].includes(zip)) {
+                time = "55-80 minutes"; fee = "$10"; area = "Sanford / Lake Mary";
+            }
+
+            result.innerHTML = `
+                <p class="text-purple font-medium text-xl">Delivery is available in your area</p>
+                <p class="mt-3 text-lg">${area}</p>
+                <p class="mt-4">Estimated arrival: <strong>${time}</strong></p>
+                <p class="text-purple font-semibold text-lg">Delivery fee: ${fee}</p>
+                <button onclick="startOrder()" class="mt-8 w-full bg-purple hover:bg-deep text-white py-5 rounded-3xl font-semibold">
+                    Continue to Order
+                </button>
+            `;
+            result.classList.remove('hidden');
+        }
+
+        function startOrder() {
+            alert("Thank you! Redirecting to our shop.");
+            window.location.href = "shop.html";
+        }
+
+        function schedulePickup() {
+            alert("Pickup scheduling coming soon.\n\nPlease text or call (407) 752-7864 to schedule your fresh pickup.");
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('delivery-options').innerHTML = `
+                <div class="border border-gray-200 rounded-2xl p-6 hover:border-purple transition-all">
+                    <div class="flex justify-between items-center">
+                        <div>
+                            <p class="font-medium">Orlando Metro Area</p>
+                            <p class="text-sm text-gray-500">30–75 minutes • Today</p>
+                        </div>
+                        <div class="text-right">
+                            <p class="font-semibold">$8</p>
+                            <button onclick="selectDelivery(this)" class="mt-3 text-sm bg-purple text-white px-6 py-2.5 rounded-3xl">Select</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="border border-gray-200 rounded-2xl p-6 hover:border-purple transition-all">
+                    <div class="flex justify-between items-center">
+                        <div>
+                            <p class="font-medium">Greater Central Florida</p>
+                            <p class="text-sm text-gray-500">1–2 hours • Today / Tomorrow</p>
+                        </div>
+                        <div class="text-right">
+                            <p class="font-semibold">$12</p>
+                            <button onclick="selectDelivery(this)" class="mt-3 text-sm bg-purple text-white px-6 py-2.5 rounded-3xl">Select</button>
+                        </div>
+                    </div>
+                </div>
+            `;
+        });
+
+        function selectDelivery(btn) {
+            btn.textContent = "Selected";
+            btn.classList.add('!bg-green-600');
+        }
+    </script>
 </body>
 </html>
