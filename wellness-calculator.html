@@ -1,225 +1,241 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sea Moss Wellness Calculator | Janesse's Seamoss Creation</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        function initTailwind() {
-            tailwind.config = {
-                theme: {
-                    extend: {
-                        colors: {
-                            deep: '#260B3A',
-                            purple: '#5E0089',
-                            lightpurple: '#EAD5F8',
-                        }
-                    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Sea Moss Wellness quiz| Janesse's Seamoss Creation</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+function initTailwind() {
+    tailwind.config = {
+        theme: {
+            extend: {
+                colors: {
+                    deep: '#260B3A',
+                    purple: '#5E0089',
+                    lightpurple: '#EAD5F8',
                 }
             }
         }
-        window.addEventListener('load', initTailwind);
-    </script>
+    };
+}
+window.addEventListener('load', initTailwind);
+</script>
 </head>
-<body class="bg-white text-deep font-sans">
+<body class="bg-white text-deep font-sans antialiased">
 
-    <!-- Navigation -->
-    <nav class="bg-white border-b sticky top-0 z-50 shadow-sm">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="flex items-center justify-between h-20">
-                <a href="index.html" class="flex items-center gap-4">
-                    <img src="assets/images/IMG_7251 Background Removed 2.jpeg" alt="Logo" class="h-20">
-                </a>
-                <div class="hidden md:flex items-center gap-10 text-sm font-medium">
-                    <a href="index.html" class="hover:text-purple">Home</a>
-                    <a href="build.html" class="hover:text-purple">Build Your Blend</a>
-                    <a href="shop.html" class="hover:text-purple">Shop</a>
-                    <a href="wellness-calculator.html" class="text-purple font-semibold">Wellness Calculator</a>
-                    <a href="about.html" class="hover:text-purple">Our Story</a>
-                </div>
-                <a href="shop.html" class="bg-purple hover:bg-deep text-white px-8 py-4 rounded-3xl font-semibold transition-all">Shop Now</a>
-            </div>
-        </div>
-    </nav>
+<nav class="bg-white border-b sticky top-0 z-50 shadow-sm">
+<div class="max-w-7xl mx-auto px-6">
+<div class="flex items-center justify-between h-20">
+<a href="index.html" class="flex items-center gap-4">
+<img src="assets/images/IMG_7251 Background Removed 2.jpeg" alt="Logo" class="h-20">
+</a>
+<div class="hidden md:flex items-center gap-10 text-sm font-medium">
+<a href="index.html" class="hover:text-purple">Home</a>
+<a href="build.html" class="hover:text-purple">Build Your Blend</a>
+<a href="shop.html" class="hover:text-purple">Shop</a>
+<a href="wellness-calculator.html" class="text-purple font-semibold">AI Wellness Quiz</a>
+</div>
+<a href="shop.html" class="bg-purple hover:bg-deep text-white px-8 py-4 rounded-3xl font-semibold">Shop Now</a>
+</div>
+</div>
+</nav>
 
-    <section class="bg-gradient-to-br from-deep to-purple py-20 text-white">
-        <div class="max-w-4xl mx-auto px-6 text-center">
-            <h1 class="text-5xl md:text-6xl font-light tracking-tighter mb-6">Sea Moss Wellness Calculator</h1>
-            <p class="text-xl text-lightpurple max-w-2xl mx-auto">Answer a few questions and receive a personalized sea moss recommendation crafted for your unique body and goals.</p>
-        </div>
-    </section>
+<section class="bg-gradient-to-br from-deep to-purple py-24 text-white">
+<div class="max-w-4xl mx-auto px-6 text-center">
+<h1 class="text-5xl md:text-6xl font-light tracking-tighter mb-6">AI Sea Moss Wellness Quiz</h1>
+<p class="text-xl text-lightpurple max-w-xl mx-auto">Advanced wellness assessment • Personalized sea moss protocol based on your unique profile</p>
+</div>
+</section>
 
-    <div class="max-w-2xl mx-auto px-6 py-12">
-        <div class="bg-white border border-lightpurple rounded-3xl p-10 shadow-sm">
+<div class="max-w-2xl mx-auto px-6 py-12">
+<div class="bg-white border border-lightpurple rounded-3xl p-10 shadow-sm">
 
-            <!-- Progress -->
-            <div class="mb-10">
-                <div class="flex justify-between text-sm mb-2">
-                    <span id="step-text" class="font-medium">Step 1 of 4</span>
-                    <span id="progress-text" class="text-purple">25%</span>
-                </div>
-                <div class="h-2 bg-gray-100 rounded-full overflow-hidden">
-                    <div id="progress-bar" class="h-2 bg-purple rounded-full w-1/4 transition-all"></div>
-                </div>
-            </div>
+<!-- Progress -->
+<div class="mb-10">
+<div class="flex justify-between text-sm mb-2">
+<span id="step-text" class="font-medium">Step 1 of 6</span>
+<span id="progress-text" class="text-purple">17%</span>
+</div>
+<div class="h-2 bg-gray-100 rounded-full overflow-hidden">
+<div id="progress-bar" class="h-2 bg-purple rounded-full w-1/6 transition-all"></div>
+</div>
+</div>
 
-            <!-- Step 1 -->
-            <div id="step-1">
-                <h3 class="text-2xl font-medium mb-6">What is your main wellness goal?</h3>
-                <div class="grid grid-cols-2 gap-4">
-                    <button onclick="selectGoal(this, 'energy')" class="goal-btn p-6 border-2 border-gray-200 rounded-3xl text-left hover:border-purple transition-all">Energy &amp; Focus</button>
-                    <button onclick="selectGoal(this, 'immunity')" class="goal-btn p-6 border-2 border-gray-200 rounded-3xl text-left hover:border-purple transition-all">Immunity Boost</button>
-                    <button onclick="selectGoal(this, 'joints')" class="goal-btn p-6 border-2 border-gray-200 rounded-3xl text-left hover:border-purple transition-all">Joint Relief</button>
-                    <button onclick="selectGoal(this, 'skin')" class="goal-btn p-6 border-2 border-gray-200 rounded-3xl text-left hover:border-purple transition-all">Skin &amp; Hair Glow</button>
-                    <button onclick="selectGoal(this, 'thyroid')" class="goal-btn p-6 border-2 border-gray-200 rounded-3xl text-left hover:border-purple transition-all">Thyroid Support</button>
-                </div>
-            </div>
+<!-- Step 1: Goals -->
+<div id="step-1">
+<h3 class="text-2xl font-medium mb-6">What are your primary wellness goals?</h3>
+<div class="grid grid-cols-2 gap-4" id="goals-grid"></div>
+</div>
 
-            <!-- Step 2 -->
-            <div id="step-2" class="hidden">
-                <h3 class="text-2xl font-medium mb-6">How old are you?</h3>
-                <input type="number" id="age" placeholder="35" class="w-full p-5 border border-gray-300 rounded-3xl text-lg focus:border-purple outline-none">
-            </div>
+<!-- Step 2: Age & Gender -->
+<div id="step-2" class="hidden">
+<h3 class="text-2xl font-medium mb-6">Basic Profile</h3>
+<div class="grid grid-cols-2 gap-6">
+<div>
+<label class="block text-sm mb-2 font-medium">Age</label>
+<input type="number" id="age" placeholder="35" class="w-full p-5 border border-gray-300 rounded-3xl text-lg">
+</div>
+<div>
+<label class="block text-sm mb-2 font-medium">Gender</label>
+<div class="flex gap-3">
+<button onclick="selectSingle(this, 'gender', 'female')" class="gender-btn flex-1 py-5 border-2 border-gray-200 rounded-3xl">Female</button>
+<button onclick="selectSingle(this, 'gender', 'male')" class="gender-btn flex-1 py-5 border-2 border-gray-200 rounded-3xl">Male</button>
+<button onclick="selectSingle(this, 'gender', 'other')" class="gender-btn flex-1 py-5 border-2 border-gray-200 rounded-3xl">Other</button>
+</div>
+</div>
+</div>
+</div>
 
-            <!-- Step 3 -->
-            <div id="step-3" class="hidden">
-                <h3 class="text-2xl font-medium mb-6">What is your biggest current concern?</h3>
-                <div class="grid grid-cols-2 gap-4">
-                    <button onclick="selectConcern(this, 'inflammation')" class="concern-btn p-6 border-2 border-gray-200 rounded-3xl text-left hover:border-purple transition-all">Inflammation / Joint Pain</button>
-                    <button onclick="selectConcern(this, 'fatigue')" class="concern-btn p-6 border-2 border-gray-200 rounded-3xl text-left hover:border-purple transition-all">Low Energy / Fatigue</button>
-                    <button onclick="selectConcern(this, 'digestion')" class="concern-btn p-6 border-2 border-gray-200 rounded-3xl text-left hover:border-purple transition-all">Digestion Issues</button>
-                    <button onclick="selectConcern(this, 'skin')" class="concern-btn p-6 border-2 border-gray-200 rounded-3xl text-left hover:border-purple transition-all">Skin / Hair Health</button>
-                </div>
-            </div>
+<!-- Step 3: Concerns -->
+<div id="step-3" class="hidden">
+<h3 class="text-2xl font-medium mb-6">Current symptoms or concerns <span class="text-sm text-gray-500">(select all that apply)</span></h3>
+<div class="grid grid-cols-2 gap-4" id="concerns-grid"></div>
+</div>
 
-            <!-- Step 4 -->
-            <div id="step-4" class="hidden">
-                <h3 class="text-2xl font-medium mb-6">How would you rate your current energy level?</h3>
-                <div class="grid grid-cols-3 gap-4">
-                    <button onclick="selectEnergy(this, 'low')" class="energy-btn p-6 border-2 border-gray-200 rounded-3xl text-center hover:border-purple transition-all">Low</button>
-                    <button onclick="selectEnergy(this, 'moderate')" class="energy-btn p-6 border-2 border-gray-200 rounded-3xl text-center hover:border-purple transition-all">Moderate</button>
-                    <button onclick="selectEnergy(this, 'high')" class="energy-btn p-6 border-2 border-gray-200 rounded-3xl text-center hover:border-purple transition-all">High</button>
-                </div>
-            </div>
+<!-- Step 4: Energy, Sleep, Activity -->
+<div id="step-4" class="hidden">
+<h3 class="text-2xl font-medium mb-6">Lifestyle Snapshot</h3>
+<div class="space-y-8">
+<div>
+<label class="block text-sm mb-3">Energy Level</label>
+<div class="grid grid-cols-3 gap-4">
+<button onclick="selectSingle(this, 'energy', 'low')" class="energy-btn p-6 border-2 border-gray-200 rounded-3xl">Low</button>
+<button onclick="selectSingle(this, 'energy', 'moderate')" class="energy-btn p-6 border-2 border-gray-200 rounded-3xl">Moderate</button>
+<button onclick="selectSingle(this, 'energy', 'high')" class="energy-btn p-6 border-2 border-gray-200 rounded-3xl">High</button>
+</div>
+</div>
+</div>
+</div>
 
-            <div class="flex justify-between mt-10">
-                <button onclick="prevStep()" id="back-btn" class="hidden px-8 py-4 text-purple font-medium">← Back</button>
-                <button onclick="nextStep()" id="next-btn" class="ml-auto bg-purple hover:bg-deep text-white px-10 py-4 rounded-3xl font-semibold">Continue →</button>
-            </div>
-        </div>
+<!-- Step 5: Diet -->
+<div id="step-5" class="hidden">
+<h3 class="text-2xl font-medium mb-6">Dietary Preferences</h3>
+<div class="grid grid-cols-2 gap-4" id="diet-grid"></div>
+</div>
 
-        <!-- Results -->
-        <div id="results" class="hidden mt-12 bg-lightpurple/30 rounded-3xl p-10">
-            <h3 class="text-2xl font-medium mb-6">Your Personalized Recommendation</h3>
-            <div id="recommendation-content" class="space-y-8"></div>
-            
-            <div class="mt-10 flex gap-4">
-                <a href="build.html" class="flex-1 text-center bg-purple hover:bg-deep text-white py-6 rounded-3xl font-semibold">Build This Blend →</a>
-                <a href="shop.html" class="flex-1 text-center border border-purple text-purple hover:bg-purple hover:text-white py-6 rounded-3xl font-semibold">Shop Collection</a>
-            </div>
-        </div>
-    </div>
+<!-- Step 6: Final Note -->
+<div id="step-6" class="hidden">
+<h3 class="text-2xl font-medium mb-6">Anything else we should know?</h3>
+<textarea id="notes" rows="4" class="w-full p-5 border border-gray-300 rounded-3xl resize-none" placeholder="E.g. pregnancy, medications, allergies..."></textarea>
+</div>
 
-    <script>
-        let currentStep = 1;
-        let goal = '', concern = '', energy = '';
-        let age = 35;
+<div class="flex justify-between mt-10">
+<button onclick="prevStep()" id="back-btn" class="hidden px-8 py-4 text-purple font-medium">← Back</button>
+<button onclick="nextStep()" id="next-btn" class="ml-auto bg-purple hover:bg-deep text-white px-10 py-4 rounded-3xl font-semibold">Continue →</button>
+</div>
+</div>
 
-        function updateProgress() {
-            const progress = ((currentStep - 1) / 4) * 100;
-            document.getElementById('progress-bar').style.width = `${progress}%`;
-            document.getElementById('step-text').textContent = `Step ${currentStep} of 4`;
-            document.getElementById('progress-text').textContent = `${Math.round(progress)}%`;
-        }
+<!-- Results -->
+<div id="results" class="hidden mt-12 bg-lightpurple/30 rounded-3xl p-10">
+<h3 class="text-2xl font-medium mb-6">Your Personalized Sea Moss Protocol</h3>
+<div id="recommendation-content" class="space-y-8"></div>
+</div>
+</div>
 
-        function nextStep() {
-            if (currentStep === 1 && !goal) return alert("Please select a goal");
-            if (currentStep === 2) age = parseInt(document.getElementById('age').value) || 35;
+<script>
+// Variables
+let currentStep = 1;
+let goals = [], concerns = [], gender = '', energy = '', diet = '', notes = '';
 
-            document.getElementById(`step-${currentStep}`).classList.add('hidden');
-            currentStep++;
-            if (currentStep > 4) return showResults();
-
-            document.getElementById(`step-${currentStep}`).classList.remove('hidden');
-            document.getElementById('back-btn').classList.remove('hidden');
-            updateProgress();
-        }
-
-        function prevStep() {
-            document.getElementById(`step-${currentStep}`).classList.add('hidden');
-            currentStep--;
-            document.getElementById(`step-${currentStep}`).classList.remove('hidden');
-            if (currentStep === 1) document.getElementById('back-btn').classList.add('hidden');
-            updateProgress();
-        }
-
-        function selectGoal(btn, selected) {
-            document.querySelectorAll('.goal-btn').forEach(b => b.classList.remove('border-purple', 'bg-lightpurple'));
-            btn.classList.add('border-purple', 'bg-lightpurple');
-            goal = selected;
-        }
-
-        function selectConcern(btn, selected) {
-            document.querySelectorAll('.concern-btn').forEach(b => b.classList.remove('border-purple', 'bg-lightpurple'));
-            btn.classList.add('border-purple', 'bg-lightpurple');
-            concern = selected;
-        }
-
-        function selectEnergy(btn, selected) {
-            document.querySelectorAll('.energy-btn').forEach(b => b.classList.remove('border-purple', 'bg-lightpurple'));
-            btn.classList.add('border-purple', 'bg-lightpurple');
-            energy = selected;
-        }
-
-        function showResults() {
-            const content = document.getElementById('recommendation-content');
-            let html = '';
-
-            if (goal === 'joints' || concern === 'inflammation') {
-                html = `
-                    <div class="text-center">
-                        <img src="assets/images/joint-relief-seamoss.jpg" class="mx-auto rounded-3xl mb-6 w-64">
-                        <h4 class="text-3xl font-medium">Joint Relief Blend</h4>
-                        <p class="text-purple font-medium mt-1">Blackseed Oil + Bladderwrack</p>
-                        <p class="mt-6 text-gray-700">This blend is rich in anti-inflammatory minerals and is perfect for supporting joint comfort and mobility.</p>
-                        <div class="mt-8 text-sm space-y-2">
-                            <p><strong>Daily Dosage:</strong> 2 tablespoons</p>
-                            <p><strong>Best taken:</strong> Morning on empty stomach</p>
-                        </div>
-                    </div>`;
-            } else if (goal === 'energy' || energy === 'low') {
-                html = `
-                    <div class="text-center">
-                        <img src="assets/images/vitality.jpg" class="mx-auto rounded-3xl mb-6 w-64">
-                        <h4 class="text-3xl font-medium">Vitality Blend</h4>
-                        <p class="text-purple font-medium mt-1">Horny Goat Weed + Maca Root</p>
-                        <p class="mt-6 text-gray-700">Sustained natural energy without the crash. Perfect for busy, active lifestyles.</p>
-                        <div class="mt-8 text-sm space-y-2">
-                            <p><strong>Daily Dosage:</strong> 2 tablespoons</p>
-                        </div>
-                    </div>`;
-            } else if (goal === 'skin') {
-                html = `
-                    <div class="text-center">
-                        <img src="assets/images/skincare-gels.jpg" class="mx-auto rounded-3xl mb-6 w-64">
-                        <h4 class="text-3xl font-medium">Skin &amp; Beauty Blend</h4>
-                        <p class="text-purple font-medium mt-1">Bladderwrack + Fruit Base</p>
-                        <p class="mt-6 text-gray-700">Supports natural collagen production for radiant skin and healthy hair from within.</p>
-                    </div>`;
+// Populate functions
+function populateGrid(containerId, items, targetArray, isMulti = true) {
+    const container = document.getElementById(containerId);
+    container.innerHTML = '';
+    items.forEach(text => {
+        const btn = document.createElement('button');
+        btn.className = `p-6 border-2 border-gray-200 rounded-3xl text-left hover:border-purple transition-all`;
+        btn.textContent = text;
+        btn.onclick = () => {
+            if (isMulti) {
+                if (targetArray.includes(text)) {
+                    targetArray.splice(targetArray.indexOf(text), 1);
+                    btn.classList.remove('border-purple', 'bg-lightpurple');
+                } else {
+                    targetArray.push(text);
+                    btn.classList.add('border-purple', 'bg-lightpurple');
+                }
             } else {
-                html = `
-                    <div class="text-center">
-                        <img src="assets/images/mango.jpg" class="mx-auto rounded-3xl mb-6 w-64">
-                        <h4 class="text-3xl font-medium">Signature Fruit-Infused Blend</h4>
-                        <p class="text-purple font-medium mt-1">Mango or Passion Fruit Base</p>
-                        <p class="mt-6 text-gray-700">A delicious daily ritual that supports overall wellness, immunity, and vitality.</p>
-                    </div>`;
+                targetArray[0] = text; // single select
+                document.querySelectorAll(`#${containerId} button`).forEach(b => b.classList.remove('border-purple', 'bg-lightpurple'));
+                btn.classList.add('border-purple', 'bg-lightpurple');
             }
+        };
+        container.appendChild(btn);
+    });
+}
 
-            content.innerHTML = html;
-            document.getElementById('results').classList.remove('hidden');
-        }
-    </script>
+document.addEventListener('DOMContentLoaded', () => {
+    populateGrid('goals-grid', ["Energy & Focus", "Immunity Support", "Joint & Inflammation Relief", "Skin & Hair Health", "Thyroid Balance", "Digestion & Gut Health"], goals);
+    populateGrid('concerns-grid', ["Joint Pain / Inflammation", "Chronic Fatigue", "Digestive Issues", "Skin Concerns", "Hormonal Imbalance", "Frequent Illness"], concerns);
+    populateGrid('diet-grid', ["No restrictions", "Vegan", "Low Sugar", "Keto / Low Carb", "Gluten-Free"], [diet], false);
+    updateProgress();
+});
+
+function updateProgress() {
+    const progress = Math.round(((currentStep - 1) / 6) * 100);
+    document.getElementById('progress-bar').style.width = `${progress}%`;
+    document.getElementById('step-text').textContent = `Step ${currentStep} of 6`;
+    document.getElementById('progress-text').textContent = `${progress}%`;
+}
+
+function nextStep() {
+    if (currentStep === 1 && goals.length === 0) return alert("Please select at least one goal");
+    document.getElementById(`step-${currentStep}`).classList.add('hidden');
+    currentStep++;
+    if (currentStep > 6) return showResults();
+    document.getElementById(`step-${currentStep}`).classList.remove('hidden');
+    document.getElementById('back-btn').classList.remove('hidden');
+    updateProgress();
+}
+
+function prevStep() {
+    document.getElementById(`step-${currentStep}`).classList.add('hidden');
+    currentStep--;
+    document.getElementById(`step-${currentStep}`).classList.remove('hidden');
+    if (currentStep === 1) document.getElementById('back-btn').classList.add('hidden');
+    updateProgress();
+}
+
+function selectSingle(btn, type, value) {
+    document.querySelectorAll(`.${type}-btn`).forEach(b => b.classList.remove('border-purple', 'bg-lightpurple'));
+    btn.classList.add('border-purple', 'bg-lightpurple');
+    if (type === 'gender') gender = value;
+    if (type === 'energy') energy = value;
+}
+
+function showResults() {
+    const content = document.getElementById('recommendation-content');
+    let title = "Mango Pineapple Signature Blend";
+    let insight = "This blend supports overall mineral replenishment and daily vitality.";
+
+    if (goals.some(g => g.includes("Joint") || g.includes("Inflammation"))) {
+        title = "Anti-Inflammatory Joint Protocol";
+        insight = "Targeted support for inflammation and joint comfort.";
+    } else if (goals.some(g => g.includes("Energy")) || energy === "low") {
+        title = "Sustained Energy & Vitality Protocol";
+        insight = "Optimized for natural energy without crashes.";
+    }
+
+    content.innerHTML = `
+        <div class="text-center">
+            <div class="inline-flex bg-purple/10 text-purple px-6 py-2 rounded-full text-sm mb-6">AI ANALYSIS COMPLETE • 96% Match</div>
+            <img src="assets/images/mango.jpg" class="mx-auto rounded-3xl mb-6 w-64 shadow-2xl">
+            <h4 class="text-3xl font-medium">${title}</h4>
+            <p class="text-purple font-medium mt-2">Mango Pineapple Base + Therapeutic Herbs</p>
+            <p class="mt-8 text-gray-700">${insight}</p>
+            <div class="mt-10 bg-white p-8 rounded-2xl text-left border border-lightpurple">
+                <p class="font-semibold mb-4">Your Protocol</p>
+                <ul class="space-y-4 text-sm">
+                    <li class="flex gap-3"><span class="text-green-500">✔</span> 2 tablespoons daily, first thing in the morning</li>
+                    <li class="flex gap-3"><span class="text-green-500">✔</span> Mix with warm water or lemon water</li>
+                    <li class="flex gap-3"><span class="text-green-500">✔</span> Minimum 21 days for optimal mineral absorption</li>
+                </ul>
+            </div>
+        </div>
+    `;
+    document.getElementById('results').classList.remove('hidden');
+}
+</script>
 </body>
 </html>
