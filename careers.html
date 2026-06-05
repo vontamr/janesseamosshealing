@@ -1,108 +1,421 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Careers & Opportunities | Janesse's Seamoss Creation</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        function initTailwind() {
-            tailwind.config = {
-                theme: {
-                    extend: {
-                        colors: {
-                            deep: '#260B3A',
-                            purple: '#5E0089',
-                            lightpurple: '#EAD5F8',
-                        }
-                    }
-                }
-            };
-        }
-        window.addEventListener('load', initTailwind);
-    </script>
-</head>
-<body class="bg-white text-deep font-sans antialiased">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Careers &amp; Opportunities | Janesse's Seamoss Creation</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=Playfair+Display:wght@700&amp;display=swap');
+    
+    :root {
+        --deep: #260B3A;
+        --purple: #5E0089;
+        --lightpurple: #EAD5F8;
+    }
+    
+    body {
+        font-family: 'Inter', system_ui, sans-serif;
+    }
+    
+    .heading-serif {
+        font-family: 'Playfair Display', Georgia, serif;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+    }
 
-    <!-- Navigation -->
-    <nav class="bg-white border-b sticky top-0 z-50 shadow-sm">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="flex items-center justify-between h-20">
-                <a href="index.html" class="flex items-center gap-3">
-                    <img src="assets/images/IMG_7251 Background Removed 2.jpeg" alt="Janesse's Seamoss Creation" class="h-20">
-                </a>
-                <a href="index.html" class="text-purple font-medium">← Back to Home</a>
+    .section-fade {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .section-fade.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .position-card {
+        transition: all 0.4s cubic-bezier(0.4, 0.0, 0.2, 1);
+    }
+    
+    .position-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+    }
+
+    .nav-active {
+        color: #5E0089;
+        font-weight: 600;
+    }
+
+    .premium-input {
+        transition: all 0.3s ease;
+    }
+    
+    .premium-input:focus {
+        box-shadow: 0 0 0 3px rgba(94, 0, 137, 0.1);
+        border-color: #5E0089;
+    }
+
+    .stagger-1 { animation-delay: 100ms; }
+    .stagger-2 { animation-delay: 200ms; }
+    .stagger-3 { animation-delay: 300ms; }
+
+    .subtle-gradient {
+        background: linear-gradient(135deg, #260B3A 0%, #3D1259 100%);
+    }
+
+    .sea-moss-float {
+        animation: gentleFloat 6s ease-in-out infinite;
+    }
+</style>
+</head>
+<body class="bg-white text-[#260B3A] font-sans antialiased">
+
+<!-- Navigation -->
+<nav class="bg-white border-b sticky top-0 z-50 shadow-sm">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="flex items-center justify-between h-20">
+            <a href="index.html" class="flex items-center gap-3">
+                <img src="assets/images/IMG_7251 Background Removed 2.jpeg" alt="Janesse's Seamoss Creation" class="h-20">
+            </a>
+            <div class="hidden md:flex items-center gap-8 text-sm font-medium">
+                <a href="index.html" class="hover:text-[#5E0089] transition-colors">Home</a>
+                <a href="shop.html" class="hover:text-[#5E0089] transition-colors">Shop</a>
+                <a href="build.html" class="hover:text-[#5E0089] transition-colors">Build Your Blend</a>
+                <a href="careers.html" class="text-[#5E0089] font-semibold">Careers</a>
+            </div>
+            <a href="index.html" class="text-[#5E0089] font-medium flex items-center gap-2 hover:text-[#3D1259]">
+                <i class="fa-solid fa-arrow-left"></i> 
+                <span>Back to Home</span>
+            </a>
+        </div>
+    </div>
+</nav>
+
+<!-- Hero -->
+<header class="max-w-5xl mx-auto px-6 pt-16 pb-12 text-center">
+    <div class="inline-flex items-center gap-2 bg-[#EAD5F8] text-[#5E0089] px-5 py-2 rounded-3xl text-sm font-medium mb-6">
+        <i class="fa-solid fa-seedling"></i>
+        <span>WE'RE GROWING</span>
+    </div>
+    
+    <h1 class="text-6xl md:text-7xl font-light tracking-tighter leading-none mb-6 heading-serif">
+        Grow With Us.<br>
+        <span class="text-[#5E0089]">Share the Healing.</span>
+    </h1>
+    
+    <p class="max-w-2xl mx-auto text-xl text-gray-600">
+        Join a mission-driven team bringing wild-harvested Caribbean sea moss 
+        and intentional wellness to Central Florida and beyond.
+    </p>
+</header>
+
+<!-- Why Join Us -->
+<section class="max-w-6xl mx-auto px-6 py-12">
+    <div class="text-center mb-12">
+        <h2 class="text-4xl font-light tracking-tight">Why Work With Janesse's Seamoss?</h2>
+    </div>
+    
+    <div class="grid md:grid-cols-3 gap-6">
+        <div class="bg-white border border-[#EAD5F8] rounded-3xl p-8 section-fade">
+            <div class="w-12 h-12 bg-[#EAD5F8] rounded-2xl flex items-center justify-center mb-6">
+                <i class="fa-solid fa-heart text-[#5E0089] text-2xl"></i>
+            </div>
+            <h3 class="font-semibold text-xl mb-3">Mission-Driven Work</h3>
+            <p class="text-gray-600">Every jar and every conversation helps people reconnect with their bodies through nature’s most mineral-rich superfood.</p>
+        </div>
+        
+        <div class="bg-white border border-[#EAD5F8] rounded-3xl p-8 section-fade stagger-1">
+            <div class="w-12 h-12 bg-[#EAD5F8] rounded-2xl flex items-center justify-center mb-6">
+                <i class="fa-solid fa-users text-[#5E0089] text-2xl"></i>
+            </div>
+            <h3 class="font-semibold text-xl mb-3">Real Growth &amp; Autonomy</h3>
+            <p class="text-gray-600">We’re a small, fast-moving team. You’ll have real ownership, direct impact, and the space to grow your skills.</p>
+        </div>
+        
+        <div class="bg-white border border-[#EAD5F8] rounded-3xl p-8 section-fade stagger-2">
+            <div class="w-12 h-12 bg-[#EAD5F8] rounded-2xl flex items-center justify-center mb-6">
+                <i class="fa-solid fa-leaf text-[#5E0089] text-2xl"></i>
+            </div>
+            <h3 class="font-semibold text-xl mb-3">Holistic &amp; Flexible Culture</h3>
+            <p class="text-gray-600">We believe in wellness in all forms — flexible hours, local-first work, and a deep respect for balance and family.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Open Positions -->
+<section class="max-w-6xl mx-auto px-6 py-12">
+    <div class="flex items-end justify-between mb-10">
+        <div>
+            <h2 class="text-4xl font-light tracking-tight">Current Opportunities</h2>
+            <p class="text-gray-600 mt-2">We’re looking for kind, reliable, and proactive people who care about wellness.</p>
+        </div>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6">
+        
+        <!-- Role 1 -->
+        <div class="position-card bg-white border border-gray-200 rounded-3xl p-8 flex flex-col">
+            <div class="flex items-center justify-between mb-4">
+                <span class="px-4 py-1.5 bg-[#EAD5F8] text-[#5E0089] text-xs font-semibold rounded-3xl">PART-TIME / FULL-TIME</span>
+            </div>
+            <h3 class="font-semibold text-2xl mb-2">Online Merchant &amp; E-commerce Specialist</h3>
+            <p class="text-sm text-[#5E0089] mb-4">Remote or Hybrid • Orlando-based preferred</p>
+            
+            <div class="flex-1">
+                <p class="text-gray-600 mb-4">Help manage and grow our online store, support customers, and keep our digital presence feeling as premium and intentional as our products.</p>
+                
+                <div class="text-sm space-y-2 text-gray-600">
+                    <div class="flex gap-2"><i class="fa-solid fa-check text-[#5E0089] mt-1"></i> <span>Manage orders, customer inquiries &amp; fulfillment</span></div>
+                    <div class="flex gap-2"><i class="fa-solid fa-check text-[#5E0089] mt-1"></i> <span>Update product listings, photos &amp; descriptions</span></div>
+                    <div class="flex gap-2"><i class="fa-solid fa-check text-[#5E0089] mt-1"></i> <span>Support email &amp; social customer service</span></div>
+                    <div class="flex gap-2"><i class="fa-solid fa-check text-[#5E0089] mt-1"></i> <span>Help optimize the shopping experience</span></div>
+                </div>
+            </div>
+            
+            <button onclick="selectPosition('Online Merchant / E-commerce Specialist')" 
+                    class="mt-8 w-full bg-white hover:bg-[#5E0089] hover:text-white border border-[#5E0089] text-[#5E0089] py-4 rounded-3xl font-semibold transition-all">
+                Apply for this role →
+            </button>
+        </div>
+
+        <!-- Role 2 -->
+        <div class="position-card bg-white border border-gray-200 rounded-3xl p-8 flex flex-col">
+            <div class="flex items-center justify-between mb-4">
+                <span class="px-4 py-1.5 bg-[#EAD5F8] text-[#5E0089] text-xs font-semibold rounded-3xl">PART-TIME</span>
+            </div>
+            <h3 class="font-semibold text-2xl mb-2">In-Person Event Staff</h3>
+            <p class="text-sm text-[#5E0089] mb-4">Central Florida • Weekends + select weekdays</p>
+            
+            <div class="flex-1">
+                <p class="text-gray-600 mb-4">Represent Janesse’s Seamoss at farmers markets, wellness events, pop-ups, and community activations across Orlando and surrounding areas.</p>
+                
+                <div class="text-sm space-y-2 text-gray-600">
+                    <div class="flex gap-2"><i class="fa-solid fa-check text-[#5E0089] mt-1"></i> <span>Set up &amp; break down beautiful booth displays</span></div>
+                    <div class="flex gap-2"><i class="fa-solid fa-check text-[#5E0089] mt-1"></i> <span>Educate customers about sea moss benefits</span></div>
+                    <div class="flex gap-2"><i class="fa-solid fa-check text-[#5E0089] mt-1"></i> <span>Process sales (cash, card, tap-to-pay)</span></div>
+                    <div class="flex gap-2"><i class="fa-solid fa-check text-[#5E0089] mt-1"></i> <span>Build genuine connections in the community</span></div>
+                </div>
+            </div>
+            
+            <button onclick="selectPosition('In-Person Event Staff')" 
+                    class="mt-8 w-full bg-white hover:bg-[#5E0089] hover:text-white border border-[#5E0089] text-[#5E0089] py-4 rounded-3xl font-semibold transition-all">
+                Apply for this role →
+            </button>
+        </div>
+
+        <!-- Role 3 -->
+        <div class="position-card bg-white border border-gray-200 rounded-3xl p-8 flex flex-col">
+            <div class="flex items-center justify-between mb-4">
+                <span class="px-4 py-1.5 bg-[#EAD5F8] text-[#5E0089] text-xs font-semibold rounded-3xl">PART-TIME</span>
+            </div>
+            <h3 class="font-semibold text-2xl mb-2">Local Delivery Driver</h3>
+            <p class="text-sm text-[#5E0089] mb-4">Central Florida • Flexible schedule</p>
+            
+            <div class="flex-1">
+                <p class="text-gray-600 mb-4">Deliver fresh, handcrafted sea moss orders to homes and businesses across Orlando and surrounding areas with care and professionalism.</p>
+                
+                <div class="text-sm space-y-2 text-gray-600">
+                    <div class="flex gap-2"><i class="fa-solid fa-check text-[#5E0089] mt-1"></i> <span>Safe, timely delivery of temperature-sensitive products</span></div>
+                    <div class="flex gap-2"><i class="fa-solid fa-check text-[#5E0089] mt-1"></i> <span>Excellent customer service &amp; communication</span></div>
+                    <div class="flex gap-2"><i class="fa-solid fa-check text-[#5E0089] mt-1"></i> <span>Reliable vehicle + valid driver’s license</span></div>
+                    <div class="flex gap-2"><i class="fa-solid fa-check text-[#5E0089] mt-1"></i> <span>Help grow our local delivery service</span></div>
+                </div>
+            </div>
+            
+            <button onclick="selectPosition('Local Delivery Driver')" 
+                    class="mt-8 w-full bg-white hover:bg-[#5E0089] hover:text-white border border-[#5E0089] text-[#5E0089] py-4 rounded-3xl font-semibold transition-all">
+                Apply for this role →
+            </button>
+        </div>
+    </div>
+</section>
+
+<!-- Application Form -->
+<section id="application-section" class="max-w-3xl mx-auto px-6 py-16">
+    <div class="bg-white border border-[#EAD5F8] rounded-3xl p-10 md:p-14 shadow-sm">
+        <div class="text-center mb-10">
+            <h2 class="text-4xl font-light tracking-tight mb-3">Ready to Apply?</h2>
+            <p class="text-gray-600">We review every application personally. Tell us about yourself.</p>
+        </div>
+
+        <!-- Position Selector -->
+        <div class="mb-8">
+            <label class="block text-sm font-medium mb-3 text-gray-700">Which position are you applying for?</label>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-3" id="position-selector">
+                <div onclick="selectPositionCard(this, 'Online Merchant / E-commerce Specialist')" 
+                     class="position-pill border-2 border-gray-200 hover:border-[#5E0089] rounded-3xl px-5 py-4 cursor-pointer transition-all text-center">
+                    <div class="font-semibold">Online Merchant</div>
+                    <div class="text-xs text-gray-500">E-commerce Specialist</div>
+                </div>
+                <div onclick="selectPositionCard(this, 'In-Person Event Staff')" 
+                     class="position-pill border-2 border-gray-200 hover:border-[#5E0089] rounded-3xl px-5 py-4 cursor-pointer transition-all text-center">
+                    <div class="font-semibold">In-Person Event Staff</div>
+                </div>
+                <div onclick="selectPositionCard(this, 'Local Delivery Driver')" 
+                     class="position-pill border-2 border-gray-200 hover:border-[#5E0089] rounded-3xl px-5 py-4 cursor-pointer transition-all text-center">
+                    <div class="font-semibold">Local Delivery Driver</div>
+                </div>
             </div>
         </div>
-    </nav>
 
-    <div class="max-w-4xl mx-auto px-6 py-20">
-        <div class="text-center mb-16">
-            <h1 class="text-5xl md:text-6xl font-light tracking-tighter">Careers & Opportunities</h1>
-            <p class="text-xl text-gray-600 mt-6 max-w-2xl mx-auto">
-                Join a mission-driven team dedicated to sharing the healing benefits of wild-harvested sea moss.
-            </p>
-        </div>
+        <form action="https://formspree.io/f/xjgzrwry" method="POST" class="space-y-6">
+            <input type="hidden" name="position" id="selected-position" required>
 
-        <div class="grid md:grid-cols-2 gap-12">
-            
-            <!-- Current Openings -->
-            <div>
-                <h2 class="text-2xl font-medium mb-8">Current Open Positions</h2>
-                <div class="space-y-6">
-                    <div class="border border-gray-200 rounded-3xl p-8">
-                        <h3 class="font-semibold text-xl">Online Merchant / E-commerce Specialist</h3>
-                        <p class="text-purple text-sm mt-1">Part-time or Full-time • Remote / Orlando</p>
-                    </div>
-                    <div class="border border-gray-200 rounded-3xl p-8">
-                        <h3 class="font-semibold text-xl">In-Person Event Staff</h3>
-                        <p class="text-purple text-sm mt-1">Part-time • Central Florida</p>
-                    </div>
-                    <div class="border border-gray-200 rounded-3xl p-8">
-                        <h3 class="font-semibold text-xl">Local Delivery Driver</h3>
-                        <p class="text-purple text-sm mt-1">Part-time • Central Florida</p>
-                    </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                    <label class="block text-sm font-medium mb-2">First Name</label>
+                    <input type="text" name="firstName" required class="premium-input w-full px-6 py-4 rounded-3xl border border-gray-300 focus:outline-none">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium mb-2">Last Name</label>
+                    <input type="text" name="lastName" required class="premium-input w-full px-6 py-4 rounded-3xl border border-gray-300 focus:outline-none">
                 </div>
             </div>
 
-            <!-- Application Form -->
-            <div>
-                <h2 class="text-2xl font-medium mb-8">Application Form</h2>
-                
-                <form action="https://formspree.io/f/xjgzrwry" method="POST" class="space-y-6">
-                    <div class="grid grid-cols-2 gap-6">
-                        <input type="text" name="firstName" placeholder="First Name" required class="w-full px-6 py-5 rounded-3xl border border-gray-300 focus:border-purple focus:outline-none">
-                        <input type="text" name="lastName" placeholder="Last Name" required class="w-full px-6 py-5 rounded-3xl border border-gray-300 focus:border-purple focus:outline-none">
-                    </div>
-
-                    <input type="email" name="email" placeholder="Email Address" required class="w-full px-6 py-5 rounded-3xl border border-gray-300 focus:border-purple focus:outline-none">
-                    <input type="tel" name="phone" placeholder="Phone Number" required class="w-full px-6 py-5 rounded-3xl border border-gray-300 focus:border-purple focus:outline-none">
-                    
-                    <input type="text" name="city" placeholder="City / Area (e.g. Orlando, Kissimmee)" class="w-full px-6 py-5 rounded-3xl border border-gray-300 focus:border-purple focus:outline-none">
-
-                    <select name="position" required class="w-full px-6 py-5 rounded-3xl border border-gray-300 focus:border-purple focus:outline-none">
-                        <option value="">Position Applying For</option>
-                        <option value="Online Merchant">Online Merchant / E-commerce Specialist</option>
-                        <option value="Event Staff">In-Person Event Staff</option>
-                        <option value="Delivery Driver">Local Delivery Driver</option>
-                    </select>
-
-                    <input type="text" name="availability" placeholder="Availability (Days/Hours per week)" class="w-full px-6 py-5 rounded-3xl border border-gray-300 focus:border-purple focus:outline-none">
-
-                    <textarea name="experience" rows="4" placeholder="Relevant experience (retail, customer service, delivery, events, e-commerce, etc.)" 
-                              class="w-full px-6 py-5 rounded-3xl border border-gray-300 focus:border-purple focus:outline-none"></textarea>
-
-                    <textarea name="whyJoin" rows="4" placeholder="Why do you want to work with Janesse's Seamoss Creation?" 
-                              class="w-full px-6 py-5 rounded-3xl border border-gray-300 focus:border-purple focus:outline-none"></textarea>
-
-                    <button type="submit" 
-                            class="w-full bg-purple hover:bg-deep text-white py-7 rounded-3xl text-xl font-semibold transition-all">
-                        Submit Application
-                    </button>
-                </form>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                    <label class="block text-sm font-medium mb-2">Email Address</label>
+                    <input type="email" name="email" required class="premium-input w-full px-6 py-4 rounded-3xl border border-gray-300 focus:outline-none">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium mb-2">Phone Number</label>
+                    <input type="tel" name="phone" required class="premium-input w-full px-6 py-4 rounded-3xl border border-gray-300 focus:outline-none">
+                </div>
             </div>
-        </div>
+
+            <div>
+                <label class="block text-sm font-medium mb-2">City / Area in Central Florida</label>
+                <input type="text" name="location" placeholder="e.g. Orlando, Winter Park, Kissimmee, Oviedo" class="premium-input w-full px-6 py-4 rounded-3xl border border-gray-300 focus:outline-none">
+            </div>
+
+            <div>
+                <label class="block text-sm font-medium mb-2">Availability</label>
+                <input type="text" name="availability" placeholder="e.g. Weekends + 2 weekdays, 15–25 hours/week" class="premium-input w-full px-6 py-4 rounded-3xl border border-gray-300 focus:outline-none">
+            </div>
+
+            <div>
+                <label class="block text-sm font-medium mb-2">Relevant Experience</label>
+                <textarea name="experience" rows="4" placeholder="Tell us about any retail, customer service, delivery, events, e-commerce, or wellness experience..." class="premium-input w-full px-6 py-4 rounded-3xl border border-gray-300 focus:outline-none"></textarea>
+            </div>
+
+            <div>
+                <label class="block text-sm font-medium mb-2">Why do you want to work with Janesse's Seamoss Creation?</label>
+                <textarea name="whyJoin" rows="5" placeholder="We’d love to hear what draws you to this work..." class="premium-input w-full px-6 py-4 rounded-3xl border border-gray-300 focus:outline-none"></textarea>
+            </div>
+
+            <button type="submit"
+                    class="w-full bg-[#5E0089] hover:bg-[#260B3A] text-white py-6 rounded-3xl text-xl font-semibold transition-all active:scale-[0.985]">
+                Submit My Application
+            </button>
+            
+            <p class="text-center text-xs text-gray-500 mt-4">
+                We personally review every application. You’ll hear from us within 5–7 business days.
+            </p>
+        </form>
     </div>
+</section>
+
+<footer class="border-t py-8 text-center text-sm text-gray-500">
+    <p>© 2026 Janesse's Seamoss Creation • Built with intention in Central Florida</p>
+</footer>
+
+<script>
+function initTailwind() {
+    tailwind.config = {
+        theme: {
+            extend: {
+                colors: {
+                    deep: '#260B3A',
+                    purple: '#5E0089',
+                    lightpurple: '#EAD5F8',
+                }
+            }
+        }
+    };
+}
+window.addEventListener('load', initTailwind);
+
+// Scroll fade-in animation
+function initScrollAnimations() {
+    const sections = document.querySelectorAll('.section-fade');
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1 });
+    
+    sections.forEach(section => observer.observe(section));
+}
+
+// Position selection from cards
+function selectPosition(positionName) {
+    // Scroll to form
+    document.getElementById('application-section').scrollIntoView({ 
+        behavior: 'smooth', 
+        block: 'start' 
+    });
+    
+    // Pre-select position
+    setTimeout(() => {
+        selectPositionCard(null, positionName);
+    }, 600);
+}
+
+// Position pill selection in form
+function selectPositionCard(element, positionName) {
+    // Deselect all pills
+    document.querySelectorAll('#position-selector .position-pill').forEach(pill => {
+        pill.classList.remove('border-[#5E0089]', 'bg-[#EAD5F8]');
+        pill.classList.add('border-gray-200');
+    });
+    
+    // Select the clicked one (if element exists)
+    if (element) {
+        element.classList.remove('border-gray-200');
+        element.classList.add('border-[#5E0089]', 'bg-[#EAD5F8]');
+    } else {
+        // If called programmatically, find and highlight the correct pill
+        document.querySelectorAll('#position-selector .position-pill').forEach(pill => {
+            if (pill.textContent.includes(positionName.split(' / ')[0]) || 
+                pill.textContent.includes(positionName)) {
+                pill.classList.remove('border-gray-200');
+                pill.classList.add('border-[#5E0089]', 'bg-[#EAD5F8]');
+            }
+        });
+    }
+    
+    // Set hidden input
+    document.getElementById('selected-position').value = positionName;
+}
+
+// Initialize everything
+function initializePage() {
+    initScrollAnimations();
+    
+    // Optional: subtle entrance animation for hero
+    const hero = document.querySelector('header');
+    if (hero) {
+        hero.style.opacity = '0';
+        hero.style.transform = 'translateY(20px)';
+        
+        setTimeout(() => {
+            hero.style.transition = 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1)';
+            hero.style.opacity = '1';
+            hero.style.transform = 'translateY(0)';
+        }, 100);
+    }
+}
+
+window.onload = initializePage;
+</script>
 
 </body>
 </html>
