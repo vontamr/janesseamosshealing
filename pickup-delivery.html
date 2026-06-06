@@ -1,243 +1,351 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Local Pickup & Delivery • Janesse's Seamoss Creation</title>
-    <script src="https://cdn.tailwindcss.com" async></script>
-    <link rel="stylesheet" href="styles.css">
-    
-    <script>
-        function initTailwind() {
-            tailwind.config = {
-                content: ["./**/*.{html,js}"],
-                theme: {
-                    extend: {
-                        colors: {
-                            deep: '#260B3A',
-                            purple: '#5E0089',
-                            lightpurple: '#EAD5F8',
-                        }
-                    }
-                }
-            };
-        }
-        window.addEventListener('load', initTailwind);
-    </script>
-
-    <style>
-        .floating-jar {
-            animation: gentleFloat 4s ease-in-out infinite;
-        }
-        @keyframes gentleFloat {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-        }
-        .purple-car {
-            animation: driveSmooth 3.5s linear infinite;
-        }
-        @keyframes driveSmooth {
-            0% { transform: translateX(-25px); }
-            100% { transform: translateX(25px); }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Local Pickup &amp; Delivery • Janesse's Seamoss Creation</title>
+<script src="https://cdn.tailwindcss.com" async></script>
+<link rel="stylesheet" href="styles.css">
+<style>
+    .result-panel { animation: fadeInUp 0.4s ease-out forwards; }
+    @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+</style>
 </head>
-<body class="bg-white text-deep font-sans antialiased">
+<body class="bg-white text-[#260B3A] font-sans antialiased">
 
-    <!-- Navigation -->
-    <nav class="bg-white border-b sticky top-0 z-50 shadow-sm">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="flex items-center justify-between h-20">
-                <a href="index.html" class="flex items-center gap-3">
-                    <img src="assets/images/IMG_7251 Background Removed 2.jpeg" alt="Janesse's Seamoss Creation" class="h-20">
-                </a>
-                <a href="shop.html" class="bg-purple hover:bg-deep text-white px-8 py-3.5 rounded-3xl font-semibold">Shop Now</a>
-            </div>
+<!-- Navigation -->
+<nav class="bg-white border-b sticky top-0 z-50 shadow-sm">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="flex items-center justify-between h-20">
+            <a href="index.html" class="flex items-center gap-3">
+                <img src="assets/images/IMG_7251 Background Removed 2.jpeg" alt="Janesse's Seamoss Creation" class="h-20">
+            </a>
+            <a href="shop.html" class="bg-[#5E0089] hover:bg-[#260B3A] text-white px-8 py-3.5 rounded-3xl font-semibold">Shop Now</a>
         </div>
-    </nav>
+    </div>
+</nav>
 
-    <!-- Hero -->
-    <header class="bg-gradient-to-br from-deep to-purple text-white py-20 relative overflow-hidden">
-        <div class="max-w-5xl mx-auto px-6 text-center relative z-10">
-            <h1 class="text-5xl md:text-6xl font-light tracking-tighter">Fresh Sea Moss, Delivered</h1>
-            <p class="text-xl mt-4 opacity-90">Same-day pickup or fast local delivery in Central Florida</p>
-        </div>
-        <div class="absolute right-12 bottom-8 hidden lg:block">
-            <img src="assets/images/passion-fruit-seamoss.jpg" 
-                 alt="Fresh Passion Fruit Sea Moss" 
-                 class="floating-jar w-56 h-56 object-cover rounded-3xl shadow-2xl border-8 border-white/30">
-        </div>
-    </header>
+<!-- Hero -->
+<header class="bg-gradient-to-br from-[#260B3A] to-[#3D1259] text-white py-20">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+        <h1 class="text-6xl md:text-7xl font-light tracking-tighter leading-none mb-6">
+            Fresh Sea Moss.<br>Delivered with care.
+        </h1>
+        <p class="max-w-md mx-auto text-xl opacity-90">
+            Fast local delivery across Orange &amp; Polk County
+        </p>
+    </div>
+</header>
 
-    <div class="max-w-5xl mx-auto px-6 py-12">
-        
-        <!-- Zip Code Estimator -->
-        <div class="bg-white border border-purple/30 rounded-3xl p-8 mb-12">
-            <h2 class="text-2xl font-medium mb-6 text-center">Check Delivery Availability</h2>
-            <div class="max-w-md mx-auto">
-                <div class="flex flex-col sm:flex-row gap-3">
-                    <input type="text" id="zip-input" placeholder="Enter ZIP Code (e.g. 32808)" 
-                           maxlength="5" 
-                           class="flex-1 px-6 py-5 border border-gray-300 rounded-3xl focus:outline-none focus:border-purple text-center text-lg font-medium">
-                    <button onclick="checkZip()" 
-                            class="bg-purple hover:bg-deep text-white px-8 py-5 rounded-3xl font-semibold whitespace-nowrap">
-                        Check
-                    </button>
-                </div>
+<div class="max-w-3xl mx-auto px-6 py-16">
 
-                <!-- Auto Detect Button -->
-                <button onclick="detectLocation()" 
-                        class="mt-4 w-full bg-gray-100 hover:bg-gray-200 text-deep py-4 rounded-3xl font-medium flex items-center justify-center gap-2 transition-all">
-                    📍 Use My Current Location
-                </button>
+    <div class="text-center mb-10">
+        <h2 class="text-4xl font-light tracking-tight">Where should we deliver?</h2>
+    </div>
 
-                <div id="zip-result" class="hidden mt-6 p-6 bg-lightpurple/30 rounded-3xl text-center"></div>
-            </div>
+    <!-- ZIP Input -->
+    <div class="bg-white border border-[#EAD5F8] rounded-3xl p-8 mb-8">
+        <div class="flex flex-col sm:flex-row gap-3">
+            <input type="text" id="zip-input" placeholder="Enter ZIP code" maxlength="5"
+                   class="flex-1 px-7 py-5 border border-gray-200 rounded-3xl text-lg focus:outline-none focus:border-[#5E0089]">
+            <button onclick="checkLocation()"
+                    class="bg-[#5E0089] hover:bg-[#260B3A] text-white px-10 py-5 rounded-3xl font-semibold text-lg transition-all">
+                Check Delivery
+            </button>
         </div>
 
-        <div class="grid md:grid-cols-2 gap-12">
-            <!-- Pickup -->
-            <div class="bg-white border border-purple/20 rounded-3xl p-10">
-                <h2 class="text-3xl font-medium mb-6">Local Pickup</h2>
-                <p class="text-purple font-medium mb-2">Free • Same Day Available</p>
-                <p class="text-gray-600 mb-8">Pick up your fresh, handcrafted sea moss gel at our Central Florida studio.</p>
-                <button onclick="schedulePickup()" class="w-full bg-purple hover:bg-deep text-white py-6 rounded-3xl font-semibold text-lg">
-                    Schedule Free Pickup
-                </button>
-            </div>
+        <button onclick="useMyLocation()"
+                class="mt-4 w-full flex items-center justify-center gap-3 py-4 text-[#5E0089] hover:bg-[#f8f1ff] rounded-3xl font-medium border border-[#EAD5F8]">
+            <i class="fa-solid fa-location-crosshairs"></i>
+            <span>Use my current location</span>
+        </button>
+    </div>
 
-            <!-- Delivery -->
-            <div class="bg-white border border-purple/20 rounded-3xl p-10">
-                <h2 class="text-3xl font-medium mb-6 flex items-center gap-4">
-                    Fast Local Delivery
-                    <svg width="120" height="55" viewBox="0 0 120 55" fill="none" xmlns="http://www.w3.org/2000/svg" class="purple-car">
-                        <rect x="15" y="22" width="78" height="24" rx="6" fill="#5E0089"/>
-                        <rect x="28" y="13" width="32" height="14" rx="3" fill="#4C1D95"/>
-                        <circle cx="38" cy="46" r="9" fill="#1F2937"/>
-                        <circle cx="82" cy="46" r="9" fill="#1F2937"/>
-                        <rect x="95" y="27" width="18" height="14" rx="3" fill="#5E0089"/>
-                    </svg>
-                </h2>
-                <div id="delivery-options" class="space-y-4"></div>
-            </div>
+    <!-- Result Panel -->
+    <div id="result-panel" class="hidden"></div>
+
+    <!-- Pickup -->
+    <div class="mt-12 text-center">
+        <div class="inline-block bg-white border border-[#EAD5F8] rounded-3xl px-8 py-6">
+            <p class="font-medium mb-3">Prefer pickup instead?</p>
+            <button onclick="showPickupModal()" class="text-[#5E0089] hover:text-[#260B3A] font-semibold underline">
+                Schedule Free Local Pickup
+            </button>
         </div>
     </div>
 
-    <script>
-        function checkZip() {
-            const zip = document.getElementById('zip-input').value.trim();
-            const result = document.getElementById('zip-result');
-            
-            if (!zip || zip.length !== 5) {
-                result.innerHTML = `<p class="text-red-600">Please enter a valid 5-digit ZIP code.</p>`;
-                result.classList.remove('hidden');
-                return;
-            }
-            processZip(zip);
-        }
+</div>
 
-        function detectLocation() {
-            const result = document.getElementById('zip-result');
-            result.innerHTML = `<p class="text-purple">Detecting location...</p>`;
-            result.classList.remove('hidden');
+<script>
+// Tailwind
+function initTailwind() {
+    tailwind.config = { theme: { extend: { colors: { deep: '#260B3A', purple: '#5E0089', lightpurple: '#EAD5F8' } } } };
+}
+window.addEventListener('load', initTailwind);
 
-            if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(
-                    (position) => {
-                        // For demo purposes - in real app you'd use reverse geocoding
-                        result.innerHTML = `
-                            <p class="text-green-600 font-medium text-xl">Location detected near Orlando area</p>
-                            <p class="mt-4">We recommend checking ZIP 32808 or nearby for fastest delivery.</p>
-                            <button onclick="suggestZip()" class="mt-6 w-full bg-purple hover:bg-deep text-white py-5 rounded-3xl font-semibold">
-                                Use Suggested ZIP
-                            </button>
-                        `;
-                    },
-                    (error) => {
-                        result.innerHTML = `<p class="text-red-600">Unable to detect location. Please enter ZIP code manually.</p>`;
-                    }
-                );
+// ==================== DELIVERY PRICING ====================
+function getDeliveryInfo(zip) {
+    const z = parseInt(zip);
+
+    if ([32808, 32805, 32818, 32810, 32811].includes(z)) {
+        return { fee: 7, time: "20–40 min", area: "Richmond Heights / Pine Hills", tier: 1 };
+    }
+    if ([32801, 32803, 32804, 32806, 32807, 32809, 32812, 32814, 32819, 32789, 32792].includes(z)) {
+        return { fee: 9, time: "35–55 min", area: "Central Orlando / Winter Park", tier: 2 };
+    }
+    if ([32703, 32712, 32822, 32824, 32825, 32826, 32827, 32828, 32829, 32830, 32831, 32832, 32835, 32836, 32837, 32839, 34787, 34786].includes(z)) {
+        return { fee: 11, time: "50–80 min", area: "Greater Orange County", tier: 3 };
+    }
+    if ([33801, 33802, 33803, 33804, 33805, 33806, 33807, 33809, 33810, 33811, 33812, 33813, 33815,
+         33880, 33881, 33882, 33883, 33884, 33823].includes(z)) {
+        return { fee: 15, time: "90–150 min", area: "Polk County (Lakeland / Winter Haven)", tier: 4 };
+    }
+    return { fee: 14, time: "60–120 min", area: "Central Florida", tier: 3 };
+}
+
+function checkLocation() {
+    const zip = document.getElementById('zip-input').value.trim();
+    const panel = document.getElementById('result-panel');
+
+    if (!zip || zip.length !== 5) {
+        panel.innerHTML = `<p class="text-red-600 text-center">Please enter a valid 5-digit ZIP code.</p>`;
+        panel.classList.remove('hidden');
+        return;
+    }
+
+    panel.classList.remove('hidden');
+    panel.innerHTML = `<div class="text-center py-8"><div class="animate-pulse text-[#5E0089]">Checking delivery options...</div></div>`;
+
+    setTimeout(() => {
+        showDeliveryResult(zip);
+    }, 550);
+}
+
+// Geolocation
+function useMyLocation() {
+    const panel = document.getElementById('result-panel');
+    panel.classList.remove('hidden');
+    panel.innerHTML = `<div class="text-center py-8"><div class="text-[#5E0089]">Detecting your location...</div></div>`;
+
+    if (!navigator.geolocation) {
+        panel.innerHTML = `<p class="text-red-600 text-center">Geolocation not supported.</p>`;
+        return;
+    }
+
+    navigator.geolocation.getCurrentPosition(async (pos) => {
+        const lat = pos.coords.latitude;
+        const lon = pos.coords.longitude;
+
+        try {
+            const res = await fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lon}&zoom=10&addressdetails=1`, {
+                headers: { 'User-Agent': 'JanesseSeamossDelivery/1.0' }
+            });
+            const data = await res.json();
+
+            if (data?.address?.postcode) {
+                const zip = data.address.postcode.trim();
+                document.getElementById('zip-input').value = zip;
+                showDeliveryResult(zip);
             } else {
-                result.innerHTML = `<p class="text-red-600">Geolocation is not supported by your browser.</p>`;
+                panel.innerHTML = `<p class="text-red-600 text-center">Couldn't determine ZIP. Please enter it manually.</p>`;
             }
+        } catch {
+            panel.innerHTML = `<p class="text-red-600 text-center">Failed to detect location. Please enter ZIP manually.</p>`;
         }
+    }, () => {
+        panel.innerHTML = `<p class="text-red-600 text-center">Location access denied or unavailable.</p>`;
+    }, { enableHighAccuracy: true, timeout: 12000 });
+}
 
-        function suggestZip() {
-            document.getElementById('zip-input').value = "32808";
-            checkZip();
-        }
+// Show delivery options
+function showDeliveryResult(zip) {
+    const panel = document.getElementById('result-panel');
+    const info = getDeliveryInfo(zip);
 
-        function processZip(zip) {
-            const result = document.getElementById('zip-result');
-            let time = "60-90 minutes";
-            let fee = "$10";
-            let area = "Central Florida";
+    panel.innerHTML = `
+        <div class="bg-white border border-[#EAD5F8] rounded-3xl p-10 result-panel">
+            <div class="text-center">
+                <div class="inline-flex items-center gap-2 bg-emerald-100 text-emerald-700 px-4 py-1 rounded-3xl text-sm font-medium mb-4">
+                    DELIVERY AVAILABLE
+                </div>
+                
+                <h3 class="text-3xl font-light">Delivery to ${info.area}</h3>
+                
+                <div class="my-8 flex justify-center gap-12">
+                    <div>
+                        <div class="text-5xl font-light">$${info.fee}</div>
+                        <div class="text-sm text-gray-500">Delivery Fee</div>
+                    </div>
+                    <div>
+                        <div class="text-5xl font-light">${info.time}</div>
+                        <div class="text-sm text-gray-500">Estimated Arrival</div>
+                    </div>
+                </div>
 
-            if (["32808","32805","32818","32810","32811","32819"].includes(zip)) {
-                time = "25-45 minutes"; fee = "$7"; area = "Richmond Heights / Pine Hills";
-            } else if (["32801","32803","32804","32789","32814"].includes(zip)) {
-                time = "35-55 minutes"; fee = "$8"; area = "Downtown / Winter Park";
-            } else if (["32703","32712","32751"].includes(zip)) {
-                time = "45-70 minutes"; fee = "$9"; area = "Apopka / Altamonte";
-            } else if (["34741","34744","34743"].includes(zip)) {
-                time = "70-100 minutes"; fee = "$12"; area = "Kissimmee";
-            } else if (["32771","32746"].includes(zip)) {
-                time = "55-80 minutes"; fee = "$10"; area = "Sanford / Lake Mary";
-            }
-
-            result.innerHTML = `
-                <p class="text-purple font-medium text-xl">Delivery is available in your area</p>
-                <p class="mt-3 text-lg">${area}</p>
-                <p class="mt-4">Estimated arrival: <strong>${time}</strong></p>
-                <p class="text-purple font-semibold text-lg">Delivery fee: ${fee}</p>
-                <button onclick="startOrder()" class="mt-8 w-full bg-purple hover:bg-deep text-white py-5 rounded-3xl font-semibold">
-                    Continue to Order
+                <button onclick="openAddressForm('${info.area}', ${info.fee}, '${info.time}', '${zip}')"
+                        class="w-full bg-[#5E0089] hover:bg-[#260B3A] text-white py-6 rounded-3xl text-xl font-semibold transition-all">
+                    Use This Delivery for My Order
                 </button>
-            `;
-        }
+                
+                <p class="text-xs text-gray-500 mt-4">Temperature-controlled • Fresh guarantee</p>
+            </div>
+        </div>
+    `;
+}
 
-        function startOrder() {
-            alert("Thank you! Redirecting to our shop.");
-            window.location.href = "shop.html";
-        }
+// Open Address Collection Modal (NEW)
+function openAddressForm(area, fee, time, zip) {
+    const modal = document.createElement('div');
+    modal.className = `fixed inset-0 bg-black/60 flex items-center justify-center z-[100]`;
+    
+    modal.innerHTML = `
+        <div class="bg-white rounded-3xl max-w-md w-full mx-4 p-8">
+            <h3 class="text-2xl font-light mb-2">Delivery Address</h3>
+            <p class="text-sm text-gray-600 mb-6">${area} • $${fee} • ${time}</p>
+            
+            <form id="address-form" action="https://formspree.io/f/xjgzrwry" method="POST">
+                <input type="hidden" name="_subject" value="New Delivery Order - Janesse's Seamoss">
+                <input type="hidden" name="delivery_area" value="${area}">
+                <input type="hidden" name="delivery_fee" value="$${fee}">
+                <input type="hidden" name="estimated_time" value="${time}">
+                <input type="hidden" name="zip_code" value="${zip}">
 
-        function schedulePickup() {
-            alert("Pickup scheduling coming soon.\n\nPlease text or call (407) 752-7864 to schedule your fresh pickup.");
-        }
-
-        document.addEventListener('DOMContentLoaded', () => {
-            document.getElementById('delivery-options').innerHTML = `
-                <div class="border border-gray-200 rounded-2xl p-6 hover:border-purple transition-all">
-                    <div class="flex justify-between items-center">
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-medium mb-1">Full Name</label>
+                        <input type="text" name="name" required class="w-full px-5 py-4 border border-gray-200 rounded-3xl">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium mb-1">Phone Number</label>
+                        <input type="tel" name="phone" required class="w-full px-5 py-4 border border-gray-200 rounded-3xl">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium mb-1">Street Address</label>
+                        <input type="text" name="address" required placeholder="123 Main Street" class="w-full px-5 py-4 border border-gray-200 rounded-3xl">
+                    </div>
+                    <div class="grid grid-cols-2 gap-4">
                         <div>
-                            <p class="font-medium">Orlando Metro Area</p>
-                            <p class="text-sm text-gray-500">30–75 minutes • Today</p>
+                            <label class="block text-sm font-medium mb-1">City</label>
+                            <input type="text" name="city" value="Orlando" class="w-full px-5 py-4 border border-gray-200 rounded-3xl">
                         </div>
-                        <div class="text-right">
-                            <p class="font-semibold">$8</p>
-                            <button onclick="selectDelivery(this)" class="mt-3 text-sm bg-purple text-white px-6 py-2.5 rounded-3xl">Select</button>
+                        <div>
+                            <label class="block text-sm font-medium mb-1">ZIP Code</label>
+                            <input type="text" name="zip" value="${zip}" class="w-full px-5 py-4 border border-gray-200 rounded-3xl">
                         </div>
                     </div>
-                </div>
-                <div class="border border-gray-200 rounded-2xl p-6 hover:border-purple transition-all">
-                    <div class="flex justify-between items-center">
-                        <div>
-                            <p class="font-medium">Greater Central Florida</p>
-                            <p class="text-sm text-gray-500">1–2 hours • Today / Tomorrow</p>
-                        </div>
-                        <div class="text-right">
-                            <p class="font-semibold">$12</p>
-                            <button onclick="selectDelivery(this)" class="mt-3 text-sm bg-purple text-white px-6 py-2.5 rounded-3xl">Select</button>
-                        </div>
+                    <div>
+                        <label class="block text-sm font-medium mb-1">Delivery Notes (optional)</label>
+                        <textarea name="notes" rows="2" placeholder="Gate code, leave at door, etc." class="w-full px-5 py-4 border border-gray-200 rounded-3xl"></textarea>
                     </div>
                 </div>
-            `;
+
+                <button type="submit" class="mt-8 w-full bg-[#5E0089] hover:bg-[#260B3A] text-white py-5 rounded-3xl font-semibold text-lg">
+                    Submit Delivery Address
+                </button>
+            </form>
+
+            <button onclick="this.closest('.fixed').remove()" class="w-full mt-3 text-gray-500 py-3">Cancel</button>
+        </div>
+    `;
+    
+    document.body.appendChild(modal);
+
+   // Handle form submission
+const form = modal.querySelector('#address-form');
+form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const btn = form.querySelector('button[type="submit"]');
+    btn.innerHTML = 'Submitting...';
+    btn.disabled = true;
+
+    try {
+        const response = await fetch(form.action, {
+            method: 'POST',
+            body: new FormData(form),
+            headers: { 'Accept': 'application/json' }
         });
 
-        function selectDelivery(btn) {
-            btn.textContent = "Selected";
-            btn.classList.add('!bg-green-600');
+        if (response.ok) {
+            // ✅ SAVE DELIVERY INFO TO LOCALSTORAGE (this was missing)
+            const deliveryData = {
+                area: form.querySelector('input[name="delivery_area"]').value,
+                fee: parseInt(form.querySelector('input[name="delivery_fee"]').value.replace('$', '')),
+                time: form.querySelector('input[name="estimated_time"]').value,
+                zip: form.querySelector('input[name="zip_code"]').value
+            };
+            localStorage.setItem('selectedDelivery', JSON.stringify(deliveryData));
+
+            form.innerHTML = `
+                <div class="text-center py-8">
+                    <div class="text-5xl mb-4">✅</div>
+                    <h4 class="text-2xl font-light mb-2">Address Received!</h4>
+                    <p class="text-gray-600">Thank you. Redirecting you to the shop...</p>
+                </div>
+            `;
+            
+            setTimeout(() => {
+                modal.remove();
+                window.location.href = "shop.html";
+            }, 1800);
+        } else {
+            throw new Error();
         }
-    </script>
+    } catch {
+        alert("Something went wrong. Please try again or text (407) 752-7864.");
+        btn.innerHTML = 'Submit Delivery Address';
+        btn.disabled = false;
+    }
+});
+}
+
+// Pickup Modal (unchanged)
+function showPickupModal() {
+    const modal = document.createElement('div');
+    modal.className = `fixed inset-0 bg-black/60 flex items-center justify-center z-[100]`;
+    modal.innerHTML = `
+        <div class="bg-white rounded-3xl max-w-md w-full mx-4 p-8">
+            <h3 class="text-2xl font-light mb-6">Schedule Free Pickup</h3>
+            <form id="pickup-form" action="https://formspree.io/f/xjgzrwry" method="POST">
+                <input type="hidden" name="_subject" value="New Pickup Request">
+                <div class="space-y-5">
+                    <div><label class="block text-sm font-medium mb-2">Full Name</label>
+                    <input type="text" name="name" required class="w-full px-5 py-4 border border-gray-200 rounded-3xl"></div>
+                    <div><label class="block text-sm font-medium mb-2">Phone Number</label>
+                    <input type="tel" name="phone" required class="w-full px-5 py-4 border border-gray-200 rounded-3xl"></div>
+                    <div><label class="block text-sm font-medium mb-2">Preferred Time</label>
+                    <select name="pickup_time" required class="w-full px-5 py-4 border border-gray-200 rounded-3xl">
+                        <option value="">Select time slot</option>
+                        <option>Today • 2:00 PM – 5:00 PM</option>
+                        <option>Tomorrow • 10:00 AM – 1:00 PM</option>
+                        <option>Tomorrow • 2:00 PM – 5:00 PM</option>
+                    </select></div>
+                    <div><label class="block text-sm font-medium mb-2">Notes (optional)</label>
+                    <textarea name="message" rows="3" class="w-full px-5 py-4 border border-gray-200 rounded-3xl"></textarea></div>
+                </div>
+                <button type="submit" class="mt-8 w-full bg-[#5E0089] hover:bg-[#260B3A] text-white py-5 rounded-3xl font-semibold">Confirm Pickup Request</button>
+            </form>
+            <button onclick="this.closest('.fixed').remove()" class="w-full mt-3 text-gray-500 py-3">Cancel</button>
+        </div>
+    `;
+    document.body.appendChild(modal);
+
+    const form = modal.querySelector('#pickup-form');
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const btn = form.querySelector('button[type="submit"]');
+        btn.innerHTML = 'Submitting...'; btn.disabled = true;
+
+        const res = await fetch(form.action, { method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' } });
+        if (res.ok) {
+            form.innerHTML = `<div class="text-center py-8"><div class="text-5xl mb-4">✅</div><h4 class="text-2xl font-light">Request Received!</h4><p class="text-gray-600">We'll text you to confirm.</p></div>`;
+            setTimeout(() => modal.remove(), 2000);
+        } else {
+            alert("Error. Please text (407) 752-7864.");
+            btn.innerHTML = 'Confirm Pickup Request'; btn.disabled = false;
+        }
+    });
+}
+</script>
+
 </body>
 </html>
