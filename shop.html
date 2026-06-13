@@ -56,42 +56,52 @@ animation: beeFlight 26s linear infinite;
 
 <!-- Navigation -->
 <nav class="bg-white border-b sticky top-0 z-50 shadow-sm">
-<div class="max-w-7xl mx-auto px-6">
-<div class="flex items-center justify-between h-20">
-<a href="index.html" class="flex items-center gap-3">
-<img src="assets/images/IMG_7251 Background Removed 2.jpeg" alt="Janesse's Seamoss Creation Logo" class="h-20">
-</a>
-<div class="hidden md:flex items-center gap-10 text-sm font-medium">
-<a href="index.html" class="hover:text-purple transition-colors">Home</a>
-<a href="build.html" class="hover:text-purple transition-colors">Build Your Blend</a>
-<a href="shop.html" class="text-purple font-semibold">Shop</a>
-<a href="wellness-calculator.html" class="hover:text-purple transition-colors">Wellness Tools</a>
-<a href="about.html" class="hover:text-purple transition-colors">Our Story</a>
-</div>
-
-<!-- Delivery Options Button with Custom Purple Truck -->
-<div class="flex items-center gap-4">
-    <button onclick="showDeliverySelector()" 
-            class="bg-white border border-purple text-purple px-5 py-2.5 rounded-2xl text-sm font-medium hover:bg-lightpurple transition-all flex items-center gap-2">
+    <div class="max-w-7xl mx-auto px-4 md:px-6">
+    <div class="flex items-center justify-between h-20">
         
-        <!-- Custom Purple Truck SVG -->
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="#5E0089" stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
-            <path stroke-linecap="round" stroke-linejoin="round" d="M3 10h11M9 21v-6m3 6v-6m3 6v-6" />
-        </svg>
-        
-        <span>Delivery Options</span>
-    </button>
-
-    <button id="view-cart-btn" onclick="showCartModal()" 
-            class="hidden items-center gap-2 bg-purple text-white px-5 py-2.5 rounded-2xl text-sm font-medium hover:bg-deep transition-all">
-        <span>🛒</span>
-        <span id="cart-count">0</span>
-    </button>
-</div>
-</div>
-</div>
-</nav>
+        <!-- Logo -->
+        <a href="index.html" class="flex items-center gap-3">
+            <img src="assets/images/IMG_7251 Background Removed 2.jpeg" alt="Janesse's Seamoss Creation Logo" class="h-16 md:h-20">
+        </a>
+    
+        <!-- Desktop Menu -->
+        <div class="hidden md:flex items-center gap-10 text-sm font-medium">
+            <a href="index.html" class="hover:text-purple transition-colors">Home</a>
+            <a href="build.html" class="hover:text-purple transition-colors">Build Your Blend</a>
+            <a href="shop.html" class="text-purple font-semibold">Shop</a>
+            <a href="wellness-calculator.html" class="hover:text-purple transition-colors">Wellness Tools</a>
+            <a href="about.html" class="hover:text-purple transition-colors">Our Story</a>
+        </div>
+    
+        <!-- Buttons (Mobile Optimized) -->
+        <div class="flex items-center gap-2 md:gap-4">
+            
+            <!-- Delivery Options Button - Mobile Friendly -->
+            <button onclick="showDeliverySelector()" 
+                    class="bg-white border border-purple text-purple px-3 py-2 md:px-5 md:py-2.5 rounded-2xl text-xs md:text-sm font-medium hover:bg-lightpurple transition-all flex items-center gap-1.5 md:gap-2 whitespace-nowrap">
+                
+                <!-- Custom Purple Truck SVG -->
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 md:w-5 md:h-5" fill="none" viewBox="0 0 24 24" stroke="#5E0089" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 10h11M9 21v-6m3 6v-6m3 6v-6" />
+                </svg>
+                
+                <span class="hidden sm:inline">Delivery Options</span>
+                <span class="sm:hidden">Delivery</span>
+            </button>
+    
+            <!-- Cart Button -->
+            <button id="view-cart-btn" onclick="showCartModal()" 
+                    class="hidden items-center gap-2 bg-purple text-white px-3 py-2 md:px-5 md:py-2.5 rounded-2xl text-xs md:text-sm font-medium hover:bg-deep transition-all">
+                <span>🛒</span>
+                <span id="cart-count">0</span>
+            </button>
+    
+        </div>
+    
+    </div>
+    </div>
+    </nav>
 
 <!-- Delivery Info Bar -->
 <div id="delivery-info-bar" class="hidden bg-emerald-50 border-b border-emerald-200">
