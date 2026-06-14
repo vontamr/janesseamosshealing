@@ -50,58 +50,50 @@ animation: beeFlight 26s linear infinite;
     66% { transform: translate(-40px, 65px) rotate(-12deg); }
     100% { transform: translate(0, 0) rotate(-8deg); }
 }
+.delivery-card {
+transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.delivery-card:hover {
+transform: translateY(-4px);
+box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+}
 </style>
 </head>
 <body class="bg-white text-deep font-sans antialiased">
 
 <!-- Navigation -->
 <nav class="bg-white border-b sticky top-0 z-50 shadow-sm">
-    <div class="max-w-7xl mx-auto px-4 md:px-6">
-    <div class="flex items-center justify-between h-20">
-        
-        <!-- Logo -->
-        <a href="index.html" class="flex items-center gap-3">
-            <img src="assets/images/IMG_7251 Background Removed 2.jpeg" alt="Janesse's Seamoss Creation Logo" class="h-16 md:h-20">
-        </a>
-    
-        <!-- Desktop Menu -->
-        <div class="hidden md:flex items-center gap-10 text-sm font-medium">
-            <a href="index.html" class="hover:text-purple transition-colors">Home</a>
-            <a href="build.html" class="hover:text-purple transition-colors">Build Your Blend</a>
-            <a href="shop.html" class="text-purple font-semibold">Shop</a>
-            <a href="wellness-calculator.html" class="hover:text-purple transition-colors">Wellness Tools</a>
-            <a href="about.html" class="hover:text-purple transition-colors">Our Story</a>
-        </div>
-    
-        <!-- Buttons (Mobile Optimized) -->
-        <div class="flex items-center gap-2 md:gap-4">
-            
-            <!-- Delivery Options Button - Mobile Friendly -->
-            <button onclick="showDeliverySelector()" 
-                    class="bg-white border border-purple text-purple px-3 py-2 md:px-5 md:py-2.5 rounded-2xl text-xs md:text-sm font-medium hover:bg-lightpurple transition-all flex items-center gap-1.5 md:gap-2 whitespace-nowrap">
-                
-                <!-- Custom Purple Truck SVG -->
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 md:w-5 md:h-5" fill="none" viewBox="0 0 24 24" stroke="#5E0089" stroke-width="2">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 10h11M9 21v-6m3 6v-6m3 6v-6" />
-                </svg>
-                
-                <span class="hidden sm:inline">Delivery Options</span>
-                <span class="sm:hidden">Delivery</span>
-            </button>
-    
-            <!-- Cart Button -->
-            <button id="view-cart-btn" onclick="showCartModal()" 
-                    class="hidden items-center gap-2 bg-purple text-white px-3 py-2 md:px-5 md:py-2.5 rounded-2xl text-xs md:text-sm font-medium hover:bg-deep transition-all">
-                <span>🛒</span>
-                <span id="cart-count">0</span>
-            </button>
-    
-        </div>
-    
-    </div>
-    </div>
-    </nav>
+<div class="max-w-7xl mx-auto px-4">
+<div class="flex items-center justify-between h-20">
+<a href="index.html" class="flex items-center flex-shrink-0">
+<img src="assets/images/IMG_7251 Background Removed 2.jpeg" alt="Janesse's Seamoss Creation Logo" class="h-14 md:h-20">
+</a>
+<div class="hidden md:flex items-center gap-8 lg:gap-10 text-sm font-medium">
+<a href="index.html" class="hover:text-purple transition-colors">Home</a>
+<a href="build.html" class="hover:text-purple transition-colors">Build Your Blend</a>
+<a href="shop.html" class="text-purple font-semibold">Shop</a>
+<a href="wellness-calculator.html" class="hover:text-purple transition-colors">Wellness Tools</a>
+<a href="about.html" class="hover:text-purple transition-colors">Our Story</a>
+</div>
+<div class="flex items-center gap-2 flex-shrink-0">
+<button onclick="showDeliverySelector()"
+class="bg-white border border-purple text-purple px-3 py-2 md:px-4 md:py-2.5 rounded-2xl text-xs md:text-sm font-medium hover:bg-lightpurple transition-all flex items-center gap-1.5 whitespace-nowrap">
+<svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 md:w-5 md:h-5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="#5E0089" stroke-width="2">
+<path stroke-linecap="round" stroke-linejoin="round" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
+<path stroke-linecap="round" stroke-linejoin="round" d="M3 10h11M9 21v-6m3 6v-6m3 6v-6" />
+</svg>
+<span class="hidden sm:inline">Delivery Options</span>
+<span class="sm:hidden">Delivery</span>
+</button>
+<button id="view-cart-btn" onclick="showCartModal()"
+class="hidden items-center gap-2 bg-purple text-white px-3 py-2 md:px-4 md:py-2.5 rounded-2xl text-xs md:text-sm font-medium hover:bg-deep transition-all flex-shrink-0">
+<span>🛒</span>
+<span id="cart-count">0</span>
+</button>
+</div>
+</div>
+</div>
+</nav>
 
 <!-- Delivery Info Bar -->
 <div id="delivery-info-bar" class="hidden bg-emerald-50 border-b border-emerald-200">
@@ -155,7 +147,7 @@ Change Delivery
 </div>
 </div>
 
-<!-- Product Grid -->
+<!-- FULL Product Grid -->
 <section class="py-16 bg-white">
 <div class="max-w-7xl mx-auto px-6">
 <div id="product-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-8 gap-y-16">
@@ -368,296 +360,453 @@ Proceed to Secure Checkout →
 </div>
 </div>
 </div>
-
-<!-- Formspree Order Form Modal -->
-<div id="formspree-order-modal" class="hidden fixed inset-0 bg-black/60 z-[10000] flex items-center justify-center p-4">
-    <div class="bg-white rounded-3xl max-w-md w-full p-8">
-        <h3 class="text-2xl font-light mb-6">Complete Your Order</h3>
-        
-        <form action="https://formspree.io/f/xjgzrwry" method="POST" id="formspree-order-form">
-            <input type="hidden" name="_subject" value="New Order - Janesse's Seamoss Creation">
-            <input type="hidden" name="delivery_method" id="formspree-delivery-method">
-
-            <div class="space-y-4">
-                <div>
-                    <label class="block text-sm font-medium mb-1">Full Name</label>
-                    <input type="text" name="name" required class="w-full border border-gray-300 rounded-2xl px-4 py-3">
-                </div>
-                <div>
-                    <label class="block text-sm font-medium mb-1">Phone Number</label>
-                    <input type="tel" name="phone" required class="w-full border border-gray-300 rounded-2xl px-4 py-3">
-                </div>
-                <div>
-                    <label class="block text-sm font-medium mb-1">Email Address</label>
-                    <input type="email" name="email" required class="w-full border border-gray-300 rounded-2xl px-4 py-3">
-                </div>
-                <div id="formspree-address-field" class="hidden">
-                    <label class="block text-sm font-medium mb-1">Delivery Address</label>
-                    <textarea name="address" rows="2" class="w-full border border-gray-300 rounded-2xl px-4 py-3"></textarea>
-                </div>
-            </div>
-
-            <button type="submit" class="mt-8 w-full bg-purple hover:bg-deep text-white py-4 rounded-3xl font-semibold">
-                Submit Order
-            </button>
-        </form>
-
-        <button onclick="hideFormspreeModal()" class="w-full mt-3 text-gray-500 py-2">Cancel</button>
-    </div>
 </div>
 
 <!-- Delivery Selector Modal -->
 <div id="delivery-selector-modal" class="hidden fixed inset-0 bg-black/60 z-[10000] flex items-center justify-center p-4">
-    <div class="bg-white rounded-3xl max-w-5xl w-full p-8 md:p-10">
-        <div class="flex justify-between items-center mb-8">
-            <h2 class="text-3xl font-light">How would you like to receive your order?</h2>
-            <button onclick="hideDeliverySelector()" class="text-4xl text-gray-400 hover:text-deep">×</button>
-        </div>
+<div class="bg-white rounded-3xl max-w-5xl w-full p-8 md:p-10">
+<div class="flex justify-between items-center mb-8">
+<h2 class="text-3xl font-light">How would you like to receive your order?</h2>
+<button onclick="hideDeliverySelector()" class="text-4xl text-gray-400 hover:text-deep">×</button>
+</div>
 
-        <div class="grid md:grid-cols-3 gap-6">
-            
-            <!-- Local Delivery -->
-            <div onclick="selectDeliveryMethod('local')" class="border-2 border-purple hover:border-deep rounded-3xl p-8 cursor-pointer transition-all hover:shadow-lg">
-                <div class="mb-4">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-14 h-14" fill="none" viewBox="0 0 24 24" stroke="#5E0089" stroke-width="1.5">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M3 10h11M9 21v-6m3 6v-6m3 6v-6" />
-                    </svg>
-                </div>
-                <h3 class="text-2xl font-semibold mb-2">Local Delivery</h3>
-                <p class="text-purple font-medium mb-3">$8–15 • Same or next day</p>
-                <p class="text-sm text-gray-600">Fast temperature-controlled delivery across Orlando &amp; Central Florida.</p>
-            </div>
+<div class="grid md:grid-cols-3 gap-6">
+<!-- Local Delivery -->
+<div onclick="showLocalDeliveryCalculator()" class="delivery-card border-2 border-purple hover:border-deep rounded-3xl p-8 cursor-pointer">
+<div class="mb-4">
+<svg xmlns="http://www.w3.org/2000/svg" class="w-14 h-14" fill="none" viewBox="0 0 24 24" stroke="#5E0089" stroke-width="1.5">
+<path stroke-linecap="round" stroke-linejoin="round" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
+<path stroke-linecap="round" stroke-linejoin="round" d="M3 10h11M9 21v-6m3 6v-6m3 6v-6" />
+</svg>
+</div>
+<h3 class="text-2xl font-semibold mb-2">Local Delivery</h3>
+<p class="text-purple font-medium mb-3">Check your area & fee</p>
+<p class="text-sm text-gray-600">Enter your ZIP to see exact delivery fee and time.</p>
+</div>
 
-            <!-- Free Pickup -->
-            <div class="border-2 border-purple hover:border-deep rounded-3xl p-8 cursor-pointer transition-all hover:shadow-lg">
-                <div class="text-5xl mb-4">📍</div>
-                <h3 class="text-2xl font-semibold mb-2">Free In-Store Pickup</h3>
-                <p class="text-purple font-medium mb-4">Choose location &amp; time slot</p>
-                
-                <div class="space-y-4">
-                    <div>
-                        <label class="block text-sm font-medium mb-1">Pickup Location</label>
-                        <select id="pickup-location" class="w-full border border-gray-300 rounded-2xl px-4 py-3 text-sm">
-                            <option value="Orlando Studio">Orlando Studio (Richmond Heights)</option>
-                            <option value="Winter Park">Winter Park Pop-Up</option>
-                            <option value="Apopka">Apopka Wellness Hub</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium mb-1">Time Slot</label>
-                        <select id="pickup-time" class="w-full border border-gray-300 rounded-2xl px-4 py-3 text-sm">
-                            <option value="Today 2:00 PM – 5:00 PM">Today • 2:00 PM – 5:00 PM</option>
-                            <option value="Tomorrow 10:00 AM – 1:00 PM">Tomorrow • 10:00 AM – 1:00 PM</option>
-                            <option value="Tomorrow 2:00 PM – 5:00 PM">Tomorrow • 2:00 PM – 5:00 PM</option>
-                        </select>
-                    </div>
-                </div>
-                
-                <button onclick="selectDeliveryMethod('pickup')" class="mt-6 w-full bg-purple hover:bg-deep text-white py-4 rounded-3xl font-semibold text-sm">
-                    Confirm Free Pickup
-                </button>
-            </div>
+<!-- Free Pickup -->
+<div onclick="showPickupForm()" class="delivery-card border-2 border-purple hover:border-deep rounded-3xl p-8 cursor-pointer">
+<div class="text-5xl mb-4">📍</div>
+<h3 class="text-2xl font-semibold mb-2">Free In-Store Pickup</h3>
+<p class="text-purple font-medium mb-4">Choose location &amp; time slot</p>
+</div>
 
-            <!-- Shipping -->
-            <div onclick="selectDeliveryMethod('shipping')" class="border-2 border-purple hover:border-deep rounded-3xl p-8 cursor-pointer transition-all hover:shadow-lg">
-                <div class="text-5xl mb-4">📦</div>
-                <h3 class="text-2xl font-semibold mb-2">Shipping (Nationwide)</h3>
-                <p class="text-purple font-medium mb-3">$9.99 • 3–5 business days</p>
-                <p class="text-sm text-gray-600">Ships cold-packed anywhere in the USA.</p>
-            </div>
+<!-- Shipping -->
+<div onclick="showShippingForm()" class="delivery-card border-2 border-purple hover:border-deep rounded-3xl p-8 cursor-pointer">
+<div class="text-5xl mb-4">📦</div>
+<h3 class="text-2xl font-semibold mb-2">Shipping (Nationwide)</h3>
+<p class="text-purple font-medium mb-3">$9.99 • 3–5 business days</p>
+<p class="text-sm text-gray-600">Ships cold-packed anywhere in the USA.</p>
+</div>
+</div>
 
-        </div>
-        
-        <p class="text-center text-xs text-gray-500 mt-8">One delivery method is required before checkout</p>
-    </div>
+<p class="text-center text-xs text-gray-500 mt-8">One delivery method is required before checkout</p>
+
+<!-- Local Delivery Calculator -->
+<div id="local-delivery-calculator" class="hidden mt-8 border border-purple/20 rounded-3xl p-8">
+<h4 class="text-xl font-semibold mb-4">Check Your Local Delivery Fee</h4>
+<div class="flex flex-col sm:flex-row gap-3 mb-4">
+<input type="text" id="shop-zip-input" placeholder="Enter ZIP code" maxlength="5"
+class="flex-1 px-5 py-4 border border-gray-300 rounded-2xl text-lg focus:outline-none focus:border-purple">
+<button onclick="checkShopDelivery()" class="bg-purple hover:bg-deep text-white px-8 py-4 rounded-2xl font-semibold">
+Check Fee
+</button>
+</div>
+<button onclick="useShopGeolocation()" class="w-full flex items-center justify-center gap-2 py-3 text-purple hover:bg-lightpurple/50 rounded-2xl font-medium border border-purple/20">
+Use my current location
+</button>
+<div id="shop-delivery-result" class="hidden mt-6"></div>
+</div>
+
+<!-- Pickup Form -->
+<div id="pickup-form" class="hidden mt-8 border border-purple/20 rounded-3xl p-8">
+<h4 class="text-xl font-semibold mb-4">Free Pickup Details</h4>
+<form id="pickup-details-form" class="space-y-4">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div>
+<label class="block text-sm font-medium mb-1">Full Name *</label>
+<input type="text" name="name" required class="w-full border border-gray-300 rounded-2xl px-4 py-3 text-sm">
+</div>
+<div>
+<label class="block text-sm font-medium mb-1">Phone Number *</label>
+<input type="tel" name="phone" required class="w-full border border-gray-300 rounded-2xl px-4 py-3 text-sm">
+</div>
+</div>
+<div>
+<label class="block text-sm font-medium mb-1">Email (Optional)</label>
+<input type="email" name="email" class="w-full border border-gray-300 rounded-2xl px-4 py-3 text-sm">
+</div>
+<div>
+<label class="block text-sm font-medium mb-1">Pickup Location</label>
+<select name="location" class="w-full border border-gray-300 rounded-2xl px-4 py-3 text-sm">
+<option value="Orlando Studio">Orlando Studio (Richmond Heights)</option>
+<option value="Winter Park">Winter Park Pop-Up</option>
+<option value="Apopka">Apopka Wellness Hub</option>
+</select>
+</div>
+<div>
+<label class="block text-sm font-medium mb-1">Time Slot</label>
+<select name="time" class="w-full border border-gray-300 rounded-2xl px-4 py-3 text-sm">
+<option value="Today 2:00 PM – 5:00 PM">Today • 2:00 PM – 5:00 PM</option>
+<option value="Tomorrow 10:00 AM – 1:00 PM">Tomorrow • 10:00 AM – 1:00 PM</option>
+<option value="Tomorrow 2:00 PM – 5:00 PM">Tomorrow • 2:00 PM – 5:00 PM</option>
+</select>
+</div>
+<div class="flex gap-3 pt-2">
+<button type="button" onclick="hideDeliveryForms()" class="flex-1 border border-gray-300 text-gray-600 py-3 rounded-2xl font-medium">Back</button>
+<button type="submit" class="flex-1 bg-purple hover:bg-deep text-white py-3 rounded-2xl font-semibold">Confirm Free Pickup</button>
+</div>
+</form>
+</div>
+
+<!-- Shipping Form -->
+<div id="shipping-form" class="hidden mt-8 border border-purple/20 rounded-3xl p-8">
+<h4 class="text-xl font-semibold mb-4">Shipping Details</h4>
+<form id="shipping-details-form" class="space-y-4">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div>
+<label class="block text-sm font-medium mb-1">Full Name *</label>
+<input type="text" name="name" required class="w-full border border-gray-300 rounded-2xl px-4 py-3 text-sm">
+</div>
+<div>
+<label class="block text-sm font-medium mb-1">Phone Number *</label>
+<input type="tel" name="phone" required class="w-full border border-gray-300 rounded-2xl px-4 py-3 text-sm">
+</div>
+</div>
+<div>
+<label class="block text-sm font-medium mb-1">Email (Optional)</label>
+<input type="email" name="email" class="w-full border border-gray-300 rounded-2xl px-4 py-3 text-sm">
+</div>
+<div>
+<label class="block text-sm font-medium mb-1">Full Shipping Address *</label>
+<textarea name="fullAddress" rows="3" required class="w-full border border-gray-300 rounded-2xl px-4 py-3 text-sm" placeholder="Street, City, State, ZIP"></textarea>
+</div>
+<div>
+<label class="block text-sm font-medium mb-1">Delivery Notes (Optional)</label>
+<textarea name="notes" rows="2" class="w-full border border-gray-300 rounded-2xl px-4 py-3 text-sm" placeholder="Leave at door, etc."></textarea>
+</div>
+<div class="flex gap-3 pt-2">
+<button type="button" onclick="hideDeliveryForms()" class="flex-1 border border-gray-300 text-gray-600 py-3 rounded-2xl font-medium">Back</button>
+<button type="submit" class="flex-1 bg-purple hover:bg-deep text-white py-3 rounded-2xl font-semibold">Confirm Shipping</button>
+</div>
+</form>
+</div>
+</div>
+</div>
 </div>
 
 <script src="script.js"></script>
-
 <script>
-// ==================== DELIVERY + FORMSPREE LOGIC ====================
-
+// ==================== DELIVERY LOGIC ====================
 function showDeliverySelector() {
-    document.getElementById('delivery-selector-modal').classList.remove('hidden');
+document.getElementById('delivery-selector-modal').classList.remove('hidden');
 }
-
 function hideDeliverySelector() {
-    document.getElementById('delivery-selector-modal').classList.add('hidden');
+document.getElementById('delivery-selector-modal').classList.add('hidden');
+hideDeliveryForms();
 }
-
-function selectDeliveryMethod(type) {
-    const modal = document.getElementById('delivery-selector-modal');
-    let deliveryItem;
-
-    if (type === 'local') {
-        deliveryItem = { id: 'delivery-fee', name: 'Local Delivery (Central Florida)', price: 10, details: 'Same or next-day', quantity: 1 };
-        localStorage.setItem('selectedDelivery', JSON.stringify({ type: 'local', fee: 10 }));
-    } 
-    else if (type === 'pickup') {
-        const location = document.getElementById('pickup-location').value;
-        const time = document.getElementById('pickup-time').value;
-        deliveryItem = { id: 'pickup', name: `Free Pickup - ${location}`, price: 0, details: time, quantity: 1 };
-        localStorage.setItem('selectedDelivery', JSON.stringify({ type: 'pickup', location, time }));
-    } 
-    else if (type === 'shipping') {
-        deliveryItem = { id: 'shipping', name: 'Shipping (Nationwide)', price: 9.99, details: '3–5 business days', quantity: 1 };
-        localStorage.setItem('selectedDelivery', JSON.stringify({ type: 'shipping', fee: 9.99 }));
-    }
-
-    if (typeof cart === 'undefined') cart = [];
-    cart = cart.filter(item => !['delivery-fee', 'pickup', 'shipping'].includes(item.id));
-    cart.push(deliveryItem);
-    localStorage.setItem('cart', JSON.stringify(cart));
-
-    if (typeof updateCartCount === 'function') updateCartCount();
-    modal.classList.add('hidden');
+function hideDeliveryForms() {
+document.getElementById('local-delivery-calculator').classList.add('hidden');
+document.getElementById('pickup-form').classList.add('hidden');
+document.getElementById('shipping-form').classList.add('hidden');
+document.querySelector('#delivery-selector-modal .grid').classList.remove('hidden');
 }
-
+function showLocalDeliveryCalculator() {
+document.querySelector('#delivery-selector-modal .grid').classList.add('hidden');
+document.getElementById('local-delivery-calculator').classList.remove('hidden');
+}
+function showPickupForm() {
+document.querySelector('#delivery-selector-modal .grid').classList.add('hidden');
+document.getElementById('pickup-form').classList.remove('hidden');
+}
+function showShippingForm() {
+document.querySelector('#delivery-selector-modal .grid').classList.add('hidden');
+document.getElementById('shipping-form').classList.remove('hidden');
+}
+function getDeliveryInfo(zip) {
+const z = parseInt(zip);
+if ([32808, 32805, 32818, 32810, 32811].includes(z)) return { fee: 7, time: "20–40 min", area: "Richmond Heights / Pine Hills" };
+if ([32801, 32803, 32804, 32806, 32807, 32809, 32812, 32814, 32819, 32789, 32792].includes(z)) return { fee: 9, time: "35–55 min", area: "Central Orlando / Winter Park" };
+if ([32703, 32712, 32822, 32824, 32825, 32826, 32827, 32828, 32829, 32830, 32831, 32832, 32835, 32836, 32837, 32839, 34787, 34786].includes(z)) return { fee: 11, time: "50–80 min", area: "Greater Orange County" };
+if ([33801, 33802, 33803, 33804, 33805, 33806, 33807, 33809, 33810, 33811, 33812, 33813, 33815, 33880, 33881, 33882, 33883, 33884, 33823].includes(z)) return { fee: 15, time: "90–150 min", area: "Polk County (Lakeland / Winter Haven)" };
+return { fee: 14, time: "60–120 min", area: "Central Florida" };
+}
+function checkShopDelivery() {
+const zip = document.getElementById('shop-zip-input').value.trim();
+const resultDiv = document.getElementById('shop-delivery-result');
+if (!zip || zip.length !== 5) {
+resultDiv.innerHTML = `<p class="text-red-600 text-center">Please enter a valid 5-digit ZIP code.</p>`;
+resultDiv.classList.remove('hidden');
+return;
+}
+const info = getDeliveryInfo(zip);
+resultDiv.innerHTML = `
+<div class="bg-white border border-purple/20 rounded-2xl p-6">
+<div class="text-center">
+<div class="inline-flex items-center gap-2 bg-emerald-100 text-emerald-700 px-4 py-1 rounded-3xl text-sm font-medium mb-4">DELIVERY AVAILABLE</div>
+<h3 class="text-2xl font-light">Delivery to ${info.area}</h3>
+<div class="my-6 flex justify-center gap-10">
+<div><div class="text-4xl font-light">$${info.fee}</div><div class="text-sm text-gray-500">Delivery Fee</div></div>
+<div><div class="text-4xl font-light">${info.time}</div><div class="text-sm text-gray-500">Estimated Time</div></div>
+</div>
+<button onclick="confirmLocalDelivery(${info.fee}, '${info.area}', '${info.time}', '${zip}')" class="w-full bg-purple hover:bg-deep text-white py-4 rounded-3xl font-semibold">Use This Delivery</button>
+</div>
+</div>`;
+resultDiv.classList.remove('hidden');
+}
+function useShopGeolocation() {
+const resultDiv = document.getElementById('shop-delivery-result');
+resultDiv.innerHTML = `<p class="text-center text-purple py-4">Detecting your location...</p>`;
+resultDiv.classList.remove('hidden');
+if (!navigator.geolocation) {
+resultDiv.innerHTML = `<p class="text-red-600 text-center">Geolocation not supported.</p>`;
+return;
+}
+navigator.geolocation.getCurrentPosition(async (pos) => {
+const lat = pos.coords.latitude;
+const lon = pos.coords.longitude;
+try {
+const res = await fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lon}&zoom=10&addressdetails=1`, {
+headers: { 'User-Agent': 'JanesseSeamoss/1.0' }
+});
+const data = await res.json();
+if (data?.address?.postcode) {
+document.getElementById('shop-zip-input').value = data.address.postcode;
+checkShopDelivery();
+} else {
+resultDiv.innerHTML = `<p class="text-red-600 text-center">Could not determine ZIP. Please enter manually.</p>`;
+}
+} catch {
+resultDiv.innerHTML = `<p class="text-red-600 text-center">Failed to detect location.</p>`;
+}
+}, () => {
+resultDiv.innerHTML = `<p class="text-red-600 text-center">Location access denied.</p>`;
+}, { enableHighAccuracy: true, timeout: 10000 });
+}
+async function sendDeliveryNotificationToFormspree(data) {
+try {
+const formData = new FormData();
+formData.append('_subject', `New ${data.method} Request`);
+formData.append('name', data.name);
+formData.append('phone', data.phone);
+formData.append('email', data.email || 'Not provided');
+formData.append('delivery_method', data.method);
+formData.append('area_or_location', data.area || data.location || '');
+formData.append('fee', data.fee || '0');
+formData.append('estimated_time', data.time || '');
+formData.append('zip', data.zip || '');
+formData.append('full_address', data.fullAddress || '');
+formData.append('notes', data.notes || 'None');
+await fetch('https://formspree.io/f/xjgzrwry', {
+method: 'POST',
+body: formData,
+headers: { 'Accept': 'application/json' }
+});
+} catch (err) {
+console.error('Formspree error:', err);
+}
+}
+function confirmLocalDelivery(fee, area, time, zip) {
+const resultDiv = document.getElementById('shop-delivery-result');
+resultDiv.innerHTML = `
+<div class="bg-white border border-purple/20 rounded-2xl p-6">
+<h4 class="text-lg font-semibold mb-4">Complete Your Delivery Details</h4>
+<form id="local-delivery-form" class="space-y-4">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div>
+<label class="block text-sm font-medium mb-1">Full Name *</label>
+<input type="text" name="name" required class="w-full border border-gray-300 rounded-2xl px-4 py-3 text-sm">
+</div>
+<div>
+<label class="block text-sm font-medium mb-1">Phone Number *</label>
+<input type="tel" name="phone" required class="w-full border border-gray-300 rounded-2xl px-4 py-3 text-sm">
+</div>
+</div>
+<div>
+<label class="block text-sm font-medium mb-1">Email (Optional)</label>
+<input type="email" name="email" class="w-full border border-gray-300 rounded-2xl px-4 py-3 text-sm">
+</div>
+<div>
+<label class="block text-sm font-medium mb-1">Full Delivery Address *</label>
+<textarea name="fullAddress" rows="3" required class="w-full border border-gray-300 rounded-2xl px-4 py-3 text-sm" placeholder="Street, City, State, ZIP"></textarea>
+</div>
+<div>
+<label class="block text-sm font-medium mb-1">Delivery Notes (Optional)</label>
+<textarea name="notes" rows="2" class="w-full border border-gray-300 rounded-2xl px-4 py-3 text-sm" placeholder="Gate code, leave at door, etc."></textarea>
+</div>
+<div class="flex gap-3 pt-2">
+<button type="button" onclick="hideDeliverySelector()" class="flex-1 border border-gray-300 text-gray-600 py-3 rounded-2xl font-medium">Cancel</button>
+<button type="submit" class="flex-1 bg-purple hover:bg-deep text-white py-3 rounded-2xl font-semibold">Confirm Delivery</button>
+</div>
+</form>
+</div>`;
+document.getElementById('local-delivery-form').addEventListener('submit', async function(e) {
+e.preventDefault();
+const formData = new FormData(this);
+const name = formData.get('name').trim();
+const phone = formData.get('phone').trim();
+const email = formData.get('email') || '';
+const fullAddress = formData.get('fullAddress').trim();
+const notes = formData.get('notes') || '';
+if (!name || !phone || !fullAddress) {
+alert("Please fill out Name, Phone, and Full Address.");
+return;
+}
+await sendDeliveryNotificationToFormspree({
+method: 'Local Delivery',
+name, phone, email,
+area, fee, time, zip,
+fullAddress, notes
+});
+if (typeof cart === 'undefined') cart = [];
+cart = cart.filter(item => !['delivery-fee', 'pickup', 'shipping'].includes(item.id));
+const deliveryItem = { id: 'delivery-fee', name: `Local Delivery - ${area}`, price: fee, details: time, quantity: 1 };
+cart.push(deliveryItem);
+localStorage.setItem('cart', JSON.stringify(cart));
+localStorage.setItem('selectedDelivery', JSON.stringify({ type: 'local', fee, area, time, zip, fullAddress, notes, customerName: name, customerPhone: phone, customerEmail: email }));
+if (typeof updateCartCount === 'function') updateCartCount();
+hideDeliverySelector();
+const toast = document.createElement('div');
+toast.className = `fixed bottom-6 right-6 bg-emerald-600 text-white px-6 py-4 rounded-3xl shadow-lg z-[99999]`;
+toast.innerHTML = `✅ Local Delivery added to cart`;
+document.body.appendChild(toast);
+setTimeout(() => toast.remove(), 2200);
+});
+}
+// Pickup Form
+document.getElementById('pickup-details-form').addEventListener('submit', async function(e) {
+e.preventDefault();
+const formData = new FormData(this);
+const name = formData.get('name').trim();
+const phone = formData.get('phone').trim();
+const email = formData.get('email') || '';
+const location = formData.get('location');
+const time = formData.get('time');
+if (!name || !phone) {
+alert("Please fill out Name and Phone.");
+return;
+}
+await sendDeliveryNotificationToFormspree({
+method: 'Free Pickup',
+name, phone, email,
+location, time
+});
+if (typeof cart === 'undefined') cart = [];
+cart = cart.filter(item => !['delivery-fee', 'pickup', 'shipping'].includes(item.id));
+const deliveryItem = { id: 'pickup', name: `Free Pickup - ${location}`, price: 0, details: time, quantity: 1 };
+cart.push(deliveryItem);
+localStorage.setItem('cart', JSON.stringify(cart));
+localStorage.setItem('selectedDelivery', JSON.stringify({ type: 'pickup', location, time, customerName: name, customerPhone: phone, customerEmail: email }));
+if (typeof updateCartCount === 'function') updateCartCount();
+hideDeliverySelector();
+const toast = document.createElement('div');
+toast.className = `fixed bottom-6 right-6 bg-emerald-600 text-white px-6 py-4 rounded-3xl shadow-lg z-[99999]`;
+toast.innerHTML = `✅ Free Pickup added to cart`;
+document.body.appendChild(toast);
+setTimeout(() => toast.remove(), 2200);
+});
+// Shipping Form
+document.getElementById('shipping-details-form').addEventListener('submit', async function(e) {
+e.preventDefault();
+const formData = new FormData(this);
+const name = formData.get('name').trim();
+const phone = formData.get('phone').trim();
+const email = formData.get('email') || '';
+const fullAddress = formData.get('fullAddress').trim();
+const notes = formData.get('notes') || '';
+if (!name || !phone || !fullAddress) {
+alert("Please fill out Name, Phone, and Full Address.");
+return;
+}
+await sendDeliveryNotificationToFormspree({
+method: 'Shipping',
+name, phone, email,
+fullAddress, notes,
+fee: 9.99
+});
+if (typeof cart === 'undefined') cart = [];
+cart = cart.filter(item => !['delivery-fee', 'pickup', 'shipping'].includes(item.id));
+const deliveryItem = { id: 'shipping', name: 'Shipping (Nationwide)', price: 9.99, details: '3–5 business days', quantity: 1 };
+cart.push(deliveryItem);
+localStorage.setItem('cart', JSON.stringify(cart));
+localStorage.setItem('selectedDelivery', JSON.stringify({ type: 'shipping', fee: 9.99, fullAddress, notes, customerName: name, customerPhone: phone, customerEmail: email }));
+if (typeof updateCartCount === 'function') updateCartCount();
+hideDeliverySelector();
+const toast = document.createElement('div');
+toast.className = `fixed bottom-6 right-6 bg-emerald-600 text-white px-6 py-4 rounded-3xl shadow-lg z-[99999]`;
+toast.innerHTML = `✅ Shipping added to cart`;
+document.body.appendChild(toast);
+setTimeout(() => toast.remove(), 2200);
+});
 async function proceedToCheckout() {
-    hideCartModal();
-
-    const hasDelivery = cart.some(item => ['delivery-fee', 'pickup', 'shipping'].includes(item.id));
-    if (!hasDelivery) {
-        alert("Please choose a delivery method first.");
-        showDeliverySelector();
-        return;
-    }
-
-    const deliveryData = JSON.parse(localStorage.getItem('selectedDelivery') || '{}');
-
-    document.getElementById('formspree-delivery-method').value = 
-        deliveryData.type === 'local' ? `Local Delivery - $${deliveryData.fee}` :
-        deliveryData.type === 'pickup' ? `Free Pickup - ${deliveryData.location} (${deliveryData.time})` :
-        `Shipping - $${deliveryData.fee}`;
-
-    const addressField = document.getElementById('formspree-address-field');
-    if (deliveryData.type === 'shipping') {
-        addressField.classList.remove('hidden');
-        addressField.querySelector('textarea').required = true;
-    } else {
-        addressField.classList.add('hidden');
-        addressField.querySelector('textarea').required = false;
-    }
-
-    document.getElementById('formspree-order-modal').classList.remove('hidden');
+hideCartModal();
+const hasDelivery = cart.some(item => ['delivery-fee', 'pickup', 'shipping'].includes(item.id));
+if (!hasDelivery) {
+alert("Please choose a delivery method first.");
+showDeliverySelector();
+return;
 }
-
-document.getElementById('formspree-order-form').addEventListener('submit', async function(e) {
-    e.preventDefault();
-    const form = this;
-    const btn = form.querySelector('button[type="submit"]');
-    btn.innerHTML = 'Submitting...';
-    btn.disabled = true;
-
-    try {
-        const response = await fetch(form.action, {
-            method: 'POST',
-            body: new FormData(form),
-            headers: { 'Accept': 'application/json' }
-        });
-
-        if (response.ok) {
-            const deliveryData = JSON.parse(localStorage.getItem('selectedDelivery') || '{}');
-
-            form.innerHTML = `
-                <div class="text-center py-8">
-                    <div class="text-5xl mb-4">✅</div>
-                    <h4 class="text-2xl font-light mb-2">Order Received!</h4>
-                    <p class="text-gray-600">Thank you! We will contact you shortly.</p>
-                </div>
-            `;
-
-            setTimeout(() => {
-                document.getElementById('formspree-order-modal').classList.add('hidden');
-
-                if (deliveryData.type === 'shipping') {
-                    goToStripeCheckout();
-                } else {
-                    localStorage.removeItem('cart');
-                    localStorage.removeItem('selectedDelivery');
-                    location.reload();
-                }
-            }, 2200);
-        } else {
-            throw new Error();
-        }
-    } catch {
-        alert("Something went wrong. Please try again or text (407) 752-7864.");
-        btn.innerHTML = 'Submit Order';
-        btn.disabled = false;
-    }
-});
-
-function hideFormspreeModal() {
-    document.getElementById('formspree-order-modal').classList.add('hidden');
+await goToStripeCheckout();
 }
-
 async function goToStripeCheckout() {
-    const total = calculateTotal();
-    if (total <= 0) {
-        alert("Your basket is empty.");
-        return;
-    }
-
-    try {
-        const response = await fetch('https://janesse-seamoss-backend.onrender.com/create-checkout-session', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ cart: cart })
-        });
-        const data = await response.json();
-        if (!response.ok) throw new Error(data.error || "Checkout error");
-        const stripe = Stripe('pk_live_51TREXTIeLXeJ9tb9RCUiY0hHSBBY5hbqPfwgnVpyUDS0nAYTgwhls3y2ffClfgUu7ZJjVPDVpr6tPZZWNBKcec8Q00BbSr1yQc');
-        await stripe.redirectToCheckout({ sessionId: data.id });
-    } catch (error) {
-        console.error(error);
-        alert("⚠️ We couldn't connect to secure checkout. Please try again.");
-    }
+const total = calculateTotal();
+if (total <= 0) {
+alert("Your basket is empty.");
+return;
 }
-
-function showDeliveryInfo() {
-    const deliveryData = localStorage.getItem('selectedDelivery');
-    const bar = document.getElementById('delivery-info-bar');
-    if (!deliveryData || !bar) {
-        if (bar) bar.classList.add('hidden');
-        return;
-    }
-    try {
-        const delivery = JSON.parse(deliveryData);
-        document.getElementById('delivery-area').textContent = delivery.area || delivery.location || '';
-        document.getElementById('delivery-fee').textContent = delivery.fee ? `$${delivery.fee} fee` : '';
-        document.getElementById('delivery-time').textContent = delivery.time || '';
-        bar.classList.remove('hidden');
-    } catch (e) {
-        if (bar) bar.classList.add('hidden');
-    }
-}
-
-function changeDelivery() {
-    localStorage.removeItem('selectedDelivery');
-    if (typeof cart !== 'undefined') {
-        cart = cart.filter(item => !['delivery-fee', 'pickup', 'shipping'].includes(item.id));
-        localStorage.setItem('cart', JSON.stringify(cart));
-    }
-    window.location.href = "pickup-delivery.html";
-}
-
-window.addEventListener('load', () => {
-    showDeliveryInfo();
+try {
+const response = await fetch('https://janesse-seamoss-backend.onrender.com/create-checkout-session', {
+method: 'POST',
+headers: { 'Content-Type': 'application/json' },
+body: JSON.stringify({ cart: cart })
 });
-
+const data = await response.json();
+if (!response.ok) throw new Error(data.error || "Checkout error");
+const stripe = Stripe('pk_live_51TREXTIeLXeJ9tb9RCUiY0hHSBBY5hbqPfwgnVpyUDS0nAYTgwhls3y2ffClfgUu7ZJjVPDVpr6tPZZWNBKcec8Q00BbSr1yQc');
+await stripe.redirectToCheckout({ sessionId: data.id });
+} catch (error) {
+console.error(error);
+alert("⚠️ We couldn't connect to secure checkout. Please try again.");
+}
+}
+function showDeliveryInfo() {
+const deliveryData = localStorage.getItem('selectedDelivery');
+const bar = document.getElementById('delivery-info-bar');
+if (!deliveryData || !bar) {
+if (bar) bar.classList.add('hidden');
+return;
+}
+try {
+const delivery = JSON.parse(deliveryData);
+document.getElementById('delivery-area').textContent = delivery.area || delivery.location || '';
+document.getElementById('delivery-fee').textContent = delivery.fee ? `$${delivery.fee} fee` : '';
+document.getElementById('delivery-time').textContent = delivery.time || '';
+bar.classList.remove('hidden');
+} catch (e) {
+if (bar) bar.classList.add('hidden');
+}
+}
+function changeDelivery() {
+localStorage.removeItem('selectedDelivery');
+if (typeof cart !== 'undefined') {
+cart = cart.filter(item => !['delivery-fee', 'pickup', 'shipping'].includes(item.id));
+localStorage.setItem('cart', JSON.stringify(cart));
+}
+window.location.href = "pickup-delivery.html";
+}
+window.addEventListener('load', () => {
+showDeliveryInfo();
+});
 function filterCategory(cat) {
-    const cards = document.querySelectorAll('.product-card');
-    cards.forEach(card => {
-        if (cat === 'all') {
-            card.style.display = card.dataset.category === 'pets' ? 'none' : 'block';
-        } else {
-            card.style.display = card.dataset.category === cat ? 'block' : 'none';
-        }
-    });
+const cards = document.querySelectorAll('.product-card');
+cards.forEach(card => {
+if (cat === 'all') {
+card.style.display = card.dataset.category === 'pets' ? 'none' : 'block';
+} else {
+card.style.display = card.dataset.category === cat ? 'block' : 'none';
+}
+});
 }
 </script>
-
 </body>
 </html>
