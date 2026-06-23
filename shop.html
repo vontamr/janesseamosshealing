@@ -1,15 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-X1G12KY1X5"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-X1G12KY1X5');
-</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Shop | Janesse's Seamoss Creation</title>
@@ -148,6 +139,7 @@ Change Delivery
 <button onclick="filterCategory('all')" class="active-filter text-purple border-b-2 border-purple pb-1">ALL</button>
 <button onclick="filterCategory('fruit')" class="hover:text-purple transition-colors">FRUIT FLAVORED</button>
 <button onclick="filterCategory('herb')" class="hover:text-purple transition-colors">HERB INFUSED</button>
+<button onclick="filterCategory('raw')" class="hover:text-purple transition-colors">RAW</button>
 <button onclick="filterCategory('fitness')" class="hover:text-purple transition-colors">FITNESS + WELLNESS</button>
 <button onclick="filterCategory('mens')" class="hover:text-purple transition-colors">MEN’S</button>
 <button onclick="filterCategory('womens')" class="hover:text-purple transition-colors">WOMEN’S</button>
@@ -160,6 +152,34 @@ Change Delivery
 <section class="py-16 bg-white">
 <div class="max-w-7xl mx-auto px-6">
 <div id="product-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-8 gap-y-16">
+
+<!-- ========== NEW: RAW GOLD SEA MOSS ========== -->
+<div class="product-card group" data-category="raw">
+<div class="overflow-hidden rounded-3xl shadow-sm">
+<img src="assets/images/raw-seamoss.jpg" alt="Raw Gold Sea Moss" class="w-full aspect-square object-cover">
+</div>
+<div class="mt-6 text-center">
+<h3 class="text-2xl font-light">Raw Gold Sea Moss</h3>
+<div class="text-purple font-semibold text-xl mt-1">$15</div>
+<p class="text-purple text-sm mt-1">1 oz Dried • Wildcrafted • Perfect for DIY</p>
+
+<div class="mt-4 text-left px-2 text-sm text-gray-600">
+<p><strong>Benefits people love:</strong></p>
+<ul class="list-disc pl-5 mt-1 space-y-0.5 text-left">
+<li>Supports immune health</li>
+<li>Helps promote natural energy</li>
+<li>Supports healthy skin, hair &amp; gut function</li>
+<li>Naturally rich in essential minerals</li>
+</ul>
+</div>
+
+<button onclick="addToCart({id:'raw-seamoss', name:'Raw Gold Sea Moss (1 oz)', price:15, details:'Dried Wildcrafted Sea Moss'})" 
+class="mt-6 w-full bg-deep hover:bg-purple text-white py-4 rounded-3xl font-medium transition-all">
+Add to Cart
+</button>
+</div>
+</div>
+<!-- ========== END NEW PRODUCT ========== -->
 
 <!-- Fruit Flavored -->
 <div class="product-card group" data-category="fruit">

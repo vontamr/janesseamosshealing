@@ -140,6 +140,16 @@
                     <label class="herb-option flex justify-between items-start bg-white border border-gray-200 hover:border-purple rounded-2xl p-5 cursor-pointer transition-all">
                         <div class="flex-1"><input type="checkbox" value="Maca Root" class="accent-purple"><span class="font-medium ml-3">Maca Root</span><p class="text-sm text-gray-600 mt-1">Balances hormones • Boosts energy &amp; mood</p></div><span class="text-purple font-medium mt-1">+$6.00</span>
                     </label>
+
+                    <label class="herb-option flex justify-between items-start bg-white border border-gray-200 hover:border-purple rounded-2xl p-5 cursor-pointer transition-all">
+                        <div class="flex-1">
+                            <input type="checkbox" value="Wormwood" class="accent-purple">
+                            <span class="font-medium ml-3">Wormwood</span>
+                            <p class="text-sm text-gray-600 mt-1">Supports digestion, gut health &amp; natural cleansing</p>
+                        </div>
+                        <span class="text-purple font-medium mt-1">+$12.00</span>
+                    </label>
+
                 </div>
             </div>
 
@@ -219,9 +229,14 @@
         let consistencyPrice = 0;
 
         const herbPrices = {
-            "Burdock Root": 4, "Bladderwrack": 4, "Horny Goat Weed": 6,
-            "Shilajit": 10, "Blackseed Oil": 5, "Maca Root": 6
-        };
+    "Burdock Root": 4,
+    "Bladderwrack": 4,
+    "Horny Goat Weed": 6,
+    "Shilajit": 10,
+    "Blackseed Oil": 5,
+    "Maca Root": 6,
+    "Wormwood": 12
+};
 
         function updateSummary() {
             const fruitText = selectedFruit === "None" ? "None selected" : selectedFruit + " (+$3.00)";
