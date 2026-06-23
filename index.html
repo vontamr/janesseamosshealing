@@ -1,34 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-X1G12KY1X5"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-X1G12KY1X5');
-</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sea Moss Florida | Wild-Harvested Caribbean Sea Moss – Central Florida | Janesse's Seamoss Creation</title>
 <meta name="description" content="Premium wild-harvested sea moss from Antigua & St. Lucia. 92+ minerals. Fresh weekly in Central Florida. Shop sea moss gel, build your blend, and join The Sea Moss Circle community.">
-<meta name="keywords" content="sea moss, seamoss, sea moss gel, sea moss florida, wild harvested sea moss, caribbean sea moss, central florida sea moss, sea moss benefits, sea moss near me">
-<meta name="author" content="Janesse's Seamoss Creation">
-<meta name="robots" content="index, follow">
 <script src="https://cdn.tailwindcss.com" async></script>
 <link rel="stylesheet" href="styles.css">
 <script>
 function initTailwind() {
-    tailwind.config = {
-        content: ["./**/*.{html,js}"],
-        theme: {
-            extend: {
-                colors: {
-                    deep: '#260B3A',
-                    purple: '#5E0089',
-                    lightpurple: '#EAD5F8',
+tailwind.config = {
+content: ["./**/*.{html,js}"],
+theme: {
+extend: {
+colors: {
+deep: '#260B3A',
+purple: '#5E0089',
+lightpurple: '#EAD5F8',
                 }
             }
         }
@@ -37,97 +25,134 @@ function initTailwind() {
 window.addEventListener('load', initTailwind);
 </script>
 <style>
-    .marquee { overflow: hidden; white-space: nowrap; }
-    .marquee-content { display: inline-flex; gap: 3rem; animation: marquee 10s linear infinite; }
-    @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+.marquee { overflow: hidden; white-space: nowrap; }
+.marquee-content { display: inline-flex; gap: 3rem; animation: marquee 10s linear infinite; }
+@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
-    .review-track {
-        display: flex;
-        gap: 2rem;
-        transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    .review-card {
-        min-width: 380px;
-        background: white;
-        border-radius: 24px;
-        padding: 2rem;
-        box-shadow: 0 10px 30px -10px rgb(94 0 137 / 0.15);
-    }
+/* Typewriter Effect */
+#typewriter {
+    border-right: 3px solid #5E0089;
+    white-space: nowrap;
+    overflow: hidden;
+    animation: typing 3.5s steps(40, end) forwards, blink 0.75s step-end infinite;
+}
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+@keyframes blink {
+    50% { border-color: transparent }
+}
+
+/* Palm Tree Styling */
+.palm-tree {
+    position: absolute;
+    right: 5%;
+    bottom: 10%;
+    width: 420px;
+    opacity: 0.15;
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* AI Chat Styling */
+.chat-message {
+    max-width: 80%;
+    padding: 14px 18px;
+    border-radius: 20px;
+    margin-bottom: 12px;
+    line-height: 1.5;
+}
+.user-message {
+    background: #5E0089;
+    color: white;
+    margin-left: auto;
+    border-bottom-right-radius: 5px;
+}
+.ai-message {
+    background: #f3e8ff;
+    color: #260B3A;
+    border-bottom-left-radius: 5px;
+}
 </style>
 </head>
 <body class="bg-white text-deep font-sans antialiased">
 
 <!-- Navigation -->
 <nav class="bg-white border-b sticky top-0 z-50 shadow-sm">
-    <div class="max-w-7xl mx-auto px-6">
-        <div class="flex items-center justify-between h-20">
-            <a href="index.html" class="flex items-center gap-3 group">
-                <img src="assets/images/IMG_7251 Background Removed 2.jpeg" alt="Janesse's Seamoss Creation Logo" class="h-20 w-auto transition-transform group-hover:scale-105">
-            </a>
-            <div class="hidden md:flex items-center gap-8 text-sm font-medium">
-                <a href="index.html" class="hover:text-purple">Home</a>
-                <a href="build.html" class="hover:text-purple">Build Your Blend</a>
-                <a href="shop.html" class="hover:text-purple">Shop</a>
-                <a href="wellness-calculator.html" class="hover:text-purple">Wellness Tools</a>
-                <a href="consultation.html" class="hover:text-purple">Book Consultation</a>
-                <a href="about.html" class="hover:text-purple">Our Story</a>
-            </div>
-            <div class="flex items-center gap-4">
-                <a href="shop.html" class="hidden md:block bg-purple hover:bg-deep text-white px-8 py-3.5 rounded-3xl font-semibold">Shop Now</a>
-                <button id="mobile-menu-btn" class="md:hidden w-11 h-11 flex items-center justify-center text-deep hover:text-purple">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                    </svg>
-                </button>
-            </div>
-        </div>
-    </div>
+<div class="max-w-7xl mx-auto px-6">
+<div class="flex items-center justify-between h-20">
+<a href="index.html" class="flex items-center gap-3 group">
+<img src="assets/images/IMG_7251 Background Removed 2.jpeg" alt="Janesse's Seamoss Creation Logo" class="h-20 w-auto transition-transform group-hover:scale-105">
+</a>
+<div class="hidden md:flex items-center gap-8 text-sm font-medium">
+<a href="index.html" class="hover:text-purple">Home</a>
+<a href="build.html" class="hover:text-purple">Build Your Blend</a>
+<a href="shop.html" class="hover:text-purple">Shop</a>
+<a href="wellness-calculator.html" class="hover:text-purple">Wellness Tools</a>
+<a href="consultation.html" class="hover:text-purple">Book Consultation</a>
+<a href="about.html" class="hover:text-purple">Our Story</a>
+</div>
+<div class="flex items-center gap-4">
+<a href="shop.html" class="hidden md:block bg-purple hover:bg-deep text-white px-8 py-3.5 rounded-3xl font-semibold">Shop Now</a>
+<button id="mobile-menu-btn" class="md:hidden w-11 h-11 flex items-center justify-center text-deep hover:text-purple">
+<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+</svg>
+</button>
+</div>
+</div>
+</div>
 
-    <!-- Mobile Menu -->
-    <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
-        <div class="px-6 py-6 flex flex-col gap-4 text-sm font-medium">
-            <a href="index.html" class="py-2 hover:text-purple">Home</a>
-            <a href="build.html" class="py-2 hover:text-purple">Build Your Blend</a>
-            <a href="shop.html" class="py-2 hover:text-purple">Shop</a>
-            <a href="pickup-delivery.html" class="py-2 hover:text-purple">Local Pickup & Delivery</a>
-            <a href="wellness-calculator.html" class="py-2 hover:text-purple">Wellness Tools</a>
-            <a href="consultation.html" class="py-2 hover:text-purple">Book Consultation</a>
-            <a href="about.html" class="py-2 hover:text-purple">Our Story</a>
-            <div class="pt-4 border-t">
-                <a href="shop.html" class="block w-full text-center bg-purple hover:bg-deep text-white py-4 rounded-3xl font-semibold">Shop Now</a>
-            </div>
-        </div>
-    </div>
+<!-- Mobile Menu -->
+<div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+<div class="px-6 py-6 flex flex-col gap-4 text-sm font-medium">
+<a href="index.html" class="py-2 hover:text-purple">Home</a>
+<a href="build.html" class="py-2 hover:text-purple">Build Your Blend</a>
+<a href="shop.html" class="py-2 hover:text-purple">Shop</a>
+<a href="pickup-delivery.html" class="py-2 hover:text-purple">Local Pickup & Delivery</a>
+<a href="wellness-calculator.html" class="py-2 hover:text-purple">Wellness Tools</a>
+<a href="consultation.html" class="py-2 hover:text-purple">Book Consultation</a>
+<a href="about.html" class="py-2 hover:text-purple">Our Story</a>
+<div class="pt-4 border-t">
+<a href="shop.html" class="block w-full text-center bg-purple hover:bg-deep text-white py-4 rounded-3xl font-semibold">Shop Now</a>
+</div>
+</div>
+</div>
 </nav>
 
 <!-- Marquee -->
 <div class="bg-lightpurple/30 py-3 text-purple font-medium text-sm border-b overflow-hidden">
-    <div class="marquee">
-        <div class="marquee-content flex gap-12 items-center">
-            <span>🌿 Wild-Harvested from Antigua &amp; St. Lucia • 92+ Minerals • Fresh Weekly in Central Florida • Handcrafted with Intention</span>
-            <span>🌿 Local Pickup &amp; Delivery Available • Pure Caribbean Sea Moss • No Fillers • Naturally Sweetened</span>
-            <span>🌿 Wild-Harvested from Antigua &amp; St. Lucia • 92+ Minerals • Fresh Weekly in Central Florida • Handcrafted with Intention</span>
-            <span>🌿 Local Pickup &amp; Delivery Available • Pure Caribbean Sea Moss • No Fillers • Naturally Sweetened</span>
-        </div>
-    </div>
+<div class="marquee">
+<div class="marquee-content flex gap-12 items-center">
+<span>🌿 Wild-Harvested from Antigua &amp; St. Lucia • 92+ Minerals • Fresh Weekly in Central Florida • Handcrafted with Intention</span>
+<span>🌿 Local Pickup &amp; Delivery Available • Pure Caribbean Sea Moss • No Fillers • Naturally Sweetened</span>
+</div>
+</div>
 </div>
 
-<!-- Hero -->
+<!-- Hero with Typewriter + Palm Trees -->
 <header class="min-h-screen flex items-center relative bg-gradient-to-br from-deep/5 via-white to-lightpurple/30 overflow-hidden">
-    <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 lg:gap-16 items-center pt-12 pb-20">
+    
+    <!-- Palm Tree Background -->
+    <img src="assets/images/palm-trees.png" alt="Palm Trees Silhouette" 
+    class="palm-tree hidden md:block">
+    <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 lg:gap-16 items-center pt-12 pb-20 relative z-10">
         <div class="space-y-8">
             <div class="inline-flex items-center gap-3 bg-white/90 backdrop-blur px-6 py-3 rounded-3xl shadow text-sm font-medium">
                 <span class="text-green-600">🌊</span>
                 <span class="text-purple">Wild-Harvested • Antigua &amp; St. Lucia</span>
             </div>
+
             <h1 class="text-5xl md:text-6xl lg:text-7xl font-light leading-none tracking-tighter">
-                Pure Caribbean Sea Moss.<br>
-                <span class="text-purple font-medium">Crafted with Intention.</span>
+                <span id="typewriter">Pure Caribbean Sea Moss.<br>Crafted with Intention.</span>
             </h1>
+
             <p class="text-xl md:text-2xl text-gray-700 max-w-lg">
-                Wild-harvested from the crystal waters of Antigua and St. Lucia.
+                Wild-harvested from the crystal waters of Antigua and St. Lucia.<br>
                 Handcrafted fresh weekly in Central Florida with 92+ minerals.
             </p>
+
             <div class="flex flex-col sm:flex-row gap-4">
                 <a href="build.html" class="bg-purple hover:bg-deep text-white px-10 py-6 rounded-3xl text-xl font-semibold transition-all active:scale-95 text-center">
                     Build Your Blend
@@ -137,222 +162,343 @@ window.addEventListener('load', initTailwind);
                 </a>
             </div>
         </div>
-        <div class="flex justify-center md:justify-end">
-            <img src="assets/images/DSCF1813.JPG" alt="Premium Caribbean Sea Moss Gel" class="rounded-3xl shadow-2xl max-w-md md:max-w-lg w-full h-auto object-cover">
+
+        <div class="flex justify-center md:justify-end relative z-10">
+            <img src="assets/images/DSCF1813.JPG" alt="Premium Caribbean Sea Moss Gel" 
+                 class="rounded-3xl shadow-2xl max-w-md md:max-w-lg w-full h-auto object-cover">
         </div>
     </div>
 </header>
 
-<!-- Discover Our World - FULL -->
+<!-- Discover Our World -->
 <section class="py-20 bg-white">
-    <div class="max-w-7xl mx-auto px-6">
-        <div class="text-center mb-12">
-            <h2 class="text-4xl md:text-5xl font-light tracking-tight">Discover Our World</h2>
-            <p class="text-center text-gray-600 mt-4 max-w-lg mx-auto">
-                Each blend is handcrafted with intention to support different aspects of your wellness journey.
-            </p>
-        </div>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-8">
-            <!-- 1. Herb Infused -->
-            <div class="group bg-white border border-gray-100 rounded-3xl overflow-hidden hover:shadow-2xl transition-all duration-300">
-                <div class="h-64 bg-gray-100 overflow-hidden">
-                    <img src="assets/images/joint-relief-seamoss.jpg" alt="Herb Infused" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                </div>
-                <div class="p-8">
-                    <h3 class="text-2xl font-medium mb-2">Herb Infused Gels</h3>
-                    <p class="text-purple text-sm mb-4">Targeted Healing</p>
-                    <p class="text-gray-600 text-[15px]">Thyroid, joints, energy, hormones & detoxification support.</p>
-                    <a href="shop.html" class="mt-6 inline-flex items-center gap-2 text-purple font-medium hover:text-deep">Explore →</a>
-                </div>
-            </div>
-            <!-- 2. Fruit Flavored -->
-            <div class="group bg-white border border-gray-100 rounded-3xl overflow-hidden hover:shadow-2xl transition-all duration-300">
-                <div class="h-64 bg-gray-100 overflow-hidden">
-                    <img src="assets/images/passion-fruit-seamoss.jpg" alt="Fruit Flavored" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                </div>
-                <div class="p-8">
-                    <h3 class="text-2xl font-medium mb-2">Fruit Flavored Gels</h3>
-                    <p class="text-purple text-sm mb-4">Daily Delight</p>
-                    <p class="text-gray-600 text-[15px]">Mango, Passion Fruit, Soursop, Pineapple & more.</p>
-                    <a href="shop.html" class="mt-6 inline-flex items-center gap-2 text-purple font-medium hover:text-deep">Shop Flavors →</a>
-                </div>
-            </div>
-            <!-- 3. Sea Moss Juices -->
-            <div class="group bg-white border border-gray-100 rounded-3xl overflow-hidden hover:shadow-2xl transition-all duration-300">
-                <div class="h-64 bg-gray-100 overflow-hidden">
-                    <img src="assets/images/sea-moss-juices.jpg" alt="Juices" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                </div>
-                <div class="p-8">
-                    <h3 class="text-2xl font-medium mb-2">Ready-to-Drink Juices</h3>
-                    <p class="text-purple text-sm mb-4">On-the-Go Wellness</p>
-                    <p class="text-gray-600 text-[15px]">Convenient mineral shots for busy lifestyles.</p>
-                    <a href="shop.html" class="mt-6 inline-flex items-center gap-2 text-purple font-medium hover:text-deep">Shop Juices →</a>
-                </div>
-            </div>
-            <!-- 4. Skincare -->
-            <div class="group bg-white border border-gray-100 rounded-3xl overflow-hidden hover:shadow-2xl transition-all duration-300">
-                <div class="h-64 bg-gray-100 overflow-hidden">
-                    <img src="assets/images/skincare-gels.jpg" alt="Skincare" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                </div>
-                <div class="p-8">
-                    <h3 class="text-2xl font-medium mb-2">Skincare Gels</h3>
-                    <p class="text-purple text-sm mb-4">Glow from Within & Out</p>
-                    <p class="text-gray-600 text-[15px]">Topical sea moss for radiant, nourished skin.</p>
-                    <a href="shop.html" class="mt-6 inline-flex items-center gap-2 text-purple font-medium hover:text-deep">Discover Skincare →</a>
-                </div>
-            </div>
-            <!-- 5. Fitness Recovery -->
-            <div class="group bg-white border border-gray-100 rounded-3xl overflow-hidden hover:shadow-2xl transition-all duration-300">
-                <div class="h-64 bg-gray-100 overflow-hidden">
-                    <img src="assets/images/IMG_8064 Background Removed 2.png" alt="Fitness Recovery" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                </div>
-                <div class="p-8">
-                    <h3 class="text-2xl font-medium mb-2">Fitness Recovery</h3>
-                    <p class="text-purple text-sm mb-4">Post-Workout Support</p>
-                    <p class="text-gray-600 text-[15px]">Replenish minerals, reduce inflammation & support muscle recovery.</p>
-                    <a href="shop.html" class="mt-6 inline-flex items-center gap-2 text-purple font-medium hover:text-deep">Shop Recovery →</a>
-                </div>
-            </div>
-        </div>
-    </div>
+<div class="max-w-7xl mx-auto px-6">
+<div class="text-center mb-12">
+<h2 class="text-4xl md:text-5xl font-light tracking-tight">Discover Our World</h2>
+<p class="text-center text-gray-600 mt-4 max-w-lg mx-auto">
+Each blend is handcrafted with intention to support different aspects of your wellness journey.
+</p>
+</div>
+
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-8">
+<!-- Herb Infused -->
+<div class="group bg-white border border-gray-100 rounded-3xl overflow-hidden hover:shadow-2xl transition-all duration-300">
+<div class="h-64 bg-gray-100 overflow-hidden">
+<img src="assets/images/joint-relief-seamoss.jpg" alt="Herb Infused" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+</div>
+<div class="p-8">
+<h3 class="text-2xl font-medium mb-2">Herb Infused Gels</h3>
+<p class="text-purple text-sm mb-4">Targeted Healing</p>
+<p class="text-gray-600 text-[15px]">Thyroid, joints, energy, hormones & detoxification support.</p>
+<a href="shop.html" class="mt-6 inline-flex items-center gap-2 text-purple font-medium hover:text-deep">Explore →</a>
+</div>
+</div>
+
+<!-- Fruit Flavored -->
+<div class="group bg-white border border-gray-100 rounded-3xl overflow-hidden hover:shadow-2xl transition-all duration-300">
+<div class="h-64 bg-gray-100 overflow-hidden">
+<img src="assets/images/passion-fruit-seamoss.jpg" alt="Fruit Flavored" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+</div>
+<div class="p-8">
+<h3 class="text-2xl font-medium mb-2">Fruit Flavored Gels</h3>
+<p class="text-purple text-sm mb-4">Daily Delight</p>
+<p class="text-gray-600 text-[15px]">Mango, Passion Fruit, Soursop, Pineapple & more.</p>
+<a href="shop.html" class="mt-6 inline-flex items-center gap-2 text-purple font-medium hover:text-deep">Shop Flavors →</a>
+</div>
+</div>
+
+<!-- Sea Moss Juices -->
+<div class="group bg-white border border-gray-100 rounded-3xl overflow-hidden hover:shadow-2xl transition-all duration-300">
+<div class="h-64 bg-gray-100 overflow-hidden">
+<img src="assets/images/sea-moss-juices.jpg" alt="Juices" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+</div>
+<div class="p-8">
+<h3 class="text-2xl font-medium mb-2">Ready-to-Drink Juices</h3>
+<p class="text-purple text-sm mb-4">On-the-Go Wellness</p>
+<p class="text-gray-600 text-[15px]">Convenient mineral shots for busy lifestyles.</p>
+<a href="shop.html" class="mt-6 inline-flex items-center gap-2 text-purple font-medium hover:text-deep">Shop Juices →</a>
+</div>
+</div>
+
+<!-- Skincare -->
+<div class="group bg-white border border-gray-100 rounded-3xl overflow-hidden hover:shadow-2xl transition-all duration-300">
+<div class="h-64 bg-gray-100 overflow-hidden">
+<img src="assets/images/skincare-gels.jpg" alt="Skincare" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+</div>
+<div class="p-8">
+<h3 class="text-2xl font-medium mb-2">Skincare Gels</h3>
+<p class="text-purple text-sm mb-4">Glow from Within & Out</p>
+<p class="text-gray-600 text-[15px]">Topical sea moss for radiant, nourished skin.</p>
+<a href="shop.html" class="mt-6 inline-flex items-center gap-2 text-purple font-medium hover:text-deep">Discover Skincare →</a>
+</div>
+</div>
+
+<!-- Fitness Recovery -->
+<div class="group bg-white border border-gray-100 rounded-3xl overflow-hidden hover:shadow-2xl transition-all duration-300">
+<div class="h-64 bg-gray-100 overflow-hidden">
+<img src="assets/images/IMG_8064 Background Removed 2.png" alt="Fitness Recovery" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+</div>
+<div class="p-8">
+<h3 class="text-2xl font-medium mb-2">Fitness Recovery</h3>
+<p class="text-purple text-sm mb-4">Post-Workout Support</p>
+<p class="text-gray-600 text-[15px]">Replenish minerals, reduce inflammation & support muscle recovery.</p>
+<a href="shop.html" class="mt-6 inline-flex items-center gap-2 text-purple font-medium hover:text-deep">Shop Recovery →</a>
+</div>
+</div>
+</div>
+</div>
 </section>
 
 <!-- Wellness Tools -->
 <section class="py-20 bg-lightpurple/30">
-    <div class="max-w-6xl mx-auto px-6">
-        <div class="text-center mb-12">
-            <h2 class="text-4xl md:text-5xl font-light tracking-tight">Begin Your Wellness Journey</h2>
-            <p class="text-gray-600 mt-4">Tools, guidance &amp; fresh sea moss — all designed to support your body’s natural intelligence.</p>
-        </div>
-        <div class="grid md:grid-cols-3 gap-8">
-            <a href="wellness-calculator.html" class="group bg-white rounded-3xl p-10 shadow hover:shadow-2xl transition-all flex flex-col h-full">
-                <div class="text-6xl mb-6">🧪</div>
-                <h3 class="text-3xl font-medium mb-3">Sea Moss Wellness Calculator</h3>
-                <p class="text-gray-600 flex-1">Get personalized recommendations in seconds.</p>
-                <div class="mt-6 text-purple font-medium group-hover:underline">Take the quiz →</div>
-            </a>
-            <div onclick="showAIChat()" class="group bg-white rounded-3xl p-10 shadow hover:shadow-2xl transition-all flex flex-col h-full cursor-pointer">
-                <div class="text-6xl mb-6">🌿</div>
-                <h3 class="text-3xl font-medium mb-3">Ask Jane's AI</h3>
-                <p class="text-gray-600 flex-1">Chat with our holistic AI guide specialized in sea moss &amp; wellness.</p>
-                <div class="mt-6 text-purple font-medium group-hover:underline">Start chatting →</div>
-            </div>
-            <a href="pickup-delivery.html" class="group bg-gradient-to-br from-purple/5 to-lightpurple/40 border-2 border-purple/20 rounded-3xl p-10 shadow hover:shadow-2xl transition-all flex flex-col h-full">
-                <div class="text-6xl mb-6">📍</div>
-                <h3 class="text-3xl font-medium mb-3">Local Pickup in Orlando</h3>
-                <p class="text-gray-600 flex-1">Get your sea moss the same day it's made. Maximum freshness.</p>
-                <div class="mt-6 text-purple font-medium group-hover:underline">Learn more →</div>
-            </a>
-        </div>
-    </div>
+<div class="max-w-6xl mx-auto px-6">
+<div class="text-center mb-12">
+<h2 class="text-4xl md:text-5xl font-light tracking-tight">Begin Your Wellness Journey</h2>
+<p class="text-gray-600 mt-4">Tools, guidance &amp; fresh sea moss — all designed to support your body’s natural intelligence.</p>
+</div>
+
+<div class="grid md:grid-cols-3 gap-8">
+<a href="wellness-calculator.html" class="group bg-white rounded-3xl p-10 shadow hover:shadow-2xl transition-all flex flex-col h-full">
+<div class="text-6xl mb-6">🧪</div>
+<h3 class="text-3xl font-medium mb-3">Sea Moss Wellness Calculator</h3>
+<p class="text-gray-600 flex-1">Get personalized recommendations in seconds.</p>
+<div class="mt-6 text-purple font-medium group-hover:underline">Take the quiz →</div>
+</a>
+
+<!-- Jane's AI -->
+<div onclick="showAIChat()" class="group bg-white rounded-3xl p-10 shadow hover:shadow-2xl transition-all flex flex-col h-full cursor-pointer">
+<div class="text-6xl mb-6">🌿</div>
+<h3 class="text-3xl font-medium mb-3">Ask Jane's AI</h3>
+<p class="text-gray-600 flex-1">Chat with our holistic AI guide specialized in sea moss &amp; wellness.</p>
+<div class="mt-6 text-purple font-medium group-hover:underline">Start chatting →</div>
+</div>
+
+<a href="pickup-delivery.html" class="group bg-gradient-to-br from-purple/5 to-lightpurple/40 border-2 border-purple/20 rounded-3xl p-10 shadow hover:shadow-2xl transition-all flex flex-col h-full">
+<div class="text-6xl mb-6">📍</div>
+<h3 class="text-3xl font-medium mb-3">Local Pickup in Orlando</h3>
+<p class="text-gray-600 flex-1">Get your sea moss the same day it's made. Maximum freshness.</p>
+<div class="mt-6 text-purple font-medium group-hover:underline">Learn more →</div>
+</a>
+</div>
+</div>
 </section>
 
 <!-- Review Carousel -->
 <section class="py-20 bg-white">
-    <div class="max-w-7xl mx-auto px-6">
-        <div class="flex justify-between items-end mb-10">
-            <div>
-                <h2 class="text-4xl md:text-5xl font-light tracking-tight">Real Voices from The Sea Moss Circle</h2>
-                <p class="text-gray-600 mt-2">Over 88 Google Reviews • Verified Customers</p>
-            </div>
-            <div class="flex gap-3">
-                <button onclick="scrollReviews(-1)" class="w-12 h-12 border border-purple/30 rounded-2xl flex items-center justify-center hover:bg-purple hover:text-white transition-all">←</button>
-                <button onclick="scrollReviews(1)" class="w-12 h-12 border border-purple/30 rounded-2xl flex items-center justify-center hover:bg-purple hover:text-white transition-all">→</button>
-            </div>
-        </div>
+<div class="max-w-7xl mx-auto px-6">
+<div class="flex justify-between items-end mb-10">
+<div>
+<h2 class="text-4xl md:text-5xl font-light tracking-tight">Real Voices from The Sea Moss Circle</h2>
+<p class="text-gray-600 mt-2">Over 88 Google Reviews • Verified Customers</p>
+</div>
+<div class="flex gap-3">
+<button onclick="scrollReviews(-1)" class="w-12 h-12 border border-purple/30 rounded-2xl flex items-center justify-center hover:bg-purple hover:text-white transition-all">←</button>
+<button onclick="scrollReviews(1)" class="w-12 h-12 border border-purple/30 rounded-2xl flex items-center justify-center hover:bg-purple hover:text-white transition-all">→</button>
+</div>
+</div>
 
-        <div class="overflow-hidden">
-            <div id="review-track" class="review-track flex gap-8">
-                <!-- Multiple Real Reviews -->
-                <div class="review-card">
-                    <div class="flex gap-1 text-yellow-400 mb-4">★★★★★</div>
-                    <p class="text-gray-700 italic">"The best sea moss I've ever tried. The flavors are amazing and I feel so much better since starting it."</p>
-                    <div class="mt-6 flex items-center gap-3">
-                        <p class="font-medium">Michelle R.</p>
-                        <p class="text-xs text-gray-500">Orlando, FL</p>
-                    </div>
-                </div>
+<div class="overflow-hidden">
+<div id="review-track" class="review-track flex gap-8">
+<div class="review-card">
+<div class="flex gap-1 text-yellow-400 mb-4">★★★★★</div>
+<p class="text-gray-700 italic">"The best sea moss I've ever tried. The flavors are amazing and I feel so much better since starting it."</p>
+<div class="mt-6 flex items-center gap-3">
+<p class="font-medium">Michelle R.</p>
+<p class="text-xs text-gray-500">Orlando, FL</p>
+</div>
+</div>
+<div class="review-card">
+<div class="flex gap-1 text-yellow-400 mb-4">★★★★★</div>
+<p class="text-gray-700 italic">"My energy levels are through the roof! Passion Fruit is my favorite. Delivery was super fast."</p>
+<div class="mt-6 flex items-center gap-3">
+<p class="font-medium">Kevin T.</p>
+<p class="text-xs text-gray-500">Winter Park, FL</p>
+</div>
+</div>
+<div class="review-card">
+<div class="flex gap-1 text-yellow-400 mb-4">★★★★★</div>
+<p class="text-gray-700 italic">"Skin is glowing and digestion improved so much. This is the real deal. Thank you Janesse!"</p>
+<div class="mt-6 flex items-center gap-3">
+<p class="font-medium">Aisha P.</p>
+<p class="text-xs text-gray-500">Kissimmee, FL</p>
+</div>
+</div>
+</div>
+</div>
 
-                <div class="review-card">
-                    <div class="flex gap-1 text-yellow-400 mb-4">★★★★★</div>
-                    <p class="text-gray-700 italic">"My energy levels are through the roof! Passion Fruit is my favorite. Delivery was super fast."</p>
-                    <div class="mt-6 flex items-center gap-3">
-                        <p class="font-medium">Kevin T.</p>
-                        <p class="text-xs text-gray-500">Winter Park, FL</p>
-                    </div>
-                </div>
-
-                <div class="review-card">
-                    <div class="flex gap-1 text-yellow-400 mb-4">★★★★★</div>
-                    <p class="text-gray-700 italic">"Skin is glowing and digestion improved so much. This is the real deal. Thank you Janesse!"</p>
-                    <div class="mt-6 flex items-center gap-3">
-                        <p class="font-medium">Aisha P.</p>
-                        <p class="text-xs text-gray-500">Kissimmee, FL</p>
-                    </div>
-                </div>
-
-                <div class="review-card">
-                    <div class="flex gap-1 text-yellow-400 mb-4">★★★★★</div>
-                    <p class="text-gray-700 italic">"Best investment in my health. The quality is unmatched and customer service is excellent."</p>
-                    <div class="mt-6 flex items-center gap-3">
-                        <p class="font-medium">Marcus J.</p>
-                        <p class="text-xs text-gray-500">Orlando, FL</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="text-center mt-10">
-            <a href="https://share.google/LCFp2XY7eDYX0uJE4" target="_blank" class="text-purple hover:text-deep font-medium flex items-center justify-center gap-2">
-                View All 88+ Reviews on Google →
-            </a>
-        </div>
-    </div>
+<div class="text-center mt-10">
+<a href="https://share.google/LCFp2XY7eDYX0uJE4" target="_blank" class="text-purple hover:text-deep font-medium flex items-center justify-center gap-2">
+View All 88+ Reviews on Google →
+</a>
+</div>
+</div>
 </section>
 
 <!-- Footer -->
 <footer class="bg-deep text-white py-12">
-    <div class="max-w-7xl mx-auto px-6 text-center">
-        <p class="mb-4">Handcrafted in Central Florida with love and intention.</p>
-        <p class="text-sm opacity-75">
-            These statements have not been evaluated by the FDA. This product is not intended to diagnose, treat, cure, or prevent any disease.
-        </p>
-        <div class="mt-8 pt-8 border-t border-white/20 text-sm opacity-75 flex flex-wrap justify-center gap-x-8 gap-y-2">
-            <a href="pickup-delivery.html" class="hover:text-lightpurple">Local Pickup &amp; Delivery</a>
-            <a href="community.html" class="hover:text-lightpurple">The Sea Moss Circle</a>
-            <a href="wholesale.html" class="hover:text-lightpurple">Wholesale</a>
-            <a href="affiliate.html" class="hover:text-lightpurple">Affiliate Program</a>
-            <a href="careers.html" class="hover:text-lightpurple">Careers</a>
-            <a href="consultation.html" class="hover:text-lightpurple">Book Consultation</a>
-            <a href="about.html" class="hover:text-lightpurple">Our Story</a>
-        </div>
-        <div class="mt-8 text-xs opacity-60">
-            © 2026 Janesse's Seamoss Creation • Built by VSIT Solutions
-        </div>
-    </div>
+<div class="max-w-7xl mx-auto px-6 text-center">
+<p class="mb-4">Handcrafted in Central Florida with love and intention.</p>
+<p class="text-sm opacity-75">
+These statements have not been evaluated by the FDA. This product is not intended to diagnose, treat, cure, or prevent any disease.
+</p>
+<div class="mt-8 pt-8 border-t border-white/20 text-sm opacity-75 flex flex-wrap justify-center gap-x-8 gap-y-2">
+<a href="pickup-delivery.html" class="hover:text-lightpurple">Local Pickup &amp; Delivery</a>
+<a href="community.html" class="hover:text-lightpurple">The Sea Moss Circle</a>
+<a href="wholesale.html" class="hover:text-lightpurple">Wholesale</a>
+<a href="affiliate.html" class="hover:text-lightpurple">Affiliate Program</a>
+<a href="careers.html" class="hover:text-lightpurple">Careers</a>
+<a href="consultation.html" class="hover:text-lightpurple">Book Consultation</a>
+<a href="about.html" class="hover:text-lightpurple">Our Story</a>
+</div>
+<div class="mt-8 text-xs opacity-60">
+© 2026 Janesse's Seamoss Creation • Built by VSIT Solutions
+</div>
+</div>
 </footer>
 
+<!-- Jane's AI Chat Modal -->
+<div id="ai-chat-modal" class="hidden fixed inset-0 bg-black/60 z-[99999] flex items-center justify-center p-4">
+<div class="bg-white w-full max-w-2xl rounded-3xl shadow-2xl overflow-hidden flex flex-col h-[85vh]">
+<!-- Chat Header -->
+<div class="bg-purple px-6 py-4 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 bg-white rounded-full flex items-center justify-center">
+<span class="text-purple text-2xl">🌿</span>
+</div>
+<div>
+<p class="text-white font-semibold">Jane's AI</p>
+<p class="text-purple-200 text-sm">Your Sea Moss & Wellness Guide</p>
+</div>
+</div>
+<button onclick="hideAIChat()" class="text-white text-3xl leading-none">×</button>
+</div>
+
+<!-- Chat Messages -->
+<div id="chat-messages" class="flex-1 overflow-y-auto p-6 space-y-4 bg-[#faf5ff]">
+</div>
+
+<!-- Chat Input -->
+<div class="p-4 border-t bg-white">
+<div class="flex gap-3">
+<input id="chat-input" type="text" placeholder="Ask about sea moss, benefits, or recipes..." 
+class="flex-1 border border-gray-300 rounded-3xl px-5 py-4 focus:outline-none focus:border-purple">
+<button onclick="sendMessage()" 
+class="bg-purple hover:bg-deep text-white px-8 rounded-3xl font-semibold">Send</button>
+</div>
+</div>
+</div>
+</div>
+
 <script>
-// Review Carousel Scroll
+// Typewriter Effect
+function typeWriterEffect() {
+const text = "Pure Caribbean Sea Moss.\nCrafted with Intention.";
+const element = document.getElementById('typewriter');
+element.innerHTML = '';
+let i = 0;
+
+const interval = setInterval(() => {
+if (i < text.length) {
+if (text.charAt(i) === '\n') {
+element.innerHTML += '<br>';
+} else {
+element.innerHTML += text.charAt(i);
+}
+i++;
+} else {
+clearInterval(interval);
+}
+}, 80);
+}
+
+window.addEventListener('load', typeWriterEffect);
+
+// Review Scroll
 function scrollReviews(direction) {
-    const track = document.getElementById('review-track');
-    const scrollAmount = 400;
-    track.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
+const track = document.getElementById('review-track');
+track.scrollBy({ left: direction * 400, behavior: 'smooth' });
 }
 
 // Mobile Menu
 document.addEventListener('DOMContentLoaded', function() {
-    const mobileBtn = document.getElementById('mobile-menu-btn');
-    const mobileMenu = document.getElementById('mobile-menu');
-    if (mobileBtn && mobileMenu) {
-        let isOpen = false;
-        mobileBtn.addEventListener('click', function() {
-            isOpen = !isOpen;
-            if (isOpen) mobileMenu.classList.remove('hidden');
-            else mobileMenu.classList.add('hidden');
-        });
-    }
+const mobileBtn = document.getElementById('mobile-menu-btn');
+const mobileMenu = document.getElementById('mobile-menu');
+if (mobileBtn && mobileMenu) {
+let isOpen = false;
+mobileBtn.addEventListener('click', function() {
+isOpen = !isOpen;
+mobileMenu.classList.toggle('hidden', !isOpen);
+});
+}
+});
+
+// Jane's AI Chat
+function showAIChat() {
+document.getElementById('ai-chat-modal').classList.remove('hidden');
+const messagesContainer = document.getElementById('chat-messages');
+if (messagesContainer.children.length === 0) {
+addAIMessage("Hi! I'm Jane's AI. I can help you with sea moss benefits, recipes, which blend is best for you, or any wellness questions. How can I support you today?");
+}
+}
+
+function hideAIChat() {
+document.getElementById('ai-chat-modal').classList.add('hidden');
+}
+
+function addUserMessage(message) {
+const container = document.getElementById('chat-messages');
+const div = document.createElement('div');
+div.className = 'chat-message user-message';
+div.textContent = message;
+container.appendChild(div);
+container.scrollTop = container.scrollHeight;
+}
+
+function addAIMessage(message) {
+const container = document.getElementById('chat-messages');
+const div = document.createElement('div');
+div.className = 'chat-message ai-message';
+div.textContent = message;
+container.appendChild(div);
+container.scrollTop = container.scrollHeight;
+}
+
+function sendMessage() {
+const input = document.getElementById('chat-input');
+const message = input.value.trim();
+if (!message) return;
+
+addUserMessage(message);
+input.value = '';
+
+setTimeout(() => {
+let response = getAIResponse(message.toLowerCase());
+addAIMessage(response);
+}, 800);
+}
+
+function getAIResponse(message) {
+if (message.includes('energy') || message.includes('tired')) {
+return "Sea moss is excellent for natural energy! Many people notice improved stamina within 1–2 weeks. The Passionfruit and Mango blends are popular for daily energy.";
+}
+if (message.includes('skin') || message.includes('glow')) {
+return "Sea moss supports skin health from within thanks to its high mineral content. Our Moon Cycle Moss and regular gels are great for this. Consistent use often leads to clearer, more radiant skin.";
+}
+if (message.includes('recipe') || message.includes('how to use')) {
+return "You can blend it into smoothies, make a gel, or even use it in teas. Would you like a simple daily recipe recommendation?";
+}
+if (message.includes('best') || message.includes('recommend')) {
+return "It depends on your goals! For general wellness, I recommend starting with Mango or Passionfruit. For hormonal support, Moon Cycle Moss is excellent. What are you hoping to improve?";
+}
+return "That's a great question! Sea moss is incredibly versatile. Could you tell me more about what you're looking to support (energy, digestion, skin, etc.)?";
+}
+
+document.addEventListener('keypress', function(e) {
+if (e.key === 'Enter' && !document.getElementById('ai-chat-modal').classList.contains('hidden')) {
+sendMessage();
+}
 });
 </script>
+
 </body>
 </html>
