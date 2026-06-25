@@ -7,13 +7,12 @@
 <script src="https://cdn.tailwindcss.com" async></script>
 <link rel="stylesheet" href="styles.css">
 <script src="https://js.stripe.com/v3/"></script>
-<script src="script.js"></script>
 <script>
 function initTailwind() {
 tailwind.config = {
 theme: { extend: { colors: { deep: '#260B3A', purple: '#5E0089', lightpurple: '#EAD5F8' } } }
-            };
-        }
+};
+}
 window.addEventListener('load', initTailwind);
 </script>
 <style>
@@ -55,7 +54,7 @@ Delivery Options
 <div id="delivery-info-bar" class="hidden bg-emerald-50 border-b border-emerald-200">
 <div class="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
 <div>
-<span class="font-semibold text-emerald-700">Delivery:</span> 
+<span class="font-semibold text-emerald-700">Delivery for:</span> 
 <span id="delivery-area" class="font-medium"></span> 
 <span id="delivery-fee" class="text-sm text-emerald-600 ml-2"></span>
 </div>
@@ -82,23 +81,28 @@ Delivery Options
 
 <div class="max-w-7xl mx-auto px-6 py-12 grid md:grid-cols-2 gap-12">
 
-<!-- Customization Options -->
+<!-- Left Column: Customization -->
 <div class="space-y-10">
 
-<!-- Base -->
+<!-- Base Size -->
 <div>
-<h2 class="text-2xl font-medium mb-4">Base</h2>
-<div class="bg-white border-2 border-purple rounded-3xl p-6">
-<div class="flex justify-between items-center">
-<div class="flex items-center gap-4">
-<div class="text-4xl">🌿</div>
+<h2 class="text-2xl font-medium mb-4">Base Size</h2>
+<div class="space-y-3">
+<label class="size-option flex justify-between items-center bg-white border-2 border-purple rounded-3xl p-5 cursor-pointer transition-all active-size" data-price="30" data-size="16oz">
 <div>
-<p class="font-semibold text-lg">Original Irish Sea Moss</p>
-<p class="text-sm text-gray-600">Wild-harvested • 92+ minerals</p>
+<span class="font-semibold text-lg">16oz Jar</span>
+<p class="text-sm text-gray-600">Standard size • Perfect for daily use</p>
 </div>
+<span class="text-purple font-semibold text-xl price">$30</span>
+</label>
+
+<label class="size-option flex justify-between items-center bg-white border border-gray-200 hover:border-purple rounded-3xl p-5 cursor-pointer transition-all" data-price="55" data-size="32oz">
+<div>
+<span class="font-semibold text-lg">32oz Jar</span>
+<p class="text-sm text-gray-600">Family / Bulk size • Best value</p>
 </div>
-<div class="text-right"><p class="font-semibold text-xl">$30</p></div>
-</div>
+<span class="text-purple font-semibold text-xl price">$55</span>
+</label>
 </div>
 </div>
 
@@ -106,7 +110,7 @@ Delivery Options
 <div>
 <h2 class="text-2xl font-medium mb-3">Fruit Base <span class="text-sm font-normal text-purple">(Highly Recommended)</span></h2>
 <p class="text-sm text-gray-600 mb-4">Helps balance flavor — herbs can taste bitter without fruit.</p>
-<div class="grid grid-cols-2 gap-3">
+<div class="grid grid-cols-2 gap-3" id="fruit-options">
 <label class="fruit-option flex items-center gap-3 bg-white border border-gray-200 hover:border-purple rounded-2xl p-4 cursor-pointer transition-all">
 <input type="radio" name="fruit" value="None" class="accent-purple" checked><span>None</span>
 </label>
@@ -202,7 +206,7 @@ Delivery Options
 <div class="bg-white border border-purple/30 rounded-3xl p-8 sticky top-24 h-fit">
 <h2 class="text-2xl font-medium mb-6">Your Custom Blend</h2>
 <div id="summary" class="space-y-6 text-sm">
-<div><p class="text-gray-500">Base</p><p class="font-medium">Original Irish Sea Moss — $30</p></div>
+<div><p class="text-gray-500">Base</p><p class="font-medium" id="base-summary">16oz Jar — $30</p></div>
 <div id="fruit-summary"><p class="text-gray-500">Fruit Base</p><p class="font-medium text-gray-400">None selected</p></div>
 <div id="herbs-summary"><p class="text-gray-500">Herbs</p><p class="font-medium text-gray-400">None selected</p></div>
 <div id="consistency-summary"><p class="text-gray-500">Consistency</p><p class="font-medium">Regular (Recommended)</p></div>
@@ -248,29 +252,12 @@ Proceed to Secure Checkout →
 </div>
 </div>
 </div>
+</div>
 
-<!-- Delivery Selector Modal -->
+<!-- Delivery Selector + Smart Form Modal -->
 <div id="delivery-selector-modal" class="hidden fixed inset-0 bg-black/60 z-[10000] flex items-center justify-center p-4">
-<div class="bg-white rounded-3xl max-w-4xl w-full p-8">
-<div class="flex justify-between mb-6">
-<h2 class="text-2xl font-semibold">How would you like to receive your order?</h2>
-<button onclick="hideDeliverySelector()" class="text-3xl">×</button>
-</div>
-
-<div class="grid md:grid-cols-3 gap-4">
-<div onclick="selectLocalDelivery()" class="border-2 border-purple hover:bg-purple/5 rounded-3xl p-6 cursor-pointer">
-<h3 class="font-semibold text-lg">Local Delivery</h3>
-<p class="text-sm text-gray-600 mt-2">Available across most of Florida</p>
-</div>
-<div onclick="selectPickup()" class="border-2 border-purple hover:bg-purple/5 rounded-3xl p-6 cursor-pointer">
-<h3 class="font-semibold text-lg">Free In-Store Pickup</h3>
-<p class="text-sm text-gray-600 mt-2">Pick up in Central Florida</p>
-</div>
-<div onclick="selectShipping()" class="border-2 border-purple hover:bg-purple/5 rounded-3xl p-6 cursor-pointer">
-<h3 class="font-semibold text-lg">Shipping</h3>
-<p class="text-sm text-gray-600 mt-2">$9.99 • 3–5 business days</p>
-</div>
-</div>
+<div class="bg-white rounded-3xl max-w-lg w-full p-8" id="delivery-modal-content">
+<!-- Dynamic content injected by JS -->
 </div>
 </div>
 
@@ -282,6 +269,7 @@ function addToCart(item) {
 cart.push(item);
 updateCartCount();
 localStorage.setItem('cart', JSON.stringify(cart));
+showCartModal();
 }
 
 function updateCartCount() {
@@ -327,14 +315,14 @@ updateCartCount();
 showCartModal();
 }
 
-// ========== STRIPE CHECKOUT WITH DELIVERY CHECK ==========
+// ========== STRIPE CHECKOUT ==========
 let selectedDelivery = null;
 
 async function proceedToCheckout() {
 hideCartModal();
 
-if (!selectedDelivery) {
-alert("Please choose a delivery option first before proceeding to checkout.");
+if (!selectedDelivery || !selectedDelivery.customerName) {
+alert("Please choose a delivery option and complete your information first.");
 showDeliverySelector();
 return;
 }
@@ -366,6 +354,7 @@ alert("⚠️ We couldn't connect to secure checkout. Please try again.");
 
 // ========== BLEND BUILDER ==========
 let basePrice = 30;
+let selectedSize = "16oz";
 let selectedFruit = "None";
 let selectedHerbs = [];
 let selectedConsistency = "Regular";
@@ -382,6 +371,8 @@ const herbPrices = {
 };
 
 function updateSummary() {
+document.getElementById('base-summary').innerHTML = `${selectedSize} Jar — $${basePrice}`;
+
 const fruitText = selectedFruit === "None" ? "None selected" : selectedFruit + " (+$3.00)";
 document.getElementById('fruit-summary').innerHTML = `<p class="text-gray-500">Fruit Base</p><p class="font-medium">${fruitText}</p>`;
 
@@ -407,49 +398,297 @@ const customItem = {
 id: 'custom-' + Date.now(),
 name: '🌿 Custom Sea Moss Blend',
 price: total,
-details: `${selectedFruit} • ${selectedHerbs.length ? selectedHerbs.join(', ') : 'No herbs'} • ${selectedConsistency}`
+details: `${selectedSize} • ${selectedFruit} • ${selectedHerbs.length ? selectedHerbs.join(', ') : 'No herbs'} • ${selectedConsistency}`
 };
 
 addToCart(customItem);
-
-if (selectedDelivery && selectedDelivery.fee > 0) {
-const deliveryItem = {
-id: 'delivery-fee',
-name: selectedDelivery.area,
-price: selectedDelivery.fee,
-details: 'Delivery fee'
-};
-addToCart(deliveryItem);
-}
-
 showCartModal();
 }
 
-// ========== DELIVERY ==========
+// ========== SIZE SELECTION (FIXED) ==========
+function setupSizeLogic() {
+const sizeOptions = document.querySelectorAll('.size-option');
+
+sizeOptions.forEach(option => {
+option.addEventListener('click', () => {
+sizeOptions.forEach(opt => opt.classList.remove('border-purple', 'bg-purple/5', 'active-size'));
+option.classList.add('border-purple', 'bg-purple/5', 'active-size');
+
+basePrice = parseFloat(option.dataset.price);
+selectedSize = option.dataset.size;
+
+updateSummary();
+});
+});
+}
+
+// ========== SMART ZIP DELIVERY FEE LOGIC ==========
+function calculateDeliveryFee(zip) {
+if (!zip) return { fee: 8, area: 'Central Florida Delivery' };
+const z = zip.trim().substring(0, 3);
+const orlandoMetro = ['328', '327', '329', '347'];
+const greaterCentral = ['338', '335', '336', '337', '346', '321'];
+
+if (orlandoMetro.includes(z)) return { fee: 8, area: 'Orlando Metro Area' };
+if (greaterCentral.includes(z)) return { fee: 12, area: 'Greater Central Florida' };
+if (z.startsWith('3')) return { fee: 15, area: 'Florida Statewide Delivery' };
+return { fee: 9.99, area: 'Standard Shipping' };
+}
+
+function showFeePreview(zip) {
+const preview = document.getElementById('fee-preview');
+if (!preview || !zip) return;
+const { fee, area } = calculateDeliveryFee(zip);
+preview.innerHTML = `Delivery fee for <strong>${area}</strong>: <span class="font-semibold">$${fee}</span>`;
+preview.className = 'text-sm text-emerald-600 mt-1';
+}
+
+async function useCurrentLocationForDelivery() {
+if (!navigator.geolocation) {
+alert("Geolocation is not supported by your browser. Please enter ZIP manually.");
+return;
+}
+navigator.geolocation.getCurrentPosition(async (position) => {
+const lat = position.coords.latitude;
+const lon = position.coords.longitude;
+try {
+const res = await fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lon}&zoom=10&addressdetails=1`);
+const data = await res.json();
+const zip = data.address.postcode || '';
+const zipInput = document.querySelector('input[name="zip"]');
+if (zipInput && zip) {
+zipInput.value = zip;
+showFeePreview(zip);
+} else {
+alert("Location detected but ZIP not found. Please enter it manually.");
+}
+} catch (e) {
+alert("Could not detect exact ZIP. Please enter it manually.");
+}
+}, (error) => {
+if (error.code === 1) {
+alert("Location permission denied. Please enter ZIP manually.");
+} else {
+alert("Unable to get your location. Please enter ZIP manually.");
+}
+});
+}
+
+// ========== DELIVERY (WITH FORMSPREE + AUTO FEE ADD) ==========
 function showDeliverySelector() {
-document.getElementById('delivery-selector-modal').classList.remove('hidden');
+const modal = document.getElementById('delivery-selector-modal');
+const content = document.getElementById('delivery-modal-content');
+
+content.innerHTML = `
+<div>
+<div class="flex justify-between mb-6">
+<h2 class="text-2xl font-semibold">How would you like to receive your order?</h2>
+<button onclick="hideDeliverySelector()" class="text-3xl">×</button>
+</div>
+<div class="grid gap-4">
+<div onclick="showDeliveryForm('local')" class="border-2 border-purple hover:bg-purple/5 rounded-3xl p-6 cursor-pointer">
+<h3 class="font-semibold text-lg">Local Delivery</h3>
+<p class="text-sm text-gray-600 mt-1">$8–$15 • Most of Florida (ZIP-based)</p>
+</div>
+<div onclick="showDeliveryForm('pickup')" class="border-2 border-purple hover:bg-purple/5 rounded-3xl p-6 cursor-pointer">
+<h3 class="font-semibold text-lg">Free In-Store Pickup</h3>
+<p class="text-sm text-gray-600 mt-1">Central Florida studio</p>
+</div>
+<div onclick="showDeliveryForm('shipping')" class="border-2 border-purple hover:bg-purple/5 rounded-3xl p-6 cursor-pointer">
+<h3 class="font-semibold text-lg">Shipping</h3>
+<p class="text-sm text-gray-600 mt-1">$9.99 • 3–5 business days</p>
+</div>
+</div>
+</div>
+`;
+modal.classList.remove('hidden');
+}
+
+function showDeliveryForm(type) {
+const content = document.getElementById('delivery-modal-content');
+let html = '';
+
+if (type === 'local') {
+html = `
+<div>
+<div class="flex justify-between items-center mb-6">
+<h2 class="text-2xl font-semibold">Local Delivery</h2>
+<button onclick="showDeliverySelector()" class="text-purple">← Back</button>
+</div>
+<form id="delivery-form" class="space-y-5">
+<input type="hidden" name="delivery_type" value="local">
+<div>
+<label class="block text-sm font-medium mb-1">Full Name *</label>
+<input type="text" name="customer_name" required class="w-full border border-gray-300 rounded-2xl px-5 py-4 focus:border-purple">
+</div>
+<div>
+<label class="block text-sm font-medium mb-1">Phone Number *</label>
+<input type="tel" name="phone" required class="w-full border border-gray-300 rounded-2xl px-5 py-4 focus:border-purple">
+</div>
+<div>
+<label class="block text-sm font-medium mb-1">ZIP Code *</label>
+<div class="flex gap-2">
+<input type="text" name="zip" id="zip-input" placeholder="e.g. 32801" required class="flex-1 border border-gray-300 rounded-2xl px-5 py-4 focus:border-purple">
+<button type="button" onclick="useCurrentLocationForDelivery()" class="px-5 py-4 border border-purple text-purple rounded-2xl text-sm font-medium hover:bg-lightpurple">Use my location</button>
+</div>
+<div id="fee-preview" class="text-sm text-emerald-600 mt-1"></div>
+</div>
+<div>
+<label class="block text-sm font-medium mb-1">Delivery Notes (Optional)</label>
+<textarea name="notes" rows="3" class="w-full border border-gray-300 rounded-2xl px-5 py-4 focus:border-purple" placeholder="Gate code, best time, leave at door, etc."></textarea>
+</div>
+<button type="submit" class="w-full bg-purple hover:bg-deep text-white py-5 rounded-3xl font-semibold text-lg mt-4">
+Confirm Local Delivery
+</button>
+</form>
+</div>
+`;
+} else if (type === 'pickup') {
+html = `
+<div>
+<div class="flex justify-between items-center mb-6">
+<h2 class="text-2xl font-semibold">Free In-Store Pickup</h2>
+<button onclick="showDeliverySelector()" class="text-purple">← Back</button>
+</div>
+<form id="delivery-form" class="space-y-5">
+<input type="hidden" name="delivery_type" value="pickup">
+<div>
+<label class="block text-sm font-medium mb-1">Full Name *</label>
+<input type="text" name="customer_name" required class="w-full border border-gray-300 rounded-2xl px-5 py-4 focus:border-purple">
+</div>
+<div>
+<label class="block text-sm font-medium mb-1">Phone Number *</label>
+<input type="tel" name="phone" required class="w-full border border-gray-300 rounded-2xl px-5 py-4 focus:border-purple">
+</div>
+<div>
+<label class="block text-sm font-medium mb-1">Address (Optional)</label>
+<input type="text" name="address" class="w-full border border-gray-300 rounded-2xl px-5 py-4 focus:border-purple" placeholder="If you want us to text the exact studio address">
+</div>
+<div>
+<label class="block text-sm font-medium mb-1">Pickup Notes (Optional)</label>
+<textarea name="notes" rows="3" class="w-full border border-gray-300 rounded-2xl px-5 py-4 focus:border-purple" placeholder="Preferred day/time, etc."></textarea>
+</div>
+<button type="submit" class="w-full bg-purple hover:bg-deep text-white py-5 rounded-3xl font-semibold text-lg mt-4">
+Confirm Free Pickup
+</button>
+</form>
+</div>
+`;
+} else if (type === 'shipping') {
+html = `
+<div>
+<div class="flex justify-between items-center mb-6">
+<h2 class="text-2xl font-semibold">Shipping</h2>
+<button onclick="showDeliverySelector()" class="text-purple">← Back</button>
+</div>
+<form id="delivery-form" class="space-y-5">
+<input type="hidden" name="delivery_type" value="shipping">
+<div>
+<label class="block text-sm font-medium mb-1">Full Name *</label>
+<input type="text" name="customer_name" required class="w-full border border-gray-300 rounded-2xl px-5 py-4 focus:border-purple">
+</div>
+<div>
+<label class="block text-sm font-medium mb-1">Phone Number *</label>
+<input type="tel" name="phone" required class="w-full border border-gray-300 rounded-2xl px-5 py-4 focus:border-purple">
+</div>
+<div>
+<label class="block text-sm font-medium mb-1">Full Shipping Address *</label>
+<input type="text" name="address" required class="w-full border border-gray-300 rounded-2xl px-5 py-4 focus:border-purple" placeholder="Street, City, State, ZIP">
+</div>
+<div>
+<label class="block text-sm font-medium mb-1">Shipping Notes (Optional)</label>
+<textarea name="notes" rows="3" class="w-full border border-gray-300 rounded-2xl px-5 py-4 focus:border-purple" placeholder="Leave at door, signature required, etc."></textarea>
+</div>
+<button type="submit" class="w-full bg-purple hover:bg-deep text-white py-5 rounded-3xl font-semibold text-lg mt-4">
+Confirm Shipping • $9.99
+</button>
+</form>
+</div>
+`;
+}
+
+content.innerHTML = html;
+
+const form = document.getElementById('delivery-form');
+
+if (type === 'local') {
+const zipInput = form.querySelector('input[name="zip"]');
+if (zipInput) {
+zipInput.addEventListener('input', () => showFeePreview(zipInput.value));
+}
+}
+
+form.addEventListener('submit', async function(e) {
+e.preventDefault();
+
+const formData = new FormData(form);
+const data = Object.fromEntries(formData.entries());
+
+let fee = 0;
+let area = '';
+let zip = data.zip || '';
+
+if (type === 'local') {
+const calc = calculateDeliveryFee(zip);
+fee = calc.fee;
+area = calc.area;
+} else if (type === 'pickup') {
+fee = 0;
+area = 'Free In-Store Pickup';
+} else if (type === 'shipping') {
+fee = 9.99;
+area = 'Shipping';
+}
+
+selectedDelivery = {
+type: type,
+fee: fee,
+area: area,
+customerName: data.customer_name,
+phone: data.phone,
+address: data.address || zip || '',
+notes: data.notes || '',
+zip: zip
+};
+
+// Add / update delivery fee in cart automatically
+cart = cart.filter(item => item.id !== 'delivery-fee');
+if (fee > 0) {
+const deliveryItem = {
+id: 'delivery-fee',
+name: area,
+price: fee,
+details: `For ${data.customer_name} • ${zip || data.address || ''}`
+};
+cart.push(deliveryItem);
+localStorage.setItem('cart', JSON.stringify(cart));
+updateCartCount();
+}
+
+// Send to Formspree
+try {
+await fetch('https://formspree.io/f/xjgzrwry', {
+method: 'POST',
+headers: { 'Accept': 'application/json' },
+body: formData
+});
+} catch (err) {
+console.log('Formspree notification sent');
+}
+
+updateDeliveryBar();
+hideDeliverySelector();
+
+const toast = document.createElement('div');
+toast.className = 'fixed bottom-6 left-1/2 -translate-x-1/2 bg-emerald-600 text-white px-8 py-3 rounded-3xl shadow-lg text-sm';
+toast.textContent = fee > 0 ? `Delivery fee ($${fee}) added to your basket` : 'Pickup option saved';
+document.body.appendChild(toast);
+setTimeout(() => toast.remove(), 2200);
+});
 }
 
 function hideDeliverySelector() {
 document.getElementById('delivery-selector-modal').classList.add('hidden');
-}
-
-function selectLocalDelivery() {
-hideDeliverySelector();
-selectedDelivery = { type: 'local', fee: 8, area: 'Local Delivery' };
-updateDeliveryBar();
-}
-
-function selectPickup() {
-hideDeliverySelector();
-selectedDelivery = { type: 'pickup', fee: 0, area: 'Free Pickup' };
-updateDeliveryBar();
-}
-
-function selectShipping() {
-hideDeliverySelector();
-selectedDelivery = { type: 'shipping', fee: 9.99, area: 'Shipping' };
-updateDeliveryBar();
 }
 
 function updateDeliveryBar() {
@@ -458,7 +697,7 @@ if (!selectedDelivery) {
 bar.classList.add('hidden');
 return;
 }
-document.getElementById('delivery-area').textContent = selectedDelivery.area;
+document.getElementById('delivery-area').textContent = `${selectedDelivery.customerName} • ${selectedDelivery.area}`;
 document.getElementById('delivery-fee').textContent = selectedDelivery.fee > 0 ? `$${selectedDelivery.fee} fee` : 'Free';
 bar.classList.remove('hidden');
 }
@@ -476,10 +715,8 @@ const wormwoodCheckbox = document.getElementById('wormwood-checkbox');
 
 checkboxes.forEach(checkbox => {
 checkbox.addEventListener('change', function () {
-
 if (this.value === "Wormwood") {
 if (this.checked) {
-// STRICT: Disable and uncheck ALL other herbs
 checkboxes.forEach(cb => {
 if (cb.value !== "Wormwood") {
 cb.checked = false;
@@ -488,12 +725,10 @@ cb.disabled = true;
 });
 selectedHerbs = ["Wormwood"];
 } else {
-// Re-enable everything
 checkboxes.forEach(cb => cb.disabled = false);
 selectedHerbs = [];
 }
 } else {
-// Normal herb
 if (this.checked) {
 wormwoodCheckbox.checked = false;
 wormwoodCheckbox.disabled = true;
@@ -510,7 +745,16 @@ updateSummary();
 });
 }
 
-// ========== CONSISTENCY ==========
+// ========== FRUIT + CONSISTENCY ==========
+function setupFruitLogic() {
+document.querySelectorAll('input[name="fruit"]').forEach(radio => {
+radio.addEventListener('change', () => {
+selectedFruit = radio.value;
+updateSummary();
+});
+});
+}
+
 function setupConsistency() {
 document.querySelectorAll('.consistency-option').forEach(option => {
 option.addEventListener('click', () => {
@@ -524,7 +768,9 @@ updateSummary();
 }
 
 window.addEventListener('load', () => {
+setupSizeLogic();
 setupHerbLogic();
+setupFruitLogic();
 setupConsistency();
 updateSummary();
 
