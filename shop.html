@@ -132,28 +132,30 @@ Change Delivery
 </div>
 </header>
 
-<!-- Category Tabs -->
-<div class="border-b bg-white sticky top-20 z-40">
+<!-- Category Tabs (Centered + Inside Light Purple Background) -->
+<div class="bg-lightpurple/40 border-b">
 <div class="max-w-7xl mx-auto px-6">
-<div class="flex gap-6 md:gap-10 text-sm font-medium overflow-x-auto py-6 whitespace-nowrap">
-<button onclick="filterCategory('all')" class="active-filter text-purple border-b-2 border-purple pb-1">ALL</button>
-<button onclick="filterCategory('fruit')" class="hover:text-purple transition-colors">FRUIT FLAVORED</button>
-<button onclick="filterCategory('herb')" class="hover:text-purple transition-colors">HERB INFUSED</button>
-<button onclick="filterCategory('raw')" class="hover:text-purple transition-colors">RAW</button>
-<button onclick="filterCategory('fitness')" class="hover:text-purple transition-colors">FITNESS + WELLNESS</button>
-<button onclick="filterCategory('mens')" class="hover:text-purple transition-colors">MEN’S</button>
-<button onclick="filterCategory('womens')" class="hover:text-purple transition-colors">WOMEN’S</button>
-<button onclick="filterCategory('pets')" class="hover:text-purple transition-colors">PETS</button>
+<div class="flex justify-center">
+<div class="flex gap-2 md:gap-3 text-sm font-medium py-5 overflow-x-auto whitespace-nowrap">
+<button onclick="filterCategory('all')" class="active-filter px-5 py-2 rounded-3xl bg-white shadow-sm text-purple border border-purple/30">ALL</button>
+<button onclick="filterCategory('fruit')" class="px-5 py-2 rounded-3xl hover:bg-white hover:shadow-sm transition-all">FRUIT FLAVORED</button>
+<button onclick="filterCategory('herb')" class="px-5 py-2 rounded-3xl hover:bg-white hover:shadow-sm transition-all">PREMIUM</button>
+<button onclick="filterCategory('raw')" class="px-5 py-2 rounded-3xl hover:bg-white hover:shadow-sm transition-all">RAW</button>
+<button onclick="filterCategory('fitness')" class="px-5 py-2 rounded-3xl hover:bg-white hover:shadow-sm transition-all">FITNESS + WELLNESS</button>
+<button onclick="filterCategory('mens')" class="px-5 py-2 rounded-3xl hover:bg-white hover:shadow-sm transition-all">MEN’S</button>
+<button onclick="filterCategory('womens')" class="px-5 py-2 rounded-3xl hover:bg-white hover:shadow-sm transition-all">WOMEN’S</button>
+<button onclick="filterCategory('pets')" class="px-5 py-2 rounded-3xl hover:bg-white hover:shadow-sm transition-all">PETS</button>
+</div>
 </div>
 </div>
 </div>
 
-<!-- FULL Product Grid -->
+<!-- Product Grid -->
 <section class="py-16 bg-white">
 <div class="max-w-7xl mx-auto px-6">
 <div id="product-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-8 gap-y-16">
 
-<!-- ========== NEW: RAW GOLD SEA MOSS ========== -->
+<!-- Raw Gold Sea Moss -->
 <div class="product-card group" data-category="raw">
 <div class="overflow-hidden rounded-3xl shadow-sm">
 <img src="assets/images/raw-seamoss.jpg" alt="Raw Gold Sea Moss" class="w-full aspect-square object-cover">
@@ -162,7 +164,6 @@ Change Delivery
 <h3 class="text-2xl font-light">Raw Gold Sea Moss</h3>
 <div class="text-purple font-semibold text-xl mt-1">$15</div>
 <p class="text-purple text-sm mt-1">1 oz Dried • Wildcrafted • Perfect for DIY</p>
-
 <div class="mt-4 text-left px-2 text-sm text-gray-600">
 <p><strong>Benefits people love:</strong></p>
 <ul class="list-disc pl-5 mt-1 space-y-0.5 text-left">
@@ -172,14 +173,12 @@ Change Delivery
 <li>Naturally rich in essential minerals</li>
 </ul>
 </div>
-
-<button onclick="addToCart({id:'raw-seamoss', name:'Raw Gold Sea Moss (1 oz)', price:15, details:'Dried Wildcrafted Sea Moss'})" 
+<button onclick="addToCart({id:'raw-seamoss', name:'Raw Gold Sea Moss (1 oz)', price:15, details:'Dried Wildcrafted Sea Moss'})"
 class="mt-6 w-full bg-deep hover:bg-purple text-white py-4 rounded-3xl font-medium transition-all">
 Add to Cart
 </button>
 </div>
 </div>
-<!-- ========== END NEW PRODUCT ========== -->
 
 <!-- Fruit Flavored -->
 <div class="product-card group" data-category="fruit">
@@ -224,7 +223,7 @@ Add to Cart
 </div>
 <div class="mt-6 text-center">
 <h3 class="text-2xl font-light">Soursop</h3>
-<div class="text-purple font-semibold text-xl mt-1">$35</div>
+<div class="text-purple font-semibold text-xl mt-1">$36</div>
 <p class="text-purple text-sm mt-1">Antioxidants • Immune &amp; Skin Support</p>
 <button onclick="addToCart({id:'soursop', name:'Soursop Sea Moss Gel', price:35, details:'Immune Support'})" class="mt-6 w-full bg-deep hover:bg-purple text-white py-4 rounded-3xl font-medium transition-all">Add to Cart</button>
 </div>
@@ -267,16 +266,16 @@ Add to Cart
 </div>
 </div>
 
-<!-- Herb Infused -->
+<!-- Premium / Herb Infused -->
 <div class="product-card group" data-category="herb">
 <div class="overflow-hidden rounded-3xl shadow-sm">
 <img src="assets/images/bloodpressure.jpg" alt="Blood Pressure Balance Gel" class="w-full aspect-square object-cover">
 </div>
 <div class="mt-6 text-center">
 <h3 class="text-2xl font-light">Blood Pressure Balance</h3>
-<div class="text-purple font-semibold text-xl mt-1">$38</div>
+<div class="text-purple font-semibold text-xl mt-1">$40</div>
 <p class="text-purple text-sm mt-1">Bladderwrack • Cardiovascular Health</p>
-<button onclick="addToCart({id:'bloodpressure', name:'Blood Pressure Balance', price:38, details:'Cardiovascular'})" class="mt-6 w-full bg-deep hover:bg-purple text-white py-4 rounded-3xl font-medium transition-all">Add to Cart</button>
+<button onclick="addToCart({id:'bloodpressure', name:'Blood Pressure Balance', price:40, details:'Cardiovascular'})" class="mt-6 w-full bg-deep hover:bg-purple text-white py-4 rounded-3xl font-medium transition-all">Add to Cart</button>
 </div>
 </div>
 
@@ -310,9 +309,9 @@ Add to Cart
 </div>
 <div class="mt-6 text-center">
 <h3 class="text-2xl font-light">Immunity Boost</h3>
-<div class="text-purple font-semibold text-xl mt-1">$35</div>
+<div class="text-purple font-semibold text-xl mt-1">$40</div>
 <p class="text-purple text-sm mt-1">Ginger • Immune &amp; Anti-inflammatory</p>
-<button onclick="addToCart({id:'immunity', name:'Immunity Boost Gel', price:35, details:'Immune Support'})" class="mt-6 w-full bg-deep hover:bg-purple text-white py-4 rounded-3xl font-medium transition-all">Add to Cart</button>
+<button onclick="addToCart({id:'immunity', name:'Immunity Boost Gel', price:40, details:'Immune Support'})" class="mt-6 w-full bg-deep hover:bg-purple text-white py-4 rounded-3xl font-medium transition-all">Add to Cart</button>
 </div>
 </div>
 
@@ -322,9 +321,9 @@ Add to Cart
 </div>
 <div class="mt-6 text-center">
 <h3 class="text-2xl font-light">Joint Relief</h3>
-<div class="text-purple font-semibold text-xl mt-1">$38</div>
+<div class="text-purple font-semibold text-xl mt-1">$40</div>
 <p class="text-purple text-sm mt-1">Blackseed Oil • Anti-inflammatory</p>
-<button onclick="addToCart({id:'joint', name:'Joint Relief Gel', price:38, details:'Joint Support'})" class="mt-6 w-full bg-deep hover:bg-purple text-white py-4 rounded-3xl font-medium transition-all">Add to Cart</button>
+<button onclick="addToCart({id:'joint', name:'Joint Relief Gel', price:40, details:'Joint Support'})" class="mt-6 w-full bg-deep hover:bg-purple text-white py-4 rounded-3xl font-medium transition-all">Add to Cart</button>
 </div>
 </div>
 
@@ -334,9 +333,9 @@ Add to Cart
 </div>
 <div class="mt-6 text-center">
 <h3 class="text-2xl font-light">Brain Support</h3>
-<div class="text-purple font-semibold text-xl mt-1">$38</div>
+<div class="text-purple font-semibold text-xl mt-1">$40</div>
 <p class="text-purple text-sm mt-1">Ashwagandha • Stress Relief &amp; Focus</p>
-<button onclick="addToCart({id:'brain', name:'Brain Support Gel', price:38, details:'Stress & Focus'})" class="mt-6 w-full bg-deep hover:bg-purple text-white py-4 rounded-3xl font-medium transition-all">Add to Cart</button>
+<button onclick="addToCart({id:'brain', name:'Brain Support Gel', price:40, details:'Stress & Focus'})" class="mt-6 w-full bg-deep hover:bg-purple text-white py-4 rounded-3xl font-medium transition-all">Add to Cart</button>
 </div>
 </div>
 
@@ -354,6 +353,18 @@ Add to Cart
 </div>
 
 </div>
+</div>
+</section>
+
+<!-- Professional Disclaimer -->
+<section class="bg-gray-50 border-t py-10">
+<div class="max-w-4xl mx-auto px-6 text-center">
+<p class="text-xs text-gray-500 leading-relaxed">
+These statements have not been evaluated by the Food and Drug Administration. 
+This product is not intended to diagnose, treat, cure, or prevent any disease. 
+Always consult with a qualified healthcare professional before starting any new supplement, 
+especially if you are pregnant, nursing, or have a medical condition.
+</p>
 </div>
 </section>
 
@@ -428,7 +439,6 @@ Proceed to Secure Checkout →
 <p class="text-sm text-gray-600">Ships cold-packed anywhere in the USA.</p>
 </div>
 </div>
-
 <p class="text-center text-xs text-gray-500 mt-8">One delivery method is required before checkout</p>
 
 <!-- Local Delivery Calculator -->
@@ -441,9 +451,17 @@ class="flex-1 px-5 py-4 border border-gray-300 rounded-2xl text-lg focus:outline
 Check Fee
 </button>
 </div>
-<button onclick="useShopGeolocation()" class="w-full flex items-center justify-center gap-2 py-3 text-purple hover:bg-lightpurple/50 rounded-2xl font-medium border border-purple/20">
-Use my current location
+
+<!-- IMPROVED: Professional Geolocation Button -->
+<button onclick="useShopGeolocation()" 
+class="w-full flex items-center justify-center gap-3 py-4 text-purple hover:bg-purple/5 rounded-2xl font-medium border border-purple/30 transition-all active:scale-[0.985]">
+<svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+<path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314-11.314z" />
+<path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+</svg>
+<span>Use my current location</span>
 </button>
+
 <div id="shop-delivery-result" class="hidden mt-6"></div>
 </div>
 
