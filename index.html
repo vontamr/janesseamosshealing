@@ -29,7 +29,6 @@ window.addEventListener('load', initTailwind);
 .marquee { overflow: hidden; white-space: nowrap; }
 .marquee-content { display: inline-flex; gap: 3rem; animation: marquee 10s linear infinite; }
 @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-
 #typewriter {
 border-right: 3px solid #5E0089;
 white-space: nowrap;
@@ -38,7 +37,6 @@ animation: typing 3.5s steps(40, end) forwards, blink 0.75s step-end infinite;
 }
 @keyframes typing { from { width: 0 } to { width: 100% } }
 @keyframes blink { 50% { border-color: transparent } }
-
 .palm-tree {
 position: absolute;
 right: 5%;
@@ -48,7 +46,6 @@ opacity: 0.15;
 z-index: 1;
 pointer-events: none;
 }
-
 .review-card {
 min-width: 340px;
 max-width: 380px;
@@ -79,9 +76,7 @@ flex-shrink: 0;
 <span>🛒</span>
 <span id="cart-count">0</span>
 </button>
-
 <a href="shop.html" class="hidden md:block bg-purple hover:bg-deep text-white px-8 py-3.5 rounded-3xl font-semibold">Shop Now</a>
-
 <button id="mobile-menu-btn" class="md:hidden w-11 h-11 flex items-center justify-center text-deep hover:text-purple">
 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
@@ -224,7 +219,7 @@ Handcrafted fresh weekly in Central Florida with 92+ minerals.
 </div>
 </section>
 
-<!-- Sea Moss Juices Section -->
+<!-- ==================== IMPROVED SEA MOSS JUICES SECTION ==================== -->
 <section id="juice-section" class="py-20 bg-white border-t">
 <div class="max-w-6xl mx-auto px-6">
 <div class="text-center mb-12">
