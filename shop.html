@@ -60,7 +60,6 @@ box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
 </style>
 </head>
 <body class="bg-white text-deep font-sans antialiased">
-
 <!-- Navigation -->
 <nav class="bg-white border-b sticky top-0 z-50 shadow-sm">
 <div class="max-w-7xl mx-auto px-4">
@@ -85,8 +84,10 @@ class="bg-white border border-purple text-purple px-3 py-2 md:px-4 md:py-2.5 rou
 <span class="hidden sm:inline">Delivery Options</span>
 <span class="sm:hidden">Delivery</span>
 </button>
+
+<!-- CART BUTTON - NOW VISIBLE -->
 <button id="view-cart-btn" onclick="showCartModal()"
-class="hidden items-center gap-2 bg-purple text-white px-3 py-2 md:px-4 md:py-2.5 rounded-2xl text-xs md:text-sm font-medium hover:bg-deep transition-all flex-shrink-0">
+class="flex items-center gap-2 bg-purple text-white px-3 py-2 md:px-4 md:py-2.5 rounded-2xl text-xs md:text-sm font-medium hover:bg-deep transition-all flex-shrink-0">
 <span>🛒</span>
 <span id="cart-count">0</span>
 </button>
@@ -132,7 +133,7 @@ Change Delivery
 </div>
 </header>
 
-<!-- Category Tabs (Centered + Inside Light Purple Background) -->
+<!-- Category Tabs -->
 <div class="bg-lightpurple/40 border-b">
 <div class="max-w-7xl mx-auto px-6">
 <div class="flex justify-center">
@@ -154,7 +155,6 @@ Change Delivery
 <section class="py-16 bg-white">
 <div class="max-w-7xl mx-auto px-6">
 <div id="product-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-8 gap-y-16">
-
 <!-- Raw Gold Sea Moss -->
 <div class="product-card group" data-category="raw">
 <div class="overflow-hidden rounded-3xl shadow-sm">
@@ -180,7 +180,7 @@ Add to Cart
 </div>
 </div>
 
-<!-- Fruit Flavored -->
+<!-- Fruit Flavored Products -->
 <div class="product-card group" data-category="fruit">
 <div class="overflow-hidden rounded-3xl shadow-sm">
 <img src="assets/images/mango.jpg" alt="Mango Sea Moss Gel" class="w-full aspect-square object-cover">
@@ -351,7 +351,6 @@ Add to Cart
 <button onclick="alert('Pet Wellness Gel is coming soon! Sign up for early access and exclusive launch offers.')" class="mt-6 w-full bg-purple hover:bg-deep text-white py-4 rounded-3xl font-medium transition-all">Get Early Access</button>
 </div>
 </div>
-
 </div>
 </div>
 </section>
@@ -360,9 +359,9 @@ Add to Cart
 <section class="bg-gray-50 border-t py-10">
 <div class="max-w-4xl mx-auto px-6 text-center">
 <p class="text-xs text-gray-500 leading-relaxed">
-These statements have not been evaluated by the Food and Drug Administration. 
-This product is not intended to diagnose, treat, cure, or prevent any disease. 
-Always consult with a qualified healthcare professional before starting any new supplement, 
+These statements have not been evaluated by the Food and Drug Administration.
+This product is not intended to diagnose, treat, cure, or prevent any disease.
+Always consult with a qualified healthcare professional before starting any new supplement,
 especially if you are pregnant, nursing, or have a medical condition.
 </p>
 </div>
@@ -409,7 +408,6 @@ Proceed to Secure Checkout →
 <h2 class="text-3xl font-light">How would you like to receive your order?</h2>
 <button onclick="hideDeliverySelector()" class="text-4xl text-gray-400 hover:text-deep">×</button>
 </div>
-
 <div class="grid md:grid-cols-3 gap-6">
 <!-- Local Delivery -->
 <div onclick="showLocalDeliveryCalculator()" class="delivery-card border-2 border-purple hover:border-deep rounded-3xl p-8 cursor-pointer">
@@ -439,6 +437,7 @@ Proceed to Secure Checkout →
 <p class="text-sm text-gray-600">Ships cold-packed anywhere in the USA.</p>
 </div>
 </div>
+
 <p class="text-center text-xs text-gray-500 mt-8">One delivery method is required before checkout</p>
 
 <!-- Local Delivery Calculator -->
@@ -452,8 +451,7 @@ Check Fee
 </button>
 </div>
 
-<!-- IMPROVED: Professional Geolocation Button -->
-<button onclick="useShopGeolocation()" 
+<button onclick="useShopGeolocation()"
 class="w-full flex items-center justify-center gap-3 py-4 text-purple hover:bg-purple/5 rounded-2xl font-medium border border-purple/30 transition-all active:scale-[0.985]">
 <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
 <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314-11.314z" />
@@ -526,7 +524,7 @@ class="w-full flex items-center justify-center gap-3 py-4 text-purple hover:bg-p
 </div>
 <div>
 <label class="block text-sm font-medium mb-1">Full Shipping Address *</label>
-<textarea name="fullAddress" rows="3" required class="w-full border border-gray-300 rounded-2xl px-4 py-3 text-sm" placeholder="Street, City, State, ZIP"></textarea>
+<input type="text" name="fullAddress" required class="w-full border border-gray-300 rounded-2xl px-4 py-3 text-sm" placeholder="Street, City, State, ZIP">
 </div>
 <div>
 <label class="block text-sm font-medium mb-1">Delivery Notes (Optional)</label>
@@ -570,6 +568,7 @@ function showShippingForm() {
 document.querySelector('#delivery-selector-modal .grid').classList.add('hidden');
 document.getElementById('shipping-form').classList.remove('hidden');
 }
+
 function getDeliveryInfo(zip) {
 const z = parseInt(zip);
 if ([32808, 32805, 32818, 32810, 32811].includes(z)) return { fee: 7, time: "20–40 min", area: "Richmond Heights / Pine Hills" };
@@ -578,6 +577,7 @@ if ([32703, 32712, 32822, 32824, 32825, 32826, 32827, 32828, 32829, 32830, 32831
 if ([33801, 33802, 33803, 33804, 33805, 33806, 33807, 33809, 33810, 33811, 33812, 33813, 33815, 33880, 33881, 33882, 33883, 33884, 33823].includes(z)) return { fee: 15, time: "90–150 min", area: "Polk County (Lakeland / Winter Haven)" };
 return { fee: 14, time: "60–120 min", area: "Central Florida" };
 }
+
 function checkShopDelivery() {
 const zip = document.getElementById('shop-zip-input').value.trim();
 const resultDiv = document.getElementById('shop-delivery-result');
@@ -601,14 +601,17 @@ resultDiv.innerHTML = `
 </div>`;
 resultDiv.classList.remove('hidden');
 }
+
 function useShopGeolocation() {
 const resultDiv = document.getElementById('shop-delivery-result');
 resultDiv.innerHTML = `<p class="text-center text-purple py-4">Detecting your location...</p>`;
 resultDiv.classList.remove('hidden');
+
 if (!navigator.geolocation) {
 resultDiv.innerHTML = `<p class="text-red-600 text-center">Geolocation not supported.</p>`;
 return;
 }
+
 navigator.geolocation.getCurrentPosition(async (pos) => {
 const lat = pos.coords.latitude;
 const lon = pos.coords.longitude;
@@ -630,6 +633,7 @@ resultDiv.innerHTML = `<p class="text-red-600 text-center">Failed to detect loca
 resultDiv.innerHTML = `<p class="text-red-600 text-center">Location access denied.</p>`;
 }, { enableHighAccuracy: true, timeout: 10000 });
 }
+
 async function sendDeliveryNotificationToFormspree(data) {
 try {
 const formData = new FormData();
@@ -653,6 +657,7 @@ headers: { 'Accept': 'application/json' }
 console.error('Formspree error:', err);
 }
 }
+
 function confirmLocalDelivery(fee, area, time, zip) {
 const resultDiv = document.getElementById('shop-delivery-result');
 resultDiv.innerHTML = `
@@ -687,6 +692,7 @@ resultDiv.innerHTML = `
 </div>
 </form>
 </div>`;
+
 document.getElementById('local-delivery-form').addEventListener('submit', async function(e) {
 e.preventDefault();
 const formData = new FormData(this);
@@ -695,24 +701,30 @@ const phone = formData.get('phone').trim();
 const email = formData.get('email') || '';
 const fullAddress = formData.get('fullAddress').trim();
 const notes = formData.get('notes') || '';
+
 if (!name || !phone || !fullAddress) {
 alert("Please fill out Name, Phone, and Full Address.");
 return;
 }
+
 await sendDeliveryNotificationToFormspree({
 method: 'Local Delivery',
 name, phone, email,
 area, fee, time, zip,
 fullAddress, notes
 });
+
 if (typeof cart === 'undefined') cart = [];
 cart = cart.filter(item => !['delivery-fee', 'pickup', 'shipping'].includes(item.id));
+
 const deliveryItem = { id: 'delivery-fee', name: `Local Delivery - ${area}`, price: fee, details: time, quantity: 1 };
 cart.push(deliveryItem);
 localStorage.setItem('cart', JSON.stringify(cart));
 localStorage.setItem('selectedDelivery', JSON.stringify({ type: 'local', fee, area, time, zip, fullAddress, notes, customerName: name, customerPhone: phone, customerEmail: email }));
+
 if (typeof updateCartCount === 'function') updateCartCount();
 hideDeliverySelector();
+
 const toast = document.createElement('div');
 toast.className = `fixed bottom-6 right-6 bg-emerald-600 text-white px-6 py-4 rounded-3xl shadow-lg z-[99999]`;
 toast.innerHTML = `✅ Local Delivery added to cart`;
@@ -720,6 +732,7 @@ document.body.appendChild(toast);
 setTimeout(() => toast.remove(), 2200);
 });
 }
+
 // Pickup Form
 document.getElementById('pickup-details-form').addEventListener('submit', async function(e) {
 e.preventDefault();
@@ -729,29 +742,36 @@ const phone = formData.get('phone').trim();
 const email = formData.get('email') || '';
 const location = formData.get('location');
 const time = formData.get('time');
+
 if (!name || !phone) {
 alert("Please fill out Name and Phone.");
 return;
 }
+
 await sendDeliveryNotificationToFormspree({
 method: 'Free Pickup',
 name, phone, email,
 location, time
 });
+
 if (typeof cart === 'undefined') cart = [];
 cart = cart.filter(item => !['delivery-fee', 'pickup', 'shipping'].includes(item.id));
+
 const deliveryItem = { id: 'pickup', name: `Free Pickup - ${location}`, price: 0, details: time, quantity: 1 };
 cart.push(deliveryItem);
 localStorage.setItem('cart', JSON.stringify(cart));
 localStorage.setItem('selectedDelivery', JSON.stringify({ type: 'pickup', location, time, customerName: name, customerPhone: phone, customerEmail: email }));
+
 if (typeof updateCartCount === 'function') updateCartCount();
 hideDeliverySelector();
+
 const toast = document.createElement('div');
 toast.className = `fixed bottom-6 right-6 bg-emerald-600 text-white px-6 py-4 rounded-3xl shadow-lg z-[99999]`;
 toast.innerHTML = `✅ Free Pickup added to cart`;
 document.body.appendChild(toast);
 setTimeout(() => toast.remove(), 2200);
 });
+
 // Shipping Form
 document.getElementById('shipping-details-form').addEventListener('submit', async function(e) {
 e.preventDefault();
@@ -761,30 +781,37 @@ const phone = formData.get('phone').trim();
 const email = formData.get('email') || '';
 const fullAddress = formData.get('fullAddress').trim();
 const notes = formData.get('notes') || '';
+
 if (!name || !phone || !fullAddress) {
 alert("Please fill out Name, Phone, and Full Address.");
 return;
 }
+
 await sendDeliveryNotificationToFormspree({
 method: 'Shipping',
 name, phone, email,
 fullAddress, notes,
 fee: 9.99
 });
+
 if (typeof cart === 'undefined') cart = [];
 cart = cart.filter(item => !['delivery-fee', 'pickup', 'shipping'].includes(item.id));
+
 const deliveryItem = { id: 'shipping', name: 'Shipping (Nationwide)', price: 9.99, details: '3–5 business days', quantity: 1 };
 cart.push(deliveryItem);
 localStorage.setItem('cart', JSON.stringify(cart));
 localStorage.setItem('selectedDelivery', JSON.stringify({ type: 'shipping', fee: 9.99, fullAddress, notes, customerName: name, customerPhone: phone, customerEmail: email }));
+
 if (typeof updateCartCount === 'function') updateCartCount();
 hideDeliverySelector();
+
 const toast = document.createElement('div');
 toast.className = `fixed bottom-6 right-6 bg-emerald-600 text-white px-6 py-4 rounded-3xl shadow-lg z-[99999]`;
 toast.innerHTML = `✅ Shipping added to cart`;
 document.body.appendChild(toast);
 setTimeout(() => toast.remove(), 2200);
 });
+
 async function proceedToCheckout() {
 hideCartModal();
 const hasDelivery = cart.some(item => ['delivery-fee', 'pickup', 'shipping'].includes(item.id));
@@ -795,6 +822,7 @@ return;
 }
 await goToStripeCheckout();
 }
+
 async function goToStripeCheckout() {
 const total = calculateTotal();
 if (total <= 0) {
@@ -816,6 +844,7 @@ console.error(error);
 alert("⚠️ We couldn't connect to secure checkout. Please try again.");
 }
 }
+
 function showDeliveryInfo() {
 const deliveryData = localStorage.getItem('selectedDelivery');
 const bar = document.getElementById('delivery-info-bar');
@@ -833,6 +862,7 @@ bar.classList.remove('hidden');
 if (bar) bar.classList.add('hidden');
 }
 }
+
 function changeDelivery() {
 localStorage.removeItem('selectedDelivery');
 if (typeof cart !== 'undefined') {
@@ -841,9 +871,17 @@ localStorage.setItem('cart', JSON.stringify(cart));
 }
 window.location.href = "pickup-delivery.html";
 }
+
 window.addEventListener('load', () => {
 showDeliveryInfo();
+// Load saved cart count
+const savedCart = localStorage.getItem('cart');
+if (savedCart) {
+cart = JSON.parse(savedCart);
+if (typeof updateCartCount === 'function') updateCartCount();
+}
 });
+
 function filterCategory(cat) {
 const cards = document.querySelectorAll('.product-card');
 cards.forEach(card => {
