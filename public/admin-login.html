@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin Login - Jane's Seamoss</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 min-h-screen flex items-center justify-center">
+  <div class="bg-white p-10 rounded-3xl shadow-xl w-full max-w-md">
+    <h1 class="text-3xl font-light text-center mb-8">Jane's Inner Circle</h1>
+    <form id="loginForm" class="space-y-6">
+      <input type="email" id="email" placeholder="admin@janesseamoss.com" class="w-full p-4 border rounded-2xl focus:outline-none focus:border-purple" required>
+      <input type="password" id="password" placeholder="Password" class="w-full p-4 border rounded-2xl focus:outline-none focus:border-purple" required>
+      <button type="submit" 
+              class="w-full bg-purple hover:bg-deep text-black py-4 rounded-3xl font-semibold text-lg">
+        Sign In
+      </button>
+    </form>
+    <p class="text-center text-xs text-gray-500 mt-6">For authorized team members only</p>
+  </div>
+
+  <script>
+    document.getElementById('loginForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+
+      try {
+        const res = await fetch('/admin/login', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email, password })
+        });
+        const data = await res.json();
+        
+        if (data.success) {
+          window.location.href = data.redirect;
+        } else {
+          alert(data.error || 'Login failed');
+        }
+      } catch (err) {
+        alert('Connection error. Check server logs.');
+      }
+    });
+  </script>
+</body>
+</html>

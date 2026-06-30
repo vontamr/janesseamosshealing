@@ -4,43 +4,80 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Thank You | Janesse's Seamoss Creation</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Meta Pixel -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1520084362933231');
+    fbq('track', 'PageView');
+    </script>
+    
     <script src="https://js.stripe.com/v3/"></script>
 </head>
-<body class="bg-gradient-to-br from-lightpurple/30 to-white min-h-screen font-sans">
+<body class="bg-white text-deep font-sans">
 
-<div class="max-w-2xl mx-auto px-6 py-24 text-center">
-    <div class="text-7xl mb-8">🌊✨</div>
-    <h1 class="text-5xl font-light text-deep mb-4">Thank You for Your Order!</h1>
-    <p class="text-2xl text-purple mb-10">Your sea moss is being prepared with love in Central Florida.</p>
-    
-    <div class="bg-white rounded-3xl p-10 shadow-sm mb-12">
-        <p class="text-lg mb-6">Order Confirmation has been sent to your email.</p>
-        <p id="order-info" class="text-gray-600"></p>
+    <div class="max-w-2xl mx-auto px-6 py-20 text-center">
+        <div class="text-6xl mb-6">🌿</div>
+        <h1 class="text-4xl font-light tracking-tight mb-4">Thank you for your order!</h1>
+        <p class="text-xl text-gray-600 mb-8">Your sea moss is being prepared with care in Central Florida.</p>
+
+        <div class="bg-lightpurple/30 rounded-3xl p-8 mb-8">
+            <p class="text-sm text-gray-500">Order Total</p>
+            <p id="order-total" class="text-4xl font-semibold text-purple">$0.00</p>
+        </div>
+
+        <a href="index.html" class="inline-block bg-purple hover:bg-deep text-white px-10 py-4 rounded-3xl font-semibold">
+            Return to Homepage
+        </a>
     </div>
 
-    <a href="index.html" 
-       class="inline-block bg-purple hover:bg-deep text-white px-12 py-6 rounded-3xl text-xl font-semibold transition-all">
-        Return Home
-    </a>
+    <script>
+        const stripe = Stripe('pk_live_51TREXTIeLXeJ9tb9RCUiY0hHSBBY5hbqPfwgnVpyUDS0nAYTgwhls3y2ffClfgUu7ZJjVPDVpr6tPZZWNBKcec8Q00BbSr1yQc');
 
-    <p class="mt-12 text-sm text-gray-500">
-        Fresh • Handcrafted • Full of 92+ Minerals<br>
-        Ships within 48 hours • Local pickup available in Orlando
-    </p>
-</div>
+        async function trackPurchaseFromStripe() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const sessionId = urlParams.get('session_id');
 
-<script>
-    // Optional: Show session details
-    const urlParams = new URLSearchParams(window.location.search);
-    const sessionId = urlParams.get('session_id');
-    
-    if (sessionId) {
-        document.getElementById('order-info').innerHTML = `
-            Order Reference: <strong>${sessionId.slice(0,12)}...</strong><br>
-            Thank you for supporting wild-harvested wellness 🌿
-        `;
-    }
-</script>
+            if (!sessionId) {
+                console.warn("No session_id found in URL");
+                return;
+            }
+
+            try {
+                // Retrieve the checkout session from Stripe
+                const session = await stripe.checkout.sessions.retrieve(sessionId);
+                
+                const amount = session.amount_total / 100; // Convert from cents to dollars
+
+                // Display the amount
+                document.getElementById('order-total').textContent = '$' + amount.toFixed(2);
+
+                // Fire Meta Pixel Purchase event
+                if (typeof fbq === 'function') {
+                    fbq('track', 'Purchase', {
+                        value: amount,
+                        currency: 'USD',
+                        content_type: 'product'
+                    });
+                    console.log('%c[Meta Pixel] Purchase event fired with $' + amount, 'color:#5E0089');
+                }
+
+                // Optional: Clear cart after successful purchase
+                localStorage.removeItem('cart');
+
+            } catch (error) {
+                console.error("Error retrieving Stripe session:", error);
+            }
+        }
+
+        window.onload = trackPurchaseFromStripe;
+    </script>
 </body>
 </html>

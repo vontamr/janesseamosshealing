@@ -64,6 +64,12 @@ window.addEventListener('load', initTailwind);
     max-width: 380px;
     flex-shrink: 0;
 }
+.juice-jug {
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.juice-jug:hover {
+    transform: scale(1.08);
+}
 </style>
 </head>
 <body class="bg-white text-deep font-sans antialiased">
@@ -128,29 +134,24 @@ window.addEventListener('load', initTailwind);
 <!-- Hero with Rotating Typewriter -->
 <header class="min-h-screen flex items-center relative bg-gradient-to-br from-deep/5 via-white to-lightpurple/30 overflow-hidden">
     <img src="assets/images/palm-trees.png" alt="Palm Trees Silhouette" class="palm-tree hidden md:block">
-    
     <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 lg:gap-16 items-center pt-12 pb-20 relative z-10">
         <div class="space-y-8">
             <div class="inline-flex items-center gap-3 bg-white/90 backdrop-blur px-6 py-3 rounded-3xl shadow text-sm font-medium">
                 <span class="text-green-600">🌊</span>
                 <span class="text-purple">Wild-Harvested • Antigua &amp; St. Lucia</span>
             </div>
-
             <h1 class="text-5xl md:text-6xl lg:text-7xl font-light leading-none tracking-tighter min-h-[120px] md:min-h-[140px]">
                 <span id="typewriter"></span>
             </h1>
-
             <p class="text-xl md:text-2xl text-gray-700 max-w-lg">
                 Premium sea moss gels with 92+ minerals.<br>
                 Fresh weekly in Central Florida.
             </p>
-
             <div class="flex flex-col sm:flex-row gap-4">
                 <a href="build.html" class="bg-purple hover:bg-deep text-white px-10 py-6 rounded-3xl text-xl font-semibold transition-all active:scale-95 text-center">Build Your Blend</a>
                 <a href="shop.html" class="border-2 border-purple text-purple hover:bg-purple hover:text-white px-10 py-6 rounded-3xl text-xl font-medium transition-all active:scale-95 text-center">Shop Collection</a>
             </div>
         </div>
-
         <div class="flex justify-center md:justify-end relative z-10">
             <img src="assets/images/DSCF1813.JPG" alt="Premium Caribbean Sea Moss Gel" class="rounded-3xl shadow-2xl max-w-md md:max-w-lg w-full h-auto object-cover">
         </div>
@@ -164,7 +165,6 @@ window.addEventListener('load', initTailwind);
             <h2 class="text-4xl md:text-5xl font-light tracking-tight">Discover Our World</h2>
             <p class="text-center text-gray-600 mt-4 max-w-lg mx-auto">Each blend is handcrafted with intention to support different aspects of your wellness journey.</p>
         </div>
-
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-8">
             <!-- Herb Infused -->
             <div class="group bg-white border border-gray-100 rounded-3xl overflow-hidden hover:shadow-2xl transition-all duration-300">
@@ -178,7 +178,6 @@ window.addEventListener('load', initTailwind);
                     <a href="shop.html" class="mt-6 inline-flex items-center gap-2 text-purple font-medium hover:text-deep">Explore →</a>
                 </div>
             </div>
-
             <!-- Fruit Flavored -->
             <div class="group bg-white border border-gray-100 rounded-3xl overflow-hidden hover:shadow-2xl transition-all duration-300">
                 <div class="h-64 bg-gray-100 overflow-hidden">
@@ -191,7 +190,6 @@ window.addEventListener('load', initTailwind);
                     <a href="shop.html" class="mt-6 inline-flex items-center gap-2 text-purple font-medium hover:text-deep">Shop Flavors →</a>
                 </div>
             </div>
-
             <!-- Juices -->
             <div class="group bg-white border border-gray-100 rounded-3xl overflow-hidden hover:shadow-2xl transition-all duration-300">
                 <div class="h-64 bg-gray-100 overflow-hidden">
@@ -204,7 +202,6 @@ window.addEventListener('load', initTailwind);
                     <a href="#juice-section" class="mt-6 inline-flex items-center gap-2 text-purple font-medium hover:text-deep">See Options →</a>
                 </div>
             </div>
-
             <!-- Skincare -->
             <div class="group bg-white border border-gray-100 rounded-3xl overflow-hidden hover:shadow-2xl transition-all duration-300">
                 <div class="h-64 bg-gray-100 overflow-hidden">
@@ -217,7 +214,6 @@ window.addEventListener('load', initTailwind);
                     <a href="shop.html" class="mt-6 inline-flex items-center gap-2 text-purple font-medium hover:text-deep">Discover Skincare →</a>
                 </div>
             </div>
-
             <!-- Fitness Recovery -->
             <div class="group bg-white border border-gray-100 rounded-3xl overflow-hidden hover:shadow-2xl transition-all duration-300">
                 <div class="h-64 bg-gray-100 overflow-hidden">
@@ -234,100 +230,82 @@ window.addEventListener('load', initTailwind);
     </div>
 </section>
 
-<!-- Sea Moss Juices Section -->
-<section id="juice-section" class="py-20 bg-white border-t">
+<!-- Sea Moss Juices Section - Minimal & Impressive (Yeezy Style) -->
+<section id="juice-section" class="py-24 bg-white">
     <div class="max-w-6xl mx-auto px-6">
-        <div class="text-center mb-12">
-            <div class="inline-flex items-center gap-2 bg-emerald-100 text-emerald-700 px-5 py-1.5 rounded-3xl text-sm font-medium mb-4">FRESH WEEKLY IN CENTRAL FLORIDA</div>
-            <h2 class="text-4xl md:text-5xl font-light tracking-tight">Sea Moss Juices</h2>
-            <p class="text-gray-600 mt-4 max-w-md mx-auto">Cold-pressed, mineral-rich juice made with our premium wild-harvested sea moss.</p>
+        <div class="text-center mb-16">
+            <div class="inline-flex items-center gap-2 bg-emerald-100 text-emerald-700 px-6 py-2 rounded-3xl text-sm font-medium mb-4">🌿 FRESH WEEKLY IN CENTRAL FLORIDA</div>
+            <h2 class="text-5xl md:text-6xl font-light tracking-tight">Sea Moss Juices</h2>
+            <p class="text-gray-600 mt-4 max-w-md mx-auto text-lg">Pure. Fresh. Customizable.</p>
         </div>
 
-        <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-            <!-- One-Time Purchases -->
-            <div class="border border-gray-200 rounded-3xl p-8">
-                <div class="mb-6">
-                    <h3 class="text-2xl font-semibold">One-Time Purchase</h3>
-                    <p class="text-sm text-gray-500 mt-1">No commitment. Perfect for trying or gifting.</p>
-                </div>
-                <div class="space-y-6">
-                    <div class="border border-gray-100 rounded-2xl p-5">
-                        <div class="flex justify-between items-center mb-4">
-                            <div><p class="font-semibold">12oz Juice</p><p class="text-sm text-gray-500">Single serving</p></div>
-                            <p class="text-2xl font-semibold text-purple">$8</p>
+        <div class="grid md:grid-cols-2 gap-16 max-w-5xl mx-auto">
+
+            <!-- One-Time Purchase - Minimal Jug Style -->
+            <div>
+                <h3 class="text-2xl font-medium text-center mb-10">One-Time Purchase</h3>
+                <div class="space-y-12">
+
+                    <!-- 12oz -->
+                    <div class="flex flex-col items-center">
+                        <div class="relative mb-6">
+                            <img src="https://via.placeholder.com/180x320/10b981/ffffff?text=12oz+Jug" alt="12oz Juice Jug" class="juice-jug w-44 h-72 object-contain drop-shadow-2xl">
+                            <div class="absolute -top-3 -right-3 bg-white text-emerald-700 text-xs font-bold px-3 py-1 rounded-2xl shadow">12oz</div>
                         </div>
-                        <div class="mb-4">
-                            <p class="text-sm font-medium mb-2">Flavor:</p>
-                            <div class="flex flex-wrap gap-x-5 gap-y-1 text-sm">
-                                <label class="flex items-center gap-2 cursor-pointer"><input type="radio" name="onetime12oz" value="Mango" checked class="accent-purple"> Mango</label>
-                                <label class="flex items-center gap-2 cursor-pointer"><input type="radio" name="onetime12oz" value="Passionfruit" class="accent-purple"> Passionfruit</label>
-                                <label class="flex items-center gap-2 cursor-pointer"><input type="radio" name="onetime12oz" value="Blackberry" class="accent-purple"> Blackberry</label>
+                        <div class="text-center">
+                            <p class="font-semibold text-xl">$8 each</p>
+                            <div class="flex items-center justify-center gap-6 mt-4">
+                                <button onclick="changeOneTimeQty(12, -1)" class="w-9 h-9 border rounded-full flex items-center justify-center text-xl hover:bg-gray-100">-</button>
+                                <span class="text-2xl font-semibold w-8 text-center" id="onetime12-qty">1</span>
+                                <button onclick="changeOneTimeQty(12, 1)" class="w-9 h-9 border rounded-full flex items-center justify-center text-xl hover:bg-gray-100">+</button>
                             </div>
+                            <button onclick="addCustomOneTime(12, 8)" class="mt-6 w-full border border-emerald-600 text-emerald-700 hover:bg-emerald-600 hover:text-white py-4 rounded-3xl font-semibold">Add to Cart — $<span id="onetime12-total">8</span></button>
                         </div>
-                        <button onclick="addJuiceToCart('12oz', 8)" class="w-full border border-purple text-purple hover:bg-purple hover:text-white py-3 rounded-3xl font-medium transition-all">Add 12oz to Cart</button>
                     </div>
 
-                    <div class="border border-gray-100 rounded-2xl p-5">
-                        <div class="flex justify-between items-center mb-4">
-                            <div><p class="font-semibold">Quart (32oz) Juice</p><p class="text-sm text-gray-500">Family size</p></div>
-                            <p class="text-2xl font-semibold text-purple">$20</p>
+                    <!-- 32oz -->
+                    <div class="flex flex-col items-center">
+                        <div class="relative mb-6">
+                            <img src="https://via.placeholder.com/220x380/10b981/ffffff?text=32oz+Jug" alt="32oz Juice Jug" class="juice-jug w-56 h-96 object-contain drop-shadow-2xl">
+                            <div class="absolute -top-3 -right-3 bg-white text-emerald-700 text-xs font-bold px-3 py-1 rounded-2xl shadow">32oz</div>
                         </div>
-                        <div class="mb-4">
-                            <p class="text-sm font-medium mb-2">Flavor:</p>
-                            <div class="flex flex-wrap gap-x-5 gap-y-1 text-sm">
-                                <label class="flex items-center gap-2 cursor-pointer"><input type="radio" name="onetimeQuart" value="Mango" checked class="accent-purple"> Mango</label>
-                                <label class="flex items-center gap-2 cursor-pointer"><input type="radio" name="onetimeQuart" value="Passionfruit" class="accent-purple"> Passionfruit</label>
-                                <label class="flex items-center gap-2 cursor-pointer"><input type="radio" name="onetimeQuart" value="Blackberry" class="accent-purple"> Blackberry</label>
+                        <div class="text-center">
+                            <p class="font-semibold text-xl">$20 each</p>
+                            <div class="flex items-center justify-center gap-6 mt-4">
+                                <button onclick="changeOneTimeQty(32, -1)" class="w-9 h-9 border rounded-full flex items-center justify-center text-xl hover:bg-gray-100">-</button>
+                                <span class="text-2xl font-semibold w-8 text-center" id="onetime32-qty">1</span>
+                                <button onclick="changeOneTimeQty(32, 1)" class="w-9 h-9 border rounded-full flex items-center justify-center text-xl hover:bg-gray-100">+</button>
                             </div>
+                            <button onclick="addCustomOneTime(32, 20)" class="mt-6 w-full border border-emerald-600 text-emerald-700 hover:bg-emerald-600 hover:text-white py-4 rounded-3xl font-semibold">Add to Cart — $<span id="onetime32-total">20</span></button>
                         </div>
-                        <button onclick="addJuiceToCart('Quart', 20)" class="w-full border border-purple text-purple hover:bg-purple hover:text-white py-3 rounded-3xl font-medium transition-all">Add Quart to Cart</button>
                     </div>
                 </div>
             </div>
 
-            <!-- Weekly Subscriptions -->
-            <div class="border-2 border-purple rounded-3xl p-8 relative">
-                <div class="absolute -top-3 right-6 bg-purple text-white text-xs font-medium px-4 py-1 rounded-3xl">BEST VALUE</div>
-                <div class="mb-6">
-                    <h3 class="text-2xl font-semibold">Weekly Subscription</h3>
-                    <p class="text-sm text-gray-500 mt-1">Fresh delivery every week. Cancel or pause anytime.</p>
+            <!-- Weekly Subscription -->
+            <div class="border-2 border-purple rounded-3xl p-10 shadow-2xl bg-gradient-to-br from-purple/5 to-white">
+                <div class="text-center mb-10">
+                    <div class="inline-block bg-purple text-white px-6 py-1.5 rounded-3xl text-sm font-medium mb-4">WEEKLY SUBSCRIPTION</div>
+                    <h3 class="text-3xl font-semibold">Customize Your Weekly Delivery</h3>
                 </div>
-                <div class="space-y-6">
-                    <div class="border border-purple/30 rounded-2xl p-5">
-                        <div class="flex justify-between items-center mb-4">
-                            <div><p class="font-semibold">12oz Weekly</p><p class="text-sm text-gray-500">Delivered fresh every week</p></div>
-                            <p class="text-2xl font-semibold text-purple">$8<span class="text-sm font-normal">/wk</span></p>
-                        </div>
-                        <div class="mb-4">
-                            <p class="text-sm font-medium mb-2">Flavor:</p>
-                            <div class="flex flex-wrap gap-x-5 gap-y-1 text-sm">
-                                <label class="flex items-center gap-2 cursor-pointer"><input type="radio" name="sub12oz" value="Mango" checked class="accent-purple"> Mango</label>
-                                <label class="flex items-center gap-2 cursor-pointer"><input type="radio" name="sub12oz" value="Passionfruit" class="accent-purple"> Passionfruit</label>
-                                <label class="flex items-center gap-2 cursor-pointer"><input type="radio" name="sub12oz" value="Blackberry" class="accent-purple"> Blackberry</label>
-                            </div>
-                        </div>
-                        <button onclick="addJuiceSubscriptionToCart('12oz Weekly', 8)" class="w-full bg-purple hover:bg-deep text-white py-3 rounded-3xl font-medium transition-all">Subscribe • $8/week</button>
-                    </div>
 
-                    <div class="border border-purple/30 rounded-2xl p-5">
-                        <div class="flex justify-between items-center mb-4">
-                            <div><p class="font-semibold">Quart (32oz) Weekly</p><p class="text-sm text-gray-500">Best value • Family size</p></div>
-                            <p class="text-2xl font-semibold text-purple">$20<span class="text-sm font-normal">/wk</span></p>
-                        </div>
-                        <div class="mb-4">
-                            <p class="text-sm font-medium mb-2">Flavor:</p>
-                            <div class="flex flex-wrap gap-x-5 gap-y-1 text-sm">
-                                <label class="flex items-center gap-2 cursor-pointer"><input type="radio" name="subQuart" value="Mango" checked class="accent-purple"> Mango</label>
-                                <label class="flex items-center gap-2 cursor-pointer"><input type="radio" name="subQuart" value="Passionfruit" class="accent-purple"> Passionfruit</label>
-                                <label class="flex items-center gap-2 cursor-pointer"><input type="radio" name="subQuart" value="Blackberry" class="accent-purple"> Blackberry</label>
-                            </div>
-                        </div>
-                        <button onclick="addJuiceSubscriptionToCart('Quart Weekly', 20)" class="w-full bg-purple hover:bg-deep text-white py-3 rounded-3xl font-medium transition-all">Subscribe • $20/week</button>
+                <div class="flex items-center justify-center gap-6 bg-white border rounded-3xl p-6 mb-10">
+                    <button onclick="changeWeeklyQty(-1)" class="w-12 h-12 border rounded-2xl flex items-center justify-center text-3xl hover:bg-gray-100">-</button>
+                    <div class="text-center">
+                        <p class="text-5xl font-semibold" id="weekly-qty">1</p>
+                        <p class="text-sm text-gray-500">Juices per week</p>
                     </div>
+                    <button onclick="changeWeeklyQty(1)" class="w-12 h-12 border rounded-2xl flex items-center justify-center text-3xl hover:bg-gray-100">+</button>
                 </div>
+
+                <button onclick="addCustomWeeklySubscription()" 
+                        class="w-full bg-purple hover:bg-deep text-white py-5 rounded-3xl font-semibold text-xl">
+                    Subscribe Now — $<span id="dynamic-price">9</span>/week
+                </button>
             </div>
         </div>
-        <p class="text-center text-xs text-gray-500 mt-8">All juices are made fresh weekly in Central Florida using our premium wild-harvested sea moss.</p>
+
+        <p class="text-center text-sm text-gray-500 mt-12">All juices are made fresh weekly with our premium wild-harvested sea moss. Pause or cancel anytime.</p>
     </div>
 </section>
 
@@ -338,7 +316,6 @@ window.addEventListener('load', initTailwind);
             <h2 class="text-4xl md:text-5xl font-light tracking-tight">Begin Your Wellness Journey</h2>
             <p class="text-gray-600 mt-4">Tools, guidance &amp; fresh sea moss — all designed to support your body’s natural intelligence.</p>
         </div>
-
         <div class="grid md:grid-cols-3 gap-8">
             <a href="wellness-calculator.html" class="group bg-white rounded-3xl p-10 shadow hover:shadow-2xl transition-all flex flex-col h-full">
                 <div class="text-6xl mb-6">🧪</div>
@@ -346,14 +323,12 @@ window.addEventListener('load', initTailwind);
                 <p class="text-gray-600 flex-1">Get personalized recommendations in seconds.</p>
                 <div class="mt-6 text-purple font-medium group-hover:underline">Take the quiz →</div>
             </a>
-
             <div onclick="showAIChat()" class="group bg-white rounded-3xl p-10 shadow hover:shadow-2xl transition-all flex flex-col h-full cursor-pointer">
                 <div class="text-6xl mb-6">🌿</div>
                 <h3 class="text-3xl font-medium mb-3">Ask Jane's AI</h3>
                 <p class="text-gray-600 flex-1">Chat with our holistic AI guide specialized in sea moss &amp; wellness.</p>
                 <div class="mt-6 text-purple font-medium group-hover:underline">Start chatting →</div>
             </div>
-
             <a href="pickup-delivery.html" class="group bg-gradient-to-br from-purple/5 to-lightpurple/40 border-2 border-purple/20 rounded-3xl p-10 shadow hover:shadow-2xl transition-all flex flex-col h-full">
                 <div class="text-6xl mb-6">📍</div>
                 <h3 class="text-3xl font-medium mb-3">Local Pickup in Orlando</h3>
@@ -377,7 +352,6 @@ window.addEventListener('load', initTailwind);
                 <button onclick="scrollReviews(1)" class="w-12 h-12 border border-purple/30 rounded-2xl flex items-center justify-center hover:bg-purple hover:text-white transition-all">→</button>
             </div>
         </div>
-
         <div class="overflow-hidden">
             <div id="review-track" class="flex gap-6 pb-4">
                 <div class="review-card bg-white border border-gray-100 rounded-3xl p-8">
@@ -412,7 +386,6 @@ window.addEventListener('load', initTailwind);
                 </div>
             </div>
         </div>
-
         <div class="text-center mt-10">
             <a href="https://share.google/LCFp2XY7eDYX0uJE4" target="_blank" class="text-purple hover:text-deep font-medium flex items-center justify-center gap-2">
                 View All 88+ Reviews on Google →
@@ -489,7 +462,6 @@ const typewriterPhrases = [
     "92+ Minerals. Fresh Weekly.",
     "Nourish Your Body Naturally."
 ];
-
 let phraseIndex = 0;
 let charIndex = 0;
 let isDeleting = false;
@@ -497,7 +469,6 @@ const typewriterElement = document.getElementById('typewriter');
 
 function typeWriterEffect() {
     const currentPhrase = typewriterPhrases[phraseIndex];
-    
     if (isDeleting) {
         typewriterElement.textContent = currentPhrase.substring(0, charIndex - 1);
         charIndex--;
@@ -505,10 +476,8 @@ function typeWriterEffect() {
         typewriterElement.textContent = currentPhrase.substring(0, charIndex + 1);
         charIndex++;
     }
-
     let typeSpeed = 90;
     if (isDeleting) typeSpeed = 45;
-
     if (!isDeleting && charIndex === currentPhrase.length) {
         typeSpeed = 2200;
         isDeleting = true;
@@ -517,14 +486,11 @@ function typeWriterEffect() {
         phraseIndex = (phraseIndex + 1) % typewriterPhrases.length;
         typeSpeed = 600;
     }
-
     setTimeout(typeWriterEffect, typeSpeed);
 }
 
 window.addEventListener('load', () => {
-    if (typewriterElement) {
-        typeWriterEffect();
-    }
+    if (typewriterElement) typeWriterEffect();
 });
 
 // ========== CART SYSTEM ==========
@@ -535,7 +501,6 @@ function addToCart(item) {
     updateCartCount();
     localStorage.setItem('cart', JSON.stringify(cart));
     showCartModal();
-
     if (typeof fbq === 'function') {
         fbq('track', 'AddToCart', {
             content_name: item.name,
@@ -557,7 +522,6 @@ function showCartModal() {
     const itemsContainer = document.getElementById('cart-items');
     itemsContainer.innerHTML = '';
     let total = 0;
-
     cart.forEach((item, index) => {
         total += item.price;
         const div = document.createElement('div');
@@ -574,7 +538,6 @@ function showCartModal() {
         `;
         itemsContainer.appendChild(div);
     });
-
     document.getElementById('cart-total').textContent = '$' + total.toFixed(2);
     modal.classList.remove('hidden');
 }
@@ -604,7 +567,6 @@ async function proceedToCheckout() {
         });
         const data = await response.json();
         if (!response.ok) throw new Error(data.error || "Checkout error");
-
         const stripe = Stripe('pk_live_51TREXTIeLXeJ9tb9RCUiY0hHSBBY5hbqPfwgnVpyUDS0nAYTgwhls3y2ffClfgUu7ZJjVPDVpr6tPZZWNBKcec8Q00BbSr1yQc');
         await stripe.redirectToCheckout({ sessionId: data.id });
     } catch (error) {
@@ -613,26 +575,56 @@ async function proceedToCheckout() {
     }
 }
 
-function addJuiceToCart(size, price) {
-    const flavorInputs = document.querySelectorAll('input[name="onetime' + (size === '12oz' ? '12oz' : 'Quart') + '"]:checked');
-    const flavor = flavorInputs.length > 0 ? flavorInputs[0].value : 'Mango';
+// One-Time Custom Quantity
+let oneTime12Qty = 1;
+let oneTime32Qty = 1;
+
+function changeOneTimeQty(size, change) {
+    if (size === 12) {
+        oneTime12Qty = Math.max(1, oneTime12Qty + change);
+        document.getElementById('onetime12-qty').textContent = oneTime12Qty;
+        document.getElementById('onetime12-total').textContent = (8 * oneTime12Qty);
+    } else {
+        oneTime32Qty = Math.max(1, oneTime32Qty + change);
+        document.getElementById('onetime32-qty').textContent = oneTime32Qty;
+        document.getElementById('onetime32-total').textContent = (20 * oneTime32Qty);
+    }
+}
+
+function addCustomOneTime(size, basePrice) {
+    const qty = size === 12 ? oneTime12Qty : oneTime32Qty;
+    const totalPrice = basePrice * qty;
     const item = {
-        id: 'juice-' + Date.now(),
-        name: size + ' Sea Moss Juice',
-        price: price,
-        details: flavor + ' • One-time purchase'
+        id: 'onetime-' + size + '-' + Date.now(),
+        name: qty + 'x ' + size + 'oz Sea Moss Juice',
+        price: totalPrice,
+        details: 'One-time purchase'
     };
     addToCart(item);
 }
 
-function addJuiceSubscriptionToCart(name, price) {
-    const flavorInputs = document.querySelectorAll('input[name="sub' + (name.includes('12oz') ? '12oz' : 'Quart') + '"]:checked');
-    const flavor = flavorInputs.length > 0 ? flavorInputs[0].value : 'Mango';
+// Weekly Subscription
+let weeklyQty = 1;
+let selectedTierPrice = 9;
+
+function changeWeeklyQty(change) {
+    weeklyQty = Math.max(1, weeklyQty + change);
+    document.getElementById('weekly-qty').textContent = weeklyQty;
+    updateDynamicPrice();
+}
+
+function updateDynamicPrice() {
+    const total = selectedTierPrice * weeklyQty;
+    document.getElementById('dynamic-price').textContent = total;
+}
+
+function addCustomWeeklySubscription() {
+    const totalPrice = selectedTierPrice * weeklyQty;
     const item = {
-        id: 'sub-' + Date.now(),
-        name: name + ' Subscription',
-        price: price,
-        details: flavor + ' • Weekly delivery'
+        id: 'sub-weekly-' + Date.now(),
+        name: weeklyQty + 'x Weekly Sea Moss Juice Subscription',
+        price: totalPrice,
+        details: 'Custom quantity • Fresh weekly delivery'
     };
     addToCart(item);
 }
