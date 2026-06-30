@@ -17,11 +17,14 @@ app.use(cors({
 app.use(express.json());
 app.use(cookieParser());
 
+// Serve static files (admin HTML pages)
+app.use(express.static(path.join(__dirname, 'public')));
+
 // ====================== ADMIN PANEL ======================
 const ADMIN_EMAIL = 'admin@janesseamoss.com';
 
-// TODO: Replace with real hash (run the generateHash function once)
-const ADMIN_PASSWORD_HASH = 'Orlando407'; 
+// TODO: Replace with real hash (run generateHash once)
+const ADMIN_PASSWORD_HASH = '$2b$10$YOUR_REAL_HASH_HERE'; 
 
 // Hash generator (uncomment once, run, then comment out)
 // async function generateHash() {
