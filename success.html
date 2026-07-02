@@ -79,5 +79,36 @@
 
         window.onload = trackPurchaseFromStripe;
     </script>
+
+
+<script>
+    // Get session ID from URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const sessionId = urlParams.get('session_id');
+    
+    if (sessionId) {
+        fetch('https://your-render-url.onrender.com/retrieve-session', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ session_id: sessionId })
+        })
+        .then(res => res.json())
+        .then(data => {
+            // Send to Formspree for notification
+            fetch('https://formspree.io/f/YOUR_FORM_ID', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    _subject: `New Order #${data.id}`,
+                    customer_email: data.customer_email,
+                    amount: `$${(data.amount_total / 100).toFixed(2)}`,
+                    items: JSON.stringify(data.cart || 'N/A'),
+                    session_id: sessionId
+                })
+            });
+        });
+    }
+    </script>
+
 </body>
 </html>

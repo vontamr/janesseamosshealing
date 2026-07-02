@@ -3,174 +3,157 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Local Pickup &amp; Delivery • Janesse's Seamoss Creation</title>
+<title>Local Pickup & Delivery • Janesse's Seamoss Creation</title>
 <script src="https://cdn.tailwindcss.com" async></script>
 <link rel="stylesheet" href="styles.css">
 <style>
-    .result-panel { animation: fadeInUp 0.4s ease-out forwards; }
-    @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+.result-panel { animation: fadeInUp 0.4s ease-out forwards; }
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 </style>
 </head>
 <body class="bg-white text-[#260B3A] font-sans antialiased">
-
 <!-- Navigation -->
 <nav class="bg-white border-b sticky top-0 z-50 shadow-sm">
-    <div class="max-w-7xl mx-auto px-6">
-        <div class="flex items-center justify-between h-20">
-            <a href="index.html" class="flex items-center gap-3">
-                <img src="assets/images/IMG_7251 Background Removed 2.jpeg" alt="Janesse's Seamoss Creation" class="h-20">
-            </a>
-            <a href="shop.html" class="bg-[#5E0089] hover:bg-[#260B3A] text-white px-8 py-3.5 rounded-3xl font-semibold">Shop Now</a>
-        </div>
-    </div>
+<div class="max-w-7xl mx-auto px-6">
+<div class="flex items-center justify-between h-20">
+<a href="index.html" class="flex items-center gap-3">
+<img src="assets/images/IMG_7251 Background Removed 2.jpeg" alt="Janesse's Seamoss Creation" class="h-20">
+</a>
+<a href="shop.html" class="bg-[#5E0089] hover:bg-[#260B3A] text-white px-8 py-3.5 rounded-3xl font-semibold">Shop Now</a>
+</div>
+</div>
 </nav>
 
 <!-- Hero -->
 <header class="bg-gradient-to-br from-[#260B3A] to-[#3D1259] text-white py-20">
-    <div class="max-w-4xl mx-auto px-6 text-center">
-        <h1 class="text-6xl md:text-7xl font-light tracking-tighter leading-none mb-6">
+<div class="max-w-4xl mx-auto px-6 text-center">
+<h1 class="text-6xl md:text-7xl font-light tracking-tighter leading-none mb-6">
             Fresh Sea Moss.<br>Delivered with care.
-        </h1>
-        <p class="max-w-md mx-auto text-xl opacity-90">
-            Fast local delivery across Orange &amp; Polk County
-        </p>
-    </div>
+</h1>
+<p class="max-w-md mx-auto text-xl opacity-90">
+            Fast local delivery across Orange & Polk County
+</p>
+</div>
 </header>
 
 <div class="max-w-3xl mx-auto px-6 py-16">
+<div class="text-center mb-10">
+<h2 class="text-4xl font-light tracking-tight">Where should we deliver?</h2>
+</div>
 
-    <div class="text-center mb-10">
-        <h2 class="text-4xl font-light tracking-tight">Where should we deliver?</h2>
-    </div>
-
-    <!-- ZIP Input -->
-    <div class="bg-white border border-[#EAD5F8] rounded-3xl p-8 mb-8">
-        <div class="flex flex-col sm:flex-row gap-3">
-            <input type="text" id="zip-input" placeholder="Enter ZIP code" maxlength="5"
-                   class="flex-1 px-7 py-5 border border-gray-200 rounded-3xl text-lg focus:outline-none focus:border-[#5E0089]">
-            <button onclick="checkLocation()"
-                    class="bg-[#5E0089] hover:bg-[#260B3A] text-white px-10 py-5 rounded-3xl font-semibold text-lg transition-all">
+<!-- ZIP Input -->
+<div class="bg-white border border-[#EAD5F8] rounded-3xl p-8 mb-8">
+<div class="flex flex-col sm:flex-row gap-3">
+<input type="text" id="zip-input" placeholder="Enter ZIP code" maxlength="5"
+class="flex-1 px-7 py-5 border border-gray-200 rounded-3xl text-lg focus:outline-none focus:border-[#5E0089]">
+<button onclick="checkLocation()"
+class="bg-[#5E0089] hover:bg-[#260B3A] text-white px-10 py-5 rounded-3xl font-semibold text-lg transition-all">
                 Check Delivery
-            </button>
-        </div>
+</button>
+</div>
+<button onclick="useMyLocation()"
+class="mt-4 w-full flex items-center justify-center gap-3 py-4 text-[#5E0089] hover:bg-[#f8f1ff] rounded-3xl font-medium border border-[#EAD5F8]">
+<i class="fa-solid fa-location-crosshairs"></i>
+<span>Use my current location</span>
+</button>
+</div>
 
-        <button onclick="useMyLocation()"
-                class="mt-4 w-full flex items-center justify-center gap-3 py-4 text-[#5E0089] hover:bg-[#f8f1ff] rounded-3xl font-medium border border-[#EAD5F8]">
-            <i class="fa-solid fa-location-crosshairs"></i>
-            <span>Use my current location</span>
-        </button>
-    </div>
+<!-- Result Panel -->
+<div id="result-panel" class="hidden"></div>
 
-    <!-- Result Panel -->
-    <div id="result-panel" class="hidden"></div>
+<!-- Pickup -->
+<div class="mt-12 text-center">
+<div class="inline-block bg-white border border-[#EAD5F8] rounded-3xl px-8 py-8">
+<p class="font-medium mb-6">Prefer pickup instead?</p>
 
-    <!-- Pickup -->
-    <div class="mt-12 text-center">
-        <div class="inline-block bg-white border border-[#EAD5F8] rounded-3xl px-8 py-6">
-            <p class="font-medium mb-3">Prefer pickup instead?</p>
-            <button onclick="showPickupModal()" class="text-[#5E0089] hover:text-[#260B3A] font-semibold underline">
+<select id="pickup-location" class="w-full px-6 py-4 border border-gray-200 rounded-3xl text-lg mb-6">
+    <option value="">Select a free pickup location</option>
+    <option value="Dr. Phillips, Orlando - 32835">Dr. Phillips • Orlando (32835)</option>
+    <option value="Winter Haven - 33880">Winter Haven (33880)</option>
+    <option value="Lake Alfred">Lake Alfred</option>
+    <option value="Holiday - 34690">Holiday (34690)</option>
+    <option value="Goodyear, AZ - 85338">Goodyear, Arizona (85338)</option>
+    <option value="Pine Hills / Orlando - 32808/32811/32839">Pine Hills / Orlando (32808, 32811, 32839)</option>
+</select>
+
+<button onclick="selectPickup()" class="w-full bg-[#5E0089] hover:bg-[#260B3A] text-white py-5 rounded-3xl font-semibold">
                 Schedule Free Local Pickup
-            </button>
-        </div>
-    </div>
-
+</button>
+</div>
+</div>
 </div>
 
 <script>
 // Tailwind
 function initTailwind() {
-    tailwind.config = { theme: { extend: { colors: { deep: '#260B3A', purple: '#5E0089', lightpurple: '#EAD5F8' } } } };
+tailwind.config = { theme: { extend: { colors: { deep: '#260B3A', purple: '#5E0089', lightpurple: '#EAD5F8' } } } };
 }
 window.addEventListener('load', initTailwind);
 
-// ==================== DELIVERY PRICING ====================
+// Delivery logic (same as before)
 function getDeliveryInfo(zip) {
-    const z = parseInt(zip);
-
-    if ([32808, 32805, 32818, 32810, 32811].includes(z)) {
-        return { fee: 7, time: "20–40 min", area: "Richmond Heights / Pine Hills", tier: 1 };
-    }
-    if ([32801, 32803, 32804, 32806, 32807, 32809, 32812, 32814, 32819, 32789, 32792].includes(z)) {
-        return { fee: 9, time: "35–55 min", area: "Central Orlando / Winter Park", tier: 2 };
-    }
-    if ([32703, 32712, 32822, 32824, 32825, 32826, 32827, 32828, 32829, 32830, 32831, 32832, 32835, 32836, 32837, 32839, 34787, 34786].includes(z)) {
-        return { fee: 11, time: "50–80 min", area: "Greater Orange County", tier: 3 };
-    }
-    if ([33801, 33802, 33803, 33804, 33805, 33806, 33807, 33809, 33810, 33811, 33812, 33813, 33815,
-         33880, 33881, 33882, 33883, 33884, 33823].includes(z)) {
-        return { fee: 15, time: "90–150 min", area: "Polk County (Lakeland / Winter Haven)", tier: 4 };
-    }
-    return { fee: 14, time: "60–120 min", area: "Central Florida", tier: 3 };
+const z = parseInt(zip);
+if ([32808, 32805, 32818, 32810, 32811].includes(z)) return { fee: 7, time: "20–40 min", area: "Richmond Heights / Pine Hills", tier: 1 };
+if ([32801, 32803, 32804, 32806, 32807, 32809, 32812, 32814, 32819, 32789, 32792].includes(z)) return { fee: 9, time: "35–55 min", area: "Central Orlando / Winter Park", tier: 2 };
+if ([32703, 32712, 32822, 32824, 32825, 32826, 32827, 32828, 32829, 32830, 32831, 32832, 32835, 32836, 32837, 32839, 34787, 34786].includes(z)) return { fee: 11, time: "50–80 min", area: "Greater Orange County", tier: 3 };
+if ([33801, 33802, 33803, 33804, 33805, 33806, 33807, 33809, 33810, 33811, 33812, 33813, 33815, 33880, 33881, 33882, 33883, 33884, 33823].includes(z)) return { fee: 15, time: "90–150 min", area: "Polk County (Lakeland / Winter Haven)", tier: 4 };
+return { fee: 14, time: "60–120 min", area: "Central Florida", tier: 3 };
 }
 
 function checkLocation() {
-    const zip = document.getElementById('zip-input').value.trim();
-    const panel = document.getElementById('result-panel');
-
-    if (!zip || zip.length !== 5) {
-        panel.innerHTML = `<p class="text-red-600 text-center">Please enter a valid 5-digit ZIP code.</p>`;
-        panel.classList.remove('hidden');
-        return;
+const zip = document.getElementById('zip-input').value.trim();
+const panel = document.getElementById('result-panel');
+if (!zip || zip.length !== 5) {
+panel.innerHTML = `<p class="text-red-600 text-center">Please enter a valid 5-digit ZIP code.</p>`;
+panel.classList.remove('hidden');
+return;
     }
-
-    panel.classList.remove('hidden');
-    panel.innerHTML = `<div class="text-center py-8"><div class="animate-pulse text-[#5E0089]">Checking delivery options...</div></div>`;
-
-    setTimeout(() => {
-        showDeliveryResult(zip);
-    }, 550);
+panel.classList.remove('hidden');
+panel.innerHTML = `<div class="text-center py-8"><div class="animate-pulse text-[#5E0089]">Checking delivery options...</div></div>`;
+setTimeout(() => showDeliveryResult(zip), 550);
 }
 
-// Geolocation
 function useMyLocation() {
-    const panel = document.getElementById('result-panel');
-    panel.classList.remove('hidden');
-    panel.innerHTML = `<div class="text-center py-8"><div class="text-[#5E0089]">Detecting your location...</div></div>`;
-
-    if (!navigator.geolocation) {
-        panel.innerHTML = `<p class="text-red-600 text-center">Geolocation not supported.</p>`;
-        return;
+const panel = document.getElementById('result-panel');
+panel.classList.remove('hidden');
+panel.innerHTML = `<div class="text-center py-8"><div class="text-[#5E0089]">Detecting your location...</div></div>`;
+if (!navigator.geolocation) {
+panel.innerHTML = `<p class="text-red-600 text-center">Geolocation not supported.</p>`;
+return;
     }
-
-    navigator.geolocation.getCurrentPosition(async (pos) => {
-        const lat = pos.coords.latitude;
-        const lon = pos.coords.longitude;
-
-        try {
-            const res = await fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lon}&zoom=10&addressdetails=1`, {
-                headers: { 'User-Agent': 'JanesseSeamossDelivery/1.0' }
+navigator.geolocation.getCurrentPosition(async (pos) => {
+const lat = pos.coords.latitude;
+const lon = pos.coords.longitude;
+try {
+const res = await fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lon}&zoom=10&addressdetails=1`, {
+headers: { 'User-Agent': 'JanesseSeamossDelivery/1.0' }
             });
-            const data = await res.json();
-
-            if (data?.address?.postcode) {
-                const zip = data.address.postcode.trim();
-                document.getElementById('zip-input').value = zip;
-                showDeliveryResult(zip);
+const data = await res.json();
+if (data?.address?.postcode) {
+const zip = data.address.postcode.trim();
+document.getElementById('zip-input').value = zip;
+showDeliveryResult(zip);
             } else {
-                panel.innerHTML = `<p class="text-red-600 text-center">Couldn't determine ZIP. Please enter it manually.</p>`;
+panel.innerHTML = `<p class="text-red-600 text-center">Couldn't determine ZIP. Please enter it manually.</p>`;
             }
         } catch {
-            panel.innerHTML = `<p class="text-red-600 text-center">Failed to detect location. Please enter ZIP manually.</p>`;
+panel.innerHTML = `<p class="text-red-600 text-center">Failed to detect location. Please enter ZIP manually.</p>`;
         }
     }, () => {
-        panel.innerHTML = `<p class="text-red-600 text-center">Location access denied or unavailable.</p>`;
+panel.innerHTML = `<p class="text-red-600 text-center">Location access denied or unavailable.</p>`;
     }, { enableHighAccuracy: true, timeout: 12000 });
 }
 
-// Show delivery options
 function showDeliveryResult(zip) {
-    const panel = document.getElementById('result-panel');
-    const info = getDeliveryInfo(zip);
-
-    panel.innerHTML = `
+const panel = document.getElementById('result-panel');
+const info = getDeliveryInfo(zip);
+panel.innerHTML = `
         <div class="bg-white border border-[#EAD5F8] rounded-3xl p-10 result-panel">
             <div class="text-center">
                 <div class="inline-flex items-center gap-2 bg-emerald-100 text-emerald-700 px-4 py-1 rounded-3xl text-sm font-medium mb-4">
                     DELIVERY AVAILABLE
                 </div>
-                
                 <h3 class="text-3xl font-light">Delivery to ${info.area}</h3>
-                
                 <div class="my-8 flex justify-center gap-12">
                     <div>
                         <div class="text-5xl font-light">$${info.fee}</div>
@@ -181,35 +164,29 @@ function showDeliveryResult(zip) {
                         <div class="text-sm text-gray-500">Estimated Arrival</div>
                     </div>
                 </div>
-
                 <button onclick="openAddressForm('${info.area}', ${info.fee}, '${info.time}', '${zip}')"
                         class="w-full bg-[#5E0089] hover:bg-[#260B3A] text-white py-6 rounded-3xl text-xl font-semibold transition-all">
                     Use This Delivery for My Order
                 </button>
-                
                 <p class="text-xs text-gray-500 mt-4">Temperature-controlled • Fresh guarantee</p>
             </div>
         </div>
     `;
 }
 
-// Open Address Collection Modal (NEW)
 function openAddressForm(area, fee, time, zip) {
-    const modal = document.createElement('div');
-    modal.className = `fixed inset-0 bg-black/60 flex items-center justify-center z-[100]`;
-    
-    modal.innerHTML = `
+const modal = document.createElement('div');
+modal.className = `fixed inset-0 bg-black/60 flex items-center justify-center z-[100]`;
+modal.innerHTML = `
         <div class="bg-white rounded-3xl max-w-md w-full mx-4 p-8">
             <h3 class="text-2xl font-light mb-2">Delivery Address</h3>
             <p class="text-sm text-gray-600 mb-6">${area} • $${fee} • ${time}</p>
-            
             <form id="address-form" action="https://formspree.io/f/xjgzrwry" method="POST">
                 <input type="hidden" name="_subject" value="New Delivery Order - Janesse's Seamoss">
                 <input type="hidden" name="delivery_area" value="${area}">
                 <input type="hidden" name="delivery_fee" value="$${fee}">
                 <input type="hidden" name="estimated_time" value="${time}">
                 <input type="hidden" name="zip_code" value="${zip}">
-
                 <div class="space-y-4">
                     <div>
                         <label class="block text-sm font-medium mb-1">Full Name</label>
@@ -238,114 +215,75 @@ function openAddressForm(area, fee, time, zip) {
                         <textarea name="notes" rows="2" placeholder="Gate code, leave at door, etc." class="w-full px-5 py-4 border border-gray-200 rounded-3xl"></textarea>
                     </div>
                 </div>
-
                 <button type="submit" class="mt-8 w-full bg-[#5E0089] hover:bg-[#260B3A] text-white py-5 rounded-3xl font-semibold text-lg">
                     Submit Delivery Address
                 </button>
             </form>
-
             <button onclick="this.closest('.fixed').remove()" class="w-full mt-3 text-gray-500 py-3">Cancel</button>
         </div>
     `;
-    
-    document.body.appendChild(modal);
+document.body.appendChild(modal);
 
-   // Handle form submission
 const form = modal.querySelector('#address-form');
 form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const btn = form.querySelector('button[type="submit"]');
-    btn.innerHTML = 'Submitting...';
-    btn.disabled = true;
-
-    try {
-        const response = await fetch(form.action, {
-            method: 'POST',
-            body: new FormData(form),
-            headers: { 'Accept': 'application/json' }
+e.preventDefault();
+const btn = form.querySelector('button[type="submit"]');
+btn.innerHTML = 'Submitting...';
+btn.disabled = true;
+try {
+const response = await fetch(form.action, {
+method: 'POST',
+body: new FormData(form),
+headers: { 'Accept': 'application/json' }
         });
-
-        if (response.ok) {
-            // ✅ SAVE DELIVERY INFO TO LOCALSTORAGE (this was missing)
-            const deliveryData = {
-                area: form.querySelector('input[name="delivery_area"]').value,
-                fee: parseInt(form.querySelector('input[name="delivery_fee"]').value.replace('$', '')),
-                time: form.querySelector('input[name="estimated_time"]').value,
-                zip: form.querySelector('input[name="zip_code"]').value
+if (response.ok) {
+const deliveryData = {
+area: form.querySelector('input[name="delivery_area"]').value,
+fee: parseInt(form.querySelector('input[name="delivery_fee"]').value.replace('$', '')),
+time: form.querySelector('input[name="estimated_time"]').value,
+zip: form.querySelector('input[name="zip_code"]').value
             };
-            localStorage.setItem('selectedDelivery', JSON.stringify(deliveryData));
-
-            form.innerHTML = `
+localStorage.setItem('selectedDelivery', JSON.stringify(deliveryData));
+form.innerHTML = `
                 <div class="text-center py-8">
                     <div class="text-5xl mb-4">✅</div>
                     <h4 class="text-2xl font-light mb-2">Address Received!</h4>
                     <p class="text-gray-600">Thank you. Redirecting you to the shop...</p>
                 </div>
             `;
-            
-            setTimeout(() => {
-                modal.remove();
-                window.location.href = "shop.html";
+setTimeout(() => {
+modal.remove();
+window.location.href = "shop.html";
             }, 1800);
         } else {
-            throw new Error();
+throw new Error();
         }
     } catch {
-        alert("Something went wrong. Please try again or text (407) 752-7864.");
-        btn.innerHTML = 'Submit Delivery Address';
-        btn.disabled = false;
+alert("Something went wrong. Please try again or text (407) 752-7864.");
+btn.innerHTML = 'Submit Delivery Address';
+btn.disabled = false;
     }
 });
 }
 
-// Pickup Modal (unchanged)
-function showPickupModal() {
-    const modal = document.createElement('div');
-    modal.className = `fixed inset-0 bg-black/60 flex items-center justify-center z-[100]`;
-    modal.innerHTML = `
-        <div class="bg-white rounded-3xl max-w-md w-full mx-4 p-8">
-            <h3 class="text-2xl font-light mb-6">Schedule Free Pickup</h3>
-            <form id="pickup-form" action="https://formspree.io/f/xjgzrwry" method="POST">
-                <input type="hidden" name="_subject" value="New Pickup Request">
-                <div class="space-y-5">
-                    <div><label class="block text-sm font-medium mb-2">Full Name</label>
-                    <input type="text" name="name" required class="w-full px-5 py-4 border border-gray-200 rounded-3xl"></div>
-                    <div><label class="block text-sm font-medium mb-2">Phone Number</label>
-                    <input type="tel" name="phone" required class="w-full px-5 py-4 border border-gray-200 rounded-3xl"></div>
-                    <div><label class="block text-sm font-medium mb-2">Preferred Time</label>
-                    <select name="pickup_time" required class="w-full px-5 py-4 border border-gray-200 rounded-3xl">
-                        <option value="">Select time slot</option>
-                        <option>Today • 2:00 PM – 5:00 PM</option>
-                        <option>Tomorrow • 10:00 AM – 1:00 PM</option>
-                        <option>Tomorrow • 2:00 PM – 5:00 PM</option>
-                    </select></div>
-                    <div><label class="block text-sm font-medium mb-2">Notes (optional)</label>
-                    <textarea name="message" rows="3" class="w-full px-5 py-4 border border-gray-200 rounded-3xl"></textarea></div>
-                </div>
-                <button type="submit" class="mt-8 w-full bg-[#5E0089] hover:bg-[#260B3A] text-white py-5 rounded-3xl font-semibold">Confirm Pickup Request</button>
-            </form>
-            <button onclick="this.closest('.fixed').remove()" class="w-full mt-3 text-gray-500 py-3">Cancel</button>
-        </div>
-    `;
-    document.body.appendChild(modal);
-
-    const form = modal.querySelector('#pickup-form');
-    form.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        const btn = form.querySelector('button[type="submit"]');
-        btn.innerHTML = 'Submitting...'; btn.disabled = true;
-
-        const res = await fetch(form.action, { method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' } });
-        if (res.ok) {
-            form.innerHTML = `<div class="text-center py-8"><div class="text-5xl mb-4">✅</div><h4 class="text-2xl font-light">Request Received!</h4><p class="text-gray-600">We'll text you to confirm.</p></div>`;
-            setTimeout(() => modal.remove(), 2000);
-        } else {
-            alert("Error. Please text (407) 752-7864.");
-            btn.innerHTML = 'Confirm Pickup Request'; btn.disabled = false;
-        }
-    });
+// Select Pickup from Dropdown
+function selectPickup() {
+    const select = document.getElementById('pickup-location');
+    const location = select.value;
+    if (!location) {
+        alert("Please select a pickup location.");
+        return;
+    }
+    const deliveryData = {
+        area: location,
+        fee: 0,
+        time: "Pickup",
+        location: location
+    };
+    localStorage.setItem('selectedDelivery', JSON.stringify(deliveryData));
+    alert(`✅ Pickup selected: ${location}\n\nYou can now proceed to checkout with $0 delivery fee.`);
+    window.location.href = "shop.html";
 }
 </script>
-
 </body>
 </html>

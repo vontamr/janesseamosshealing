@@ -109,4 +109,25 @@ app.post('/create-checkout-session', async (req, res) => {
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`🌊 Janesse Seamoss Backend running on port ${PORT}`);
+
+
+
+  app.post('/retrieve-session', async (req, res) => {
+    try {
+      const { session_id } = req.body;
+      const session = await stripe.checkout.sessions.retrieve(session_id, {
+        expand: ['line_items']
+      });
+      res.json({
+        id: session.id,
+        amount_total: session.amount_total,
+        customer_email: session.customer_email || 'N/A',
+        cart: session.line_items.data
+      });
+    } catch (error) {
+      res.status(500).json({ error: error.message });
+    }
+  });
+
+
 });
