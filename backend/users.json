@@ -1,0 +1,44 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Dr. Phillips Staff",
+      "email": "drphillips@janesseamoss.com",
+      "password": "drphillips2026",
+      "location": "Dr. Phillips, Orlando (32835)",
+      "role": "staff"
+    },
+    {
+      "id": 2,
+      "name": "Winter Haven Staff",
+      "email": "winterhaven@janesseamoss.com",
+      "password": "winterhaven2026",
+      "location": "Winter Haven (33880)",
+      "role": "staff"
+    },
+    {
+      "id": 3,
+      "name": "Lake Alfred Staff",
+      "email": "lakealfred@janesseamoss.com",
+      "password": "lakealfred2026",
+      "location": "Lake Alfred",
+      "role": "staff"
+    },
+    {
+      "id": 4,
+      "name": "Holiday Staff",
+      "email": "holiday@janesseamoss.com",
+      "password": "holiday2026",
+      "location": "Holiday (34690)",
+      "role": "staff"
+    },
+    {
+      "id": 5,
+      "name": "Owner - Jauvonta",
+      "email": "admin@janesseamoss.com",
+      "password": "seamoss2026",
+      "location": "All",
+      "role": "admin"
+    }
+  ]
+}

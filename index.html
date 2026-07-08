@@ -230,82 +230,115 @@ window.addEventListener('load', initTailwind);
     </div>
 </section>
 
-<!-- Sea Moss Juices Section - Minimal & Impressive (Yeezy Style) -->
+<!-- Sea Moss Juices Section -->
 <section id="juice-section" class="py-24 bg-white">
     <div class="max-w-6xl mx-auto px-6">
-        <div class="text-center mb-16">
+        <div class="text-center mb-12">
             <div class="inline-flex items-center gap-2 bg-emerald-100 text-emerald-700 px-6 py-2 rounded-3xl text-sm font-medium mb-4">🌿 FRESH WEEKLY IN CENTRAL FLORIDA</div>
             <h2 class="text-5xl md:text-6xl font-light tracking-tight">Sea Moss Juices</h2>
-            <p class="text-gray-600 mt-4 max-w-md mx-auto text-lg">Pure. Fresh. Customizable.</p>
+            <p class="text-gray-600 mt-3 max-w-lg mx-auto">Pure mineral-rich nourishment • Naturally sweetened by bees</p>
         </div>
 
-        <div class="grid md:grid-cols-2 gap-16 max-w-5xl mx-auto">
+        <!-- Flavor Selection -->
+        <div class="flex justify-center gap-3 mb-10">
+            <button onclick="selectJuiceFlavor('Mango')" id="flavor-mango"
+                    class="flavor-btn px-8 py-3 rounded-3xl border-2 border-emerald-600 bg-emerald-600 text-white font-medium">Mango</button>
+            <button onclick="selectJuiceFlavor('Pineapple')" id="flavor-pineapple"
+                    class="flavor-btn px-8 py-3 rounded-3xl border-2 border-emerald-600 text-emerald-700 hover:bg-emerald-50 font-medium">Pineapple</button>
+            <button onclick="selectJuiceFlavor('Blackberry')" id="flavor-blackberry"
+                    class="flavor-btn px-8 py-3 rounded-3xl border-2 border-emerald-600 text-emerald-700 hover:bg-emerald-50 font-medium">Blackberry</button>
+        </div>
 
-            <!-- One-Time Purchase - Minimal Jug Style -->
-            <div>
-                <h3 class="text-2xl font-medium text-center mb-10">One-Time Purchase</h3>
-                <div class="space-y-12">
+        <div class="grid md:grid-cols-2 gap-10 max-w-5xl mx-auto">
 
-                    <!-- 12oz -->
-                    <div class="flex flex-col items-center">
-                        <div class="relative mb-6">
-                            <img src="https://via.placeholder.com/180x320/10b981/ffffff?text=12oz+Jug" alt="12oz Juice Jug" class="juice-jug w-44 h-72 object-contain drop-shadow-2xl">
-                            <div class="absolute -top-3 -right-3 bg-white text-emerald-700 text-xs font-bold px-3 py-1 rounded-2xl shadow">12oz</div>
-                        </div>
-                        <div class="text-center">
-                            <p class="font-semibold text-xl">$8 each</p>
-                            <div class="flex items-center justify-center gap-6 mt-4">
-                                <button onclick="changeOneTimeQty(12, -1)" class="w-9 h-9 border rounded-full flex items-center justify-center text-xl hover:bg-gray-100">-</button>
-                                <span class="text-2xl font-semibold w-8 text-center" id="onetime12-qty">1</span>
-                                <button onclick="changeOneTimeQty(12, 1)" class="w-9 h-9 border rounded-full flex items-center justify-center text-xl hover:bg-gray-100">+</button>
-                            </div>
-                            <button onclick="addCustomOneTime(12, 8)" class="mt-6 w-full border border-emerald-600 text-emerald-700 hover:bg-emerald-600 hover:text-white py-4 rounded-3xl font-semibold">Add to Cart — $<span id="onetime12-total">8</span></button>
-                        </div>
-                    </div>
+            <!-- One-Time Purchase -->
+            <div class="bg-white border border-emerald-100 rounded-3xl p-9">
+                <div class="text-center mb-8">
+                    <h3 class="text-2xl font-medium">One-Time Purchase</h3>
+                    <p class="text-sm text-emerald-600">Fresh • No commitment</p>
+                </div>
 
-                    <!-- 32oz -->
-                    <div class="flex flex-col items-center">
-                        <div class="relative mb-6">
-                            <img src="https://via.placeholder.com/220x380/10b981/ffffff?text=32oz+Jug" alt="32oz Juice Jug" class="juice-jug w-56 h-96 object-contain drop-shadow-2xl">
-                            <div class="absolute -top-3 -right-3 bg-white text-emerald-700 text-xs font-bold px-3 py-1 rounded-2xl shadow">32oz</div>
-                        </div>
-                        <div class="text-center">
-                            <p class="font-semibold text-xl">$20 each</p>
-                            <div class="flex items-center justify-center gap-6 mt-4">
-                                <button onclick="changeOneTimeQty(32, -1)" class="w-9 h-9 border rounded-full flex items-center justify-center text-xl hover:bg-gray-100">-</button>
-                                <span class="text-2xl font-semibold w-8 text-center" id="onetime32-qty">1</span>
-                                <button onclick="changeOneTimeQty(32, 1)" class="w-9 h-9 border rounded-full flex items-center justify-center text-xl hover:bg-gray-100">+</button>
-                            </div>
-                            <button onclick="addCustomOneTime(32, 20)" class="mt-6 w-full border border-emerald-600 text-emerald-700 hover:bg-emerald-600 hover:text-white py-4 rounded-3xl font-semibold">Add to Cart — $<span id="onetime32-total">20</span></button>
-                        </div>
+                <!-- Size Selection -->
+                <div class="mb-6">
+                    <p class="text-sm font-medium mb-3 text-center">Choose Size</p>
+                    <div class="flex gap-4 justify-center">
+                        <button onclick="selectJuiceSize(16, 14)" id="size-16"
+                                class="size-btn flex-1 py-4 border-2 border-emerald-600 bg-emerald-50 text-emerald-700 rounded-2xl font-semibold">16oz — $14</button>
+                        <button onclick="selectJuiceSize(32, 26)" id="size-32"
+                                class="size-btn flex-1 py-4 border-2 border-emerald-600 text-emerald-700 rounded-2xl font-semibold hover:bg-emerald-50">32oz — $26</button>
                     </div>
                 </div>
+
+                <!-- Quantity -->
+                <div class="text-center mb-6">
+                    <p class="text-sm font-medium mb-2">Quantity</p>
+                    <div class="flex items-center justify-center gap-5">
+                        <button onclick="changeJuiceQty(-1)" class="w-10 h-10 border border-emerald-300 rounded-full text-2xl hover:bg-emerald-50">−</button>
+                        <span class="text-3xl font-semibold w-12 text-center" id="juice-qty">1</span>
+                        <button onclick="changeJuiceQty(1)" class="w-10 h-10 border border-emerald-300 rounded-full text-2xl hover:bg-emerald-50">+</button>
+                    </div>
+                </div>
+
+                <div class="text-center mb-6">
+                    <p class="text-sm text-gray-500">Total</p>
+                    <p class="text-4xl font-semibold text-emerald-700" id="juice-total">$14</p>
+                </div>
+
+                <button onclick="addJuiceToCart()"
+                        class="w-full bg-emerald-600 hover:bg-emerald-700 text-white py-5 rounded-3xl font-semibold text-lg">
+                    Add to Basket
+                </button>
             </div>
 
             <!-- Weekly Subscription -->
-            <div class="border-2 border-purple rounded-3xl p-10 shadow-2xl bg-gradient-to-br from-purple/5 to-white">
-                <div class="text-center mb-10">
-                    <div class="inline-block bg-purple text-white px-6 py-1.5 rounded-3xl text-sm font-medium mb-4">WEEKLY SUBSCRIPTION</div>
-                    <h3 class="text-3xl font-semibold">Customize Your Weekly Delivery</h3>
+            <div class="border-2 border-purple rounded-3xl p-9 bg-gradient-to-br from-purple/5 to-white">
+                <div class="text-center mb-8">
+                    <div class="inline-block bg-purple text-white px-5 py-1 rounded-3xl text-xs font-semibold tracking-widest mb-2">WEEKLY SUBSCRIPTION</div>
+                    <h3 class="text-2xl font-medium">Weekly Ritual</h3>
+                    <p class="text-sm text-purple">Fresh delivery every week</p>
                 </div>
 
-                <div class="flex items-center justify-center gap-6 bg-white border rounded-3xl p-6 mb-10">
-                    <button onclick="changeWeeklyQty(-1)" class="w-12 h-12 border rounded-2xl flex items-center justify-center text-3xl hover:bg-gray-100">-</button>
-                    <div class="text-center">
-                        <p class="text-5xl font-semibold" id="weekly-qty">1</p>
-                        <p class="text-sm text-gray-500">Juices per week</p>
+                <!-- Size for Subscription -->
+                <div class="mb-6">
+                    <p class="text-sm font-medium mb-3 text-center">Choose Size</p>
+                    <div class="flex gap-4 justify-center">
+                        <button onclick="selectSubSize(16, 14)" id="sub-size-16"
+                                class="sub-size-btn flex-1 py-4 border-2 border-purple bg-purple/10 text-purple rounded-2xl font-semibold">16oz — $14/wk</button>
+                        <button onclick="selectSubSize(32, 26)" id="sub-size-32"
+                                class="sub-size-btn flex-1 py-4 border-2 border-purple text-purple rounded-2xl font-semibold hover:bg-purple/10">32oz — $26/wk</button>
                     </div>
-                    <button onclick="changeWeeklyQty(1)" class="w-12 h-12 border rounded-2xl flex items-center justify-center text-3xl hover:bg-gray-100">+</button>
                 </div>
 
-                <button onclick="addCustomWeeklySubscription()" 
-                        class="w-full bg-purple hover:bg-deep text-white py-5 rounded-3xl font-semibold text-xl">
-                    Subscribe Now — $<span id="dynamic-price">9</span>/week
+                <div class="text-center mb-6">
+                    <p class="text-sm font-medium mb-2">Bottles per week</p>
+                    <div class="flex items-center justify-center gap-5">
+                        <button onclick="changeSubQty(-1)" class="w-10 h-10 border border-purple/40 rounded-full text-2xl hover:bg-purple/10">−</button>
+                        <span class="text-3xl font-semibold w-12 text-center" id="sub-qty">1</span>
+                        <button onclick="changeSubQty(1)" class="w-10 h-10 border border-purple/40 rounded-full text-2xl hover:bg-purple/10">+</button>
+                    </div>
+                </div>
+
+                <div class="text-center mb-6">
+                    <p class="text-sm text-gray-500">Weekly Total</p>
+                    <p class="text-4xl font-semibold text-purple" id="sub-total">$14</p>
+                </div>
+
+                <button onclick="addJuiceSubscription()"
+                        class="w-full bg-purple hover:bg-deep text-white py-5 rounded-3xl font-semibold text-lg">
+                    Start Weekly Delivery
                 </button>
+                <p class="text-center text-xs text-purple/70 mt-3">Pause or cancel anytime</p>
             </div>
+
         </div>
 
-        <p class="text-center text-sm text-gray-500 mt-12">All juices are made fresh weekly with our premium wild-harvested sea moss. Pause or cancel anytime.</p>
+        <!-- Gentle Note -->
+        <div class="max-w-2xl mx-auto mt-14 text-center">
+            <div class="bg-emerald-50 border border-emerald-100 rounded-3xl px-8 py-7 text-sm text-emerald-800">
+                <p class="font-medium mb-1">🌿 Fresh &amp; Intentional</p>
+                <p>All juices are made fresh weekly with wild-harvested sea moss. Enjoy within 7–10 days for best results. Store refrigerated.</p>
+            </div>
+        </div>
     </div>
 </section>
 
@@ -708,7 +741,121 @@ document.addEventListener('keypress', function(e) {
         sendMessage();
     }
 });
+
 </script>
+
+   
+<script>
+    // ========== JUICE SECTION LOGIC (New) ==========
+    let selectedJuiceFlavor = 'Mango';
+    let selectedJuiceSize = 16;
+    let selectedJuicePrice = 14;
+    let juiceQty = 1;
+    
+    let selectedSubSize = 16;
+    let selectedSubPrice = 14;
+    let subQty = 1;
+    
+    function selectJuiceFlavor(flavor) {
+        selectedJuiceFlavor = flavor;
+        document.querySelectorAll('.flavor-btn').forEach(btn => {
+            btn.classList.remove('bg-emerald-600', 'text-white');
+            btn.classList.add('text-emerald-700', 'border-emerald-600');
+        });
+        const btn = document.getElementById('flavor-' + flavor.toLowerCase());
+        if (btn) {
+            btn.classList.remove('text-emerald-700', 'border-emerald-600');
+            btn.classList.add('bg-emerald-600', 'text-white');
+        }
+    }
+    
+    function selectJuiceSize(size, price) {
+        selectedJuiceSize = size;
+        selectedJuicePrice = price;
+        document.querySelectorAll('.size-btn').forEach(b => b.classList.remove('bg-emerald-50', 'text-emerald-700'));
+        const btn = document.getElementById('size-' + size);
+        if (btn) btn.classList.add('bg-emerald-50', 'text-emerald-700');
+        updateJuiceTotal();
+    }
+    
+    function changeJuiceQty(change) {
+        juiceQty = Math.max(1, juiceQty + change);
+        document.getElementById('juice-qty').textContent = juiceQty;
+        updateJuiceTotal();
+    }
+    
+    function updateJuiceTotal() {
+        const total = selectedJuicePrice * juiceQty;
+        const el = document.getElementById('juice-total');
+        if (el) el.textContent = '$' + total;
+    }
+    
+    function addJuiceToCart() {
+        const totalPrice = selectedJuicePrice * juiceQty;
+        const item = {
+            id: 'juice-' + selectedJuiceFlavor.toLowerCase() + selectedJuiceSize + '-' + Date.now(),
+            name: juiceQty + 'x ' + selectedJuiceSize + 'oz ' + selectedJuiceFlavor + ' Sea Moss Juice',
+            price: totalPrice,
+            details: selectedJuiceFlavor + ' • One-time • Fresh weekly'
+        };
+        addToCart(item);
+    }
+    
+    function selectSubSize(size, price) {
+        selectedSubSize = size;
+        selectedSubPrice = price;
+        document.querySelectorAll('.sub-size-btn').forEach(b => b.classList.remove('bg-purple/10', 'text-purple'));
+        const btn = document.getElementById('sub-size-' + size);
+        if (btn) btn.classList.add('bg-purple/10', 'text-purple');
+        updateSubTotal();
+    }
+    
+    function changeSubQty(change) {
+        subQty = Math.max(1, subQty + change);
+        document.getElementById('sub-qty').textContent = subQty;
+        updateSubTotal();
+    }
+    
+    function updateSubTotal() {
+        const total = selectedSubPrice * subQty;
+        const el = document.getElementById('sub-total');
+        if (el) el.textContent = '$' + total;
+    }
+    
+    function addJuiceSubscription() {
+        const totalPrice = selectedSubPrice * subQty;
+        const item = {
+            id: 'sub-' + selectedJuiceFlavor.toLowerCase() + '-' + Date.now(),
+            name: subQty + 'x ' + selectedSubSize + 'oz ' + selectedJuiceFlavor + ' Weekly Subscription',
+            price: totalPrice,
+            details: selectedJuiceFlavor + ' • Weekly delivery • ' + subQty + ' bottle(s)/week'
+        };
+        addToCart(item);
+    }
+    
+    // Initialize juice section defaults
+    document.addEventListener('DOMContentLoaded', function() {
+        const mangoBtn = document.getElementById('flavor-mango');
+        if (mangoBtn) mangoBtn.classList.add('bg-emerald-600', 'text-white');
+        
+        const size16 = document.getElementById('size-16');
+        if (size16) size16.classList.add('bg-emerald-50', 'text-emerald-700');
+        
+        const sub16 = document.getElementById('sub-size-16');
+        if (sub16) sub16.classList.add('bg-purple/10', 'text-purple');
+        
+        setTimeout(() => {
+            const jTotal = document.getElementById('juice-total');
+            if (jTotal) jTotal.textContent = '$14';
+            const sTotal = document.getElementById('sub-total');
+            if (sTotal) sTotal.textContent = '$14';
+        }, 200);
+    });
+    </script>
+
+
+
+
 
 <!-- 100% privacy-first analytics -->
 <script async src="https://scripts.simpleanalyticscdn.com/latest.js"></script>

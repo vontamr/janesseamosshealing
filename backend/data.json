@@ -1,0 +1,54 @@
+{
+  "stats": {
+    "todaysOrders": 18,
+    "todaysRevenue": 642,
+    "activeSubscriptions": 52,
+    "pendingPickups": 9
+  },
+  "recentOrders": [
+    {
+      "id": "#1847",
+      "customer": "Aisha Thompson",
+      "items": "Mango + Immunity Boost",
+      "total": 75,
+      "status": "Delivered",
+      "time": "2h ago"
+    },
+    {
+      "id": "#1846",
+      "customer": "Marcus Rivera",
+      "items": "32oz Family Jar",
+      "total": 55,
+      "status": "Preparing",
+      "time": "5h ago"
+    },
+    {
+      "id": "#1845",
+      "customer": "Sofia Patel",
+      "items": "Moon Cycle Moss + 2 Gels",
+      "total": 92,
+      "status": "Ready for Pickup",
+      "time": "Yesterday"
+    }
+  ],
+  "pickupsDeliveries": [
+    {
+      "location": "Dr. Phillips • Orlando (32835)",
+      "type": "Pickup",
+      "orders": 3,
+      "status": "Ready"
+    },
+    {
+      "location": "Winter Haven (33880)",
+      "type": "Delivery",
+      "orders": 2,
+      "status": "In Progress"
+    },
+    {
+      "location": "Lake Alfred",
+      "type": "Pickup",
+      "orders": 1,
+      "status": "Scheduled"
+    }
+  ]
+}

@@ -24,8 +24,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 const ADMIN_EMAIL = 'admin@janesseamoss.com';
 
 // TODO: Replace with real hash (run generateHash once)
-const ADMIN_PASSWORD_HASH = '$2b$10$YOUR_REAL_HASH_HERE'; 
-
+const ADMIN_PASSWORD_HASH = '$2b$10$sd6cDM9Y7YPCuK6QfJMCw.GGXOrjoIh.hs0wisMmK8E80sCl89BqS'; 
 // Hash generator (uncomment once, run, then comment out)
 // async function generateHash() {
 //   const hash = await bcrypt.hash('your-strong-password-here', 10);
@@ -45,29 +44,52 @@ const authenticateAdmin = (req, res, next) => {
   }
 };
 
-// Admin Routes
-app.get('/admin/login', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'admin-login.html'));
-});
-
+// ====================== MULTI-USER LOGIN ======================
 app.post('/admin/login', async (req, res) => {
-  try {
-    const { email, password } = req.body;
-    if (email === ADMIN_EMAIL && await bcrypt.compare(password, ADMIN_PASSWORD_HASH)) {
-      const token = jwt.sign({ email }, process.env.JWT_SECRET || 'change-this-to-a-very-strong-secret', { expiresIn: '8h' });
-      res.cookie('adminToken', token, { httpOnly: true });
-      res.json({ success: true, redirect: '/admin/dashboard' });
-    } else {
-      res.status(401).json({ error: 'Invalid credentials' });
-    }
-  } catch (err) {
-    console.error('Login Error:', err);
-    res.status(500).json({ error: 'Server error' });
-  }
-});
+  const { email, password } = req.body;
 
-app.get('/admin/dashboard', authenticateAdmin, (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'admin-dashboard.html'));
+  try {
+      const fs = require('fs');
+      const usersData = JSON.parse(fs.readFileSync('users.json', 'utf8'));
+      const user = usersData.users.find(u => u.email === email);
+
+      if (!user) {
+          return res.status(401).json({ success: false, error: "User not found" });
+      }
+
+      // Simple password check (we'll improve with bcrypt later)
+      if (user.password !== password) {
+          return res.status(401).json({ success: false, error: "Invalid password" });
+      }
+
+      // Create JWT with user info + location
+      const token = jwt.sign(
+          { 
+              id: user.id, 
+              email: user.email, 
+              name: user.name,
+              location: user.location,
+              role: user.role 
+          }, 
+          process.env.JWT_SECRET || 'change-this-to-a-very-strong-secret', 
+          { expiresIn: '8h' }
+      );
+
+      res.cookie('adminToken', token, { httpOnly: true });
+      res.json({ 
+          success: true, 
+          redirect: '/admin/dashboard',
+          user: {
+              name: user.name,
+              location: user.location,
+              role: user.role
+          }
+      });
+
+  } catch (err) {
+      console.error("Login error:", err);
+      res.status(500).json({ success: false, error: "Server error" });
+  }
 });
 
 // ====================== CHECKOUT ======================
@@ -107,6 +129,28 @@ app.post('/create-checkout-session', async (req, res) => {
 });
 
 const PORT = process.env.PORT || 3000;
+
+// ====================== DASHBOARD DATA API ======================
+app.get('/api/dashboard', (req, res) => {
+  const fs = require('fs');
+  try {
+      const rawData = fs.readFileSync('data.json', 'utf8');
+      const data = JSON.parse(rawData);
+      res.json(data);
+  } catch (err) {
+      console.error("Dashboard data error:", err);
+      res.status(500).json({ error: "Failed to load dashboard data" });
+  }
+
+// ====================== ADMIN DASHBOARD PAGE ======================
+app.get('/admin/dashboard', authenticateAdmin, (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'admin-dashboard.html'));
+});
+
+});
+
+
+
 app.listen(PORT, () => {
   console.log(`🌊 Janesse Seamoss Backend running on port ${PORT}`);
 
