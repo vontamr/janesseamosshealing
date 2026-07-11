@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Shop | Jane's Seamoss Creation</title>
 <meta name="description" content="Wild-harvested sea moss gels • Naturally sweetened by bees • No added sweeteners">
+
 <!-- Meta Pixel Code -->
 <script>
 !function(f,b,e,v,n,t,s)
@@ -21,10 +22,11 @@ fbq('track', 'PageView');
 <noscript><img height="1" width="1" style="display:none"
 src="https://www.facebook.com/tr?id=1520084362933231&ev=PageView&noscript=1"
 /></noscript>
-<!-- End Meta Pixel Code -->
+
 <script src="https://cdn.tailwindcss.com" async></script>
 <link rel="stylesheet" href="styles.css">
 <script src="https://js.stripe.com/v3/"></script>
+
 <script>
 function initTailwind() {
 tailwind.config = {
@@ -42,38 +44,19 @@ lightpurple: '#EAD5F8',
 }
 window.addEventListener('load', initTailwind);
 </script>
+
 <style>
 .marquee { overflow: hidden; white-space: nowrap; }
 .marquee-content { display: inline-flex; animation: marquee 35s linear infinite; }
-@keyframes marquee {
-from { transform: translateX(0); }
-to { transform: translateX(-50%); }
-}
+@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 .product-card img { transition: transform 0.7s ease; }
 .product-card:hover img { transform: scale(1.06); }
-.bee {
-position: absolute;
-font-size: 34px;
-opacity: 0.75;
-pointer-events: none;
-z-index: 10;
-animation: beeFlight 26s linear infinite;
-}
+.bee { position: absolute; font-size: 34px; opacity: 0.75; pointer-events: none; z-index: 10; animation: beeFlight 26s linear infinite; }
 .bee1 { animation-delay: 0s; left: 12%; top: 28%; }
 .bee2 { animation-delay: -13s; right: 15%; top: 42%; }
-@keyframes beeFlight {
-0% { transform: translate(0, 0) rotate(-8deg); }
-33% { transform: translate(110px, -45px) rotate(10deg); }
-66% { transform: translate(-40px, 65px) rotate(-12deg); }
-100% { transform: translate(0, 0) rotate(-8deg); }
-}
-.delivery-card {
-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-.delivery-card:hover {
-transform: translateY(-4px);
-box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
-}
+@keyframes beeFlight { 0% { transform: translate(0, 0) rotate(-8deg); } 33% { transform: translate(110px, -45px) rotate(10deg); } 66% { transform: translate(-40px, 65px) rotate(-12deg); } 100% { transform: translate(0, 0) rotate(-8deg); } }
+.delivery-card { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+.delivery-card:hover { transform: translateY(-4px); box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1); }
 </style>
 </head>
 <body class="bg-white text-deep font-sans antialiased">
@@ -180,7 +163,7 @@ Change Delivery
 </div>
 <div class="mt-6 text-center">
 <h3 class="text-2xl font-light">Sea Moss Juice</h3>
-<div class="text-purple font-semibold text-xl mt-1">$14 – $26</div>
+<div class="text-purple font-semibold text-xl mt-1">$10 – $21</div>
 <p class="text-sm text-gray-600 mt-1">Choose flavor &amp; size</p>
 <button onclick="showJuiceModal()" class="mt-5 w-full bg-purple hover:bg-deep text-white py-4 rounded-3xl font-medium transition-all">
 Choose Flavor &amp; Size
@@ -190,40 +173,29 @@ Choose Flavor &amp; Size
 
 <!-- Raw Gold Sea Moss -->
 <div class="product-card group" data-category="raw">
-    <div class="overflow-hidden rounded-3xl shadow-sm relative">
-        <!-- Video -->
-        <video 
-            id="raw-seamoss-video"
-            class="w-full aspect-square object-cover rounded-3xl"
-            muted 
-            loop 
-            playsinline
-            preload="metadata"
-            poster="assets/images/rawseamoss.mp4">
-            <source src="assets/images/rawseamoss.mp4" type="video/mp4">
-        </video>
-    </div>
-
-    <div class="mt-6 text-center">
-        <h3 class="text-2xl font-light">Raw Gold Sea Moss</h3>
-        <div class="text-purple font-semibold text-xl mt-1">$15</div>
-        <p class="text-purple text-sm mt-1">1 oz Dried • Wildcrafted • Perfect for DIY</p>
-
-        <div class="mt-4 text-left px-2 text-sm text-gray-600">
-            <p><strong>Benefits people love:</strong></p>
-            <ul class="list-disc pl-5 mt-1 space-y-0.5 text-left">
-                <li>Supports immune health</li>
-                <li>Helps promote natural energy</li>
-                <li>Supports healthy skin, hair &amp; gut function</li>
-                <li>Naturally rich in essential minerals</li>
-            </ul>
-        </div>
-
-        <button onclick="addToCart({id:'raw-seamoss', name:'Raw Gold Sea Moss (1 oz)', price:15, details:'Dried Wildcrafted Sea Moss'})"
-                class="mt-6 w-full bg-purple hover:bg-deep text-white py-4 rounded-3xl font-medium transition-all">
-            Add to Cart
-        </button>
-    </div>
+<div class="overflow-hidden rounded-3xl shadow-sm relative">
+<video id="raw-seamoss-video" class="w-full aspect-square object-cover rounded-3xl" muted loop playsinline preload="metadata" poster="assets/images/raw-seamoss.jpg">
+<source src="assets/images/rawseamoss.mp4" type="video/mp4">
+</video>
+</div>
+<div class="mt-6 text-center">
+<h3 class="text-2xl font-light">Raw Gold Sea Moss</h3>
+<div class="text-purple font-semibold text-xl mt-1">$15</div>
+<p class="text-purple text-sm mt-1">1 oz Dried • Wildcrafted • Perfect for DIY</p>
+<div class="mt-4 text-left px-2 text-sm text-gray-600">
+<p><strong>Benefits people love:</strong></p>
+<ul class="list-disc pl-5 mt-1 space-y-0.5 text-left">
+<li>Supports immune health</li>
+<li>Helps promote natural energy</li>
+<li>Supports healthy skin, hair &amp; gut function</li>
+<li>Naturally rich in essential minerals</li>
+</ul>
+</div>
+<button onclick="addToCart({id:'raw-seamoss', content_id:'ml9pm6805d', name:'Raw Gold Sea Moss (1 oz)', price:15, details:'Dried Wildcrafted Sea Moss'})"
+class="mt-6 w-full bg-purple hover:bg-deep text-white py-4 rounded-3xl font-medium transition-all">
+Add to Cart
+</button>
+</div>
 </div>
 
 <!-- Mango -->
@@ -235,7 +207,7 @@ Choose Flavor &amp; Size
 <h3 class="text-2xl font-light">Mango</h3>
 <div class="text-purple font-semibold text-xl mt-1">$35</div>
 <p class="text-purple text-sm mt-1">Vitamin A &amp; C • Skin &amp; Immune Support</p>
-<button onclick="addToCart({id:'mango', name:'Mango Sea Moss Gel', price:35, details:'Vitamin A & C'})" class="mt-6 w-full bg-purple hover:bg-deep text-white py-4 rounded-3xl font-medium transition-all">Add to Cart</button>
+<button onclick="addToCart({id:'mango', content_id:'xd32zaotnc', name:'Mango Sea Moss Gel', price:35, details:'Vitamin A & C'})" class="mt-6 w-full bg-purple hover:bg-deep text-white py-4 rounded-3xl font-medium transition-all">Add to Cart</button>
 </div>
 </div>
 
@@ -248,7 +220,7 @@ Choose Flavor &amp; Size
 <h3 class="text-2xl font-light">Passionfruit</h3>
 <div class="text-purple font-semibold text-xl mt-1">$35</div>
 <p class="text-purple text-sm mt-1">High Vitamin C • Digestion &amp; Immunity</p>
-<button onclick="addToCart({id:'passionfruit', name:'Passionfruit Sea Moss Gel', price:35, details:'Immunity'})" class="mt-6 w-full bg-purple hover:bg-deep text-white py-4 rounded-3xl font-medium transition-all">Add to Cart</button>
+<button onclick="addToCart({id:'passionfruit', content_id:'5elxshsx9x', name:'Passionfruit Sea Moss Gel', price:35, details:'Immunity'})" class="mt-6 w-full bg-purple hover:bg-deep text-white py-4 rounded-3xl font-medium transition-all">Add to Cart</button>
 </div>
 </div>
 
@@ -261,7 +233,7 @@ Choose Flavor &amp; Size
 <h3 class="text-2xl font-light">Blackberry</h3>
 <div class="text-purple font-semibold text-xl mt-1">$35</div>
 <p class="text-purple text-sm mt-1">Antioxidants • Heart, Brain &amp; Digestion</p>
-<button onclick="addToCart({id:'blackberry', name:'Blackberry Sea Moss Gel', price:35, details:'Antioxidants'})" class="mt-6 w-full bg-purple hover:bg-deep text-white py-4 rounded-3xl font-medium transition-all">Add to Cart</button>
+<button onclick="addToCart({id:'blackberry', content_id:'ml9pm6805d', name:'Blackberry Sea Moss Gel', price:35, details:'Antioxidants'})" class="mt-6 w-full bg-purple hover:bg-deep text-white py-4 rounded-3xl font-medium transition-all">Add to Cart</button>
 </div>
 </div>
 
@@ -274,7 +246,7 @@ Choose Flavor &amp; Size
 <h3 class="text-2xl font-light">Soursop</h3>
 <div class="text-purple font-semibold text-xl mt-1">$36</div>
 <p class="text-purple text-sm mt-1">Antioxidants • Immune &amp; Skin Support</p>
-<button onclick="addToCart({id:'soursop', name:'Soursop Sea Moss Gel', price:35, details:'Immune Support'})" class="mt-6 w-full bg-purple hover:bg-deep text-white py-4 rounded-3xl font-medium transition-all">Add to Cart</button>
+<button onclick="addToCart({id:'soursop', content_id:'5elxshsx9x', name:'Soursop Sea Moss Gel', price:36, details:'Immune Support'})" class="mt-6 w-full bg-purple hover:bg-deep text-white py-4 rounded-3xl font-medium transition-all">Add to Cart</button>
 </div>
 </div>
 
@@ -287,7 +259,7 @@ Choose Flavor &amp; Size
 <h3 class="text-2xl font-light">Strawberry</h3>
 <div class="text-purple font-semibold text-xl mt-1">$35</div>
 <p class="text-purple text-sm mt-1">Vitamin C • Heart &amp; Immune Support</p>
-<button onclick="addToCart({id:'strawberry', name:'Strawberry Sea Moss Gel', price:35, details:'Vitamin C'})" class="mt-6 w-full bg-purple hover:bg-deep text-white py-4 rounded-3xl font-medium transition-all">Add to Cart</button>
+<button onclick="addToCart({id:'strawberry', content_id:'xd32zaotnc', name:'Strawberry Sea Moss Gel', price:35, details:'Vitamin C'})" class="mt-6 w-full bg-purple hover:bg-deep text-white py-4 rounded-3xl font-medium transition-all">Add to Cart</button>
 </div>
 </div>
 
@@ -300,7 +272,7 @@ Choose Flavor &amp; Size
 <h3 class="text-2xl font-light">Pineapple</h3>
 <div class="text-purple font-semibold text-xl mt-1">$35</div>
 <p class="text-purple text-sm mt-1">Bromelain • Anti-inflammatory &amp; Digestion</p>
-<button onclick="addToCart({id:'pineapple', name:'Pineapple Sea Moss Gel', price:35, details:'Anti-inflammatory'})" class="mt-6 w-full bg-purple hover:bg-deep text-white py-4 rounded-3xl font-medium transition-all">Add to Cart</button>
+<button onclick="addToCart({id:'pineapple', content_id:'5elxshsx9x', name:'Pineapple Sea Moss Gel', price:35, details:'Anti-inflammatory'})" class="mt-6 w-full bg-purple hover:bg-deep text-white py-4 rounded-3xl font-medium transition-all">Add to Cart</button>
 </div>
 </div>
 
@@ -313,7 +285,7 @@ Choose Flavor &amp; Size
 <h3 class="text-2xl font-light">Moon Cycle Moss</h3>
 <div class="text-purple font-semibold text-xl mt-1">$40</div>
 <p class="text-sm text-gray-600 mt-3 leading-snug">A nourishing blend of wildcrafted sea moss, maca root, red raspberry leaf, hibiscus, ginger &amp; cinnamon. Supports hormonal balance, menstrual comfort, energy &amp; overall well-being.</p>
-<button onclick="addToCart({id:'mooncycle', name:'Moon Cycle Moss', price:40, details:'Hormonal Balance & Wellness'})" class="mt-6 w-full bg-purple hover:bg-deep text-white py-4 rounded-3xl font-medium transition-all">Add to Cart</button>
+<button onclick="addToCart({id:'mooncycle', content_id:'y9115pg998', name:'Moon Cycle Moss', price:40, details:'Hormonal Balance & Wellness'})" class="mt-6 w-full bg-purple hover:bg-deep text-white py-4 rounded-3xl font-medium transition-all">Add to Cart</button>
 </div>
 </div>
 
@@ -326,7 +298,7 @@ Choose Flavor &amp; Size
 <h3 class="text-2xl font-light">Blood Pressure Balance</h3>
 <div class="text-purple font-semibold text-xl mt-1">$40</div>
 <p class="text-purple text-sm mt-1">Bladderwrack • Cardiovascular Health</p>
-<button onclick="addToCart({id:'bloodpressure', name:'Blood Pressure Balance', price:40, details:'Cardiovascular'})" class="mt-6 w-full bg-purple hover:bg-deep text-white py-4 rounded-3xl font-medium transition-all">Add to Cart</button>
+<button onclick="addToCart({id:'bloodpressure', content_id:'y9115pg998', name:'Blood Pressure Balance', price:40, details:'Cardiovascular'})" class="mt-6 w-full bg-purple hover:bg-deep text-white py-4 rounded-3xl font-medium transition-all">Add to Cart</button>
 </div>
 </div>
 
@@ -339,7 +311,7 @@ Choose Flavor &amp; Size
 <h3 class="text-2xl font-light">Vitality</h3>
 <div class="text-purple font-semibold text-xl mt-1">$40</div>
 <p class="text-purple text-sm mt-1">Horny Goat Weed • Energy &amp; Libido</p>
-<button onclick="addToCart({id:'vitality', name:'Vitality Gel', price:40, details:'Energy & Libido'})" class="mt-6 w-full bg-purple hover:bg-deep text-white py-4 rounded-3xl font-medium transition-all">Add to Cart</button>
+<button onclick="addToCart({id:'vitality', content_id:'y9115pg998', name:'Vitality Gel', price:40, details:'Energy & Libido'})" class="mt-6 w-full bg-purple hover:bg-deep text-white py-4 rounded-3xl font-medium transition-all">Add to Cart</button>
 </div>
 </div>
 
@@ -352,7 +324,7 @@ Choose Flavor &amp; Size
 <h3 class="text-2xl font-light">Powerhouse</h3>
 <div class="text-purple font-semibold text-xl mt-1">$45</div>
 <p class="text-purple text-sm mt-1">Shilajit • Energy &amp; Vitality</p>
-<button onclick="addToCart({id:'powerhouse', name:'Powerhouse Gel', price:45, details:'Energy & Vitality'})" class="mt-6 w-full bg-purple hover:bg-deep text-white py-4 rounded-3xl font-medium transition-all">Add to Cart</button>
+<button onclick="addToCart({id:'powerhouse', content_id:'y9115pg998', name:'Powerhouse Gel', price:45, details:'Energy & Vitality'})" class="mt-6 w-full bg-purple hover:bg-deep text-white py-4 rounded-3xl font-medium transition-all">Add to Cart</button>
 </div>
 </div>
 
@@ -365,7 +337,7 @@ Choose Flavor &amp; Size
 <h3 class="text-2xl font-light">Immunity Boost</h3>
 <div class="text-purple font-semibold text-xl mt-1">$40</div>
 <p class="text-purple text-sm mt-1">Ginger • Immune &amp; Anti-inflammatory</p>
-<button onclick="addToCart({id:'immunity', name:'Immunity Boost Gel', price:40, details:'Immune Support'})" class="mt-6 w-full bg-purple hover:bg-deep text-white py-4 rounded-3xl font-medium transition-all">Add to Cart</button>
+<button onclick="addToCart({id:'immunity', content_id:'y9115pg998', name:'Immunity Boost Gel', price:40, details:'Immune Support'})" class="mt-6 w-full bg-purple hover:bg-deep text-white py-4 rounded-3xl font-medium transition-all">Add to Cart</button>
 </div>
 </div>
 
@@ -378,7 +350,7 @@ Choose Flavor &amp; Size
 <h3 class="text-2xl font-light">Joint Relief</h3>
 <div class="text-purple font-semibold text-xl mt-1">$40</div>
 <p class="text-purple text-sm mt-1">Blackseed Oil • Anti-inflammatory</p>
-<button onclick="addToCart({id:'joint', name:'Joint Relief Gel', price:40, details:'Joint Support'})" class="mt-6 w-full bg-purple hover:bg-deep text-white py-4 rounded-3xl font-medium transition-all">Add to Cart</button>
+<button onclick="addToCart({id:'joint', content_id:'y9115pg998', name:'Joint Relief Gel', price:40, details:'Joint Support'})" class="mt-6 w-full bg-purple hover:bg-deep text-white py-4 rounded-3xl font-medium transition-all">Add to Cart</button>
 </div>
 </div>
 
@@ -391,7 +363,7 @@ Choose Flavor &amp; Size
 <h3 class="text-2xl font-light">Brain Support</h3>
 <div class="text-purple font-semibold text-xl mt-1">$40</div>
 <p class="text-purple text-sm mt-1">Ashwagandha • Stress Relief &amp; Focus</p>
-<button onclick="addToCart({id:'brain', name:'Brain Support Gel', price:40, details:'Stress & Focus'})" class="mt-6 w-full bg-purple hover:bg-deep text-white py-4 rounded-3xl font-medium transition-all">Add to Cart</button>
+<button onclick="addToCart({id:'brain', content_id:'y9115pg998', name:'Brain Support Gel', price:40, details:'Stress & Focus'})" class="mt-6 w-full bg-purple hover:bg-deep text-white py-4 rounded-3xl font-medium transition-all">Add to Cart</button>
 </div>
 </div>
 
@@ -404,7 +376,7 @@ Choose Flavor &amp; Size
 <h3 class="text-2xl font-light">Pet Wellness Gel</h3>
 <div class="text-purple font-semibold text-xl mt-1">Coming Soon</div>
 <p class="text-sm mt-3 text-gray-600">The first sea moss gel formulated specifically for dogs &amp; cats.<br><span class="font-medium text-purple">Launching soon — Be the first to know.</span></p>
-<button onclick="alert('Pet Wellness Gel is coming soon! Sign up for early access and exclusive launch offers.')" class="mt-6 w-full bg-purple hover:bg-deep text-white py-4 rounded-3xl font-medium transition-all">Get Early Access</button>
+<button onclick="alert('Pet Wellness Gel is coming soon!')" class="mt-6 w-full bg-purple hover:bg-deep text-white py-4 rounded-3xl font-medium transition-all">Get Early Access</button>
 </div>
 </div>
 
@@ -461,15 +433,15 @@ class="flex-1 py-3 rounded-2xl border-2 border-purple text-purple font-medium">B
 <p class="text-sm font-medium mb-2">Size</p>
 <div class="flex gap-2">
 <button onclick="selectJuiceOption('size', '16oz')" id="size-16oz"
-class="flex-1 py-3 rounded-2xl border-2 border-purple bg-purple/10 text-purple font-medium">16oz — $14</button>
+class="flex-1 py-3 rounded-2xl border-2 border-purple bg-purple/10 text-purple font-medium">16oz — $10</button>
 <button onclick="selectJuiceOption('size', '32oz')" id="size-32oz"
-class="flex-1 py-3 rounded-2xl border-2 border-purple text-purple font-medium">32oz — $26</button>
+class="flex-1 py-3 rounded-2xl border-2 border-purple text-purple font-medium">32oz — $21</button>
 </div>
 </div>
 
 <div class="text-center mb-6">
 <p class="text-sm text-gray-500">Total</p>
-<p class="text-3xl font-semibold text-purple" id="juice-modal-total">$14</p>
+<p class="text-3xl font-semibold text-purple" id="juice-modal-total">$10</p>
 </div>
 
 <button onclick="addJuiceToCartFromModal()" class="w-full bg-purple hover:bg-deep text-white py-4 rounded-3xl font-semibold text-lg">
@@ -507,6 +479,7 @@ Proceed to Secure Checkout →
 </div>
 
 <div class="grid md:grid-cols-3 gap-6">
+<!-- Local Delivery -->
 <div onclick="showLocalDeliveryCalculator()" class="delivery-card border-2 border-purple hover:border-deep rounded-3xl p-8 cursor-pointer">
 <div class="mb-4">
 <svg xmlns="http://www.w3.org/2000/svg" class="w-14 h-14" fill="none" viewBox="0 0 24 24" stroke="#5E0089" stroke-width="1.5">
@@ -518,12 +491,14 @@ Proceed to Secure Checkout →
 <p class="text-purple font-medium mb-3">Check your area & fee</p>
 </div>
 
+<!-- Free Pickup -->
 <div onclick="showPickupForm()" class="delivery-card border-2 border-purple hover:border-deep rounded-3xl p-8 cursor-pointer">
 <div class="text-5xl mb-4">📍</div>
 <h3 class="text-2xl font-semibold mb-2">Free In-Store Pickup</h3>
 <p class="text-purple font-medium mb-4">Choose location &amp; time slot</p>
 </div>
 
+<!-- Shipping -->
 <div onclick="showShippingForm()" class="delivery-card border-2 border-purple hover:border-deep rounded-3xl p-8 cursor-pointer">
 <div class="text-5xl mb-4">📦</div>
 <h3 class="text-2xl font-semibold mb-2">Shipping (Nationwide)</h3>
@@ -533,6 +508,28 @@ Proceed to Secure Checkout →
 
 <p class="text-center text-xs text-gray-500 mt-8">One delivery method is required before checkout</p>
 
+<!-- Local Delivery Form -->
+<div id="local-delivery-form" class="hidden mt-8 border border-purple/20 rounded-3xl p-8">
+<h4 class="text-xl font-semibold mb-4">Local Delivery Details</h4>
+<form id="local-delivery-details-form" class="space-y-4">
+<div>
+<label class="block text-sm font-medium mb-1">ZIP Code *</label>
+<input type="text" name="zip" required class="w-full border border-gray-300 rounded-2xl px-4 py-3 text-sm" placeholder="Enter your ZIP code">
+</div>
+<div>
+<label class="block text-sm font-medium mb-1">Delivery Fee</label>
+<div class="bg-gray-100 px-4 py-3 rounded-2xl text-sm">
+$8.99 flat fee (within 25 miles)
+</div>
+</div>
+<div class="flex gap-3 pt-2">
+<button type="button" onclick="hideDeliveryForms()" class="flex-1 border border-gray-300 text-gray-600 py-3 rounded-2xl font-medium">Back</button>
+<button type="submit" class="flex-1 bg-purple hover:bg-deep text-white py-3 rounded-2xl font-semibold">Confirm Local Delivery</button>
+</div>
+</form>
+</div>
+
+<!-- Pickup Form -->
 <div id="pickup-form" class="hidden mt-8 border border-purple/20 rounded-3xl p-8">
 <h4 class="text-xl font-semibold mb-4">Free Pickup Details</h4>
 <form id="pickup-details-form" class="space-y-4">
@@ -558,8 +555,9 @@ Proceed to Secure Checkout →
 <option value="Winter Haven FL - 33880">Winter Haven FL (33880)</option>
 <option value="Lake Alfred FL">Lake Alfred FL</option>
 <option value="Holiday FL - 34690">Holiday FL (34690)</option>
-<option value="Goodyear, AZ - 85338">Goodyear, Arizona (85338)</option>
-<option value="Pine Hills / Orlando FL - 32808/32811/32839">Pine Hills / Orlando FL (32808, 32811, 32839)</option>
+<option value="Pinehills FL - 32808">Pinehills FL (32808)</option>
+<option value="Goodyear AZ - 85338">Goodyear AZ (85338)</option>
+
 </select>
 </div>
 <div>
@@ -577,180 +575,321 @@ Proceed to Secure Checkout →
 </div>
 </form>
 </div>
+
+<!-- Shipping Form -->
+<div id="shipping-form" class="hidden mt-8 border border-purple/20 rounded-3xl p-8">
+<h4 class="text-xl font-semibold mb-4">Shipping Details</h4>
+<form id="shipping-details-form" class="space-y-4">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div>
+<label class="block text-sm font-medium mb-1">Full Name *</label>
+<input type="text" name="name" required class="w-full border border-gray-300 rounded-2xl px-4 py-3 text-sm">
+</div>
+<div>
+<label class="block text-sm font-medium mb-1">Phone Number *</label>
+<input type="tel" name="phone" required class="w-full border border-gray-300 rounded-2xl px-4 py-3 text-sm">
+</div>
+</div>
+<div>
+<label class="block text-sm font-medium mb-1">Shipping Address *</label>
+<input type="text" name="address" required class="w-full border border-gray-300 rounded-2xl px-4 py-3 text-sm">
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div>
+<label class="block text-sm font-medium mb-1">City *</label>
+<input type="text" name="city" required class="w-full border border-gray-300 rounded-2xl px-4 py-3 text-sm">
+</div>
+<div>
+<label class="block text-sm font-medium mb-1">State *</label>
+<input type="text" name="state" required class="w-full border border-gray-300 rounded-2xl px-4 py-3 text-sm">
+</div>
+</div>
+<div>
+<label class="block text-sm font-medium mb-1">ZIP Code *</label>
+<input type="text" name="zip" required class="w-full border border-gray-300 rounded-2xl px-4 py-3 text-sm">
+</div>
+<div class="flex gap-3 pt-2">
+<button type="button" onclick="hideDeliveryForms()" class="flex-1 border border-gray-300 text-gray-600 py-3 rounded-2xl font-medium">Back</button>
+<button type="submit" class="flex-1 bg-purple hover:bg-deep text-white py-3 rounded-2xl font-semibold">Confirm Shipping ($9.99)</button>
+</div>
+</form>
+</div>
 </div>
 </div>
 
 <script>
-// ========== FULL CART + JUICE + DELIVERY ==========
+// ========== FULL CART + JUICE + DELIVERY (with Meta Pixel tracking) ==========
 let cart = [];
 
 function addToCart(item) {
-cart.push(item);
-localStorage.setItem('cart', JSON.stringify(cart));
-updateCartCount();
-showCartModal();
+    cart.push(item);
+    localStorage.setItem('cart', JSON.stringify(cart));
+    updateCartCount();
+    showCartModal();
+
+    // === META PIXEL TRACKING ===
+    if (typeof fbq === 'function') {
+        fbq('track', 'AddToCart', {
+            content_ids: [item.content_id || item.id],
+            content_type: 'product',
+            value: item.price,
+            currency: 'USD'
+        });
+    }
 }
 
 function updateCartCount() {
-const countEl = document.getElementById('cart-count');
-if (countEl) countEl.textContent = cart.length;
+    const countEl = document.getElementById('cart-count');
+    if (countEl) countEl.textContent = cart.length;
 }
 
 function showCartModal() {
-const modal = document.getElementById('cart-modal');
-const itemsContainer = document.getElementById('cart-items');
-itemsContainer.innerHTML = '';
-let total = 0;
-cart.forEach((item, index) => {
-total += item.price;
-const div = document.createElement('div');
-div.className = 'flex justify-between items-center border-b py-4';
-div.innerHTML = `
-<div>
-<p class="font-medium">${item.name}</p>
-<p class="text-sm text-gray-600">${item.details}</p>
-</div>
-<div class="text-right">
-<p class="font-semibold">$${item.price}</p>
-<button onclick="removeFromCart(${index})" class="text-red-500 text-sm">Remove</button>
-</div>
-`;
-itemsContainer.appendChild(div);
-});
-document.getElementById('cart-total').textContent = '$' + total.toFixed(2);
-modal.classList.remove('hidden');
+    const modal = document.getElementById('cart-modal');
+    const itemsContainer = document.getElementById('cart-items');
+    itemsContainer.innerHTML = '';
+    let total = 0;
+
+    cart.forEach((item, index) => {
+        total += item.price;
+        const div = document.createElement('div');
+        div.className = 'flex justify-between items-center border-b py-4';
+        div.innerHTML = `
+            <div>
+                <p class="font-medium">${item.name}</p>
+                <p class="text-sm text-gray-600">${item.details}</p>
+            </div>
+            <div class="text-right">
+                <p class="font-semibold">$${item.price}</p>
+                <button onclick="removeFromCart(${index})" class="text-red-500 text-sm">Remove</button>
+            </div>
+        `;
+        itemsContainer.appendChild(div);
+    });
+
+    document.getElementById('cart-total').textContent = '$' + total.toFixed(2);
+    modal.classList.remove('hidden');
 }
 
 function hideCartModal() {
-document.getElementById('cart-modal').classList.add('hidden');
+    document.getElementById('cart-modal').classList.add('hidden');
 }
 
 function removeFromCart(index) {
-cart.splice(index, 1);
-localStorage.setItem('cart', JSON.stringify(cart));
-updateCartCount();
-showCartModal();
+    cart.splice(index, 1);
+    localStorage.setItem('cart', JSON.stringify(cart));
+    updateCartCount();
+    showCartModal();
 }
 
 async function proceedToCheckout() {
-hideCartModal();
-const hasDelivery = cart.some(item => ['delivery-fee', 'pickup', 'shipping'].includes(item.id));
-if (!hasDelivery) {
-alert("Please choose a delivery method first.");
-showDeliverySelector();
-return;
-}
-try {
-const response = await fetch('https://janesse-seamoss-backend.onrender.com/create-checkout-session', {
-method: 'POST',
-headers: { 'Content-Type': 'application/json' },
-body: JSON.stringify({ cart: cart })
-});
-const data = await response.json();
-const stripe = Stripe('pk_live_51TREXTIeLXeJ9tb9RCUiY0hHSBBY5hbqPfwgnVpyUDS0nAYTgwhls3y2ffClfgUu7ZJjVPDVpr6tPZZWNBKcec8Q00BbSr1yQc');
-await stripe.redirectToCheckout({ sessionId: data.id });
-} catch (error) {
-alert("⚠️ Checkout error. Please try again.");
-}
+    hideCartModal();
+    const hasDelivery = cart.some(item => ['delivery-fee', 'pickup', 'shipping', 'local-delivery'].includes(item.id));
+    if (!hasDelivery) {
+        alert("Please choose a delivery method first.");
+        showDeliverySelector();
+        return;
+    }
+    try {
+        const response = await fetch('https://janesse-seamoss-backend.onrender.com/create-checkout-session', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ cart: cart })
+        });
+        const data = await response.json();
+        const stripe = Stripe('pk_live_51TREXTIeLXeJ9tb9RCUiY0hHSBBY5hbqPfwgnVpyUDS0nAYTgwhls3y2ffClfgUu7ZJjVPDVpr6tPZZWNBKcec8Q00BbSr1yQc');
+        await stripe.redirectToCheckout({ sessionId: data.id });
+    } catch (error) {
+        alert("⚠️ Checkout error. Please try again.");
+    }
 }
 
 // ========== JUICE MODAL ==========
 let selectedJuiceFlavor = 'Mango';
 let selectedJuiceSize = '16oz';
-let selectedJuicePrice = 14;
+let selectedJuicePrice = 10;
 
 function showJuiceModal() {
-document.getElementById('juice-modal').classList.remove('hidden');
-selectJuiceOption('flavor', 'Mango');
-selectJuiceOption('size', '16oz');
+    document.getElementById('juice-modal').classList.remove('hidden');
+    selectJuiceOption('flavor', 'Mango');
+    selectJuiceOption('size', '16oz');
 }
 
 function hideJuiceModal() {
-document.getElementById('juice-modal').classList.add('hidden');
+    document.getElementById('juice-modal').classList.add('hidden');
 }
 
 function selectJuiceOption(type, value) {
-if (type === 'flavor') {
-selectedJuiceFlavor = value;
-document.querySelectorAll('[id^="flavor-"]').forEach(el => el.classList.remove('bg-purple/10', 'text-purple'));
-document.getElementById('flavor-' + value).classList.add('bg-purple/10', 'text-purple');
-}
-if (type === 'size') {
-selectedJuiceSize = value;
-selectedJuicePrice = (value === '16oz') ? 14 : 26;
-document.querySelectorAll('[id^="size-"]').forEach(el => el.classList.remove('bg-purple/10', 'text-purple'));
-document.getElementById('size-' + value).classList.add('bg-purple/10', 'text-purple');
-}
-document.getElementById('juice-modal-total').textContent = '$' + selectedJuicePrice;
+    if (type === 'flavor') {
+        selectedJuiceFlavor = value;
+        document.querySelectorAll('[id^="flavor-"]').forEach(el => el.classList.remove('bg-purple/10', 'text-purple'));
+        document.getElementById('flavor-' + value).classList.add('bg-purple/10', 'text-purple');
+    }
+    if (type === 'size') {
+        selectedJuiceSize = value;
+        selectedJuicePrice = (value === '16oz') ? 10 : 21;
+        document.querySelectorAll('[id^="size-"]').forEach(el => el.classList.remove('bg-purple/10', 'text-purple'));
+        document.getElementById('size-' + value).classList.add('bg-purple/10', 'text-purple');
+    }
+    document.getElementById('juice-modal-total').textContent = '$' + selectedJuicePrice;
 }
 
 function addJuiceToCartFromModal() {
-const item = {
-id: 'juice-' + selectedJuiceFlavor.toLowerCase() + '-' + selectedJuiceSize,
-name: selectedJuiceFlavor + ' Sea Moss Juice (' + selectedJuiceSize + ')',
-price: selectedJuicePrice,
-details: selectedJuiceFlavor + ' • ' + selectedJuiceSize
-};
-addToCart(item);
-hideJuiceModal();
+    const contentId = `juice-${selectedJuiceFlavor.toLowerCase()}-${selectedJuiceSize}`;
+    
+    const item = {
+        id: contentId,
+        content_id: contentId,
+        name: selectedJuiceFlavor + ' Sea Moss Juice (' + selectedJuiceSize + ')',
+        price: selectedJuicePrice,
+        details: selectedJuiceFlavor + ' • ' + selectedJuiceSize
+    };
+    
+    addToCart(item);
+    hideJuiceModal();
 }
 
-// ========== DELIVERY ==========
+// ========== DELIVERY SYSTEM ==========
 function showDeliverySelector() {
-document.getElementById('delivery-selector-modal').classList.remove('hidden');
+    document.getElementById('delivery-selector-modal').classList.remove('hidden');
 }
+
 function hideDeliverySelector() {
-document.getElementById('delivery-selector-modal').classList.add('hidden');
+    document.getElementById('delivery-selector-modal').classList.add('hidden');
 }
+
 function hideDeliveryForms() {
-document.getElementById('pickup-form').classList.add('hidden');
+    document.getElementById('local-delivery-form').classList.add('hidden');
+    document.getElementById('pickup-form').classList.add('hidden');
+    document.getElementById('shipping-form').classList.add('hidden');
+    document.querySelector('#delivery-selector-modal .grid').classList.remove('hidden');
 }
+
+// Local Delivery
+function showLocalDeliveryCalculator() {
+    document.querySelector('#delivery-selector-modal .grid').classList.add('hidden');
+    document.getElementById('local-delivery-form').classList.remove('hidden');
+}
+
+document.getElementById('local-delivery-details-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const formData = new FormData(this);
+    const zip = formData.get('zip');
+
+    cart = cart.filter(item => !['delivery-fee', 'pickup', 'shipping', 'local-delivery'].includes(item.id));
+    const deliveryItem = {
+        id: 'local-delivery',
+        name: `Local Delivery - ZIP ${zip}`,
+        price: 8.99,
+        details: 'Local delivery within 25 miles'
+    };
+    cart.push(deliveryItem);
+    localStorage.setItem('cart', JSON.stringify(cart));
+
+    alert(`✅ Local Delivery confirmed for ZIP ${zip} — $8.99 added`);
+    hideDeliverySelector();
+    updateCartCount();
+});
+
+// Pickup
 function showPickupForm() {
-document.querySelector('#delivery-selector-modal .grid').classList.add('hidden');
-document.getElementById('pickup-form').classList.remove('hidden');
+    document.querySelector('#delivery-selector-modal .grid').classList.add('hidden');
+    document.getElementById('pickup-form').classList.remove('hidden');
 }
 
 document.getElementById('pickup-details-form').addEventListener('submit', async function(e) {
-e.preventDefault();
-const formData = new FormData(this);
-const location = formData.get('location');
-const time = formData.get('time');
+    e.preventDefault();
+    const formData = new FormData(this);
+    const location = formData.get('location');
+    const time = formData.get('time');
 
-try {
-await fetch('https://formspree.io/f/xjgzrwry', {
-method: 'POST',
-body: formData,
-headers: { 'Accept': 'application/json' }
+    try {
+        await fetch('https://formspree.io/f/xjgzrwry', {
+            method: 'POST',
+            body: formData,
+            headers: { 'Accept': 'application/json' }
+        });
+    } catch (err) {}
+
+    cart = cart.filter(item => !['delivery-fee', 'pickup', 'shipping', 'local-delivery'].includes(item.id));
+    const deliveryItem = { id: 'pickup', name: `Free Pickup - ${location}`, price: 0, details: time };
+    cart.push(deliveryItem);
+    localStorage.setItem('cart', JSON.stringify(cart));
+
+    alert(`✅ Pickup selected: ${location}`);
+    hideDeliverySelector();
+    updateCartCount();
 });
-} catch (err) {}
 
-cart = cart.filter(item => !['delivery-fee', 'pickup', 'shipping'].includes(item.id));
-const deliveryItem = { id: 'pickup', name: `Free Pickup - ${location}`, price: 0, details: time };
-cart.push(deliveryItem);
-localStorage.setItem('cart', JSON.stringify(cart));
+// Shipping
+function showShippingForm() {
+    document.querySelector('#delivery-selector-modal .grid').classList.add('hidden');
+    document.getElementById('shipping-form').classList.remove('hidden');
+}
 
-alert(`✅ Pickup selected: ${location}`);
-hideDeliverySelector();
-updateCartCount();
+document.getElementById('shipping-details-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const formData = new FormData(this);
+    const name = formData.get('name');
+
+    cart = cart.filter(item => !['delivery-fee', 'pickup', 'shipping', 'local-delivery'].includes(item.id));
+    const deliveryItem = {
+        id: 'shipping',
+        name: `Shipping to ${name}`,
+        price: 9.99,
+        details: 'Nationwide shipping (3-5 business days)'
+    };
+    cart.push(deliveryItem);
+    localStorage.setItem('cart', JSON.stringify(cart));
+
+    alert(`✅ Shipping confirmed — $9.99 added`);
+    hideDeliverySelector();
+    updateCartCount();
 });
 
 window.addEventListener('load', () => {
-const savedCart = localStorage.getItem('cart');
-if (savedCart) {
-cart = JSON.parse(savedCart);
-updateCartCount();
-}
+    const savedCart = localStorage.getItem('cart');
+    if (savedCart) {
+        cart = JSON.parse(savedCart);
+        updateCartCount();
+    }
 });
 
 function filterCategory(cat) {
-const cards = document.querySelectorAll('.product-card');
-cards.forEach(card => {
-if (cat === 'all') {
-card.style.display = card.dataset.category === 'pets' ? 'none' : 'block';
-} else {
-card.style.display = card.dataset.category === cat ? 'block' : 'none';
+    const cards = document.querySelectorAll('.product-card');
+    cards.forEach(card => {
+        if (cat === 'all') {
+            card.style.display = card.dataset.category === 'pets' ? 'none' : 'block';
+        } else {
+            card.style.display = card.dataset.category === cat ? 'block' : 'none';
+        }
+    });
 }
-});
+
+// ========== RAW GOLD SEA MOSS VIDEO ==========
+const rawVideo = document.getElementById('raw-seamoss-video');
+if (rawVideo) {
+    rawVideo.addEventListener('mouseenter', () => {
+        rawVideo.play().catch(() => {});
+    });
+    rawVideo.addEventListener('mouseleave', () => {
+        rawVideo.pause();
+        rawVideo.currentTime = 0;
+    });
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                rawVideo.play().catch(() => {});
+            } else {
+                rawVideo.pause();
+                rawVideo.currentTime = 0;
+            }
+        });
+    }, {
+        threshold: 0.6
+    });
+
+    observer.observe(rawVideo);
 }
 </script>
 
