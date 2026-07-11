@@ -55,7 +55,7 @@ window.addEventListener('load', initTailwind);
 .bee1 { animation-delay: 0s; left: 12%; top: 28%; }
 .bee2 { animation-delay: -13s; right: 15%; top: 42%; }
 @keyframes beeFlight { 0% { transform: translate(0, 0) rotate(-8deg); } 33% { transform: translate(110px, -45px) rotate(10deg); } 66% { transform: translate(-40px, 65px) rotate(-12deg); } 100% { transform: translate(0, 0) rotate(-8deg); } }
-.delivery-card { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+.delivery-card { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); cursor: pointer; }
 .delivery-card:hover { transform: translateY(-4px); box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1); }
 </style>
 </head>
@@ -478,9 +478,9 @@ Proceed to Secure Checkout →
 <button onclick="hideDeliverySelector()" class="text-4xl text-gray-400 hover:text-deep">×</button>
 </div>
 
-<div class="grid md:grid-cols-3 gap-6">
+<div class="grid md:grid-cols-3 gap-6" id="delivery-options-grid">
 <!-- Local Delivery -->
-<div onclick="showLocalDeliveryCalculator()" class="delivery-card border-2 border-purple hover:border-deep rounded-3xl p-8 cursor-pointer">
+<div id="local-delivery-card" class="delivery-card border-2 border-purple hover:border-deep rounded-3xl p-8">
 <div class="mb-4">
 <svg xmlns="http://www.w3.org/2000/svg" class="w-14 h-14" fill="none" viewBox="0 0 24 24" stroke="#5E0089" stroke-width="1.5">
 <path stroke-linecap="round" stroke-linejoin="round" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
@@ -492,17 +492,17 @@ Proceed to Secure Checkout →
 </div>
 
 <!-- Free Pickup -->
-<div onclick="showPickupForm()" class="delivery-card border-2 border-purple hover:border-deep rounded-3xl p-8 cursor-pointer">
+<div id="pickup-card" class="delivery-card border-2 border-purple hover:border-deep rounded-3xl p-8">
 <div class="text-5xl mb-4">📍</div>
 <h3 class="text-2xl font-semibold mb-2">Free In-Store Pickup</h3>
 <p class="text-purple font-medium mb-4">Choose location &amp; time slot</p>
 </div>
 
 <!-- Shipping -->
-<div onclick="showShippingForm()" class="delivery-card border-2 border-purple hover:border-deep rounded-3xl p-8 cursor-pointer">
+<div id="shipping-card" class="delivery-card border-2 border-purple hover:border-deep rounded-3xl p-8">
 <div class="text-5xl mb-4">📦</div>
-<h3 class="text-2xl font-semibold mb-2">Shipping (Nationwide)</h3>
-<p class="text-purple font-medium mb-3">$9.99 • 3–5 business days</p>
+<h3 class="text-2xl font-semibold mb-2">Florida Shipping</h3>
+<p class="text-purple font-medium mb-3">Realistic pricing across Florida</p>
 </div>
 </div>
 
@@ -510,17 +510,15 @@ Proceed to Secure Checkout →
 
 <!-- Local Delivery Form -->
 <div id="local-delivery-form" class="hidden mt-8 border border-purple/20 rounded-3xl p-8">
-<h4 class="text-xl font-semibold mb-4">Local Delivery Details</h4>
+<h4 class="text-xl font-semibold mb-4">Local Delivery (Orlando Area)</h4>
 <form id="local-delivery-details-form" class="space-y-4">
 <div>
 <label class="block text-sm font-medium mb-1">ZIP Code *</label>
-<input type="text" name="zip" required class="w-full border border-gray-300 rounded-2xl px-4 py-3 text-sm" placeholder="Enter your ZIP code">
+<input type="text" name="zip" required maxlength="5" class="w-full border border-gray-300 rounded-2xl px-4 py-3 text-sm" placeholder="Enter your 5-digit ZIP code">
 </div>
-<div>
-<label class="block text-sm font-medium mb-1">Delivery Fee</label>
-<div class="bg-gray-100 px-4 py-3 rounded-2xl text-sm">
-$8.99 flat fee (within 25 miles)
-</div>
+<div id="delivery-fee-display" class="hidden bg-emerald-50 border border-emerald-200 px-4 py-3 rounded-2xl text-sm">
+<span class="font-medium">Estimated Delivery Fee:</span> 
+<span id="calculated-fee" class="font-semibold text-emerald-700"></span>
 </div>
 <div class="flex gap-3 pt-2">
 <button type="button" onclick="hideDeliveryForms()" class="flex-1 border border-gray-300 text-gray-600 py-3 rounded-2xl font-medium">Back</button>
@@ -551,13 +549,13 @@ $8.99 flat fee (within 25 miles)
 <label class="block text-sm font-medium mb-1">Pickup Location</label>
 <select name="location" required class="w-full border border-gray-300 rounded-2xl px-4 py-3 text-sm">
 <option value="">Select a location</option>
+<option value="Orlando FL - 32811, 32839">Orlando FL (32811, 32839) </option>
 <option value="Dr. Phillips, Orlando FL - 32835">Dr. Phillips • Orlando FL (32835)</option>
 <option value="Winter Haven FL - 33880">Winter Haven FL (33880)</option>
 <option value="Lake Alfred FL">Lake Alfred FL</option>
-<option value="Holiday FL - 34690">Holiday FL (34690)</option>
 <option value="Pinehills FL - 32808">Pinehills FL (32808)</option>
+<option value="Holiday FL - 34690">Holiday FL (34690)</option>
 <option value="Goodyear AZ - 85338">Goodyear AZ (85338)</option>
-
 </select>
 </div>
 <div>
@@ -578,7 +576,7 @@ $8.99 flat fee (within 25 miles)
 
 <!-- Shipping Form -->
 <div id="shipping-form" class="hidden mt-8 border border-purple/20 rounded-3xl p-8">
-<h4 class="text-xl font-semibold mb-4">Shipping Details</h4>
+<h4 class="text-xl font-semibold mb-4">Florida Shipping</h4>
 <form id="shipping-details-form" class="space-y-4">
 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
 <div>
@@ -594,23 +592,23 @@ $8.99 flat fee (within 25 miles)
 <label class="block text-sm font-medium mb-1">Shipping Address *</label>
 <input type="text" name="address" required class="w-full border border-gray-300 rounded-2xl px-4 py-3 text-sm">
 </div>
-<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
 <div>
 <label class="block text-sm font-medium mb-1">City *</label>
 <input type="text" name="city" required class="w-full border border-gray-300 rounded-2xl px-4 py-3 text-sm">
 </div>
 <div>
-<label class="block text-sm font-medium mb-1">State *</label>
-<input type="text" name="state" required class="w-full border border-gray-300 rounded-2xl px-4 py-3 text-sm">
-</div>
+<label class="block text-sm font-medium mb-1">State</label>
+<input type="text" name="state" value="FL" readonly class="w-full border border-gray-300 rounded-2xl px-4 py-3 text-sm bg-gray-100">
 </div>
 <div>
 <label class="block text-sm font-medium mb-1">ZIP Code *</label>
-<input type="text" name="zip" required class="w-full border border-gray-300 rounded-2xl px-4 py-3 text-sm">
+<input type="text" name="zip" required maxlength="5" class="w-full border border-gray-300 rounded-2xl px-4 py-3 text-sm" placeholder="5-digit ZIP">
+</div>
 </div>
 <div class="flex gap-3 pt-2">
 <button type="button" onclick="hideDeliveryForms()" class="flex-1 border border-gray-300 text-gray-600 py-3 rounded-2xl font-medium">Back</button>
-<button type="submit" class="flex-1 bg-purple hover:bg-deep text-white py-3 rounded-2xl font-semibold">Confirm Shipping ($9.99)</button>
+<button type="submit" class="flex-1 bg-purple hover:bg-deep text-white py-3 rounded-2xl font-semibold">Confirm Florida Shipping</button>
 </div>
 </form>
 </div>
@@ -618,89 +616,88 @@ $8.99 flat fee (within 25 miles)
 </div>
 
 <script>
-// ========== FULL CART + JUICE + DELIVERY (with Meta Pixel tracking) ==========
+// ========== FULL CART + JUICE + DELIVERY ==========
 let cart = [];
 
 function addToCart(item) {
-    cart.push(item);
-    localStorage.setItem('cart', JSON.stringify(cart));
-    updateCartCount();
-    showCartModal();
+cart.push(item);
+localStorage.setItem('cart', JSON.stringify(cart));
+updateCartCount();
+showCartModal();
 
-    // === META PIXEL TRACKING ===
-    if (typeof fbq === 'function') {
-        fbq('track', 'AddToCart', {
-            content_ids: [item.content_id || item.id],
-            content_type: 'product',
-            value: item.price,
-            currency: 'USD'
-        });
-    }
+if (typeof fbq === 'function') {
+fbq('track', 'AddToCart', {
+content_ids: [item.content_id || item.id],
+content_type: 'product',
+value: item.price,
+currency: 'USD'
+});
+}
 }
 
 function updateCartCount() {
-    const countEl = document.getElementById('cart-count');
-    if (countEl) countEl.textContent = cart.length;
+const countEl = document.getElementById('cart-count');
+if (countEl) countEl.textContent = cart.length;
 }
 
 function showCartModal() {
-    const modal = document.getElementById('cart-modal');
-    const itemsContainer = document.getElementById('cart-items');
-    itemsContainer.innerHTML = '';
-    let total = 0;
+const modal = document.getElementById('cart-modal');
+const itemsContainer = document.getElementById('cart-items');
+itemsContainer.innerHTML = '';
+let total = 0;
 
-    cart.forEach((item, index) => {
-        total += item.price;
-        const div = document.createElement('div');
-        div.className = 'flex justify-between items-center border-b py-4';
-        div.innerHTML = `
-            <div>
-                <p class="font-medium">${item.name}</p>
-                <p class="text-sm text-gray-600">${item.details}</p>
-            </div>
-            <div class="text-right">
-                <p class="font-semibold">$${item.price}</p>
-                <button onclick="removeFromCart(${index})" class="text-red-500 text-sm">Remove</button>
-            </div>
-        `;
-        itemsContainer.appendChild(div);
-    });
+cart.forEach((item, index) => {
+total += item.price;
+const div = document.createElement('div');
+div.className = 'flex justify-between items-center border-b py-4';
+div.innerHTML = `
+<div>
+<p class="font-medium">${item.name}</p>
+<p class="text-sm text-gray-600">${item.details}</p>
+</div>
+<div class="text-right">
+<p class="font-semibold">$${item.price}</p>
+<button onclick="removeFromCart(${index})" class="text-red-500 text-sm">Remove</button>
+</div>
+`;
+itemsContainer.appendChild(div);
+});
 
-    document.getElementById('cart-total').textContent = '$' + total.toFixed(2);
-    modal.classList.remove('hidden');
+document.getElementById('cart-total').textContent = '$' + total.toFixed(2);
+modal.classList.remove('hidden');
 }
 
 function hideCartModal() {
-    document.getElementById('cart-modal').classList.add('hidden');
+document.getElementById('cart-modal').classList.add('hidden');
 }
 
 function removeFromCart(index) {
-    cart.splice(index, 1);
-    localStorage.setItem('cart', JSON.stringify(cart));
-    updateCartCount();
-    showCartModal();
+cart.splice(index, 1);
+localStorage.setItem('cart', JSON.stringify(cart));
+updateCartCount();
+showCartModal();
 }
 
 async function proceedToCheckout() {
-    hideCartModal();
-    const hasDelivery = cart.some(item => ['delivery-fee', 'pickup', 'shipping', 'local-delivery'].includes(item.id));
-    if (!hasDelivery) {
-        alert("Please choose a delivery method first.");
-        showDeliverySelector();
-        return;
-    }
-    try {
-        const response = await fetch('https://janesse-seamoss-backend.onrender.com/create-checkout-session', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ cart: cart })
-        });
-        const data = await response.json();
-        const stripe = Stripe('pk_live_51TREXTIeLXeJ9tb9RCUiY0hHSBBY5hbqPfwgnVpyUDS0nAYTgwhls3y2ffClfgUu7ZJjVPDVpr6tPZZWNBKcec8Q00BbSr1yQc');
-        await stripe.redirectToCheckout({ sessionId: data.id });
-    } catch (error) {
-        alert("⚠️ Checkout error. Please try again.");
-    }
+hideCartModal();
+const hasDelivery = cart.some(item => ['delivery-fee', 'pickup', 'shipping', 'local-delivery'].includes(item.id));
+if (!hasDelivery) {
+alert("Please choose a delivery method first.");
+showDeliverySelector();
+return;
+}
+try {
+const response = await fetch('https://janesse-seamoss-backend.onrender.com/create-checkout-session', {
+method: 'POST',
+headers: { 'Content-Type': 'application/json' },
+body: JSON.stringify({ cart: cart })
+});
+const data = await response.json();
+const stripe = Stripe('pk_live_51TREXTIeLXeJ9tb9RCUiY0hHSBBY5hbqPfwgnVpyUDS0nAYTgwhls3y2ffClfgUu7ZJjVPDVpr6tPZZWNBKcec8Q00BbSr1yQc');
+await stripe.redirectToCheckout({ sessionId: data.id });
+} catch (error) {
+alert("⚠️ Checkout error. Please try again.");
+}
 }
 
 // ========== JUICE MODAL ==========
@@ -709,187 +706,249 @@ let selectedJuiceSize = '16oz';
 let selectedJuicePrice = 10;
 
 function showJuiceModal() {
-    document.getElementById('juice-modal').classList.remove('hidden');
-    selectJuiceOption('flavor', 'Mango');
-    selectJuiceOption('size', '16oz');
+document.getElementById('juice-modal').classList.remove('hidden');
+selectJuiceOption('flavor', 'Mango');
+selectJuiceOption('size', '16oz');
 }
 
 function hideJuiceModal() {
-    document.getElementById('juice-modal').classList.add('hidden');
+document.getElementById('juice-modal').classList.add('hidden');
 }
 
 function selectJuiceOption(type, value) {
-    if (type === 'flavor') {
-        selectedJuiceFlavor = value;
-        document.querySelectorAll('[id^="flavor-"]').forEach(el => el.classList.remove('bg-purple/10', 'text-purple'));
-        document.getElementById('flavor-' + value).classList.add('bg-purple/10', 'text-purple');
-    }
-    if (type === 'size') {
-        selectedJuiceSize = value;
-        selectedJuicePrice = (value === '16oz') ? 10 : 21;
-        document.querySelectorAll('[id^="size-"]').forEach(el => el.classList.remove('bg-purple/10', 'text-purple'));
-        document.getElementById('size-' + value).classList.add('bg-purple/10', 'text-purple');
-    }
-    document.getElementById('juice-modal-total').textContent = '$' + selectedJuicePrice;
+if (type === 'flavor') {
+selectedJuiceFlavor = value;
+document.querySelectorAll('[id^="flavor-"]').forEach(el => el.classList.remove('bg-purple/10', 'text-purple'));
+document.getElementById('flavor-' + value).classList.add('bg-purple/10', 'text-purple');
+}
+if (type === 'size') {
+selectedJuiceSize = value;
+selectedJuicePrice = (value === '16oz') ? 10 : 21;
+document.querySelectorAll('[id^="size-"]').forEach(el => el.classList.remove('bg-purple/10', 'text-purple'));
+document.getElementById('size-' + value).classList.add('bg-purple/10', 'text-purple');
+}
+document.getElementById('juice-modal-total').textContent = '$' + selectedJuicePrice;
 }
 
 function addJuiceToCartFromModal() {
-    const contentId = `juice-${selectedJuiceFlavor.toLowerCase()}-${selectedJuiceSize}`;
-    
-    const item = {
-        id: contentId,
-        content_id: contentId,
-        name: selectedJuiceFlavor + ' Sea Moss Juice (' + selectedJuiceSize + ')',
-        price: selectedJuicePrice,
-        details: selectedJuiceFlavor + ' • ' + selectedJuiceSize
-    };
-    
-    addToCart(item);
-    hideJuiceModal();
+const contentId = `juice-${selectedJuiceFlavor.toLowerCase()}-${selectedJuiceSize}`;
+const item = {
+id: contentId,
+content_id: contentId,
+name: selectedJuiceFlavor + ' Sea Moss Juice (' + selectedJuiceSize + ')',
+price: selectedJuicePrice,
+details: selectedJuiceFlavor + ' • ' + selectedJuiceSize
+};
+addToCart(item);
+hideJuiceModal();
 }
 
-// ========== DELIVERY SYSTEM ==========
+// ========== REALISTIC FLORIDA DELIVERY ==========
+function calculateDeliveryFee(zip) {
+if (!zip || zip.length !== 5) return null;
+const prefix = zip.substring(0, 3);
+
+if (['328', '327', '347', '329'].includes(prefix)) return 6.99;
+if (['336', '335', '338', '346'].includes(prefix)) return 12.99;
+if (['321', '344', '326'].includes(prefix)) return 15.99;
+if (['322', '320'].includes(prefix)) return 16.99;
+if (['331', '330', '334', '333'].includes(prefix)) return 18.99;
+if (['323', '324', '325'].includes(prefix)) return 19.99;
+return 14.99;
+}
+
+// Delivery Modal Functions
 function showDeliverySelector() {
-    document.getElementById('delivery-selector-modal').classList.remove('hidden');
+document.getElementById('delivery-selector-modal').classList.remove('hidden');
 }
 
 function hideDeliverySelector() {
-    document.getElementById('delivery-selector-modal').classList.add('hidden');
+document.getElementById('delivery-selector-modal').classList.add('hidden');
 }
 
 function hideDeliveryForms() {
-    document.getElementById('local-delivery-form').classList.add('hidden');
-    document.getElementById('pickup-form').classList.add('hidden');
-    document.getElementById('shipping-form').classList.add('hidden');
-    document.querySelector('#delivery-selector-modal .grid').classList.remove('hidden');
+document.getElementById('local-delivery-form').classList.add('hidden');
+document.getElementById('pickup-form').classList.add('hidden');
+document.getElementById('shipping-form').classList.add('hidden');
+document.getElementById('delivery-options-grid').classList.remove('hidden');
 }
 
-// Local Delivery
-function showLocalDeliveryCalculator() {
-    document.querySelector('#delivery-selector-modal .grid').classList.add('hidden');
-    document.getElementById('local-delivery-form').classList.remove('hidden');
+// Attach click handlers properly
+function initDeliveryCards() {
+const localCard = document.getElementById('local-delivery-card');
+const pickupCard = document.getElementById('pickup-card');
+const shippingCard = document.getElementById('shipping-card');
+
+if (localCard) {
+localCard.addEventListener('click', function() {
+document.getElementById('delivery-options-grid').classList.add('hidden');
+document.getElementById('local-delivery-form').classList.remove('hidden');
+});
 }
+
+if (pickupCard) {
+pickupCard.addEventListener('click', function() {
+document.getElementById('delivery-options-grid').classList.add('hidden');
+document.getElementById('pickup-form').classList.remove('hidden');
+});
+}
+
+if (shippingCard) {
+shippingCard.addEventListener('click', function() {
+document.getElementById('delivery-options-grid').classList.add('hidden');
+document.getElementById('shipping-form').classList.remove('hidden');
+});
+}
+}
+
+// Live fee display for Local Delivery
+document.getElementById('local-delivery-details-form').zip.addEventListener('input', function() {
+const zip = this.value.trim();
+const feeDisplay = document.getElementById('delivery-fee-display');
+const feeText = document.getElementById('calculated-fee');
+
+if (zip.length === 5) {
+const fee = calculateDeliveryFee(zip);
+if (fee) {
+feeText.textContent = `$${fee.toFixed(2)}`;
+feeDisplay.classList.remove('hidden');
+} else {
+feeDisplay.classList.add('hidden');
+}
+} else {
+feeDisplay.classList.add('hidden');
+}
+});
 
 document.getElementById('local-delivery-details-form').addEventListener('submit', function(e) {
-    e.preventDefault();
-    const formData = new FormData(this);
-    const zip = formData.get('zip');
+e.preventDefault();
+const zip = this.zip.value.trim();
+const fee = calculateDeliveryFee(zip);
 
-    cart = cart.filter(item => !['delivery-fee', 'pickup', 'shipping', 'local-delivery'].includes(item.id));
-    const deliveryItem = {
-        id: 'local-delivery',
-        name: `Local Delivery - ZIP ${zip}`,
-        price: 8.99,
-        details: 'Local delivery within 25 miles'
-    };
-    cart.push(deliveryItem);
-    localStorage.setItem('cart', JSON.stringify(cart));
+if (!fee) {
+alert("Please enter a valid 5-digit Florida ZIP code.");
+return;
+}
 
-    alert(`✅ Local Delivery confirmed for ZIP ${zip} — $8.99 added`);
-    hideDeliverySelector();
-    updateCartCount();
+cart = cart.filter(item => !['delivery-fee', 'pickup', 'shipping', 'local-delivery'].includes(item.id));
+const deliveryItem = {
+id: 'local-delivery',
+name: `Local Delivery - ZIP ${zip}`,
+price: fee,
+details: `Delivery from Orlando to ZIP ${zip}`
+};
+cart.push(deliveryItem);
+localStorage.setItem('cart', JSON.stringify(cart));
+
+alert(`✅ Local Delivery confirmed for ZIP ${zip} — $${fee.toFixed(2)}`);
+hideDeliverySelector();
+updateCartCount();
 });
 
 // Pickup
 function showPickupForm() {
-    document.querySelector('#delivery-selector-modal .grid').classList.add('hidden');
-    document.getElementById('pickup-form').classList.remove('hidden');
+document.getElementById('delivery-options-grid').classList.add('hidden');
+document.getElementById('pickup-form').classList.remove('hidden');
 }
 
 document.getElementById('pickup-details-form').addEventListener('submit', async function(e) {
-    e.preventDefault();
-    const formData = new FormData(this);
-    const location = formData.get('location');
-    const time = formData.get('time');
+e.preventDefault();
+const formData = new FormData(this);
+const location = formData.get('location');
+const time = formData.get('time');
 
-    try {
-        await fetch('https://formspree.io/f/xjgzrwry', {
-            method: 'POST',
-            body: formData,
-            headers: { 'Accept': 'application/json' }
-        });
-    } catch (err) {}
+try {
+await fetch('https://formspree.io/f/xjgzrwry', {
+method: 'POST',
+body: formData,
+headers: { 'Accept': 'application/json' }
+});
+} catch (err) {}
 
-    cart = cart.filter(item => !['delivery-fee', 'pickup', 'shipping', 'local-delivery'].includes(item.id));
-    const deliveryItem = { id: 'pickup', name: `Free Pickup - ${location}`, price: 0, details: time };
-    cart.push(deliveryItem);
-    localStorage.setItem('cart', JSON.stringify(cart));
+cart = cart.filter(item => !['delivery-fee', 'pickup', 'shipping', 'local-delivery'].includes(item.id));
+const deliveryItem = { id: 'pickup', name: `Free Pickup - ${location}`, price: 0, details: time };
+cart.push(deliveryItem);
+localStorage.setItem('cart', JSON.stringify(cart));
 
-    alert(`✅ Pickup selected: ${location}`);
-    hideDeliverySelector();
-    updateCartCount();
+alert(`✅ Pickup selected: ${location}`);
+hideDeliverySelector();
+updateCartCount();
 });
 
 // Shipping
 function showShippingForm() {
-    document.querySelector('#delivery-selector-modal .grid').classList.add('hidden');
-    document.getElementById('shipping-form').classList.remove('hidden');
+document.getElementById('delivery-options-grid').classList.add('hidden');
+document.getElementById('shipping-form').classList.remove('hidden');
 }
 
 document.getElementById('shipping-details-form').addEventListener('submit', function(e) {
-    e.preventDefault();
-    const formData = new FormData(this);
-    const name = formData.get('name');
+e.preventDefault();
+const formData = new FormData(this);
+const name = formData.get('name');
+const zip = formData.get('zip');
 
-    cart = cart.filter(item => !['delivery-fee', 'pickup', 'shipping', 'local-delivery'].includes(item.id));
-    const deliveryItem = {
-        id: 'shipping',
-        name: `Shipping to ${name}`,
-        price: 9.99,
-        details: 'Nationwide shipping (3-5 business days)'
-    };
-    cart.push(deliveryItem);
-    localStorage.setItem('cart', JSON.stringify(cart));
+const fee = calculateDeliveryFee(zip) || 14.99;
 
-    alert(`✅ Shipping confirmed — $9.99 added`);
-    hideDeliverySelector();
-    updateCartCount();
+cart = cart.filter(item => !['delivery-fee', 'pickup', 'shipping', 'local-delivery'].includes(item.id));
+const deliveryItem = {
+id: 'shipping',
+name: `Florida Shipping to ${name}`,
+price: fee,
+details: `Shipping to ZIP ${zip}`
+};
+cart.push(deliveryItem);
+localStorage.setItem('cart', JSON.stringify(cart));
+
+alert(`✅ Florida Shipping confirmed — $${fee.toFixed(2)}`);
+hideDeliverySelector();
+updateCartCount();
 });
 
 window.addEventListener('load', () => {
-    const savedCart = localStorage.getItem('cart');
-    if (savedCart) {
-        cart = JSON.parse(savedCart);
-        updateCartCount();
-    }
+const savedCart = localStorage.getItem('cart');
+if (savedCart) {
+cart = JSON.parse(savedCart);
+updateCartCount();
+}
+
+// Initialize delivery card clicks
+initDeliveryCards();
 });
 
 function filterCategory(cat) {
-    const cards = document.querySelectorAll('.product-card');
-    cards.forEach(card => {
-        if (cat === 'all') {
-            card.style.display = card.dataset.category === 'pets' ? 'none' : 'block';
-        } else {
-            card.style.display = card.dataset.category === cat ? 'block' : 'none';
-        }
-    });
+const cards = document.querySelectorAll('.product-card');
+cards.forEach(card => {
+if (cat === 'all') {
+card.style.display = card.dataset.category === 'pets' ? 'none' : 'block';
+} else {
+card.style.display = card.dataset.category === cat ? 'block' : 'none';
+}
+});
 }
 
-// ========== RAW GOLD SEA MOSS VIDEO ==========
+// Raw Gold Sea Moss Video
 const rawVideo = document.getElementById('raw-seamoss-video');
 if (rawVideo) {
-    rawVideo.addEventListener('mouseenter', () => {
-        rawVideo.play().catch(() => {});
-    });
-    rawVideo.addEventListener('mouseleave', () => {
-        rawVideo.pause();
-        rawVideo.currentTime = 0;
-    });
+rawVideo.addEventListener('mouseenter', () => {
+rawVideo.play().catch(() => {});
+});
+rawVideo.addEventListener('mouseleave', () => {
+rawVideo.pause();
+rawVideo.currentTime = 0;
+});
 
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                rawVideo.play().catch(() => {});
-            } else {
-                rawVideo.pause();
-                rawVideo.currentTime = 0;
-            }
-        });
-    }, {
-        threshold: 0.6
-    });
+const observer = new IntersectionObserver((entries) => {
+entries.forEach(entry => {
+if (entry.isIntersecting) {
+rawVideo.play().catch(() => {});
+} else {
+rawVideo.pause();
+rawVideo.currentTime = 0;
+}
+});
+}, { threshold: 0.6 });
 
-    observer.observe(rawVideo);
+observer.observe(rawVideo);
 }
 </script>
 
