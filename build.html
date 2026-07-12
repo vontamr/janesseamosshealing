@@ -20,7 +20,6 @@ fbq('track', 'PageView');
 <noscript><img height="1" width="1" style="display:none"
 src="https://www.facebook.com/tr?id=1520084362933231&ev=PageView&noscript=1"
 /></noscript>
-<!-- End Meta Pixel Code -->
 <script src="https://cdn.tailwindcss.com" async></script>
 <link rel="stylesheet" href="styles.css">
 <script src="https://js.stripe.com/v3/"></script>
@@ -118,6 +117,7 @@ window.addEventListener('load', initTailwind);
 </label>
 </div>
 </div>
+
 <!-- Fruit Base -->
 <div>
 <h2 class="text-2xl font-medium mb-3">Fruit Base <span class="text-sm font-normal text-purple">(Highly Recommended)</span></h2>
@@ -152,6 +152,7 @@ window.addEventListener('load', initTailwind);
 </label>
 </div>
 </div>
+
 <!-- Herbs -->
 <div>
 <h2 class="text-2xl font-medium mb-4">Add Herbs <span class="text-sm font-normal text-gray-500">(Optional)</span></h2>
@@ -215,6 +216,7 @@ window.addEventListener('load', initTailwind);
 </div>
 <p class="text-xs text-gray-500 mt-2">Note: Wormwood cannot be combined with any other herbs.</p>
 </div>
+
 <!-- Consistency -->
 <div>
 <h2 class="text-2xl font-medium mb-4">Consistency <span class="text-sm font-normal text-gray-500">(We recommend Regular)</span></h2>
@@ -234,6 +236,7 @@ window.addEventListener('load', initTailwind);
 </div>
 </div>
 </div>
+
 <!-- Summary -->
 <div class="bg-white border border-purple/30 rounded-3xl p-8 sticky top-24 h-fit">
 <h2 class="text-2xl font-medium mb-6">Your Custom Blend</h2>
@@ -293,16 +296,19 @@ window.addEventListener('load', initTailwind);
 <script>
 // ========== CART SYSTEM ==========
 let cart = [];
+
 function addToCart(item) {
 cart.push(item);
 updateCartCount();
 localStorage.setItem('cart', JSON.stringify(cart));
 showCartModal();
 }
+
 function updateCartCount() {
 const countEl = document.getElementById('cart-count');
 if (countEl) countEl.textContent = cart.length;
 }
+
 function showCartModal() {
 const modal = document.getElementById('cart-modal');
 const itemsContainer = document.getElementById('cart-items');
@@ -327,15 +333,18 @@ itemsContainer.appendChild(div);
 document.getElementById('cart-total').textContent = '$' + total.toFixed(2);
 modal.classList.remove('hidden');
 }
+
 function hideCartModal() {
 document.getElementById('cart-modal').classList.add('hidden');
 }
+
 function removeFromCart(index) {
 cart.splice(index, 1);
 localStorage.setItem('cart', JSON.stringify(cart));
 updateCartCount();
 showCartModal();
 }
+
 async function proceedToCheckout() {
 hideCartModal();
 if (!selectedDelivery) {
@@ -362,6 +371,7 @@ console.error(error);
 alert("⚠️ We couldn't connect to secure checkout. Please try again.");
     }
 }
+
 // ========== BLEND BUILDER ==========
 let basePrice = 30;
 let selectedSize = "16oz";
@@ -369,6 +379,7 @@ let selectedFruit = "None";
 let selectedHerbs = [];
 let selectedConsistency = "Regular";
 let consistencyPrice = 0;
+
 const herbPrices = {
 "Burdock Root": 4,
 "Bladderwrack": 4,
@@ -378,6 +389,7 @@ const herbPrices = {
 "Maca Root": 6,
 "Wormwood": 12
 };
+
 function updateSummary() {
 document.getElementById('base-summary').innerHTML = `${selectedSize} Jar — $${basePrice}`;
 const fruitText = selectedFruit === "None" ? "None selected" : selectedFruit + " (+$3.00)";
@@ -394,16 +406,30 @@ selectedHerbs.forEach(herb => total += herbPrices[herb] || 0);
 total += consistencyPrice;
 document.getElementById('total-price').textContent = '$' + total.toFixed(2);
 }
+
 function addCustomBlendToCart() {
 const total = parseFloat(document.getElementById('total-price').textContent.replace('$', ''));
 const customItem = {
 id: 'custom-' + Date.now(),
 name: '🌿 Custom Sea Moss Blend',
 price: total,
-details: `${selectedSize} • ${selectedFruit} • ${selectedHerbs.length ? selectedHerbs.join(', ') : 'No herbs'} • ${selectedConsistency}`
+details: `${selectedSize} • ${selectedFruit} • ${selectedHerbs.length ? selectedHerbs.join(', ') : 'No herbs'} • ${selectedConsistency}`,
+metadata: {
+type: 'custom-blend',
+size: selectedSize,
+fruit: selectedFruit,
+fruitPrice: selectedFruit !== "None" ? 3 : 0,
+herbs: selectedHerbs,
+herbPrices: selectedHerbs.map(h => ({ name: h, price: herbPrices[h] || 0 })),
+consistency: selectedConsistency,
+consistencyPrice: consistencyPrice,
+basePrice: basePrice,
+totalPrice: total
+    }
     };
 addToCart(customItem);
 }
+
 // ========== SIZE, HERB, FRUIT & CONSISTENCY LOGIC ==========
 function setupSizeLogic() {
 const sizeOptions = document.querySelectorAll('.size-option');
@@ -417,6 +443,7 @@ updateSummary();
         });
     });
 }
+
 function setupHerbLogic() {
 const checkboxes = document.querySelectorAll('.herb-checkbox');
 const wormwoodCheckbox = document.getElementById('wormwood-checkbox');
@@ -451,6 +478,7 @@ updateSummary();
         });
     });
 }
+
 function setupFruitLogic() {
 document.querySelectorAll('input[name="fruit"]').forEach(radio => {
 radio.addEventListener('change', () => {
@@ -459,6 +487,7 @@ updateSummary();
         });
     });
 }
+
 function setupConsistency() {
 document.querySelectorAll('.consistency-option').forEach(option => {
 option.addEventListener('click', () => {
@@ -470,8 +499,10 @@ updateSummary();
         });
     });
 }
+
 // ========== DELIVERY LOGIC ==========
 let selectedDelivery = null;
+
 function calculateDeliveryFee(zip) {
 if (!zip) return { fee: 8, area: 'Central Florida Delivery' };
 const z = zip.trim().substring(0, 3);
@@ -482,6 +513,7 @@ if (greaterCentral.includes(z)) return { fee: 12, area: 'Greater Central Florida
 if (z.startsWith('3')) return { fee: 15, area: 'Florida Statewide Delivery' };
 return { fee: 9.99, area: 'Standard Shipping' };
 }
+
 function showFeePreview(zip) {
 const preview = document.getElementById('fee-preview');
 if (!preview || !zip) return;
@@ -489,6 +521,7 @@ const { fee, area } = calculateDeliveryFee(zip);
 preview.innerHTML = `Delivery fee for <strong>${area}</strong>: <span class="font-semibold">$${fee}</span>`;
 preview.className = 'text-sm text-emerald-600 mt-1';
 }
+
 async function useCurrentLocationForDelivery() {
 if (!navigator.geolocation) {
 alert("Geolocation is not supported by your browser. Please enter ZIP manually.");
@@ -519,6 +552,7 @@ alert("Unable to get your location. Please enter ZIP manually.");
         }
     });
 }
+
 function showDeliverySelector() {
 const modal = document.getElementById('delivery-selector-modal');
 const content = document.getElementById('delivery-modal-content');
@@ -546,6 +580,7 @@ content.innerHTML = `
     `;
 modal.classList.remove('hidden');
 }
+
 function showDeliveryForm(type) {
 const content = document.getElementById('delivery-modal-content');
 let html = '';
@@ -718,9 +753,11 @@ document.body.appendChild(toast);
 setTimeout(() => toast.remove(), 2200);
     });
 }
+
 function hideDeliverySelector() {
 document.getElementById('delivery-selector-modal').classList.add('hidden');
 }
+
 function updateDeliveryBar() {
 const bar = document.getElementById('delivery-info-bar');
 if (!selectedDelivery) {
@@ -731,11 +768,13 @@ document.getElementById('delivery-area').textContent = `${selectedDelivery.custo
 document.getElementById('delivery-fee').textContent = selectedDelivery.fee > 0 ? `$${selectedDelivery.fee} fee` : 'Free';
 bar.classList.remove('hidden');
 }
+
 function changeDelivery() {
 selectedDelivery = null;
 document.getElementById('delivery-info-bar').classList.add('hidden');
 showDeliverySelector();
 }
+
 // ========== INITIALIZE EVERYTHING ==========
 window.addEventListener('load', () => {
 setupSizeLogic();
