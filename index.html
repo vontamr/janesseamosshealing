@@ -79,7 +79,6 @@ window.addEventListener('load', initTailwind);
 </div>
 </div>
 </div>
-
 <!-- Mobile Menu -->
 <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
 <div class="px-6 py-6 flex flex-col gap-4 text-sm font-medium">
@@ -95,7 +94,6 @@ window.addEventListener('load', initTailwind);
 </div>
 </div>
 </nav>
-
 <!-- Marquee -->
 <div class="bg-lightpurple/30 py-3 text-purple font-medium text-sm border-b overflow-hidden">
 <div class="marquee">
@@ -105,10 +103,9 @@ window.addEventListener('load', initTailwind);
 </div>
 </div>
 </div>
-
 <!-- Hero -->
 <header class="min-h-screen flex items-center relative bg-gradient-to-br from-deep/5 via-white to-lightpurple/30 overflow-hidden">
-<img src="assets/images/palm-trees.png" alt="Palm Trees Silhouette" class="palm-tree hidden md:block">
+<img src="assets/images/palmtree.jpeg" alt="Palm Trees Silhouette" class="palm-tree hidden md:block">
 <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 lg:gap-16 items-center pt-12 pb-20 relative z-10">
 <div class="space-y-8">
 <div class="inline-flex items-center gap-3 bg-white/90 backdrop-blur px-6 py-3 rounded-3xl shadow text-sm font-medium">
@@ -128,11 +125,23 @@ Fresh weekly in Central Florida.
 </div>
 </div>
 <div class="flex justify-center md:justify-end relative z-10">
-<img src="assets/images/DSCF1813.JPG" alt="Premium Caribbean Sea Moss Gel" class="rounded-3xl shadow-2xl max-w-md md:max-w-lg w-full h-auto object-cover">
+    <!-- Real Wild-Harvested Seamoss Video - Antigua & St. Lucia -->
+    <video 
+        class="rounded-3xl shadow-2xl max-w-md md:max-w-lg w-full h-auto object-cover" 
+        autoplay 
+        muted 
+        loop 
+        playsinline 
+        poster="assets/images/Janes_Seamoss_Organic_Final_v3.mp4">
+        <source src="assets/images/Janes_Seamoss_Organic_Final_v3.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <div class="absolute bottom-6 left-6 bg-black/60 text-white text-xs px-4 py-1.5 rounded-2xl backdrop-blur-sm">
+        Real Wild-Harvested Seamoss • Antigua &amp; St. Lucia
+    </div>
 </div>
 </div>
 </header>
-
 <!-- Discover Our World -->
 <section class="py-20 bg-white">
 <div class="max-w-7xl mx-auto px-6">
@@ -204,7 +213,6 @@ Fresh weekly in Central Florida.
 </div>
 </div>
 </section>
-
 <!-- Sea Moss Juices Section - FULLY FIXED -->
 <section id="juice-section" class="py-24 bg-white">
 <div class="max-w-6xl mx-auto px-6">
@@ -213,7 +221,6 @@ Fresh weekly in Central Florida.
 <h2 class="text-5xl md:text-6xl font-light tracking-tight">Sea Moss Juices</h2>
 <p class="text-gray-600 mt-3 max-w-lg mx-auto">Pure mineral-rich nourishment • Naturally sweetened by bees</p>
 </div>
-
 <!-- Flavor Selection -->
 <div class="flex justify-center gap-3 mb-10">
 <button onclick="selectJuiceFlavor('Mango')" id="flavor-mango"
@@ -223,7 +230,6 @@ class="flavor-btn px-8 py-3 rounded-3xl border-2 border-emerald-600 text-emerald
 <button onclick="selectJuiceFlavor('Blackberry')" id="flavor-blackberry"
 class="flavor-btn px-8 py-3 rounded-3xl border-2 border-emerald-600 text-emerald-700 hover:bg-emerald-50 font-medium">Blackberry</button>
 </div>
-
 <div class="grid md:grid-cols-2 gap-10 max-w-5xl mx-auto">
 <!-- One-Time Purchase -->
 <div class="bg-white border border-emerald-100 rounded-3xl p-9">
@@ -256,7 +262,6 @@ class="size-btn flex-1 py-4 border-2 border-emerald-600 text-emerald-700 rounded
 Add to Basket
 </button>
 </div>
-
 <!-- Weekly Subscription -->
 <div class="border-2 border-purple rounded-3xl p-9 bg-gradient-to-br from-purple/5 to-white relative">
 <div class="absolute -top-3 right-6 bg-purple text-white text-xs font-semibold px-5 py-1 rounded-3xl tracking-widest">MOST POPULAR</div>
@@ -295,7 +300,6 @@ Join & Pay for 2 Weeks Upfront
 </div>
 </div>
 </section>
-
 <!-- Wellness Tools -->
 <section class="py-20 bg-lightpurple/30">
 <div class="max-w-6xl mx-auto px-6">
@@ -325,7 +329,6 @@ Join & Pay for 2 Weeks Upfront
 </div>
 </div>
 </section>
-
 <!-- Review Carousel -->
 <section class="py-20 bg-white">
 <div class="max-w-7xl mx-auto px-6">
@@ -380,7 +383,6 @@ View All 88+ Reviews on Google →
 </div>
 </div>
 </section>
-
 <!-- Footer -->
 <footer class="bg-deep text-white py-12">
 <div class="max-w-7xl mx-auto px-6 text-center">
@@ -398,7 +400,6 @@ View All 88+ Reviews on Google →
 <div class="mt-8 text-xs opacity-60">© 2026 Janesse's Seamoss Creation • Built by VSIT Solutions</div>
 </div>
 </footer>
-
 <!-- Cart Modal -->
 <div id="cart-modal" class="hidden fixed inset-0 bg-black bg-opacity-50 z-[9999] flex items-center justify-center p-4">
 <div class="bg-white rounded-3xl max-w-md w-full max-h-[80vh] flex flex-col">
@@ -418,7 +419,6 @@ Proceed to Secure Checkout →
 </div>
 </div>
 </div>
-
 <!-- Delivery Selector Modal -->
 <div id="delivery-selector-modal" class="hidden fixed inset-0 bg-black/60 z-[10000] flex items-center justify-center p-4">
 <div class="bg-white rounded-3xl max-w-5xl w-full p-8 md:p-10">
@@ -426,7 +426,6 @@ Proceed to Secure Checkout →
 <h2 class="text-3xl font-light">How would you like to receive your order?</h2>
 <button onclick="hideDeliverySelector()" class="text-4xl text-gray-400 hover:text-deep">×</button>
 </div>
-
 <div class="grid md:grid-cols-3 gap-6" id="delivery-options-grid">
 <!-- Local Delivery -->
 <div id="local-delivery-card" class="delivery-card border-2 border-purple hover:border-deep rounded-3xl p-8 cursor-pointer">
@@ -439,14 +438,12 @@ Proceed to Secure Checkout →
 <h3 class="text-2xl font-semibold mb-2">Local Delivery</h3>
 <p class="text-purple font-medium mb-3">Check your area & fee</p>
 </div>
-
 <!-- Free Pickup -->
 <div id="pickup-card" class="delivery-card border-2 border-purple hover:border-deep rounded-3xl p-8 cursor-pointer">
 <div class="text-5xl mb-4">📍</div>
 <h3 class="text-2xl font-semibold mb-2">Free In-Store Pickup</h3>
 <p class="text-purple font-medium mb-4">Choose location &amp; time slot</p>
 </div>
-
 <!-- Shipping -->
 <div id="shipping-card" class="delivery-card border-2 border-purple hover:border-deep rounded-3xl p-8 cursor-pointer">
 <div class="text-5xl mb-4">📦</div>
@@ -454,9 +451,7 @@ Proceed to Secure Checkout →
 <p class="text-purple font-medium mb-3">Realistic pricing across Florida</p>
 </div>
 </div>
-
 <p class="text-center text-xs text-gray-500 mt-8">One delivery method is required before checkout</p>
-
 <!-- Local Delivery Form -->
 <div id="local-delivery-form" class="hidden mt-8 border border-purple/20 rounded-3xl p-8">
 <h4 class="text-xl font-semibold mb-4">Local Delivery (Orlando Area)</h4>
@@ -475,7 +470,6 @@ Proceed to Secure Checkout →
 </div>
 </form>
 </div>
-
 <!-- Pickup Form -->
 <div id="pickup-form" class="hidden mt-8 border border-purple/20 rounded-3xl p-8">
 <h4 class="text-xl font-semibold mb-4">Free Pickup Details</h4>
@@ -522,7 +516,6 @@ Proceed to Secure Checkout →
 </div>
 </form>
 </div>
-
 <!-- Shipping Form -->
 <div id="shipping-form" class="hidden mt-8 border border-purple/20 rounded-3xl p-8">
 <h4 class="text-xl font-semibold mb-4">Florida Shipping</h4>
@@ -563,7 +556,6 @@ Proceed to Secure Checkout →
 </div>
 </div>
 </div>
-
 <!-- Jane's AI Chat Modal -->
 <div id="ai-chat-modal" class="hidden fixed inset-0 bg-black/60 z-[99999] flex items-center justify-center p-4">
 <div class="bg-white w-full max-w-2xl rounded-3xl shadow-2xl overflow-hidden flex flex-col h-[85vh]">
@@ -586,40 +578,34 @@ Proceed to Secure Checkout →
 </div>
 </div>
 </div>
-
 <script>
 // ========== RELIABLE HAMBURGER MENU ==========
 document.addEventListener('DOMContentLoaded', function() {
-    const mobileBtn = document.getElementById('mobile-menu-btn');
-    const mobileMenu = document.getElementById('mobile-menu');
-
-    if (mobileBtn && mobileMenu) {
-        let isOpen = false;
-
-        mobileBtn.addEventListener('click', function(e) {
-            e.stopPropagation();
-            isOpen = !isOpen;
-
-            if (isOpen) {
-                mobileMenu.classList.remove('hidden');
-                mobileBtn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6h12v12" /></svg>`;
+const mobileBtn = document.getElementById('mobile-menu-btn');
+const mobileMenu = document.getElementById('mobile-menu');
+if (mobileBtn && mobileMenu) {
+let isOpen = false;
+mobileBtn.addEventListener('click', function(e) {
+e.stopPropagation();
+isOpen = !isOpen;
+if (isOpen) {
+mobileMenu.classList.remove('hidden');
+mobileBtn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6h12v12" /></svg>`;
             } else {
-                mobileMenu.classList.add('hidden');
-                mobileBtn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" /></svg>`;
+mobileMenu.classList.add('hidden');
+mobileBtn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" /></svg>`;
             }
         });
-
-        // Click outside to close
-        document.addEventListener('click', function(e) {
-            if (isOpen && !mobileMenu.contains(e.target) && e.target !== mobileBtn) {
-                isOpen = false;
-                mobileMenu.classList.add('hidden');
-                mobileBtn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" /></svg>`;
+// Click outside to close
+document.addEventListener('click', function(e) {
+if (isOpen && !mobileMenu.contains(e.target) && e.target !== mobileBtn) {
+isOpen = false;
+mobileMenu.classList.add('hidden');
+mobileBtn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" /></svg>`;
             }
         });
     }
 });
-
 // ========== ROTATING TYPEWRITER ==========
 const typewriterPhrases = [
 "Wild-Harvested Sea Moss.",
@@ -630,7 +616,6 @@ let phraseIndex = 0;
 let charIndex = 0;
 let isDeleting = false;
 const typewriterElement = document.getElementById('typewriter');
-
 function typeWriterEffect() {
 const currentPhrase = typewriterPhrases[phraseIndex];
 if (isDeleting) {
@@ -655,10 +640,8 @@ setTimeout(typeWriterEffect, typeSpeed);
 window.addEventListener('load', () => {
 if (typewriterElement) typeWriterEffect();
 });
-
 // ========== CART SYSTEM ==========
 let cart = [];
-
 function addToCart(item) {
 cart.push(item);
 updateCartCount();
@@ -674,12 +657,10 @@ currency: 'USD'
 });
 }
 }
-
 function updateCartCount() {
 const countEl = document.getElementById('cart-count');
 if (countEl) countEl.textContent = cart.length;
 }
-
 function showCartModal() {
 const modal = document.getElementById('cart-modal');
 const itemsContainer = document.getElementById('cart-items');
@@ -704,18 +685,15 @@ itemsContainer.appendChild(div);
 document.getElementById('cart-total').textContent = '$' + total.toFixed(2);
 modal.classList.remove('hidden');
 }
-
 function hideCartModal() {
 document.getElementById('cart-modal').classList.add('hidden');
 }
-
 function removeFromCart(index) {
 cart.splice(index, 1);
 localStorage.setItem('cart', JSON.stringify(cart));
 updateCartCount();
 showCartModal();
 }
-
 // ========== REALISTIC FLORIDA DELIVERY ==========
 function calculateDeliveryFee(zip) {
 if (!zip || zip.length !== 5) return null;
@@ -728,7 +706,6 @@ if (['331', '330', '334', '333'].includes(prefix)) return 18.99;
 if (['323', '324', '325'].includes(prefix)) return 19.99;
 return 14.99;
 }
-
 async function proceedToCheckout() {
 hideCartModal();
 if (cart.length === 0) {
@@ -758,7 +735,6 @@ console.error(error);
 alert("⚠️ We couldn't connect to secure checkout. Please try again.");
 }
 }
-
 // Jane's AI Chat
 function showAIChat() {
 document.getElementById('ai-chat-modal').classList.remove('hidden');
@@ -809,7 +785,6 @@ if (e.key === 'Enter' && !document.getElementById('ai-chat-modal').classList.con
 sendMessage();
 }
 });
-
 // ========== JUICE SECTION - FULLY WORKING ==========
 let selectedJuiceFlavor = 'Mango';
 let selectedJuiceSize = 16;
@@ -818,7 +793,6 @@ let juiceQty = 1;
 let selectedSubSize = 16;
 let selectedSubPrice = 10;
 let subQty = 1;
-
 function selectJuiceFlavor(flavor) {
 selectedJuiceFlavor = flavor;
 document.querySelectorAll('.flavor-btn').forEach(btn => {
@@ -831,7 +805,6 @@ btn.classList.remove('text-emerald-700', 'border-emerald-600');
 btn.classList.add('bg-emerald-600', 'text-white');
 }
 }
-
 function selectJuiceSize(size, price) {
 selectedJuiceSize = size;
 selectedJuicePrice = price;
@@ -840,19 +813,16 @@ const btn = document.getElementById('size-' + size);
 if (btn) btn.classList.add('bg-emerald-50', 'text-emerald-700');
 updateJuiceTotal();
 }
-
 function changeJuiceQty(change) {
 juiceQty = Math.max(1, juiceQty + change);
 document.getElementById('juice-qty').textContent = juiceQty;
 updateJuiceTotal();
 }
-
 function updateJuiceTotal() {
 const total = selectedJuicePrice * juiceQty;
 const el = document.getElementById('juice-total');
 if (el) el.textContent = '$' + total;
 }
-
 function addJuiceToCart() {
 const totalPrice = selectedJuicePrice * juiceQty;
 const item = {
@@ -863,7 +833,6 @@ details: selectedJuiceFlavor + ' • One-time • Fresh weekly'
 };
 addToCart(item);
 }
-
 function selectSubSize(size, price) {
 selectedSubSize = size;
 selectedSubPrice = price;
@@ -872,19 +841,16 @@ const btn = document.getElementById('sub-size-' + size);
 if (btn) btn.classList.add('bg-purple/10', 'text-purple');
 updateSubTotal();
 }
-
 function changeSubQty(change) {
 subQty = Math.max(1, subQty + change);
 document.getElementById('sub-qty').textContent = subQty;
 updateSubTotal();
 }
-
 function updateSubTotal() {
 const total = selectedSubPrice * subQty * 2;
 const el = document.getElementById('sub-total');
 if (el) el.textContent = '$' + total;
 }
-
 function addJuiceSubscription() {
 const totalPrice = selectedSubPrice * subQty * 2;
 const item = {
@@ -895,28 +861,23 @@ details: selectedJuiceFlavor + ' • Weekly delivery • ' + subQty + ' bottle(s
 };
 addToCart(item);
 }
-
 // ========== DELIVERY SYSTEM ==========
 function showDeliverySelector() {
 document.getElementById('delivery-selector-modal').classList.remove('hidden');
 }
-
 function hideDeliverySelector() {
 document.getElementById('delivery-selector-modal').classList.add('hidden');
 }
-
 function hideDeliveryForms() {
 document.getElementById('local-delivery-form').classList.add('hidden');
 document.getElementById('pickup-form').classList.add('hidden');
 document.getElementById('shipping-form').classList.add('hidden');
 document.getElementById('delivery-options-grid').classList.remove('hidden');
 }
-
 function initDeliveryCards() {
 const localCard = document.getElementById('local-delivery-card');
 const pickupCard = document.getElementById('pickup-card');
 const shippingCard = document.getElementById('shipping-card');
-
 if (localCard) {
 localCard.addEventListener('click', () => {
 document.getElementById('delivery-options-grid').classList.add('hidden');
@@ -936,7 +897,6 @@ document.getElementById('shipping-form').classList.remove('hidden');
 });
 }
 }
-
 // Local Delivery Form
 document.getElementById('local-delivery-details-form').addEventListener('submit', function(e) {
 e.preventDefault();
@@ -959,7 +919,6 @@ alert(`✅ Local Delivery confirmed for ZIP ${zip} — $${fee.toFixed(2)}`);
 hideDeliverySelector();
 updateCartCount();
 });
-
 // Pickup Form
 document.getElementById('pickup-details-form').addEventListener('submit', async function(e) {
 e.preventDefault();
@@ -981,7 +940,6 @@ alert(`✅ Pickup selected: ${location}`);
 hideDeliverySelector();
 updateCartCount();
 });
-
 // Shipping Form
 document.getElementById('shipping-details-form').addEventListener('submit', function(e) {
 e.preventDefault();
@@ -1002,7 +960,6 @@ alert(`✅ Florida Shipping confirmed — $${fee.toFixed(2)}`);
 hideDeliverySelector();
 updateCartCount();
 });
-
 // Initialize everything
 window.addEventListener('load', () => {
 const savedCart = localStorage.getItem('cart');
@@ -1012,7 +969,6 @@ updateCartCount();
 }
 initDeliveryCards();
 });
-
 // Juice initialization
 document.addEventListener('DOMContentLoaded', function() {
 const mangoBtn = document.getElementById('flavor-mango');
@@ -1029,7 +985,6 @@ if (sTotal) sTotal.textContent = '$20';
 }, 300);
 });
 </script>
-
 <!-- 100% privacy-first analytics -->
 <script async src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
 </body>
