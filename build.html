@@ -64,7 +64,6 @@ window.addEventListener('load', initTailwind);
 </div>
 </div>
 </nav>
-
 <!-- Delivery Info Bar -->
 <div id="delivery-info-bar" class="hidden bg-emerald-50 border-b border-emerald-200">
 <div class="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
@@ -76,7 +75,6 @@ window.addEventListener('load', initTailwind);
 <button onclick="changeDelivery()" class="text-sm text-emerald-700 hover:text-emerald-900 underline">Change</button>
 </div>
 </div>
-
 <!-- Marquee -->
 <div class="bg-lightpurple/30 py-3 text-purple font-medium text-sm border-b">
 <div class="marquee">
@@ -85,7 +83,6 @@ window.addEventListener('load', initTailwind);
 </div>
 </div>
 </div>
-
 <!-- Hero -->
 <header class="bg-gradient-to-br from-deep/5 to-lightpurple/30 py-16">
 <div class="max-w-7xl mx-auto px-6 text-center">
@@ -93,7 +90,6 @@ window.addEventListener('load', initTailwind);
 <p class="text-xl text-gray-600 max-w-2xl mx-auto">Start with our signature Irish Sea Moss and customize with fruits, herbs, and consistency for your unique wellness needs.</p>
 </div>
 </header>
-
 <div class="max-w-7xl mx-auto px-6 py-12 grid md:grid-cols-2 gap-12">
 <!-- Left Column: Customization -->
 <div class="space-y-10">
@@ -117,7 +113,6 @@ window.addEventListener('load', initTailwind);
 </label>
 </div>
 </div>
-
 <!-- Fruit Base -->
 <div>
 <h2 class="text-2xl font-medium mb-3">Fruit Base <span class="text-sm font-normal text-purple">(Highly Recommended)</span></h2>
@@ -152,7 +147,6 @@ window.addEventListener('load', initTailwind);
 </label>
 </div>
 </div>
-
 <!-- Herbs -->
 <div>
 <h2 class="text-2xl font-medium mb-4">Add Herbs <span class="text-sm font-normal text-gray-500">(Optional)</span></h2>
@@ -216,7 +210,6 @@ window.addEventListener('load', initTailwind);
 </div>
 <p class="text-xs text-gray-500 mt-2">Note: Wormwood cannot be combined with any other herbs.</p>
 </div>
-
 <!-- Consistency -->
 <div>
 <h2 class="text-2xl font-medium mb-4">Consistency <span class="text-sm font-normal text-gray-500">(We recommend Regular)</span></h2>
@@ -236,7 +229,6 @@ window.addEventListener('load', initTailwind);
 </div>
 </div>
 </div>
-
 <!-- Summary -->
 <div class="bg-white border border-purple/30 rounded-3xl p-8 sticky top-24 h-fit">
 <h2 class="text-2xl font-medium mb-6">Your Custom Blend</h2>
@@ -258,14 +250,12 @@ window.addEventListener('load', initTailwind);
 <p class="text-center text-xs text-gray-500 mt-6">Freshly prepared to order • Ships within 48 hours</p>
 </div>
 </div>
-
 <!-- Footer -->
 <footer class="bg-deep text-white py-16">
 <div class="max-w-7xl mx-auto px-6 text-center">
 <p class="mb-6 text-lg">Handcrafted with intention in Central Florida</p>
 </div>
 </footer>
-
 <!-- Cart Modal -->
 <div id="cart-modal" class="hidden fixed inset-0 bg-black bg-opacity-50 z-[9999] flex items-center justify-center p-4">
 <div class="bg-white rounded-3xl max-w-md w-full max-h-[80vh] flex flex-col">
@@ -285,30 +275,25 @@ window.addEventListener('load', initTailwind);
 </div>
 </div>
 </div>
-
 <!-- Delivery Selector Modal -->
 <div id="delivery-selector-modal" class="hidden fixed inset-0 bg-black/60 z-[10000] flex items-center justify-center p-4">
 <div class="bg-white rounded-3xl max-w-lg w-full p-8" id="delivery-modal-content">
 <!-- Dynamic content injected by JS -->
 </div>
 </div>
-
 <script>
 // ========== CART SYSTEM ==========
 let cart = [];
-
 function addToCart(item) {
 cart.push(item);
 updateCartCount();
 localStorage.setItem('cart', JSON.stringify(cart));
 showCartModal();
 }
-
 function updateCartCount() {
 const countEl = document.getElementById('cart-count');
 if (countEl) countEl.textContent = cart.length;
 }
-
 function showCartModal() {
 const modal = document.getElementById('cart-modal');
 const itemsContainer = document.getElementById('cart-items');
@@ -333,18 +318,15 @@ itemsContainer.appendChild(div);
 document.getElementById('cart-total').textContent = '$' + total.toFixed(2);
 modal.classList.remove('hidden');
 }
-
 function hideCartModal() {
 document.getElementById('cart-modal').classList.add('hidden');
 }
-
 function removeFromCart(index) {
 cart.splice(index, 1);
 localStorage.setItem('cart', JSON.stringify(cart));
 updateCartCount();
 showCartModal();
 }
-
 async function proceedToCheckout() {
 hideCartModal();
 if (!selectedDelivery) {
@@ -371,7 +353,6 @@ console.error(error);
 alert("⚠️ We couldn't connect to secure checkout. Please try again.");
     }
 }
-
 // ========== BLEND BUILDER ==========
 let basePrice = 30;
 let selectedSize = "16oz";
@@ -379,7 +360,6 @@ let selectedFruit = "None";
 let selectedHerbs = [];
 let selectedConsistency = "Regular";
 let consistencyPrice = 0;
-
 const herbPrices = {
 "Burdock Root": 4,
 "Bladderwrack": 4,
@@ -389,7 +369,6 @@ const herbPrices = {
 "Maca Root": 6,
 "Wormwood": 12
 };
-
 function updateSummary() {
 document.getElementById('base-summary').innerHTML = `${selectedSize} Jar — $${basePrice}`;
 const fruitText = selectedFruit === "None" ? "None selected" : selectedFruit + " (+$3.00)";
@@ -406,14 +385,14 @@ selectedHerbs.forEach(herb => total += herbPrices[herb] || 0);
 total += consistencyPrice;
 document.getElementById('total-price').textContent = '$' + total.toFixed(2);
 }
-
 function addCustomBlendToCart() {
 const total = parseFloat(document.getElementById('total-price').textContent.replace('$', ''));
+const herbsText = selectedHerbs.length ? selectedHerbs.join(', ') : 'None';
 const customItem = {
 id: 'custom-' + Date.now(),
 name: '🌿 Custom Sea Moss Blend',
 price: total,
-details: `${selectedSize} • ${selectedFruit} • ${selectedHerbs.length ? selectedHerbs.join(', ') : 'No herbs'} • ${selectedConsistency}`,
+details: `${selectedSize} • ${selectedFruit} • ${herbsText} • ${selectedConsistency}`,
 metadata: {
 type: 'custom-blend',
 size: selectedSize,
@@ -426,10 +405,25 @@ consistencyPrice: consistencyPrice,
 basePrice: basePrice,
 totalPrice: total
     }
-    };
+};
 addToCart(customItem);
-}
 
+// Optional early notification when they add the blend
+const formData = new FormData();
+formData.append('_subject', 'New Custom Blend Added to Cart - Janesse\'s Seamoss');
+formData.append('Size', selectedSize);
+formData.append('Fruit / Flavor', selectedFruit);
+formData.append('Herbs', herbsText);
+formData.append('Consistency', selectedConsistency);
+formData.append('Total Price', '$' + total.toFixed(2));
+formData.append('Order Type', 'Custom Build Your Blend');
+formData.append('Source', 'Build Your Blend page');
+fetch('https://formspree.io/f/xjgzrwry', {
+method: 'POST',
+headers: { 'Accept': 'application/json' },
+body: formData
+}).catch(function(){});
+}
 // ========== SIZE, HERB, FRUIT & CONSISTENCY LOGIC ==========
 function setupSizeLogic() {
 const sizeOptions = document.querySelectorAll('.size-option');
@@ -443,7 +437,6 @@ updateSummary();
         });
     });
 }
-
 function setupHerbLogic() {
 const checkboxes = document.querySelectorAll('.herb-checkbox');
 const wormwoodCheckbox = document.getElementById('wormwood-checkbox');
@@ -478,7 +471,6 @@ updateSummary();
         });
     });
 }
-
 function setupFruitLogic() {
 document.querySelectorAll('input[name="fruit"]').forEach(radio => {
 radio.addEventListener('change', () => {
@@ -487,7 +479,6 @@ updateSummary();
         });
     });
 }
-
 function setupConsistency() {
 document.querySelectorAll('.consistency-option').forEach(option => {
 option.addEventListener('click', () => {
@@ -499,10 +490,8 @@ updateSummary();
         });
     });
 }
-
 // ========== DELIVERY LOGIC ==========
 let selectedDelivery = null;
-
 function calculateDeliveryFee(zip) {
 if (!zip) return { fee: 8, area: 'Central Florida Delivery' };
 const z = zip.trim().substring(0, 3);
@@ -513,7 +502,6 @@ if (greaterCentral.includes(z)) return { fee: 12, area: 'Greater Central Florida
 if (z.startsWith('3')) return { fee: 15, area: 'Florida Statewide Delivery' };
 return { fee: 9.99, area: 'Standard Shipping' };
 }
-
 function showFeePreview(zip) {
 const preview = document.getElementById('fee-preview');
 if (!preview || !zip) return;
@@ -521,7 +509,6 @@ const { fee, area } = calculateDeliveryFee(zip);
 preview.innerHTML = `Delivery fee for <strong>${area}</strong>: <span class="font-semibold">$${fee}</span>`;
 preview.className = 'text-sm text-emerald-600 mt-1';
 }
-
 async function useCurrentLocationForDelivery() {
 if (!navigator.geolocation) {
 alert("Geolocation is not supported by your browser. Please enter ZIP manually.");
@@ -552,7 +539,6 @@ alert("Unable to get your location. Please enter ZIP manually.");
         }
     });
 }
-
 function showDeliverySelector() {
 const modal = document.getElementById('delivery-selector-modal');
 const content = document.getElementById('delivery-modal-content');
@@ -580,7 +566,6 @@ content.innerHTML = `
     `;
 modal.classList.remove('hidden');
 }
-
 function showDeliveryForm(type) {
 const content = document.getElementById('delivery-modal-content');
 let html = '';
@@ -735,6 +720,20 @@ cart.push(deliveryItem);
 localStorage.setItem('cart', JSON.stringify(cart));
 updateCartCount();
         }
+
+// ===== INCLUDE CUSTOM BLEND DETAILS IN THE FORMSPREE EMAIL =====
+const customBlend = cart.find(item => item.id && String(item.id).startsWith('custom-'));
+if (customBlend && customBlend.metadata) {
+    formData.append('Blend Size', customBlend.metadata.size || '');
+    formData.append('Fruit / Flavor', customBlend.metadata.fruit || 'None');
+    formData.append('Herbs', (customBlend.metadata.herbs && customBlend.metadata.herbs.length) ? customBlend.metadata.herbs.join(', ') : 'None');
+    formData.append('Consistency', customBlend.metadata.consistency || 'Regular');
+    formData.append('Blend Total', '$' + (customBlend.metadata.totalPrice || customBlend.price).toFixed(2));
+} else if (customBlend) {
+    formData.append('Blend Details', customBlend.details || '');
+    formData.append('Blend Total', '$' + customBlend.price.toFixed(2));
+}
+
 try {
 await fetch('https://formspree.io/f/xjgzrwry', {
 method: 'POST',
@@ -753,11 +752,9 @@ document.body.appendChild(toast);
 setTimeout(() => toast.remove(), 2200);
     });
 }
-
 function hideDeliverySelector() {
 document.getElementById('delivery-selector-modal').classList.add('hidden');
 }
-
 function updateDeliveryBar() {
 const bar = document.getElementById('delivery-info-bar');
 if (!selectedDelivery) {
@@ -768,13 +765,11 @@ document.getElementById('delivery-area').textContent = `${selectedDelivery.custo
 document.getElementById('delivery-fee').textContent = selectedDelivery.fee > 0 ? `$${selectedDelivery.fee} fee` : 'Free';
 bar.classList.remove('hidden');
 }
-
 function changeDelivery() {
 selectedDelivery = null;
 document.getElementById('delivery-info-bar').classList.add('hidden');
 showDeliverySelector();
 }
-
 // ========== INITIALIZE EVERYTHING ==========
 window.addEventListener('load', () => {
 setupSizeLogic();
