@@ -96,6 +96,7 @@ app.post('/admin/login', async (req, res) => {
 app.post('/create-checkout-session', async (req, res) => {
   try {
     const { cart } = req.body;
+
     if (!cart || cart.length === 0) {
       return res.status(400).json({ error: "Cart is empty" });
     }
@@ -118,18 +119,33 @@ app.post('/create-checkout-session', async (req, res) => {
       mode: 'payment',
       success_url: 'https://vontamr.github.io/janesseamosshealing/success.html?session_id={CHECKOUT_SESSION_ID}',
       cancel_url: 'https://vontamr.github.io/janesseamosshealing/shop.html',
-      metadata: { source: 'janesse_seamoss_website' }
+      metadata: { source: 'janesse_seamoss_website' },
+
+      // === SHIPPING OPTIONS ===
+      shipping_address_collection: {
+        allowed_countries: ['US'],
+      },
+      shipping_options: [
+        {
+          shipping_rate: 'shr_1TwPmeIeLXeJ9tb9hCOzXzvU ', // ← Free In-Store Pickup – Central Florida
+        },
+        {
+          shipping_rate: 'shr_1TwPrAIeLXeJ9tb96nLia9Xl', // ← Local Delivery (Orlando Area)
+        },
+        {
+          shipping_rate: 'shr_1TwPuCIeLXeJ9tb9sMc9aP4o', // ← Standard US Shipping
+        },
+      ],
+      // ========================
     });
 
     res.json({ id: session.id });
+
   } catch (error) {
     console.error("Stripe Error:", error);
     res.status(500).json({ error: error.message });
   }
 });
-
-const PORT = process.env.PORT || 3000;
-
 // ====================== DASHBOARD DATA API ======================
 app.get('/api/dashboard', (req, res) => {
   const fs = require('fs');
