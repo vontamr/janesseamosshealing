@@ -121,22 +121,20 @@ app.post('/create-checkout-session', async (req, res) => {
       cancel_url: 'https://vontamr.github.io/janesseamosshealing/shop.html',
       metadata: { source: 'janesse_seamoss_website' },
 
-      // === SHIPPING OPTIONS ===
       shipping_address_collection: {
         allowed_countries: ['US'],
       },
       shipping_options: [
         {
-          shipping_rate: 'shr_1TwPmeIeLXeJ9tb9hCOzXzvU ', // ← Free In-Store Pickup – Central Florida
+          shipping_rate: 'shr_1TwPmeIeLXeJ9tb9hCOzXzvU', // Free In-Store Pickup
         },
         {
-          shipping_rate: 'shr_1TwPrAIeLXeJ9tb96nLia9Xl', // ← Local Delivery (Orlando Area)
+          shipping_rate: 'shr_1TwPrAIeLXeJ9tb96nLia9Xl', // Local Delivery
         },
         {
-          shipping_rate: 'shr_1TwPuCIeLXeJ9tb9sMc9aP4o', // ← Standard US Shipping
+          shipping_rate: 'shr_1TwPuCIeLXeJ9tb9sMc9aP4o', // Standard US Shipping
         },
       ],
-      // ========================
     });
 
     res.json({ id: session.id });
