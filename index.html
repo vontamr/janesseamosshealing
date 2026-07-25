@@ -620,8 +620,9 @@ function typeWriterEffect() {
   }
   setTimeout(typeWriterEffect, typeSpeed);
 }
-window.addEventListener('load', () => { if (typewriterElement) typeWriterEffect(); });
-
+document.addEventListener('DOMContentLoaded', () => { 
+  if (typewriterElement) typeWriterEffect(); 
+});
 // ========== CART ==========
 let cart = [];
 function addToCart(item) {
