@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sea Moss Florida | Wild-Harvested Caribbean Sea Moss – Central Florida | Janesse's Seamoss Creation</title>
-<meta name="description" content="Premium wild-harvested sea moss from Antigua & St. Lucia. 92+ minerals. Fresh weekly in Central Florida. Shop sea moss gel, build your blend, and join The Sea Moss Circle community.">
+<title>Sea Moss Near Me | Wildcrafted Organic Sea Moss Florida | Janesse's Seamoss Creation</title>
+<meta name="description" content="Looking for sea moss near me? Wildcrafted, organic sea moss gels & juices made fresh weekly in Central Florida. Local pickup, healthy food delivery & US shipping. Vegan & pure. 92+ minerals.">
 <!-- Meta Pixel Code -->
 <script>
 !function(f,b,e,v,n,t,s)
@@ -101,8 +101,8 @@ window.addEventListener('load', initTailwind);
 <div class="bg-lightpurple/30 py-3 text-purple font-medium text-sm border-b overflow-hidden">
   <div class="marquee">
     <div class="marquee-content flex gap-12 items-center">
-      <span>🌿 Wild-Harvested from Antigua &amp; St. Lucia • 92+ Minerals • Fresh Weekly in Central Florida • Handcrafted with Intention</span>
-      <span>🌿 Local Pickup &amp; Delivery Available • Pure Caribbean Sea Moss • No Fillers • Naturally Sweetened</span>
+      <span>🌿 Wildcrafted Sea Moss Near Me • Organic & Vegan Options • Fresh Weekly in Central Florida • Healthy Food Delivery</span>
+      <span>🌿 Local Pickup & Delivery Available • Pure Caribbean Sea Moss • No Fillers • Naturally Sweetened</span>
     </div>
   </div>
 </div>
@@ -114,14 +114,14 @@ window.addEventListener('load', initTailwind);
     <div class="space-y-8">
       <div class="inline-flex items-center gap-3 bg-white/90 backdrop-blur px-6 py-3 rounded-3xl shadow text-sm font-medium">
         <span class="text-green-600">🌊</span>
-        <span class="text-purple">Wild-Harvested • Antigua &amp; St. Lucia</span>
+        <span class="text-purple">Wildcrafted • Organic Sea Moss Near Me</span>
       </div>
       <h1 class="text-5xl md:text-6xl lg:text-7xl font-light leading-none tracking-tighter min-h-[120px] md:min-h-[140px]">
         <span id="typewriter"></span>
       </h1>
       <p class="text-xl md:text-2xl text-gray-700 max-w-lg">
-        Premium sea moss gels with 92+ minerals.<br>
-        Fresh weekly in Central Florida.
+        Premium wildcrafted sea moss gels with 92+ minerals.<br>
+        Fresh weekly in Central Florida • Organic & vegan options near you.
       </p>
       <div class="flex flex-col sm:flex-row gap-4">
         <a href="build.html" class="bg-purple hover:bg-deep text-white px-10 py-6 rounded-3xl text-xl font-semibold transition-all active:scale-95 text-center">Build Your Blend</a>
@@ -375,6 +375,9 @@ window.addEventListener('load', initTailwind);
   <div class="max-w-7xl mx-auto px-6 text-center">
     <p class="mb-4">Handcrafted in Central Florida with love and intention.</p>
     <p class="text-sm opacity-75">These statements have not been evaluated by the FDA. This product is not intended to diagnose, treat, cure, or prevent any disease.</p>
+    <p class="text-sm opacity-75 mt-4">
+      Sea moss near me • Wildcrafted organic sea moss • Healthy food delivery Orlando
+    </p>
     <div class="mt-8 pt-8 border-t border-white/20 text-sm opacity-75 flex flex-wrap justify-center gap-x-8 gap-y-2">
       <a href="pickup-delivery.html" class="hover:text-lightpurple">Local Pickup &amp; Delivery</a>
       <a href="community.html" class="hover:text-lightpurple">The Sea Moss Circle</a>
@@ -404,11 +407,14 @@ window.addEventListener('load', initTailwind);
       <button onclick="proceedToCheckout()" class="w-full bg-purple hover:bg-deep text-white py-6 rounded-3xl font-semibold">
         Proceed to Secure Checkout →
       </button>
+      <p class="text-center text-xs text-gray-500 mt-3">
+        Fresh weekly • 88+ 5-star reviews • Love it or we’ll make it right
+      </p>
     </div>
   </div>
 </div>
 
-<!-- Delivery Selector Modal (kept for reference, but no longer forced) -->
+<!-- Delivery Selector Modal -->
 <div id="delivery-selector-modal" class="hidden fixed inset-0 bg-black/60 z-[10000] flex items-center justify-center p-4">
   <div class="bg-white rounded-3xl max-w-5xl w-full p-8 md:p-10 max-h-[90vh] overflow-y-auto">
     <div class="flex justify-between items-center mb-8">
@@ -436,7 +442,7 @@ window.addEventListener('load', initTailwind);
         <p class="text-purple font-medium mb-3">Realistic pricing across Florida</p>
       </div>
     </div>
-    <p class="text-center text-xs text-gray-500 mt-8">One delivery method is required before checkout</p>
+    <p class="text-center text-xs text-gray-500 mt-8">Optional – You can also choose shipping at checkout</p>
 
     <!-- Local Delivery Form -->
     <div id="local-delivery-form" class="hidden mt-8 border border-purple/20 rounded-3xl p-8">
@@ -597,7 +603,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // ========== TYPEWRITER ==========
-const typewriterPhrases = ["Wild-Harvested Sea Moss.", "92+ Minerals. Fresh Weekly.", "Nourish Your Body Naturally."];
+const typewriterPhrases = ["Wildcrafted Sea Moss Near Me.", "92+ Minerals. Fresh Weekly.", "Organic & Vegan Options."];
 let phraseIndex = 0, charIndex = 0, isDeleting = false;
 const typewriterElement = document.getElementById('typewriter');
 function typeWriterEffect() {
@@ -620,9 +626,10 @@ function typeWriterEffect() {
   }
   setTimeout(typeWriterEffect, typeSpeed);
 }
-document.addEventListener('DOMContentLoaded', () => { 
-  if (typewriterElement) typeWriterEffect(); 
+document.addEventListener('DOMContentLoaded', () => {
+  if (typewriterElement) typeWriterEffect();
 });
+
 // ========== CART ==========
 let cart = [];
 function addToCart(item) {
@@ -671,7 +678,7 @@ function removeFromCart(index) {
   showCartModal();
 }
 
-// ========== CLEAN CHECKOUT (Stripe handles shipping) ==========
+// ========== CLEAN CHECKOUT ==========
 async function proceedToCheckout() {
   hideCartModal();
   if (cart.length === 0) {
@@ -809,7 +816,7 @@ function addJuiceSubscription() {
   });
 }
 
-// ========== DELIVERY HELPERS (kept but not forced) ==========
+// ========== DELIVERY HELPERS ==========
 function showDeliverySelector() {
   document.getElementById('delivery-selector-modal').classList.remove('hidden');
 }
