@@ -10,6 +10,8 @@ const path = require('path');
 const app = express();
 const stripe = Stripe(process.env.STRIPE_SECRET_KEY);
 
+const PORT = process.env.PORT || 3000;
+
 app.use(cors({ 
   origin: '*',
   credentials: true 
