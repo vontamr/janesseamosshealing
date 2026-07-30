@@ -47,11 +47,47 @@ window.addEventListener('load', initTailwind);
 @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 .palm-tree { position: absolute; right: 5%; bottom: 10%; width: 420px; opacity: 0.15; z-index: 1; pointer-events: none; }
 .review-card { min-width: 340px; max-width: 380px; flex-shrink: 0; }
-.chat-message { max-width: 80%; padding: 12px 16px; border-radius: 18px; margin-bottom: 8px; line-height: 1.5; }
-.user-message { background: #5E0089; color: white; margin-left: auto; border-bottom-right-radius: 4px; }
-.ai-message { background: white; border: 1px solid #e5d4f5; margin-right: auto; border-bottom-left-radius: 4px; }
 .delivery-card { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); cursor: pointer; }
 .delivery-card:hover { transform: translateY(-4px); box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1); }
+
+/* ===== Dark Purple Grok-style Chat ===== */
+#ai-chat-modal .chat-container {
+  background: #1a0b2e;
+  border: 1px solid rgba(94, 0, 137, 0.4);
+}
+.chat-message {
+  max-width: 85%;
+  padding: 14px 18px;
+  border-radius: 18px;
+  margin-bottom: 12px;
+  line-height: 1.55;
+  font-size: 15px;
+}
+.user-message {
+  background: #5E0089;
+  color: white;
+  margin-left: auto;
+  border-bottom-right-radius: 6px;
+}
+.ai-message {
+  background: #2a1545;
+  color: #f0e6ff;
+  margin-right: auto;
+  border-bottom-left-radius: 6px;
+  border: 1px solid rgba(94, 0, 137, 0.3);
+}
+#chat-input {
+  background: #2a1545;
+  border: 1px solid rgba(94, 0, 137, 0.5);
+  color: white;
+}
+#chat-input::placeholder {
+  color: #a78bba;
+}
+#chat-input:focus {
+  border-color: #5E0089;
+  outline: none;
+}
 </style>
 </head>
 <body class="bg-white text-deep font-sans antialiased">
@@ -546,24 +582,42 @@ window.addEventListener('load', initTailwind);
   </div>
 </div>
 
-<!-- Jane's AI Chat Modal -->
-<div id="ai-chat-modal" class="hidden fixed inset-0 bg-black/60 z-[99999] flex items-center justify-center p-4">
-  <div class="bg-white w-full max-w-2xl rounded-3xl shadow-2xl overflow-hidden flex flex-col h-[85vh]">
-    <div class="bg-purple px-6 py-4 flex items-center justify-between">
+<!-- ===== DARK PURPLE GROK-STYLE JANE'S AI ===== -->
+<div id="ai-chat-modal" class="hidden fixed inset-0 bg-black/70 z-[99999] flex items-center justify-center p-4">
+  <div class="chat-container w-full max-w-2xl rounded-3xl shadow-2xl overflow-hidden flex flex-col h-[85vh]">
+    
+    <!-- Header -->
+    <div class="px-6 py-4 flex items-center justify-between border-b border-purple/30" style="background: #1a0b2e;">
       <div class="flex items-center gap-3">
-        <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center"><span class="text-purple text-2xl">🌿</span></div>
+        <div class="w-10 h-10 rounded-full flex items-center justify-center" style="background: #5E0089;">
+          <span class="text-white text-xl">🌿</span>
+        </div>
         <div>
-          <p class="text-white font-semibold">Jane's AI</p>
-          <p class="text-purple-200 text-sm">Your Sea Moss & Wellness Guide</p>
+          <p class="text-white font-semibold text-lg">Jane's AI</p>
+          <p class="text-purple-300 text-xs">Sea Moss & Wellness Guide</p>
         </div>
       </div>
-      <button onclick="hideAIChat()" class="text-white text-3xl leading-none">×</button>
+      <button onclick="hideAIChat()" class="text-white/70 hover:text-white text-3xl leading-none transition">×</button>
     </div>
-    <div id="chat-messages" class="flex-1 overflow-y-auto p-6 space-y-4 bg-[#faf5ff]"></div>
-    <div class="p-4 border-t bg-white">
+
+    <!-- Messages -->
+    <div id="chat-messages" class="flex-1 overflow-y-auto p-6 space-y-1" style="background: #130820;"></div>
+
+    <!-- Input -->
+    <div class="p-4 border-t border-purple/30" style="background: #1a0b2e;">
       <div class="flex gap-3">
-        <input id="chat-input" type="text" placeholder="Ask about sea moss, benefits, or recipes..." class="flex-1 border border-gray-300 rounded-3xl px-5 py-4 focus:outline-none focus:border-purple">
-        <button onclick="sendMessage()" class="bg-purple hover:bg-deep text-white px-8 rounded-3xl font-semibold">Send</button>
+        <input 
+          id="chat-input" 
+          type="text" 
+          placeholder="Ask about sea moss, benefits, recipes..." 
+          class="flex-1 rounded-2xl px-5 py-3.5 text-sm focus:outline-none"
+        >
+        <button 
+          onclick="sendMessage()" 
+          class="bg-purple hover:bg-[#4a006e] text-white px-7 rounded-2xl font-medium transition-all active:scale-95"
+        >
+          Send
+        </button>
       </div>
     </div>
   </div>
@@ -703,7 +757,7 @@ function showAIChat() {
   document.getElementById('ai-chat-modal').classList.remove('hidden');
   const messagesContainer = document.getElementById('chat-messages');
   if (messagesContainer.children.length === 0) {
-    addAIMessage("Hi! I'm Jane's AI, powered by real intelligence. I can help with sea moss benefits, which blend is best for you, recipes, shipping, or anything wellness-related. How can I support you today?");
+    addAIMessage("Hi! I'm Jane's AI. Ask me anything about sea moss, which blend is best for you, recipes, shipping, or wellness.");
   }
 }
 
@@ -737,7 +791,6 @@ async function sendMessage() {
   addUserMessage(message);
   input.value = '';
 
-  // Typing indicator
   const typingDiv = document.createElement('div');
   typingDiv.className = 'chat-message ai-message';
   typingDiv.id = 'typing-indicator';
