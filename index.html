@@ -47,6 +47,11 @@ window.addEventListener('load', initTailwind);
 @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 .palm-tree { position: absolute; right: 5%; bottom: 10%; width: 420px; opacity: 0.15; z-index: 1; pointer-events: none; }
 .review-card { min-width: 340px; max-width: 380px; flex-shrink: 0; }
+.chat-message { max-width: 80%; padding: 12px 16px; border-radius: 18px; margin-bottom: 8px; line-height: 1.5; }
+.user-message { background: #5E0089; color: white; margin-left: auto; border-bottom-right-radius: 4px; }
+.ai-message { background: white; border: 1px solid #e5d4f5; margin-right: auto; border-bottom-left-radius: 4px; }
+.delivery-card { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); cursor: pointer; }
+.delivery-card:hover { transform: translateY(-4px); box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1); }
 </style>
 </head>
 <body class="bg-white text-deep font-sans antialiased">
@@ -148,7 +153,6 @@ window.addEventListener('load', initTailwind);
       <p class="text-center text-gray-600 mt-4 max-w-lg mx-auto">Each blend is handcrafted with intention to support different aspects of your wellness journey.</p>
     </div>
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-8">
-      <!-- Herb Infused -->
       <div class="group bg-white border border-gray-100 rounded-3xl overflow-hidden hover:shadow-2xl transition-all duration-300">
         <div class="h-64 bg-gray-100 overflow-hidden">
           <img src="assets/images/joint-relief-seamoss.jpg" alt="Herb Infused" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
@@ -160,7 +164,6 @@ window.addEventListener('load', initTailwind);
           <a href="shop.html" class="mt-6 inline-flex items-center gap-2 text-purple font-medium hover:text-deep">Explore →</a>
         </div>
       </div>
-      <!-- Fruit Flavored -->
       <div class="group bg-white border border-gray-100 rounded-3xl overflow-hidden hover:shadow-2xl transition-all duration-300">
         <div class="h-64 bg-gray-100 overflow-hidden">
           <img src="assets/images/passion-fruit-seamoss.jpg" alt="Fruit Flavored" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
@@ -172,7 +175,6 @@ window.addEventListener('load', initTailwind);
           <a href="shop.html" class="mt-6 inline-flex items-center gap-2 text-purple font-medium hover:text-deep">Shop Flavors →</a>
         </div>
       </div>
-      <!-- Juices -->
       <div class="group bg-white border border-gray-100 rounded-3xl overflow-hidden hover:shadow-2xl transition-all duration-300">
         <div class="h-64 bg-gray-100 overflow-hidden">
           <img src="assets/images/sea-moss-juices.jpg" alt="Juices" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
@@ -184,7 +186,6 @@ window.addEventListener('load', initTailwind);
           <a href="#juice-section" class="mt-6 inline-flex items-center gap-2 text-purple font-medium hover:text-deep">See Options →</a>
         </div>
       </div>
-      <!-- Skincare -->
       <div class="group bg-white border border-gray-100 rounded-3xl overflow-hidden hover:shadow-2xl transition-all duration-300">
         <div class="h-64 bg-gray-100 overflow-hidden">
           <img src="assets/images/skincare-gels.jpg" alt="Skincare" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
@@ -196,7 +197,6 @@ window.addEventListener('load', initTailwind);
           <a href="shop.html" class="mt-6 inline-flex items-center gap-2 text-purple font-medium hover:text-deep">Discover Skincare →</a>
         </div>
       </div>
-      <!-- Fitness Recovery -->
       <div class="group bg-white border border-gray-100 rounded-3xl overflow-hidden hover:shadow-2xl transition-all duration-300">
         <div class="h-64 bg-gray-100 overflow-hidden">
           <img src="assets/images/IMG_8064 Background Removed 2.png" alt="Fitness Recovery" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
@@ -226,7 +226,6 @@ window.addEventListener('load', initTailwind);
       <button onclick="selectJuiceFlavor('Blackberry')" id="flavor-blackberry" class="flavor-btn px-8 py-3 rounded-3xl border-2 border-emerald-600 text-emerald-700 hover:bg-emerald-50 font-medium">Blackberry</button>
     </div>
     <div class="grid md:grid-cols-2 gap-10 max-w-5xl mx-auto">
-      <!-- One-Time Purchase -->
       <div class="bg-white border border-emerald-100 rounded-3xl p-9">
         <div class="text-center mb-8">
           <h3 class="text-2xl font-medium">One-Time Purchase</h3>
@@ -253,7 +252,6 @@ window.addEventListener('load', initTailwind);
         </div>
         <button onclick="addJuiceToCart()" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white py-5 rounded-3xl font-semibold text-lg">Add to Basket</button>
       </div>
-      <!-- Weekly Subscription -->
       <div class="border-2 border-purple rounded-3xl p-9 bg-gradient-to-br from-purple/5 to-white relative">
         <div class="absolute -top-3 right-6 bg-purple text-white text-xs font-semibold px-5 py-1 rounded-3xl tracking-widest">MOST POPULAR</div>
         <div class="text-center mb-8">
@@ -444,7 +442,6 @@ window.addEventListener('load', initTailwind);
     </div>
     <p class="text-center text-xs text-gray-500 mt-8">Optional – You can also choose shipping at checkout</p>
 
-    <!-- Local Delivery Form -->
     <div id="local-delivery-form" class="hidden mt-8 border border-purple/20 rounded-3xl p-8">
       <h4 class="text-xl font-semibold mb-4">Local Delivery (Orlando Area)</h4>
       <form id="local-delivery-details-form" class="space-y-4">
@@ -463,7 +460,6 @@ window.addEventListener('load', initTailwind);
       </form>
     </div>
 
-    <!-- Pickup Form -->
     <div id="pickup-form" class="hidden mt-8 border border-purple/20 rounded-3xl p-8">
       <h4 class="text-xl font-semibold mb-4">Free Pickup Details</h4>
       <form id="pickup-details-form" class="space-y-4">
@@ -510,7 +506,6 @@ window.addEventListener('load', initTailwind);
       </form>
     </div>
 
-    <!-- Shipping Form -->
     <div id="shipping-form" class="hidden mt-8 border border-purple/20 rounded-3xl p-8">
       <h4 class="text-xl font-semibold mb-4">Florida Shipping</h4>
       <form id="shipping-details-form" class="space-y-4">
@@ -701,17 +696,21 @@ async function proceedToCheckout() {
   }
 }
 
-// ========== AI CHAT ==========
+// ========== AI CHAT (Grok-powered) ==========
+let chatHistory = [];
+
 function showAIChat() {
   document.getElementById('ai-chat-modal').classList.remove('hidden');
   const messagesContainer = document.getElementById('chat-messages');
   if (messagesContainer.children.length === 0) {
-    addAIMessage("Hi! I'm Jane's AI. I can help you with sea moss benefits, recipes, which blend is best for you, or any wellness questions. How can I support you today?");
+    addAIMessage("Hi! I'm Jane's AI, powered by real intelligence. I can help with sea moss benefits, which blend is best for you, recipes, shipping, or anything wellness-related. How can I support you today?");
   }
 }
+
 function hideAIChat() {
   document.getElementById('ai-chat-modal').classList.add('hidden');
 }
+
 function addUserMessage(message) {
   const container = document.getElementById('chat-messages');
   const div = document.createElement('div');
@@ -720,6 +719,7 @@ function addUserMessage(message) {
   container.appendChild(div);
   container.scrollTop = container.scrollHeight;
 }
+
 function addAIMessage(message) {
   const container = document.getElementById('chat-messages');
   const div = document.createElement('div');
@@ -728,23 +728,51 @@ function addAIMessage(message) {
   container.appendChild(div);
   container.scrollTop = container.scrollHeight;
 }
-function sendMessage() {
+
+async function sendMessage() {
   const input = document.getElementById('chat-input');
   const message = input.value.trim();
   if (!message) return;
+
   addUserMessage(message);
   input.value = '';
-  setTimeout(() => {
-    addAIMessage(getAIResponse(message.toLowerCase()));
-  }, 800);
+
+  // Typing indicator
+  const typingDiv = document.createElement('div');
+  typingDiv.className = 'chat-message ai-message';
+  typingDiv.id = 'typing-indicator';
+  typingDiv.textContent = 'Jane is thinking...';
+  document.getElementById('chat-messages').appendChild(typingDiv);
+  document.getElementById('chat-messages').scrollTop = document.getElementById('chat-messages').scrollHeight;
+
+  try {
+    const response = await fetch('https://janesse-seamoss-backend.onrender.com/api/jane-ai', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        message: message,
+        history: chatHistory
+      })
+    });
+
+    const data = await response.json();
+    document.getElementById('typing-indicator')?.remove();
+
+    if (data.reply) {
+      addAIMessage(data.reply);
+      chatHistory.push({ role: 'user', content: message });
+      chatHistory.push({ role: 'assistant', content: data.reply });
+      if (chatHistory.length > 6) chatHistory = chatHistory.slice(-6);
+    } else {
+      addAIMessage("I'm having a little trouble right now. Please try again in a moment.");
+    }
+  } catch (error) {
+    document.getElementById('typing-indicator')?.remove();
+    addAIMessage("Connection issue. Please try again shortly.");
+    console.error(error);
+  }
 }
-function getAIResponse(message) {
-  if (message.includes('energy') || message.includes('tired')) return "Sea moss is excellent for natural energy! Many people notice improved stamina within 1–2 weeks. The Passionfruit and Mango blends are popular for daily energy.";
-  if (message.includes('skin') || message.includes('glow')) return "Sea moss supports skin health from within thanks to its high mineral content. Our Moon Cycle Moss and regular gels are great for this.";
-  if (message.includes('recipe') || message.includes('how to use')) return "You can blend it into smoothies, make a gel, or even use it in teas. Would you like a simple daily recipe recommendation?";
-  if (message.includes('best') || message.includes('recommend')) return "It depends on your goals! For general wellness, start with Mango or Passionfruit. For hormonal support, try Moon Cycle Moss.";
-  return "That's a great question! Sea moss is incredibly versatile. Could you tell me more about what you're looking to support (energy, digestion, skin, etc.)?";
-}
+
 document.addEventListener('keypress', function(e) {
   if (e.key === 'Enter' && !document.getElementById('ai-chat-modal').classList.contains('hidden')) {
     sendMessage();
@@ -830,6 +858,31 @@ function hideDeliveryForms() {
   document.getElementById('delivery-options-grid')?.classList.remove('hidden');
 }
 
+function initDeliveryCards() {
+  const localCard = document.getElementById('local-delivery-card');
+  const pickupCard = document.getElementById('pickup-card');
+  const shippingCard = document.getElementById('shipping-card');
+
+  if (localCard) {
+    localCard.addEventListener('click', function() {
+      document.getElementById('delivery-options-grid').classList.add('hidden');
+      document.getElementById('local-delivery-form').classList.remove('hidden');
+    });
+  }
+  if (pickupCard) {
+    pickupCard.addEventListener('click', function() {
+      document.getElementById('delivery-options-grid').classList.add('hidden');
+      document.getElementById('pickup-form').classList.remove('hidden');
+    });
+  }
+  if (shippingCard) {
+    shippingCard.addEventListener('click', function() {
+      document.getElementById('delivery-options-grid').classList.add('hidden');
+      document.getElementById('shipping-form').classList.remove('hidden');
+    });
+  }
+}
+
 // Initialize
 window.addEventListener('load', () => {
   const savedCart = localStorage.getItem('cart');
@@ -837,6 +890,7 @@ window.addEventListener('load', () => {
     cart = JSON.parse(savedCart);
     updateCartCount();
   }
+  initDeliveryCards();
 });
 
 document.addEventListener('DOMContentLoaded', function() {

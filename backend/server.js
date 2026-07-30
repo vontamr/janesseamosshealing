@@ -191,3 +191,54 @@ app.listen(PORT, () => {
 
 
 });
+
+// ====================== JANE'S AI (Grok-powered) ======================
+app.post('/api/jane-ai', async (req, res) => {
+  try {
+    const { message, history = [] } = req.body;
+
+    if (!message) {
+      return res.status(400).json({ error: 'Message is required' });
+    }
+
+    const systemPrompt = `You are Jane's AI, the helpful wellness guide for Janesse's Seamoss Creation.
+You specialize in wildcrafted sea moss, sea moss gels, juices, and natural wellness.
+Be warm, clear, and concise. Stay focused on sea moss benefits, how to use the products, which blend is best for different goals (energy, skin, hormones, digestion, immunity, joints), ingredients, shipping/pickup in Central Florida, and the weekly juice subscription.
+Do not make medical claims or diagnose. If asked something outside sea moss/wellness, gently bring the conversation back.
+Keep answers helpful and natural, like a knowledgeable friend.`;
+
+    const messages = [
+      { role: 'system', content: systemPrompt },
+      ...history,
+      { role: 'user', content: message }
+    ];
+
+    const response = await fetch('https://api.x.ai/v1/chat/completions', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${process.env.XAI_API_KEY}`
+      },
+      body: JSON.stringify({
+        model: 'grok-4.5',
+        messages: messages,
+        temperature: 0.7,
+        max_tokens: 500
+      })
+    });
+
+    const data = await response.json();
+
+    if (!response.ok) {
+      console.error('xAI Error:', data);
+      return res.status(500).json({ error: 'AI is temporarily unavailable' });
+    }
+
+    const reply = data.choices?.[0]?.message?.content || "I'm having trouble responding right now. Please try again.";
+    res.json({ reply });
+
+  } catch (error) {
+    console.error('Jane AI Error:', error);
+    res.status(500).json({ error: 'Something went wrong' });
+  }
+});
