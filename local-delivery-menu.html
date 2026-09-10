@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Local Menu Near Me | Chicken Wing House | Janesse's Seamoss Central Florida</title>
+<meta name="description" content="Local menu in Central Florida. This month: Chicken Wing House — wings, fries, and sea moss drinks. Order online for local delivery or pickup.">
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://js.stripe.com/v3/"></script>
+<link rel="stylesheet" href="styles.css">
+<script>
+window.addEventListener('load', function() {
+  tailwind.config = { theme: { extend: { colors: { deep: '#260B3A', purple: '#5E0089', lightpurple: '#EAD5F8' } } } };
+});
+</script>
+<style>
+.hide-scroll::-webkit-scrollbar { display: none; }
+.sheet { animation: up .28s ease; }
+@keyframes up { from { transform: translateY(24px); opacity: 0; } to { transform: none; opacity: 1; } }
+</style>
+</head>
+<body class="bg-[#f6f6f6] text-deep font-sans antialiased">
+
+<nav class="bg-white border-b sticky top-0 z-50">
+  <div class="max-w-3xl mx-auto px-4 h-14 flex items-center justify-between">
+    <a href="index.html" class="text-sm font-medium hover:text-purple">Home</a>
+    <span class="text-sm font-semibold">Local Menu</span>
+    <button type="button" id="nav-cart-btn" class="text-sm bg-purple text-white px-3 py-1.5 rounded-full">Cart <span id="nav-cart-count">0</span></button>
+  </div>
+</nav>
+
+<header class="bg-white">
+  <div class="max-w-3xl mx-auto">
+    <div class="relative h-52 md:h-64 bg-deep overflow-hidden">
+      <video class="absolute inset-0 w-full h-full object-cover" autoplay muted loop playsinline>
+        <source src="assets/images/chicken-wing-house-hero-2.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="px-4 py-5">
+      <p class="text-[11px] tracking-widest uppercase text-purple font-semibold">This month’s kitchen</p>
+      <h1 class="text-3xl font-semibold tracking-tight mt-1">Chicken Wing House</h1>
+      <p class="text-sm text-gray-600 mt-1">Wings · Crinkle fries · Mozz sticks · Healing soup · Vegan chili · Sea moss drinks</p>
+      <div class="flex flex-wrap gap-x-3 gap-y-1 text-xs text-gray-500 mt-3">
+        <span>4.9</span>
+        <span>·</span>
+        <span>25–40 min</span>
+        <span>·</span>
+        <span>$8–$15 delivery</span>
+        <span>·</span>
+        <span>Central Florida</span>
+      </div>
+      <p class="text-xs text-gray-500 mt-3">One kitchen at a time. We switch this menu monthly.</p>
+    </div>
+  </div>
+</header>
+
+<div class="sticky top-14 z-40 bg-white border-y">
+  <div class="max-w-3xl mx-auto px-4 py-2 flex gap-2 overflow-x-auto hide-scroll text-sm">
+    <a href="#featured" class="px-3 py-1.5 rounded-full bg-deep text-white whitespace-nowrap">Featured</a>
+    <a href="#wings" class="px-3 py-1.5 rounded-full bg-gray-100 whitespace-nowrap">Wings</a>
+    <a href="#sides" class="px-3 py-1.5 rounded-full bg-gray-100 whitespace-nowrap">Sides</a>
+    <a href="#bowls" class="px-3 py-1.5 rounded-full bg-gray-100 whitespace-nowrap">Bowls</a>
+    <a href="#drinks" class="px-3 py-1.5 rounded-full bg-gray-100 whitespace-nowrap">Drinks</a>
+  </div>
+</div>
+
+<main class="max-w-3xl mx-auto px-4 py-6 pb-28">
+  <section id="featured" class="mb-8">
+    <h2 class="text-xl font-semibold mb-3">Featured</h2>
+    <button type="button" class="item-row w-full text-left bg-white rounded-2xl p-3 flex gap-3 mb-3 shadow-sm" data-id="combo-house">
+      <div class="flex-1 min-w-0">
+        <p class="font-semibold">House Combo</p>
+        <p class="text-sm text-gray-500 mt-0.5">8 wings, fries, 16oz sea moss drink</p>
+        <p class="text-sm mt-2">$28.00</p>
+      </div>
+      <div class="relative w-28 h-28 shrink-0">
+        <img src="assets/images/honeybbq.jpg" alt="" class="w-28 h-28 rounded-xl object-cover">
+        <span class="absolute -bottom-2 -right-2 w-8 h-8 bg-white rounded-full shadow flex items-center justify-center text-xl leading-none">+</span>
+      </div>
+    </button>
+    <button type="button" class="item-row w-full text-left bg-white rounded-2xl p-3 flex gap-3 shadow-sm" data-id="soup">
+      <div class="flex-1 min-w-0">
+        <p class="font-semibold">Healing Bowl Combo</p>
+        <p class="text-sm text-gray-500 mt-0.5">Soup or chili + crinkle fries + 16oz moss drink</p>
+        <p class="text-sm mt-2">$42.00</p>
+      </div>
+      <div class="relative w-28 h-28 shrink-0">
+        <img src="assets/images/fries.jpg" alt="" class="w-28 h-28 rounded-xl object-cover">
+        <span class="absolute -bottom-2 -right-2 w-8 h-8 bg-white rounded-full shadow flex items-center justify-center text-xl leading-none">+</span>
+      </div>
+    </button>
+  </section>
+
+  <section id="wings" class="mb-8">
+    <h2 class="text-xl font-semibold mb-3">Wings</h2>
+    <p class="text-sm text-gray-500 mb-3">6 pcs $13.99 · pick a flavor, then a size</p>
+    <button type="button" class="item-row w-full text-left bg-white rounded-2xl p-3 flex gap-3 mb-3 shadow-sm" data-id="lemon-pepper">
+      <div class="flex-1 min-w-0">
+        <p class="font-semibold">Lemon Pepper Wings</p>
+        <p class="text-sm text-gray-500 mt-0.5">Crispy wings seasoned with a zesty blend of lemon and cracked black pepper for a bright, tangy flavor.</p>
+        <p class="text-sm mt-2">$13.99</p>
+      </div>
+      <div class="relative w-28 h-28 shrink-0">
+        <img src="assets/images/lemonpepper.jpg" alt="Lemon Pepper Wings" class="w-28 h-28 rounded-xl object-cover">
+        <span class="absolute -bottom-2 -right-2 w-8 h-8 bg-white rounded-full shadow flex items-center justify-center text-xl">+</span>
+      </div>
+    </button>
+    <button type="button" class="item-row w-full text-left bg-white rounded-2xl p-3 flex gap-3 mb-3 shadow-sm" data-id="honey-bbq">
+      <div class="flex-1 min-w-0">
+        <p class="font-semibold">Honey BBQ Wings</p>
+        <p class="text-sm text-gray-500 mt-0.5">Succulent wings coated in a rich honey barbecue glaze, balancing sweet and smoky flavors in every bite.</p>
+        <p class="text-sm mt-2">$13.99</p>
+      </div>
+      <div class="relative w-28 h-28 shrink-0">
+        <img src="assets/images/honeybbq.jpg" alt="Honey BBQ Wings" class="w-28 h-28 rounded-xl object-cover">
+        <span class="absolute -bottom-2 -right-2 w-8 h-8 bg-white rounded-full shadow flex items-center justify-center text-xl">+</span>
+      </div>
+    </button>
+    <button type="button" class="item-row w-full text-left bg-white rounded-2xl p-3 flex gap-3 mb-3 shadow-sm" data-id="mango-habanero">
+      <div class="flex-1 min-w-0">
+        <p class="font-semibold">Mango Habanero Wings</p>
+        <p class="text-sm text-gray-500 mt-0.5">Crispy wings tossed in a sweet and spicy mango habanero sauce, blending tropical fruitiness with a fiery kick.</p>
+        <p class="text-sm mt-2">$13.99</p>
+      </div>
+      <div class="relative w-28 h-28 shrink-0">
+        <img src="assets/images/mango habenero.jpg" alt="Mango Habanero Wings" class="w-28 h-28 rounded-xl object-cover">
+        <span class="absolute -bottom-2 -right-2 w-8 h-8 bg-white rounded-full shadow flex items-center justify-center text-xl">+</span>
+      </div>
+    </button>
+    <button type="button" class="item-row w-full text-left bg-white rounded-2xl p-3 flex gap-3 shadow-sm" data-id="cajun">
+      <div class="flex-1 min-w-0">
+        <p class="font-semibold">Cajun Wings</p>
+        <p class="text-sm text-gray-500 mt-0.5">Crispy chicken wings tossed in a bold, smoky Cajun spice blend for a spicy, flavorful kick.</p>
+        <p class="text-sm mt-2">$13.99</p>
+      </div>
+      <div class="relative w-28 h-28 shrink-0">
+        <img src="assets/images/cajunwings.jpg" alt="Cajun Wings" class="w-28 h-28 rounded-xl object-cover">
+        <span class="absolute -bottom-2 -right-2 w-8 h-8 bg-white rounded-full shadow flex items-center justify-center text-xl">+</span>
+      </div>
+    </button>
+  </section>
+
+<section id="sides" class="mb-8">
+    <h2 class="text-xl font-semibold mb-3">Sides</h2>
+    <button type="button" class="item-row w-full text-left bg-white rounded-2xl p-3 flex gap-3 mb-3 shadow-sm" data-id="fries-reg">
+      <div class="flex-1"><p class="font-semibold">Crinkle Cut Fries</p><p class="text-sm text-gray-500 mt-0.5">Scratch kitchen</p><p class="text-sm mt-2">$6.00</p></div>
+      <div class="relative w-24 h-24 shrink-0"><img src="assets/images/fries.jpg" alt="" class="w-24 h-24 rounded-xl object-cover"><span class="absolute -bottom-2 -right-2 w-8 h-8 bg-white rounded-full shadow flex items-center justify-center text-xl">+</span></div>
+    </button>
+    <button type="button" class="item-row w-full text-left bg-white rounded-2xl p-3 flex gap-3 mb-3 shadow-sm" data-id="fries-lg">
+      <div class="flex-1"><p class="font-semibold">Large Crinkle Fries</p><p class="text-sm text-gray-500 mt-0.5">Share basket</p><p class="text-sm mt-2">$9.00</p></div>
+      <div class="relative w-24 h-24 shrink-0"><img src="assets/images/fries.jpg" alt="" class="w-24 h-24 rounded-xl object-cover"><span class="absolute -bottom-2 -right-2 w-8 h-8 bg-white rounded-full shadow flex items-center justify-center text-xl">+</span></div>
+    </button>
+    <button type="button" class="item-row w-full text-left bg-white rounded-2xl p-3 flex gap-3 shadow-sm" data-id="mozz">
+      <div class="flex-1"><p class="font-semibold">Mozzarella Sticks</p><p class="text-sm text-gray-500 mt-0.5">6 pieces, hot</p><p class="text-sm mt-2">$8.00</p></div>
+      <div class="relative w-24 h-24 shrink-0"><img src="assets/images/winghouse-mozz.jpg" alt="" class="w-24 h-24 rounded-xl object-cover"><span class="absolute -bottom-2 -right-2 w-8 h-8 bg-white rounded-full shadow flex items-center justify-center text-xl">+</span></div>
+    </button>
+  </section>
+
+  <section id="bowls" class="mb-8">
+    <h2 class="text-xl font-semibold mb-3">Bowls</h2>
+    <button type="button" class="item-row w-full text-left bg-white rounded-2xl p-3 flex gap-3 mb-3 shadow-sm" data-id="soup">
+      <div class="flex-1"><p class="font-semibold">Sea Moss Chicken Healing Soup</p><p class="text-sm text-gray-500 mt-0.5">Organic chicken, sea moss, onion, peppers, cayenne, celery, turmeric, ginger, garlic, distilled water</p><p class="text-sm mt-2">$14.00</p></div>
+      <div class="relative w-24 h-24 shrink-0"><img src="assets/images/winghouse-soup.jpg" alt="" class="w-24 h-24 rounded-xl object-cover"><span class="absolute -bottom-2 -right-2 w-8 h-8 bg-white rounded-full shadow flex items-center justify-center text-xl">+</span></div>
+    </button>
+    <button type="button" class="item-row w-full text-left bg-white rounded-2xl p-3 flex gap-3 shadow-sm" data-id="chili">
+      <div class="flex-1"><p class="font-semibold">Vegan Chili</p><p class="text-sm text-gray-500 mt-0.5">Vegan chili beans, onions, ginger, herbs, spices, sea moss</p><p class="text-sm mt-2">$12.00</p></div>
+      <div class="relative w-24 h-24 shrink-0"><img src="assets/images/winghouse-chili.jpg" alt="" class="w-24 h-24 rounded-xl object-cover"><span class="absolute -bottom-2 -right-2 w-8 h-8 bg-white rounded-full shadow flex items-center justify-center text-xl">+</span></div>
+    </button>
+  </section>
+
+  <section id="drinks">
+    <h2 class="text-xl font-semibold mb-3">Sea moss drinks</h2>
+    <div class="relative h-44 rounded-2xl overflow-hidden mb-4 bg-deep">
+      <video class="absolute inset-0 w-full h-full object-cover" autoplay muted loop playsinline>
+        <source src="janes-seamoss-juice-hero.mp4" type="video/mp4">
+      </video>
+    </div>
+    <button type="button" class="item-row w-full text-left bg-white rounded-2xl p-3 flex gap-3 mb-3 shadow-sm" data-id="drink-mango">
+      <div class="flex-1"><p class="font-semibold">Jane's Sea Moss Drink 16oz</p><p class="text-sm text-gray-500 mt-0.5">Your bottle · fresh weekly</p><p class="text-sm mt-2">$10.00</p></div>
+      <div class="relative w-24 h-24 shrink-0"><img src="assets/images/janes-drink-hand.jpg" alt="" class="w-24 h-24 rounded-xl object-cover"><span class="absolute -bottom-2 -right-2 w-8 h-8 bg-white rounded-full shadow flex items-center justify-center text-xl">+</span></div>
+    </button>
+    <button type="button" class="item-row w-full text-left bg-white rounded-2xl p-3 flex gap-3 shadow-sm" data-id="drink-line">
+      <div class="flex-1"><p class="font-semibold">Sea Moss Juice Line 16oz</p><p class="text-sm text-gray-500 mt-0.5">Berry, mango, citrus, greens</p><p class="text-sm mt-2">$10.00</p></div>
+      <div class="relative w-24 h-24 shrink-0"><img src="assets/images/sea-moss-juices.jpg" alt="" class="w-24 h-24 rounded-xl object-cover"><span class="absolute -bottom-2 -right-2 w-8 h-8 bg-white rounded-full shadow flex items-center justify-center text-xl">+</span></div>
+    </button>
+  </section>
+</section>
+</main>
+
+<div id="cart-bar" class="hidden fixed bottom-0 inset-x-0 z-50 px-4 pb-5">
+  <button type="button" id="open-cart-bar" class="max-w-3xl mx-auto w-full bg-deep text-white rounded-2xl py-4 px-5 flex justify-between font-semibold shadow-xl">
+    <span>View cart · <span id="bar-count">0</span></span>
+    <span id="bar-total">$0.00</span>
+  </button>
+</div>
+
+<div id="item-modal" class="hidden fixed inset-0 z-[70] bg-black/50 flex items-end md:items-center justify-center">
+  <div class="sheet bg-white w-full max-w-md max-h-[92vh] overflow-y-auto rounded-t-3xl md:rounded-3xl">
+    <img id="m-img" src="assets/images/wings-honey-bbq.jpg" alt="" class="w-full h-44 object-cover">
+    <div class="p-5">
+      <div class="flex justify-between items-start">
+        <div>
+          <h3 id="m-name" class="text-2xl font-semibold"></h3>
+          <p id="m-desc" class="text-sm text-gray-500 mt-1"></p>
+        </div>
+        <button type="button" id="m-close" class="text-3xl leading-none px-2">×</button>
+      </div>
+      <div id="m-sauce-wrap" class="hidden mt-5">
+        <p class="font-semibold text-sm">Choose Size <span class="text-amber-700 font-normal">Required · Select 1</span></p>
+        <div class="mt-2 space-y-2" id="m-sauces"></div>
+      </div>
+      <div class="flex items-center justify-between mt-6">
+        <div class="flex items-center gap-3 border rounded-full px-3 py-1">
+          <button type="button" id="qty-minus" class="text-2xl w-8">−</button>
+          <span id="m-qty" class="w-6 text-center font-semibold">1</span>
+          <button type="button" id="qty-plus" class="text-2xl w-8">+</button>
+        </div>
+        <button type="button" id="m-add" class="bg-purple text-white px-6 py-3 rounded-full font-semibold">Add · $0.00</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="cart-modal" class="hidden fixed inset-0 z-[80] bg-black/50 flex items-end md:items-center justify-center">
+  <div class="sheet bg-white w-full max-w-md max-h-[90vh] overflow-y-auto rounded-t-3xl md:rounded-3xl p-5">
+    <div class="flex justify-between items-center mb-4">
+      <h3 class="text-xl font-semibold">Cart</h3>
+      <button type="button" id="cart-close" class="text-3xl leading-none">×</button>
+    </div>
+    <div id="cart-lines" class="space-y-3 text-sm"></div>
+    <div class="flex justify-between text-lg font-semibold mt-6">
+      <span>Subtotal</span>
+      <span id="cart-sub">$0.00</span>
+    </div>
+    <p class="text-xs text-gray-500 mt-2">Delivery $8–$15 by ZIP is added at checkout.</p>
+    <button type="button" id="checkout-btn" class="mt-4 w-full bg-purple hover:bg-deep text-white py-4 rounded-2xl font-semibold">Go to checkout</button>
+  </div>
+</div>
+
+<script>
+const MENU_ID = 'wing-house-2026-09';
+const SIZES = [
+  { label: '6 Pcs', price: 13.99 },
+  { label: '10 Pcs', price: 20.99 },
+  { label: '12 Pcs', price: 24.99 },
+  { label: '18 Pcs', price: 36.99 },
+  { label: '25 Pcs', price: 50.99 }
+];
+const ITEMS = {
+  'combo-house': { name: 'House Combo', desc: '8 wings, crinkle fries, 16oz sea moss drink', price: 28, img: 'assets/images/wings-honey-bbq.jpg', size: false },
+  'lemon-pepper': { name: 'Lemon Pepper Wings', desc: 'Crispy wings seasoned with a zesty blend of lemon and cracked black pepper for a bright, tangy flavor.', price: 13.99, img: 'assets/images/wings-lemon-pepper.jpg', size: true },
+  'honey-bbq': { name: 'Honey BBQ Wings', desc: 'Succulent wings coated in a rich honey barbecue glaze, balancing sweet and smoky flavors in every bite.', price: 13.99, img: 'assets/images/wings-honey-bbq.jpg', size: true },
+  'mango-habanero': { name: 'Mango Habanero Wings', desc: 'Crispy wings tossed in a sweet and spicy mango habanero sauce, blending tropical fruitiness with a fiery kick.', price: 13.99, img: 'assets/images/wings-mango-habanero.jpg', size: true },
+  'cajun': { name: 'Cajun Wings', desc: 'Crispy chicken wings tossed in a bold, smoky Cajun spice blend for a spicy, flavorful kick.', price: 13.99, img: 'assets/images/wings-cajun.jpg', size: true },
+  'fries-reg': { name: 'Crinkle Cut Fries', desc: 'Scratch-kitchen drop', price: 6, img: 'assets/images/winghouse-fries.jpg', size: false },
+  'fries-lg': { name: 'Large Crinkle Fries', desc: 'Share basket', price: 9, img: 'assets/images/winghouse-fries.jpg', size: false },
+  'mozz': { name: 'Mozzarella Sticks', desc: '6 pieces, hot', price: 8, img: 'assets/images/winghouse-mozz.jpg', size: false },
+  'soup': { name: 'Sea Moss Chicken Healing Soup', desc: 'Organic chicken, sea moss, onion, peppers, cayenne, celery, turmeric, ginger, garlic, distilled water', price: 14, img: 'assets/images/winghouse-soup.jpg', size: false },
+  'chili': { name: 'Vegan Chili', desc: 'Vegan chili beans, onions, ginger, herbs, spices, sea moss', price: 12, img: 'assets/images/winghouse-chili.jpg', size: false },
+  'drink-mango': { name: 'Jane\'s Sea Moss Drink 16oz', desc: 'Your bottle · fresh weekly', price: 10, img: 'assets/images/janes-drink-hand.jpg', size: false },
+  'drink-line': { name: 'Sea Moss Juice Line 16oz', desc: 'Berry, mango, citrus, greens', price: 10, img: 'assets/images/sea-moss-juices.jpg', size: false }
+};
+
+let cart = [];
+try { cart = JSON.parse(localStorage.getItem('cart') || '[]'); } catch (e) { cart = []; }
+if (!Array.isArray(cart)) cart = [];
+
+let active = null;
+let qty = 1;
+
+function saveCart() {
+  localStorage.setItem('cart', JSON.stringify(cart));
+  renderCartUI();
+}
+function renderCartUI() {
+  const count = cart.length;
+  const total = cart.reduce(function(s, i) { return s + Number(i.price || 0); }, 0);
+  document.getElementById('nav-cart-count').textContent = count;
+  document.getElementById('bar-count').textContent = count;
+  document.getElementById('bar-total').textContent = '$' + total.toFixed(2);
+  document.getElementById('cart-bar').classList.toggle('hidden', count === 0);
+  const lines = document.getElementById('cart-lines');
+  lines.innerHTML = cart.length ? cart.map(function(i, idx) {
+    return '<div class="flex justify-between gap-3 border-b pb-2"><div><p class="font-medium">' + i.name + '</p><p class="text-xs text-gray-500">' + (i.details || '') + '</p></div><div class="text-right"><p>$' + Number(i.price).toFixed(2) + '</p><button type="button" class="text-red-500 text-xs remove-line" data-i="' + idx + '">Remove</button></div></div>';
+  }).join('') : '<p class="text-gray-500">Your cart is empty.</p>';
+  document.getElementById('cart-sub').textContent = '$' + total.toFixed(2);
+  lines.querySelectorAll('.remove-line').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      cart.splice(+btn.getAttribute('data-i'), 1);
+      saveCart();
+    });
+  });
+}
+let pickedSize = SIZES[0];
+function unitPrice() {
+  if (active && active.size) return pickedSize.price;
+  return active ? active.price : 0;
+}
+function openItem(id) {
+  active = ITEMS[id];
+  if (!active) return;
+  qty = 1;
+  pickedSize = SIZES[0];
+  document.getElementById('m-name').textContent = active.name;
+  document.getElementById('m-desc').textContent = active.desc;
+  document.getElementById('m-img').src = active.img;
+  document.getElementById('m-qty').textContent = '1';
+  var wrap = document.getElementById('m-sauce-wrap');
+  var box = document.getElementById('m-sauces');
+  if (active.size) {
+    wrap.classList.remove('hidden');
+    box.innerHTML = SIZES.map(function(s, i) {
+      return '<label class="flex items-center justify-between border rounded-xl px-3 py-2"><span>' + s.label + '</span><span class="text-sm text-gray-500">$' + s.price.toFixed(2) + ' <input type="radio" name="wsize" value="' + i + '"' + (i === 0 ? ' checked' : '') + '></span></label>';
+    }).join('');
+    box.querySelectorAll('input').forEach(function(r) {
+      r.addEventListener('change', function() {
+        pickedSize = SIZES[+this.value];
+        document.getElementById('m-add').textContent = 'Add · $' + (unitPrice() * qty).toFixed(2);
+      });
+    });
+  } else {
+    wrap.classList.add('hidden');
+  }
+  document.getElementById('m-add').textContent = 'Add · $' + unitPrice().toFixed(2);
+  document.getElementById('item-modal').classList.remove('hidden');
+}
+function closeItem() { document.getElementById('item-modal').classList.add('hidden'); }
+
+document.querySelectorAll('.item-row').forEach(function(btn) {
+  btn.addEventListener('click', function() { openItem(btn.getAttribute('data-id')); });
+});
+document.getElementById('m-close').addEventListener('click', closeItem);
+document.getElementById('item-modal').addEventListener('click', function(e) {
+  if (e.target.id === 'item-modal') closeItem();
+});
+document.getElementById('qty-minus').addEventListener('click', function() {
+  qty = Math.max(1, qty - 1);
+  document.getElementById('m-qty').textContent = qty;
+  document.getElementById('m-add').textContent = 'Add · $' + (unitPrice() * qty).toFixed(2);
+});
+document.getElementById('qty-plus').addEventListener('click', function() {
+  qty += 1;
+  document.getElementById('m-qty').textContent = qty;
+  document.getElementById('m-add').textContent = 'Add · $' + (unitPrice() * qty).toFixed(2);
+});
+document.getElementById('m-add').addEventListener('click', function() {
+  if (!active) return;
+  cart.push({
+    id: 'winghouse-' + Date.now(),
+    name: qty + '× ' + active.name,
+    price: unitPrice() * qty,
+    details: (active.size ? pickedSize.label + ' · ' : '') + 'Wing House · ' + MENU_ID
+  });
+  saveCart();
+  closeItem();
+});
+
+function openCart() { document.getElementById('cart-modal').classList.remove('hidden'); renderCartUI(); }
+function closeCart() { document.getElementById('cart-modal').classList.add('hidden'); }
+document.getElementById('nav-cart-btn').addEventListener('click', openCart);
+document.getElementById('open-cart-bar').addEventListener('click', openCart);
+document.getElementById('cart-close').addEventListener('click', closeCart);
+
+document.getElementById('checkout-btn').addEventListener('click', async function() {
+  if (!cart.length) return;
+  var btn = this;
+  btn.textContent = 'Connecting…';
+  btn.disabled = true;
+  try {
+    var response = await fetch('https://janesse-seamoss-backend.onrender.com/create-checkout-session', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ cart: cart })
+    });
+    var data = await response.json();
+    if (!response.ok) throw new Error(data.error || 'Checkout error');
+    var stripe = Stripe('pk_live_51TREXTIeLXeJ9tb9RCUiY0hHSBBY5hbqPfwgnVpyUDS0nAYTgwhls3y2ffClfgUu7ZJjVPDVpr6tPZZWNBKcec8Q00BbSr1yQc');
+    await stripe.redirectToCheckout({ sessionId: data.id });
+  } catch (err) {
+    console.error(err);
+    alert('Checkout could not start. Try again.');
+    btn.textContent = 'Go to checkout';
+    btn.disabled = false;
+  }
+});
+
+renderCartUI();
+</script>
+</body>
+</html>
