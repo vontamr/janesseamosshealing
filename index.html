@@ -18,12 +18,12 @@ s.parentNode.insertBefore(t,s)}(window, document,'script',
 fbq('init', '1520084362933231');
 fbq('track', 'PageView');
 </script>
-<noscript><img height="1" width="1" style="display:none"
+<noscript><img loading="lazy" decoding="async" height="1" width="1" style="display:none"
 src="https://www.facebook.com/tr?id=1520084362933231&ev=PageView&noscript=1"
 /></noscript>
 <script src="https://cdn.tailwindcss.com" async></script>
 <link rel="stylesheet" href="styles.css">
-<script src="https://js.stripe.com/v3/"></script>
+<script src="https://js.stripe.com/v3/" defer></script>
 <script>
 function initTailwind() {
 tailwind.config = {
@@ -42,7 +42,7 @@ lightpurple: '#EAD5F8',
 window.addEventListener('load', initTailwind);
 </script>
 <style>
-.marquee { overflow: hidden; white-space: nowrap; }
+.marquee { overflow: hidden; white-space: nowrap; contain: content; }
 .marquee-content { display: inline-flex; gap: 3rem; animation: marquee 10s linear infinite; }
 @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 .palm-tree { position: absolute; right: 5%; bottom: 10%; width: 420px; opacity: 0.15; z-index: 1; pointer-events: none; }
@@ -98,7 +98,7 @@ outline: none;
 <div class="max-w-7xl mx-auto px-6">
 <div class="flex items-center justify-between h-20">
 <a href="index.html" class="flex items-center gap-3 group">
-<img src="assets/images/IMG_7251 Background Removed 2.jpeg" alt="Janesse's Seamoss Creation Logo" class="h-20 w-auto transition-transform group-hover:scale-105">
+<img fetchpriority="high" decoding="async" src="assets/images/IMG_7251 Background Removed 2.jpeg" alt="Janesse's Seamoss Creation Logo" class="h-20 w-auto transition-transform group-hover:scale-105">
 </a>
 <div class="hidden md:flex items-center gap-8 text-sm font-medium">
 <a href="index.html" class="hover:text-purple">Home</a>
@@ -156,7 +156,7 @@ outline: none;
 
 <!-- Hero -->
 <header class="min-h-screen flex items-center relative bg-gradient-to-br from-deep/5 via-white to-lightpurple/30 overflow-hidden">
-<img src="assets/images/palmtree.jpeg" alt="Palm Trees Silhouette" class="palm-tree hidden md:block">
+<img loading="lazy" decoding="async" src="assets/images/palmtree.jpeg" alt="Palm Trees Silhouette" class="palm-tree hidden md:block">
 <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 lg:gap-16 items-center pt-12 pb-20 relative z-10">
 <div class="space-y-8">
 <div class="inline-flex items-center gap-3 bg-white/90 backdrop-blur px-6 py-3 rounded-3xl shadow text-sm font-medium">
@@ -200,7 +200,7 @@ outline: none;
 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-8">
 <div class="group bg-white border border-gray-100 rounded-3xl overflow-hidden hover:shadow-2xl transition-all duration-300">
 <div class="h-64 bg-gray-100 overflow-hidden">
-<img src="assets/images/joint-relief-seamoss.jpg" alt="Herb Infused" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+<img loading="lazy" decoding="async" src="assets/images/joint-relief-seamoss.jpg" alt="Herb Infused" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
 </div>
 <div class="p-8">
 <h3 class="text-2xl font-medium mb-2">Herb Infused Gels</h3>
@@ -211,7 +211,7 @@ outline: none;
 </div>
 <div class="group bg-white border border-gray-100 rounded-3xl overflow-hidden hover:shadow-2xl transition-all duration-300">
 <div class="h-64 bg-gray-100 overflow-hidden">
-<img src="assets/images/passion-fruit-seamoss.jpg" alt="Fruit Flavored" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+<img loading="lazy" decoding="async" src="assets/images/passion-fruit-seamoss.jpg" alt="Fruit Flavored" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
 </div>
 <div class="p-8">
 <h3 class="text-2xl font-medium mb-2">Fruit Flavored Gels</h3>
@@ -222,7 +222,7 @@ outline: none;
 </div>
 <div class="group bg-white border border-gray-100 rounded-3xl overflow-hidden hover:shadow-2xl transition-all duration-300">
 <div class="h-64 bg-gray-100 overflow-hidden">
-<img src="assets/images/sea-moss-juices.jpg" alt="Juices" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+<img loading="lazy" decoding="async" src="assets/images/sea-moss-juices.jpg" alt="Juices" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
 </div>
 <div class="p-8">
 <h3 class="text-2xl font-medium mb-2">Sea Moss Juices</h3>
@@ -233,7 +233,7 @@ outline: none;
 </div>
 <div class="group bg-white border border-gray-100 rounded-3xl overflow-hidden hover:shadow-2xl transition-all duration-300">
 <div class="h-64 bg-gray-100 overflow-hidden">
-<img src="assets/images/skincare-gels.jpg" alt="Skincare" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+<img loading="lazy" decoding="async" src="assets/images/skincare-gels.jpg" alt="Skincare" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
 </div>
 <div class="p-8">
 <h3 class="text-2xl font-medium mb-2">Skincare Gels</h3>
@@ -244,7 +244,7 @@ outline: none;
 </div>
 <div class="group bg-white border border-gray-100 rounded-3xl overflow-hidden hover:shadow-2xl transition-all duration-300">
 <div class="h-64 bg-gray-100 overflow-hidden">
-<img src="assets/images/IMG_8064 Background Removed 2.png" alt="Fitness Recovery" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+<img loading="lazy" decoding="async" src="assets/images/IMG_8064 Background Removed 2.png" alt="Fitness Recovery" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
 </div>
 <div class="p-8">
 <h3 class="text-2xl font-medium mb-2">Fitness Recovery</h3>
@@ -267,7 +267,8 @@ outline: none;
 <p class="text-gray-600 mt-3 max-w-lg mx-auto">Pure mineral-rich nourishment • Naturally sweetened by bees</p>
 </div>
 <div class="relative rounded-[2rem] overflow-hidden mb-12 h-64 md:h-[26rem] bg-deep">
-<video class="absolute inset-0 w-full h-full object-cover" autoplay muted loop playsinline>
+<video class="absolute inset-0 w-full h-full object-cover" muted loop playsinline preload="none" data-lazy-video>
+<source src="assets/images/janes-seamoss-juice-hero-2.mp4" type="video/mp4">
 <source src="assets/images/janes-seamoss-juice-hero-2.mp4" type="video/mp4">
 </video>
 <div class="absolute inset-0 bg-gradient-to-t from-deep via-deep/35 to-transparent"></div>
@@ -356,7 +357,7 @@ outline: none;
 </div>
 <a href="local-delivery-menu.html" class="block group">
 <div class="relative rounded-[2rem] overflow-hidden h-72 md:h-[28rem] bg-deep">
-<video class="absolute inset-0 w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-700" autoplay muted loop playsinline>
+<video class="absolute inset-0 w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-700" muted loop playsinline preload="none" data-lazy-video>
 <source src="assets/images/chicken-wing-house-hero-2.mp4" type="video/mp4">
 </video>
 <div class="absolute inset-0 bg-gradient-to-t from-deep via-deep/40 to-transparent"></div>
@@ -1075,6 +1076,23 @@ updateCartCount();
 }
 }
 
+
+// Play below-fold videos only when visible
+if ('IntersectionObserver' in window) {
+  const vo = new IntersectionObserver((entries) => {
+    entries.forEach((e) => {
+      const v = e.target;
+      if (e.isIntersecting) {
+        if (v.preload !== 'metadata') v.preload = 'metadata';
+        const play = v.play();
+        if (play && play.catch) play.catch(() => {});
+      } else {
+        v.pause();
+      }
+    });
+  }, { rootMargin: '200px 0px' });
+  document.querySelectorAll('video[data-lazy-video]').forEach((v) => vo.observe(v));
+}
 
 // Initialize
 window.addEventListener('load', () => {
