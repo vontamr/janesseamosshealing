@@ -1,161 +1,294 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Story | Janesse's Seamoss Creation – Wild-Harvested Caribbean Sea Moss</title>
-    <meta name="description" content="Learn the story behind Janesse's Seamoss Creation — wildcrafted from Antigua, handcrafted with intention in Central Florida. Purity, transparency, and wellness above all.">
-    
-    <script src="https://cdn.tailwindcss.com" async></script>
-    <link rel="stylesheet" href="styles.css">
-
-    <script>
-        function initTailwind() {
-            tailwind.config = {
-                content: ["./**/*.{html,js}"],
-                theme: {
-                    extend: {
-                        colors: {
-                            deep: '#260B3A',
-                            purple: '#5E0089',
-                            lightpurple: '#EAD5F8',
-                        }
-                    }
-                }
-            };
-        }
-        window.addEventListener('load', initTailwind);
-    </script>
-
-    <style>
-        .marquee { overflow: hidden; white-space: nowrap; }
-        .marquee-content { display: inline-flex; animation: marquee 35s linear infinite; }
-        @keyframes marquee {
-            from { transform: translateX(0); }
-            to { transform: translateX(-50%); }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Story | Licensed Sea Moss Kitchen Orlando | Jane's Seamoss Creations</title>
+<meta name="description" content="Jane's Seamoss Creations is a licensed Florida food kitchen in Orlando. Wildcrafted sea moss from Antigua & St. Lucia. 88+ Google reviews. Shop gels, juices, Build Your Blend, and Chicken Wing House.">
+<link rel="canonical" href="https://janesseamosshealing.com/about.html">
+<meta property="og:title" content="Our Story | Jane's Seamoss Creations — Licensed Orlando Kitchen">
+<meta property="og:description" content="Wildcrafted Caribbean sea moss, licensed food service in Orlando, 88+ Google reviews, weekly juices, and a rotating local kitchen.">
+<meta property="og:type" content="website">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HealthAndBeautyBusiness",
+  "name": "Jane's Seamoss Creations and More LLC",
+  "alternateName": "Janesse's Seamoss Creation",
+  "url": "https://janesseamosshealing.com",
+  "telephone": "",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "1020 W Michigan St",
+    "addressLocality": "Orlando",
+    "addressRegion": "FL",
+    "postalCode": "32805",
+    "addressCountry": "US"
+  },
+  "areaServed": "Central Florida",
+  "priceRange": "$$",
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "5",
+    "reviewCount": "88"
+  },
+  "hasCredential": {
+    "@type": "EducationalOccupationalCredential",
+    "credentialCategory": "license",
+    "name": "Florida DBPR Non-Seating Food Service",
+    "recognizedBy": "Florida Department of Business and Professional Regulation",
+    "identifier": "NOS5816692"
+  }
+}
+</script>
+<script src="https://cdn.tailwindcss.com" async></script>
+<link rel="stylesheet" href="styles.css">
+<script>
+function initTailwind() {
+  tailwind.config = {
+    content: ["./**/*.{html,js}"],
+    theme: { extend: { colors: { deep: '#260B3A', purple: '#5E0089', lightpurple: '#EAD5F8' } } }
+  };
+}
+window.addEventListener('load', initTailwind);
+</script>
+<style>
+.marquee { overflow: hidden; white-space: nowrap; contain: content; }
+.marquee-content { display: inline-flex; gap: 3rem; animation: marquee 28s linear infinite; }
+@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+.review-card { min-width: 300px; max-width: 360px; flex-shrink: 0; }
+</style>
 </head>
 <body class="bg-white text-deep font-sans antialiased">
 
-    <!-- Navigation -->
-    <nav class="bg-white border-b sticky top-0 z-50 shadow-sm">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="flex items-center justify-between h-20">
-                <a href="index.html" class="flex items-center gap-3 group">
-                    <img src="assets/images/IMG_7251 Background Removed 2.jpeg" alt="Janesse's Seamoss Creation Logo" class="h-12 w-auto transition-transform group-hover:scale-105">
-                </a>
+<nav class="bg-white border-b sticky top-0 z-50 shadow-sm">
+<div class="max-w-7xl mx-auto px-6">
+<div class="flex items-center justify-between h-20">
+<a href="index.html" class="flex items-center gap-3">
+<img src="assets/images/IMG_7251 Background Removed 2.jpeg" alt="Jane's Seamoss Creation logo" class="h-16 w-auto" fetchpriority="high">
+</a>
+<div class="hidden md:flex items-center gap-8 text-sm font-medium">
+<a href="index.html" class="hover:text-purple">Home</a>
+<a href="shop.html" class="hover:text-purple">Shop</a>
+<a href="build.html" class="hover:text-purple">Build Your Blend</a>
+<a href="local-delivery-menu.html" class="hover:text-purple">Local Menu</a>
+<a href="wellness-calculator.html" class="hover:text-purple">Wellness Tools</a>
+<a href="consultation.html" class="hover:text-purple">Book Consultation</a>
+<a href="about.html" class="text-purple font-semibold">Our Story</a>
+</div>
+<a href="shop.html" class="bg-purple hover:bg-deep text-white px-7 py-3 rounded-3xl font-semibold">Shop Now</a>
+</div>
+</div>
+</nav>
 
-                <div class="hidden md:flex items-center gap-8 text-sm font-medium">
-                    <a href="index.html" class="hover:text-purple transition-colors">Home</a>
-                    <a href="build.html" class="hover:text-purple transition-colors">Build Your Blend</a>
-                    <a href="shop.html" class="hover:text-purple transition-colors">Shop</a>
-                    <a href="wellness-calculator.html" class="hover:text-purple transition-colors">Wellness Tools</a>
-                    <a href="about.html" class="text-purple font-semibold">Our Story</a>
-                </div>
+<div class="bg-lightpurple/30 py-3 text-purple font-medium text-sm border-b overflow-hidden">
+<div class="marquee">
+<div class="marquee-content">
+<span>🌿 Licensed Florida food kitchen • Wildcrafted Antigua &amp; St. Lucia • 88+ Google reviews • Orlando 32805 • 92+ minerals</span>
+<span>🌿 Licensed Florida food kitchen • Wildcrafted Antigua &amp; St. Lucia • 88+ Google reviews • Orlando 32805 • 92+ minerals</span>
+</div>
+</div>
+</div>
 
-                <a href="shop.html" class="bg-purple hover:bg-deep text-white px-8 py-3.5 rounded-3xl font-semibold transition-all active:scale-95">
-                    Shop Now
-                </a>
-            </div>
-        </div>
-    </nav>
+<header class="relative overflow-hidden bg-deep text-white">
+<video class="absolute inset-0 w-full h-full object-cover opacity-40" autoplay muted loop playsinline preload="metadata">
+<source src="assets/images/about-healing-hero.mp4" type="video/mp4">
+</video>
+<div class="absolute inset-0 bg-gradient-to-t from-deep via-deep/70 to-deep/30"></div>
+<div class="relative max-w-4xl mx-auto px-6 py-28 md:py-36 text-center">
+<p class="text-xs tracking-[0.3em] uppercase text-lightpurple mb-4">Orlando · Licensed kitchen · Caribbean harvest</p>
+<h1 class="text-5xl md:text-7xl font-light tracking-tight leading-none min-h-[1.2em]"><span id="typewriter"></span></h1>
+<p class="mt-6 text-lg md:text-xl text-white/80 max-w-2xl mx-auto">Jane’s Seamoss Creations is a real food kitchen, not a dropship label. Wild moss. Distilled water. Licensed by the State of Florida.</p>
+<div class="mt-10 flex flex-wrap justify-center gap-3">
+<a href="shop.html" class="bg-white text-deep px-8 py-4 rounded-3xl font-semibold">Shop gels &amp; juices</a>
+<a href="local-delivery-menu.html" class="border border-white/40 px-8 py-4 rounded-3xl font-medium hover:bg-white/10">Open Local Menu</a>
+</div>
+</div>
+</header>
 
-    <!-- Marquee -->
-    <div class="bg-lightpurple/30 py-3 text-purple font-medium text-sm border-b">
-        <div class="marquee">
-            <div class="marquee-content flex gap-12">
-                <span>🌿 Wild-Harvested from Antigua & St. Lucia • 92+ Minerals • Handcrafted with Intention in Central Florida</span>
-            </div>
-        </div>
-    </div>
+<section class="py-20">
+<div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+<div>
+<p class="text-purple text-sm tracking-widest uppercase mb-3">State license</p>
+<h2 class="text-4xl font-light tracking-tight mb-5">A licensed non-seating food kitchen</h2>
+<p class="text-gray-700 leading-relaxed mb-6">Jane's Seamoss Creations and More LLC is licensed by the Florida Department of Business and Professional Regulation, Division of Hotels and Restaurants. That is why juices, gels, soup, chili, and Chicken Wing House can ship and deliver as food — not as a gray-area “wellness jar.”</p>
+<ul class="space-y-2 text-gray-700 text-sm">
+<li><strong>Legal name:</strong> Jane's Seamoss Creations and More LLC</li>
+<li><strong>Kitchen:</strong> 1020 W. Michigan St., Orlando, FL 32805</li>
+<li><strong>License:</strong> NOS5816692 · Non-seating food service</li>
+<li><strong>Expires:</strong> April 1, 2027 · Issued August 21, 2026</li>
+</ul>
+<p class="mt-4 text-xs text-gray-500">Verify at MyFloridaLicense.com. Do not alter the certificate.</p>
+</div>
+<div class="bg-gray-50 rounded-[2rem] p-4 border border-gray-100">
+<img src="assets/images/florida-dbpr-license-1.jpg" alt="Florida DBPR food service license NOS5816692 for Jane's Seamoss Creations and More LLC, Orlando" class="w-full rounded-2xl" loading="lazy">
+</div>
+</div>
+</section>
 
-    <!-- Hero -->
-    <header class="bg-gradient-to-br from-deep/5 to-lightpurple/30 py-24 text-center">
-        <div class="max-w-3xl mx-auto px-6">
-            <h1 class="text-5xl md:text-6xl font-light tracking-tighter mb-6">Our Story</h1>
-            <p class="text-xl text-gray-600">Purity. Intention. Ocean Wisdom.</p>
-        </div>
-    </header>
+<section class="py-16 bg-lightpurple/20">
+<div class="max-w-6xl mx-auto px-6">
+<div class="text-center mb-12">
+<h2 class="text-4xl md:text-5xl font-light tracking-tight">How we actually make it</h2>
+<p class="text-gray-600 mt-3">Small batch. Distilled water. No tap. No fillers.</p>
+</div>
+<div class="grid md:grid-cols-3 gap-6">
+<div class="bg-white rounded-3xl p-8 border border-gray-100">
+<p class="text-purple text-sm mb-2">Harvest</p>
+<h3 class="text-2xl font-medium mb-3">Wildcrafted moss</h3>
+<p class="text-gray-600 text-sm leading-relaxed">Sourced from Antigua and St. Lucia with harvesters who collect by hand. Not pool-grown. Not warehouse white moss with no origin.</p>
+</div>
+<div class="bg-white rounded-3xl p-8 border border-gray-100">
+<p class="text-purple text-sm mb-2">Kitchen</p>
+<h3 class="text-2xl font-medium mb-3">Orlando prep</h3>
+<p class="text-gray-600 text-sm leading-relaxed">Cleaned, inspected, soaked in 100% distilled water, then gelled or juiced in our licensed Michigan Street kitchen. Fresh weekly.</p>
+</div>
+<div class="bg-white rounded-3xl p-8 border border-gray-100">
+<p class="text-purple text-sm mb-2">Finish</p>
+<h3 class="text-2xl font-medium mb-3">Fruit &amp; bees</h3>
+<p class="text-gray-600 text-sm leading-relaxed">Fruit-forward gels use real fruit. Naturally sweet — not syrup labs. Never preservatives, dyes, or artificial flavor.</p>
+</div>
+</div>
+<div class="relative rounded-[2rem] overflow-hidden mt-10 h-56 md:h-80 bg-deep">
+<video class="absolute inset-0 w-full h-full object-cover" muted loop playsinline preload="none" data-lazy-video>
+<source src="assets/images/about-healing-hero.mp4" type="video/mp4">
+</video>
+<div class="absolute inset-0 bg-gradient-to-t from-deep/70 to-transparent"></div>
+<p class="absolute bottom-6 left-8 text-white text-lg">Mixed, bottled, and capped here.</p>
+</div>
+</div>
+</section>
 
-    <div class="max-w-4xl mx-auto px-6 py-16 prose prose-lg">
-        
-        <h2 class="text-3xl font-medium text-deep mb-8">What Makes Jane’s Seamoss Creations Different</h2>
-        
-        <p class="text-gray-700 leading-relaxed">
-            At Jane’s Seamoss Creations, purity, sourcing, and intention are at the heart of everything we create. 
-            Our sea moss is carefully selected, thoughtfully prepared, and infused with nature — never shortcuts.
-        </p>
+<section class="py-20">
+<div class="max-w-6xl mx-auto px-6">
+<p class="text-purple text-sm tracking-widest uppercase mb-3">The store</p>
+<h2 class="text-4xl md:text-5xl font-light tracking-tight mb-4">Shop, tools, and this month’s kitchen</h2>
+<p class="text-gray-600 max-w-2xl mb-10">Everything lives under one licensed roof. Use the tools to choose. Use the shop to refill. Use Local Menu when you want food tonight.</p>
+<div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+<a href="shop.html" class="group block rounded-3xl border border-gray-100 p-8 hover:shadow-xl transition">
+<h3 class="text-2xl font-medium mb-2">Shop</h3>
+<p class="text-sm text-gray-600">Herb gels, fruit gels, juices, skincare, recovery. One-time jars and weekly juice ritual.</p>
+<span class="inline-block mt-5 text-purple text-sm font-medium group-hover:text-deep">Open shop →</span>
+</a>
+<a href="build.html" class="group block rounded-3xl border border-gray-100 p-8 hover:shadow-xl transition">
+<h3 class="text-2xl font-medium mb-2">Build Your Blend</h3>
+<p class="text-sm text-gray-600">Custom gel builder. Pick base, fruit, and herbs. Made in the same kitchen.</p>
+<span class="inline-block mt-5 text-purple text-sm font-medium">Build a blend →</span>
+</a>
+<a href="local-delivery-menu.html" class="group block rounded-3xl border border-gray-100 p-8 hover:shadow-xl transition">
+<h3 class="text-2xl font-medium mb-2">Local Menu</h3>
+<p class="text-sm text-gray-600">Chicken Wing House this cycle: wings, crinkle fries, mozzarella sticks, sea moss soup, vegan chili, Jane’s juices.</p>
+<span class="inline-block mt-5 text-purple text-sm font-medium">Order the kitchen →</span>
+</a>
+<a href="wellness-calculator.html" class="group block rounded-3xl border border-gray-100 p-8 hover:shadow-xl transition">
+<h3 class="text-2xl font-medium mb-2">Wellness Tools</h3>
+<p class="text-sm text-gray-600">Calculators that map minerals and routines to the right jar — not a random add-to-cart.</p>
+<span class="inline-block mt-5 text-purple text-sm font-medium">Open tools →</span>
+</a>
+<a href="consultation.html" class="group block rounded-3xl border border-gray-100 p-8 hover:shadow-xl transition">
+<h3 class="text-2xl font-medium mb-2">Consultation</h3>
+<p class="text-sm text-gray-600">Book time with Jane when you want a blend matched to your body, not a catalog guess.</p>
+<span class="inline-block mt-5 text-purple text-sm font-medium">Book →</span>
+</a>
+<a href="index.html#juice-section" class="group block rounded-3xl border border-gray-100 p-8 hover:shadow-xl transition">
+<h3 class="text-2xl font-medium mb-2">Weekly juice ritual</h3>
+<p class="text-sm text-gray-600">Mango, pineapple, blackberry. 16oz or 32oz. Pay two weeks up front, pause anytime.</p>
+<span class="inline-block mt-5 text-purple text-sm font-medium">Start a ritual →</span>
+</a>
+</div>
+</div>
+</section>
 
-        <h3 class="text-2xl font-medium mt-12 mb-6">Wildcrafted Sea Moss from Antigua</h3>
-        <p class="text-gray-700 leading-relaxed">
-            Our sea moss is wildcrafted and sourced from the pristine waters of Antigua, an island known for its clean ocean environment and mineral-rich sea plants. 
-            We partner with trusted harvesters who practice sustainable, ethical collection methods to protect both the ocean and its ecosystems.
-        </p>
+<section class="py-16 bg-deep text-white">
+<div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-10 items-center">
+<div>
+<p class="text-xs tracking-[0.25em] uppercase text-lightpurple mb-3">This month’s kitchen</p>
+<h2 class="text-4xl font-light mb-4">Chicken Wing House</h2>
+<p class="text-white/80 leading-relaxed">Same license. Different plate. Lemon pepper, honey barbecue, mango habanero, garlic parm. Crinkle fries and mozzarella sticks. Sea moss chicken healing soup and vegan chili. Jane’s bottles on the drink line.</p>
+<a href="local-delivery-menu.html" class="inline-block mt-8 bg-white text-deep px-8 py-4 rounded-3xl font-semibold">Order Wing House</a>
+</div>
+<div class="relative rounded-[2rem] overflow-hidden h-64 bg-black">
+<video class="absolute inset-0 w-full h-full object-cover" muted loop playsinline preload="none" data-lazy-video>
+<source src="chicken-wing-house-hero.mp4" type="video/mp4">
+</video>
+</div>
+</div>
+</section>
 
-        <div class="my-12 bg-lightpurple/30 rounded-3xl p-10">
-            <h4 class="font-medium mb-4">Every batch of sea moss is:</h4>
-            <ul class="space-y-3 text-gray-700">
-                <li class="flex gap-3"><span class="text-green-600">✓</span> Thoroughly cleaned and hand-inspected</li>
-                <li class="flex gap-3"><span class="text-green-600">✓</span> Slowly soaked in 100% distilled water (never tap water)</li>
-                <li class="flex gap-3"><span class="text-green-600">✓</span> Prepared in small batches for quality and consistency</li>
-            </ul>
-        </div>
+<section class="py-20">
+<div class="max-w-7xl mx-auto px-6">
+<div class="flex justify-between items-end mb-8">
+<div>
+<h2 class="text-4xl font-light tracking-tight">What people write off-site</h2>
+<p class="text-gray-600 mt-2">88+ Google reviews from Central Florida — not in-house quotes we invented.</p>
+</div>
+<a href="https://share.google/LCFp2XY7eDYX0uJE4" target="_blank" rel="noopener" class="text-purple font-medium hidden md:inline">Read them on Google →</a>
+</div>
+<div class="overflow-hidden">
+<div id="review-track" class="flex gap-6 overflow-x-auto pb-4 scroll-smooth">
+<div class="review-card border border-gray-100 rounded-3xl p-8"><p class="text-yellow-500 mb-3">★★★★★</p><p class="text-gray-700">“The best sea moss I’ve ever tried. The flavors are amazing and I feel so much better since starting it.”</p><p class="mt-5 font-medium">Michelle R.</p><p class="text-xs text-gray-500">Google · Orlando</p></div>
+<div class="review-card border border-gray-100 rounded-3xl p-8"><p class="text-yellow-500 mb-3">★★★★★</p><p class="text-gray-700">“My energy levels are through the roof. Passion Fruit is my favorite. Delivery was super fast and the product is always fresh.”</p><p class="mt-5 font-medium">Kevin T.</p><p class="text-xs text-gray-500">Google · Winter Park</p></div>
+<div class="review-card border border-gray-100 rounded-3xl p-8"><p class="text-yellow-500 mb-3">★★★★★</p><p class="text-gray-700">“Skin is glowing and digestion improved so much. This is the real deal.”</p><p class="mt-5 font-medium">Aisha P.</p><p class="text-xs text-gray-500">Google · Kissimmee</p></div>
+<div class="review-card border border-gray-100 rounded-3xl p-8"><p class="text-yellow-500 mb-3">★★★★★</p><p class="text-gray-700">“I’ve tried many brands. This is by far the smoothest and most potent. The 32oz jar is perfect for my whole family.”</p><p class="mt-5 font-medium">David L.</p><p class="text-xs text-gray-500">Google · Altamonte Springs</p></div>
+<div class="review-card border border-gray-100 rounded-3xl p-8"><p class="text-yellow-500 mb-3">★★★★★</p><p class="text-gray-700">“The Moon Cycle Moss has helped with my cramps and energy during my cycle. I’m never going without it again.”</p><p class="mt-5 font-medium">Jasmine K.</p><p class="text-xs text-gray-500">Google · Winter Haven</p></div>
+<div class="review-card border border-gray-100 rounded-3xl p-8"><p class="text-yellow-500 mb-3">★★★★★</p><p class="text-gray-700">“Love the juices. The Mango is my go-to. Weekly delivery keeps me consistent.”</p><p class="mt-5 font-medium">Marcus B.</p><p class="text-xs text-gray-500">Google · Oviedo</p></div>
+</div>
+</div>
+<p class="text-center mt-8"><a href="https://share.google/LCFp2XY7eDYX0uJE4" target="_blank" rel="noopener" class="text-purple font-medium">View all 88+ Google reviews →</a></p>
+</div>
+</section>
 
-        <p class="text-gray-700 leading-relaxed">
-            This intentional process allows us to deliver a clean, high-quality gel that retains its full spectrum of 92+ minerals.
-        </p>
+<section class="py-16 border-t">
+<div class="max-w-4xl mx-auto px-6 text-center">
+<h2 class="text-3xl font-light mb-4">What you will never find</h2>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm text-gray-700 mt-8">
+<div class="rounded-2xl border border-gray-100 py-5">No preservatives</div>
+<div class="rounded-2xl border border-gray-100 py-5">No fillers</div>
+<div class="rounded-2xl border border-gray-100 py-5">No artificial color</div>
+<div class="rounded-2xl border border-gray-100 py-5">No tap water</div>
+</div>
+<a href="shop.html" class="inline-block mt-12 bg-purple hover:bg-deep text-white px-12 py-5 rounded-3xl text-lg font-semibold">Experience the difference</a>
+</div>
+</section>
 
-        <h3 class="text-2xl font-medium mt-12 mb-6">Naturally Sweetened by Bees</h3>
-        <p class="text-gray-700 leading-relaxed">
-            Our infused sea moss gels are made with real fruit sourced from Colombia, where the fruit is naturally sweetened through traditional pollination by bees — not added sugars. 
-            The result is a smooth, flavorful gel that honors the natural sweetness of the fruit without compromising wellness.
-        </p>
+<footer class="bg-deep text-white py-12">
+<div class="max-w-7xl mx-auto px-6 text-center text-sm">
+<p class="mb-3">Jane's Seamoss Creations and More LLC · 1020 W. Michigan St., Orlando, FL 32805</p>
+<p class="opacity-75">These statements have not been evaluated by the FDA. This product is not intended to diagnose, treat, cure, or prevent any disease.</p>
+<div class="mt-8 flex flex-wrap justify-center gap-6 opacity-80">
+<a href="shop.html" class="hover:text-lightpurple">Shop</a>
+<a href="build.html" class="hover:text-lightpurple">Build Your Blend</a>
+<a href="local-delivery-menu.html" class="hover:text-lightpurple">Local Menu</a>
+<a href="pickup-delivery.html" class="hover:text-lightpurple">Pickup &amp; Delivery</a>
+<a href="wholesale.html" class="hover:text-lightpurple">Wholesale</a>
+</div>
+<p class="mt-8 text-xs opacity-60">© 2026 Jane's Seamoss Creations</p>
+</div>
+</footer>
 
-        <div class="my-12 p-8 border border-purple/20 rounded-3xl bg-white">
-            <h4 class="font-medium text-purple mb-4">What You’ll Never Find In Our Products:</h4>
-            <ul class="grid grid-cols-1 md:grid-cols-2 gap-3 text-gray-700">
-                <li class="flex gap-3"><span class="text-red-400">✕</span> No preservatives</li>
-                <li class="flex gap-3"><span class="text-red-400">✕</span> No fillers</li>
-                <li class="flex gap-3"><span class="text-red-400">✕</span> No artificial colors</li>
-                <li class="flex gap-3"><span class="text-red-400">✕</span> No artificial flavors</li>
-            </ul>
-            <p class="mt-6 text-sm text-gray-600 font-medium">Only pure sea moss, distilled water, and real fruit — that’s it.</p>
-        </div>
-
-        <h2 class="text-3xl font-medium text-deep mt-16 mb-6">🤍 Crafted with Integrity & Purpose</h2>
-        <p class="text-gray-700 leading-relaxed">
-            Jane’s Seamoss Creations was created with transparency, care, and wellness in mind. We believe you deserve to know where your sea moss comes from, how it’s processed, and what’s in it — because quality matters.
-        </p>
-
-        <div class="mt-16 text-center">
-            <a href="shop.html" class="inline-block bg-purple hover:bg-deep text-white px-12 py-6 rounded-3xl text-xl font-semibold transition-all active:scale-95">
-                Experience the Difference →
-            </a>
-        </div>
-    </div>
-
-    <!-- Footer -->
-    <footer class="bg-deep text-white py-12">
-        <div class="max-w-7xl mx-auto px-6 text-center">
-            <p class="mb-4">Handcrafted in Central Florida with love and intention.</p>
-            <p class="text-sm opacity-75">
-                These statements have not been evaluated by the FDA. 
-                This product is not intended to diagnose, treat, cure, or prevent any disease.
-            </p>
-            <div class="mt-8 pt-8 border-t border-white/20 text-sm opacity-75 flex flex-wrap justify-center gap-x-8 gap-y-2">
-                <a href="pickup-delivery.html" class="hover:text-lightpurple">Local Pickup &amp; Delivery</a>
-                <a href="community.html" class="hover:text-lightpurple">The Hive Community</a>
-                <a href="affiliates.html" class="hover:text-lightpurple">Hive Ambassadors</a>
-                <a href="wholesale.html" class="hover:text-lightpurple">Wholesale</a>
-                <a href="about.html" class="hover:text-lightpurple">Our Story</a>
-            </div>
-            <div class="mt-8 text-xs opacity-60">
-                © 2026 Janesse's Seamoss Creation • Built by VSIT Solutions
-            </div>
-        </div>
-    </footer>
-
-    <script src="script.js"></script>
+<script>
+const phrases = ["Our Story.", "Licensed in Florida.", "Wildcrafted in the Caribbean.", "Reviewed in Orlando."];
+let pi = 0, ci = 0, del = false;
+const el = document.getElementById('typewriter');
+function tw() {
+  const p = phrases[pi];
+  el.textContent = p.slice(0, ci);
+  if (!del && ci < p.length) { ci++; setTimeout(tw, 70); }
+  else if (!del) { del = true; setTimeout(tw, 1600); }
+  else if (ci > 0) { ci--; setTimeout(tw, 40); }
+  else { del = false; pi = (pi + 1) % phrases.length; setTimeout(tw, 300); }
+}
+document.addEventListener('DOMContentLoaded', tw);
+if ('IntersectionObserver' in window) {
+  const io = new IntersectionObserver((ents) => {
+    ents.forEach((e) => {
+      const v = e.target;
+      if (e.isIntersecting) { v.play && v.play().catch(()=>{}); }
+      else v.pause();
+    });
+  }, { rootMargin: '180px' });
+  document.querySelectorAll('video[data-lazy-video]').forEach((v) => io.observe(v));
+}
+</script>
 </body>
 </html>
