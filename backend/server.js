@@ -130,7 +130,14 @@ app.post('/create-checkout-session', async (req, res) => {
         {
           shipping_rate: 'shr_1TwPmeIeLXeJ9tb9hCOzXzvU', // Free In-Store Pickup
         },
-        ,
+    
+
+        {
+          shipping_rate: 'shr_1TwPrAIeLXeJ9tb96nLia9Xl', // Local Delivery
+        },
+
+
+
         {
           shipping_rate: 'shr_1TwPuCIeLXeJ9tb9sMc9aP4o', // Standard US Shipping
         },
