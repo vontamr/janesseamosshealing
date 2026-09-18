@@ -90,50 +90,6 @@ video { background: #260B3A; }
 }
 @media (prefers-reduced-motion: reduce) {
   .live-ink, .city-live { animation: none; color: #5E0089; background: none; }
-  .hint { display: none !important; }
-}
-.hint {
-  position: absolute;
-  z-index: 3;
-  pointer-events: none;
-  opacity: 0;
-  animation: hintShow 4.8s ease 2.8s forwards;
-}
-.hint svg { width: 56px; height: 40px; overflow: visible; }
-.hint em {
-  display: block;
-  font-family: Fraunces, Georgia, serif;
-  font-style: italic;
-  font-size: 11px;
-  color: #5E0089;
-  white-space: nowrap;
-}
-.hint path {
-  fill: none;
-  stroke: #5E0089;
-  stroke-width: 2.2;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  stroke-dasharray: 1;
-  stroke-dashoffset: 1;
-  animation: drawArrow 1.2s ease 2.8s forwards;
-}
-.hint-late { animation-delay: 4s; }
-.hint-late path { animation-delay: 4s; }
-.hint-cart { animation-delay: 4.6s; }
-.hint-cart path { animation-delay: 4.6s; }
-.hint-check { animation-delay: 0.4s; }
-.hint-check path { animation-delay: 0.4s; }
-.hint-white em { color: #fff; }
-.hint-white path { stroke: #fff; }
-@keyframes drawArrow {
-  to { stroke-dashoffset: 0; }
-}
-@keyframes hintShow {
-  0% { opacity: 0; }
-  8% { opacity: 1; }
-  75% { opacity: 1; }
-  100% { opacity: 0; }
 }
 </style>
 </head>
@@ -146,10 +102,7 @@ video { background: #260B3A; }
     <span class="text-sm font-semibold" id="nav-title">Local Menu</span>
     <div class="flex items-center gap-2">
       <a href="tel:+14077527864" class="text-sm border border-[#5E0089] text-[#5E0089] px-3 py-1.5 rounded-full" aria-label="Call 407-752-7864">Call</a>
-      <span class="relative inline-flex">
       <button type="button" id="nav-cart-btn" class="text-sm bg-[#5E0089] text-white px-3 py-1.5 rounded-full">Cart <span id="nav-cart-count">0</span></button>
-      <span class="hint hint-cart left-1/2 top-full mt-0.5 -translate-x-1/2"><svg viewBox="0 0 80 52" aria-hidden="true"><path pathLength="1" d="M40 48 C 40 28, 40 16, 40 8"/><path pathLength="1" d="M32 16 L40 6 L48 16"/></svg><em>your bag</em></span>
-      </span>
     </div>
   </div>
 </nav>
@@ -174,13 +127,7 @@ video { background: #260B3A; }
     </div>
   </header>
   <main class="max-w-3xl mx-auto px-4 py-5 pb-28">
-    <div class="relative mb-2 pr-24">
-      <p class="text-xs font-semibold tracking-wide uppercase text-gray-500">This week’s easy order</p>
-      <div class="hint left-[9.5rem] -top-1">
-        <svg viewBox="0 0 80 52" aria-hidden="true"><path pathLength="1" d="M8 10 C 22 10, 40 14, 48 36"/><path pathLength="1" d="M40 30 L50 40 L36 38"/></svg>
-        <em>tap a ritual</em>
-      </div>
-    </div>
+    <p class="text-xs font-semibold tracking-wide uppercase text-gray-500 mb-2">This week’s easy order</p>
     <div class="grid grid-cols-2 gap-3 mb-6">
       <button type="button" class="open-kitchen text-left bg-white rounded-2xl p-4 shadow-sm border border-gray-100" data-kitchen="wing-house">
         <p class="text-[11px] text-[#5E0089] font-semibold">Most ordered</p>
@@ -195,18 +142,12 @@ video { background: #260B3A; }
         <p class="text-sm font-semibold mt-2">from $24.25</p>
       </button>
     </div>
-    <div class="relative mb-2 pr-20">
-      <p class="text-xs font-semibold tracking-wide uppercase text-gray-500">Or swipe a house</p>
-      <div class="hint hint-late right-0 -top-1">
-        <svg viewBox="0 0 80 52" aria-hidden="true"><path pathLength="1" d="M6 26 C 28 12, 50 12, 74 26"/><path pathLength="1" d="M62 16 L76 26 L62 34"/></svg>
-        <em>swipe</em>
-      </div>
-    </div>
+    <p class="text-xs font-semibold tracking-wide uppercase text-gray-500 mb-2">Or swipe a house</p>
     <div class="relative">
     <div class="flex gap-3 overflow-x-auto hide-scroll snap-x snap-mandatory pb-2 -mx-4 px-4">
-    <button type="button" class="open-kitchen snap-start shrink-0 w-[78%] text-left bg-white rounded-2xl overflow-hidden shadow-sm" data-kitchen="wing-house">
-      <div class="relative h-36 bg-[#260B3A]">
-        <video class="js-autoplay absolute inset-0 w-full h-full object-cover" muted loop playsinline webkit-playsinline preload="auto" poster="assets/images/wings-honey-bbq.jpg">
+    <div class="open-kitchen snap-start shrink-0 w-[78%] text-left bg-white rounded-2xl overflow-hidden shadow-sm cursor-pointer" data-kitchen="wing-house" role="button" tabindex="0">
+      <div class="relative h-36 bg-[#260B3A] pointer-events-none">
+        <video class="js-autoplay absolute inset-0 w-full h-full object-cover" autoplay muted loop playsinline webkit-playsinline preload="auto" poster="assets/images/wings-honey-bbq.jpg">
           <source src="assets/images/chicken-wing-house-hero-2.mp4" type="video/mp4">
         </video>
         <div class="absolute bottom-3 left-3">
@@ -223,10 +164,10 @@ video { background: #260B3A; }
         </div>
         <p class="text-xs text-gray-500 mt-3">4.9 · 25–40 min · $8–$15 delivery · Central Florida</p>
       </div>
-    </button>
-    <button type="button" class="open-kitchen snap-start shrink-0 w-[78%] text-left bg-white rounded-2xl overflow-hidden shadow-sm" data-kitchen="vegan-house">
-      <div class="relative h-36 bg-[#260B3A]">
-        <video class="js-autoplay absolute inset-0 w-full h-full object-cover" muted loop playsinline webkit-playsinline preload="auto" poster="assets/images/vegan-chicken-sandwich.jpg">
+    </div>
+    <div class="open-kitchen snap-start shrink-0 w-[78%] text-left bg-white rounded-2xl overflow-hidden shadow-sm cursor-pointer" data-kitchen="vegan-house" role="button" tabindex="0">
+      <div class="relative h-36 bg-[#260B3A] pointer-events-none">
+        <video class="js-autoplay absolute inset-0 w-full h-full object-cover" autoplay muted loop playsinline webkit-playsinline preload="auto" poster="assets/images/vegan-chicken-sandwich.jpg">
           <source src="assets/images/vegan-house-hero.mp4" type="video/mp4">
         </video>
         <div class="absolute inset-0 bg-gradient-to-t from-[#260B3A]/40 to-transparent"></div>
@@ -244,7 +185,7 @@ video { background: #260B3A; }
         </div>
         <p class="text-xs text-gray-500 mt-3">Plant-based comfort · 25–40 min · Same licensed kitchen</p>
       </div>
-    </button>
+    </div>
     </div>
     </div>
     <p class="text-xs text-gray-500 px-1 mt-4">Central Florida only. Pickup free: Orlando, Winter Haven, Lake Alfred, Holiday. Gels ship from Shop.</p>
@@ -341,20 +282,12 @@ video { background: #260B3A; }
       <span id="cart-sub">$0.00</span>
     </div>
     <p class="text-sm font-semibold mt-6 mb-3 text-center">How do you want it?</p>
-    <div class="relative grid grid-cols-1 gap-3">
-      <div class="hint hint-check left-2 -top-8">
-        <svg viewBox="0 0 80 52" aria-hidden="true"><path pathLength="1" d="M16 4 C 12 20, 20 34, 40 44"/><path pathLength="1" d="M30 40 L40 46 L32 32"/></svg>
-        <em>pick one</em>
-      </div>
+    <div class="grid grid-cols-1 gap-3">
       <button type="button" id="opt-pickup" class="led-btn led-glow text-lg">Free store pickup</button>
       <button type="button" id="opt-delivery" class="led-btn led-purple text-lg">Delivery</button>
     </div>
     <p class="text-[11px] text-gray-500 text-center mt-3">Pickup: Orlando · Winter Haven · Lake Alfred · Holiday</p>
-    <div id="zip-panel" class="hidden relative mt-5 p-4 rounded-2xl bg-[#260B3A] text-white">
-      <div class="hint hint-check hint-white right-4 top-2">
-        <svg viewBox="0 0 80 52" aria-hidden="true"><path pathLength="1" d="M18 8 C 28 8, 58 14, 70 36"/><path pathLength="1" d="M58 32 L72 38 L60 44"/></svg>
-        <em>address</em>
-      </div>
+    <div id="zip-panel" class="hidden mt-5 p-4 rounded-2xl bg-[#260B3A] text-white">
       <p class="text-sm font-semibold">Where should we bring it?</p>
       <p class="text-xs text-[#EAD5F8] mt-1">Saved places or Use my location. Central Florida only.</p>
       <div id="saved-places" class="mt-3 flex flex-wrap gap-2"></div>
@@ -387,7 +320,7 @@ const KITCHENS = {
     iconBg: 'bg-[#260B3A]',
     kicker: 'This month’s kitchen',
     sub: 'Wings · Crinkle fries · Mozz sticks · Healing soup · Vegan chili · Sea moss drinks',
-    hero: '<video class="js-autoplay absolute inset-0 w-full h-full object-cover" muted loop playsinline webkit-playsinline preload="auto" poster="assets/images/wings-honey-bbq.jpg"><source src="assets/images/chicken-wing-house-hero-2.mp4" type="video/mp4"></video>',
+    hero: '<video class="js-autoplay absolute inset-0 w-full h-full object-cover" autoplay muted loop playsinline webkit-playsinline preload="auto" poster="assets/images/wings-honey-bbq.jpg"><source src="assets/images/chicken-wing-house-hero-2.mp4" type="video/mp4"></video>',
     tabs: [
       { href: '#featured', label: 'Featured' },
       { href: '#wings', label: 'Wings' },
@@ -425,7 +358,7 @@ const KITCHENS = {
     iconBg: 'bg-[#1a5c3a]',
     kicker: 'Plant-based comfort, made fresh',
     sub: 'Vegan plates · chili · strawberry oatmeal · Jane’s 16oz sea moss drink',
-    hero: '<video class="js-autoplay absolute inset-0 w-full h-full object-cover" muted loop playsinline webkit-playsinline preload="auto" poster="assets/images/vegan-chicken-sandwich.jpg"><source src="assets/images/vegan-house-hero.mp4" type="video/mp4"></video>',
+    hero: '<video class="js-autoplay absolute inset-0 w-full h-full object-cover" autoplay muted loop playsinline webkit-playsinline preload="auto" poster="assets/images/vegan-chicken-sandwich.jpg"><source src="assets/images/vegan-house-hero.mp4" type="video/mp4"></video>',
     tabs: [
       { href: '#plates', label: 'Plates' },
       { href: '#bowls', label: 'Bowls' },
@@ -545,14 +478,6 @@ function renderKitchen(id) {
       (sec.note ? '<p class="text-sm text-gray-500 mb-3">' + sec.note + '</p>' : '') + rows + '</section>';
   }).join('');
   document.getElementById('menu-sections').innerHTML = html;
-  var firstRow = document.querySelector('#menu-sections .item-row');
-  if (firstRow && !document.getElementById('menu-hint')) {
-    var hint = document.createElement('div');
-    hint.id = 'menu-hint';
-    hint.className = 'hint right-6 -mt-2';
-    hint.innerHTML = '<svg viewBox="0 0 80 52" aria-hidden="true"><path pathLength="1" d="M10 12 C 18 40, 48 44, 68 28"/><path pathLength="1" d="M58 22 L68 28 L56 34"/></svg><em>tap + to add</em>';
-    document.getElementById('menu-sections').prepend(hint);
-  }
   document.querySelectorAll('.item-row').forEach(function(btn) {
     btn.addEventListener('click', function() { openItem(btn.getAttribute('data-id')); });
   });
@@ -839,54 +764,21 @@ document.getElementById('kitchen-ask-btn').addEventListener('click', answerAsk);
 document.getElementById('kitchen-ask').addEventListener('keydown', function(e) {
   if (e.key === 'Enter') { e.preventDefault(); answerAsk(); }
 });
-var videosMayPlay = false;
-var videoClock = null;
-var videoObs = null;
-function armVideo(v) {
-  v.muted = true;
-  v.defaultMuted = true;
-  v.volume = 0;
-  v.playsInline = true;
-  v.setAttribute('muted', '');
-  v.setAttribute('playsinline', '');
-  v.setAttribute('webkit-playsinline', '');
-  if (videoObs) videoObs.observe(v);
-}
-function kickPlay(v) {
-  if (!v) return;
-  armVideo(v);
-  var run = function() {
+function playAutoVideos() {
+  document.querySelectorAll('video.js-autoplay').forEach(function(v) {
+    v.muted = true;
+    v.defaultMuted = true;
+    v.volume = 0;
+    v.playsInline = true;
+    v.setAttribute('muted', '');
+    v.setAttribute('playsinline', '');
+    v.setAttribute('autoplay', '');
     var p = v.play();
     if (p && p.catch) p.catch(function() {});
-  };
-  if (v.readyState >= 2) run();
-  else v.addEventListener('canplay', run, { once: true });
+  });
 }
-function playAutoVideos() {
-  document.querySelectorAll('video.js-autoplay').forEach(armVideo);
-  if (videosMayPlay) {
-    document.querySelectorAll('video.js-autoplay').forEach(kickPlay);
-    return;
-  }
-  if (videoClock) clearTimeout(videoClock);
-  videoClock = setTimeout(function() {
-    videosMayPlay = true;
-    document.querySelectorAll('video.js-autoplay').forEach(kickPlay);
-  }, 2000);
-}
-if ('IntersectionObserver' in window) {
-  videoObs = new IntersectionObserver(function(entries) {
-    entries.forEach(function(e) {
-      if (!videosMayPlay) return;
-      if (e.isIntersecting) kickPlay(e.target);
-      else e.target.pause();
-    });
-  }, { threshold: 0.1 });
-}
-document.addEventListener('visibilitychange', function() {
-  if (!document.hidden && videosMayPlay) {
-    document.querySelectorAll('video.js-autoplay').forEach(kickPlay);
-  }
+['pointerdown', 'touchstart', 'scroll'].forEach(function(ev) {
+  window.addEventListener(ev, playAutoVideos, { once: true, passive: true });
 });
 (function liveCity() {
   var el = document.getElementById('live-city');
