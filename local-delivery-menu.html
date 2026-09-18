@@ -3,192 +3,299 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Local Menu Near Me | Chicken Wing House | Janesse's Seamoss Central Florida</title>
-<meta name="description" content="Local menu in Central Florida. This month: Chicken Wing House — wings, fries, and sea moss drinks. Order online for local delivery or pickup.">
-<script src="https://cdn.tailwindcss.com"></script>
-<script src="https://js.stripe.com/v3/"></script>
-<link rel="stylesheet" href="styles.css">
-<script>
-window.addEventListener('load', function() {
-  tailwind.config = { theme: { extend: { colors: { deep: '#260B3A', purple: '#5E0089', lightpurple: '#EAD5F8' } } } };
-});
+<title>Order Food Near Me in Orlando, Winter Haven &amp; Holiday | Jane's Licensed Kitchen</title>
+<meta name="description" content="Order food near me in Orlando, Winter Haven, Lake Alfred, and Holiday. Jane's licensed kitchen: Chicken Wing House, Vegan House, and fresh sea moss drinks. Free pickup or Central Florida delivery. Call 407-752-7864.">
+<link rel="canonical" href="https://janesseamosshealing.com/local-delivery-menu.html">
+<meta property="og:title" content="Order Food Near Me in Orlando | Jane's Licensed Kitchen">
+<meta property="og:description" content="Wings or vegan plates plus a weekly sea moss drink. Pickup free in Orlando, Winter Haven, Lake Alfred, Holiday.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Outfit:wght@400;500;600&display=swap">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet">
+<meta property="og:url" content="https://janesseamosshealing.com/local-delivery-menu.html">
+<meta property="og:type" content="website">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FoodEstablishment","name":"Jane's Seamoss Creations and More LLC","alternateName":"Jane's Local Kitchens","url":"https://janesseamosshealing.com/local-delivery-menu.html","telephone":"+14077527864","address":{"@type":"PostalAddress","streetAddress":"1020 W Michigan St","addressLocality":"Orlando","addressRegion":"FL","postalCode":"32805","addressCountry":"US"},"areaServed":["Orlando FL","Winter Haven FL","Lake Alfred FL","Holiday FL","Central Florida"],"servesCuisine":["Clean food","American","Vegan","Caribbean sea moss drinks"],"hasMenu":"https://janesseamosshealing.com/local-delivery-menu.html","priceRange":"$","hasCredential":"Florida DBPR NOS5816692"}
 </script>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://js.stripe.com/v3/" defer></script>
+<link rel="stylesheet" href="styles.css">
 <style>
 .hide-scroll::-webkit-scrollbar { display: none; }
 .sheet { animation: up .28s ease; }
 @keyframes up { from { transform: translateY(24px); opacity: 0; } to { transform: none; opacity: 1; } }
+.icon-ring { box-shadow: 0 0 0 3px #fff, 0 0 0 5px #EAD5F8; }
+.led-btn {
+  position: relative;
+  border-radius: 1.25rem;
+  padding: 1.15rem 1rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  transition: transform .15s ease, box-shadow .15s ease, filter .15s ease;
+}
+.led-btn:active { transform: scale(0.98); }
+.led-purple {
+  color: #fff;
+  background: linear-gradient(180deg, #8B2BB8 0%, #5E0089 55%, #3a0058 100%);
+  box-shadow: 0 0 0 2px #EAD5F8, 0 0 18px rgba(94,0,137,.55), inset 0 1px 0 rgba(255,255,255,.35);
+}
+.led-purple.on, .led-purple:hover {
+  filter: brightness(1.08);
+  box-shadow: 0 0 0 2px #fff, 0 0 28px rgba(173,80,230,.85), inset 0 1px 0 rgba(255,255,255,.5);
+}
+.led-glow {
+  color: #EAD5F8;
+  background: #260B3A;
+  box-shadow: 0 0 0 2px #5E0089, 0 0 16px rgba(94,0,137,.4), inset 0 0 12px rgba(94,0,137,.35);
+}
+.led-glow.on, .led-glow:hover {
+  color: #fff;
+  box-shadow: 0 0 0 2px #EAD5F8, 0 0 26px rgba(94,0,137,.8), inset 0 0 18px rgba(173,80,230,.45);
+}
+body { font-family: Outfit, system-ui, sans-serif; }
+.display {
+  font-family: Fraunces, Georgia, serif;
+  font-optical-sizing: auto;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+}
+.eyebrow {
+  font-family: Outfit, sans-serif;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+video { background: #260B3A; }
+.live-ink {
+  background: linear-gradient(100deg, #5E0089 0%, #B45CFF 35%, #EAD5F8 50%, #5E0089 70%, #260B3A 100%);
+  background-size: 220% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: inkflow 7s ease-in-out infinite;
+}
+.city-live {
+  display: inline-block;
+  min-width: 7.5rem;
+  animation: citypulse 2.8s ease-in-out infinite;
+}
+@keyframes inkflow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+@keyframes citypulse {
+  0%, 100% { opacity: 1; transform: translateY(0); }
+  45% { opacity: 0; transform: translateY(-6px); }
+  55% { opacity: 0; transform: translateY(6px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .live-ink, .city-live { animation: none; color: #5E0089; background: none; }
+  .hint { display: none !important; }
+}
+.hint {
+  position: absolute;
+  z-index: 3;
+  pointer-events: none;
+  opacity: 0;
+  animation: hintShow 4.8s ease 2.8s forwards;
+}
+.hint svg { width: 56px; height: 40px; overflow: visible; }
+.hint em {
+  display: block;
+  font-family: Fraunces, Georgia, serif;
+  font-style: italic;
+  font-size: 11px;
+  color: #5E0089;
+  white-space: nowrap;
+}
+.hint path {
+  fill: none;
+  stroke: #5E0089;
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: drawArrow 1.2s ease 2.8s forwards;
+}
+.hint-late { animation-delay: 4s; }
+.hint-late path { animation-delay: 4s; }
+.hint-cart { animation-delay: 4.6s; }
+.hint-cart path { animation-delay: 4.6s; }
+.hint-check { animation-delay: 0.4s; }
+.hint-check path { animation-delay: 0.4s; }
+.hint-white em { color: #fff; }
+.hint-white path { stroke: #fff; }
+@keyframes drawArrow {
+  to { stroke-dashoffset: 0; }
+}
+@keyframes hintShow {
+  0% { opacity: 0; }
+  8% { opacity: 1; }
+  75% { opacity: 1; }
+  100% { opacity: 0; }
+}
 </style>
 </head>
-<body class="bg-[#f6f6f6] text-deep font-sans antialiased">
+<body class="bg-[#f4f4f4] text-[#260B3A] antialiased">
 
 <nav class="bg-white border-b sticky top-0 z-50">
   <div class="max-w-3xl mx-auto px-4 h-14 flex items-center justify-between">
-    <a href="index.html" class="text-sm font-medium hover:text-purple">Home</a>
-    <span class="text-sm font-semibold">Local Menu</span>
-    <button type="button" id="nav-cart-btn" class="text-sm bg-purple text-white px-3 py-1.5 rounded-full">Cart <span id="nav-cart-count">0</span></button>
+    <button type="button" id="nav-back" class="text-sm font-medium hover:text-[#5E0089] hidden">Kitchens</button>
+    <a href="index.html" id="nav-home" class="text-sm font-medium hover:text-[#5E0089]">Home</a>
+    <span class="text-sm font-semibold" id="nav-title">Local Menu</span>
+    <div class="flex items-center gap-2">
+      <a href="tel:+14077527864" class="text-sm border border-[#5E0089] text-[#5E0089] px-3 py-1.5 rounded-full" aria-label="Call 407-752-7864">Call</a>
+      <span class="relative inline-flex">
+      <button type="button" id="nav-cart-btn" class="text-sm bg-[#5E0089] text-white px-3 py-1.5 rounded-full">Cart <span id="nav-cart-count">0</span></button>
+      <span class="hint hint-cart left-1/2 top-full mt-0.5 -translate-x-1/2"><svg viewBox="0 0 80 52" aria-hidden="true"><path pathLength="1" d="M40 48 C 40 28, 40 16, 40 8"/><path pathLength="1" d="M32 16 L40 6 L48 16"/></svg><em>your bag</em></span>
+      </span>
+    </div>
   </div>
 </nav>
 
-<header class="bg-white">
-  <div class="max-w-3xl mx-auto">
-    <div class="relative h-52 md:h-64 bg-deep overflow-hidden">
-      <video class="absolute inset-0 w-full h-full object-cover" autoplay muted loop playsinline>
-        <source src="assets/images/chicken-wing-house-hero-2.mp4" type="video/mp4">
-      </video>
-    </div>
-    <div class="px-4 py-5">
-      <p class="text-[11px] tracking-widest uppercase text-purple font-semibold">This month’s kitchen</p>
-      <h1 class="text-3xl font-semibold tracking-tight mt-1">Chicken Wing House</h1>
-      <p class="text-sm text-gray-600 mt-1">Wings · Crinkle fries · Mozz sticks · Healing soup · Vegan chili · Sea moss drinks</p>
-      <div class="flex flex-wrap gap-x-3 gap-y-1 text-xs text-gray-500 mt-3">
-        <span>4.9</span>
-        <span>·</span>
-        <span>25–40 min</span>
-        <span>·</span>
-        <span>$8–$15 delivery</span>
-        <span>·</span>
-        <span>Central Florida</span>
+<div id="view-feed">
+  <header class="bg-white">
+    <div class="max-w-3xl mx-auto px-4 pt-5 pb-4">
+      <p class="eyebrow text-[11px] text-[#5E0089] font-semibold">Food near me · <span id="live-city" class="city-live">Orlando</span></p>
+      <h1 class="display text-[2.15rem] sm:text-4xl mt-2">Order food near you<br><span class="live-ink italic">from Jane’s kitchen.</span></h1>
+      <p class="text-sm text-gray-600 mt-3 max-w-xl">Orlando, Winter Haven, Lake Alfred, Holiday. One licensed cook. Wings or vegan plates. Always a 16oz sea moss drink. No app fee.</p>
+      <ol class="mt-4 grid grid-cols-3 gap-2 text-center text-[11px] text-gray-600">
+        <li class="bg-[#EAD5F8]/50 rounded-2xl py-3 px-1"><span class="block font-semibold text-[#260B3A] text-sm">1</span>Choose a house</li>
+        <li class="bg-[#EAD5F8]/50 rounded-2xl py-3 px-1"><span class="block font-semibold text-[#260B3A] text-sm">2</span>Add plate + drink</li>
+        <li class="bg-[#EAD5F8]/50 rounded-2xl py-3 px-1"><span class="block font-semibold text-[#260B3A] text-sm">3</span>ZIP or pickup</li>
+      </ol>
+      <div class="mt-4 relative">
+        <label class="sr-only" for="kitchen-ask">What are you hungry for</label>
+        <input id="kitchen-ask" type="search" placeholder="Wings, vegan, or a sea moss drink?" class="w-full rounded-2xl border border-gray-200 bg-[#fafafa] px-4 py-3 text-sm pr-24">
+        <button type="button" id="kitchen-ask-btn" class="absolute right-2 top-1.5 text-xs bg-[#260B3A] text-white px-3 py-2 rounded-xl">Find it</button>
       </div>
-      <p class="text-xs text-gray-500 mt-3">One kitchen at a time. We switch this menu monthly.</p>
+      <p id="ask-reply" class="hidden mt-3 text-sm bg-[#EAD5F8]/40 rounded-2xl px-4 py-3"></p>
     </div>
-  </div>
-</header>
+  </header>
+  <main class="max-w-3xl mx-auto px-4 py-5 pb-28">
+    <div class="relative mb-2 pr-24">
+      <p class="text-xs font-semibold tracking-wide uppercase text-gray-500">This week’s easy order</p>
+      <div class="hint left-[9.5rem] -top-1">
+        <svg viewBox="0 0 80 52" aria-hidden="true"><path pathLength="1" d="M8 10 C 22 10, 40 14, 48 36"/><path pathLength="1" d="M40 30 L50 40 L36 38"/></svg>
+        <em>tap a ritual</em>
+      </div>
+    </div>
+    <div class="grid grid-cols-2 gap-3 mb-6">
+      <button type="button" class="open-kitchen text-left bg-white rounded-2xl p-4 shadow-sm border border-gray-100" data-kitchen="wing-house">
+        <p class="text-[11px] text-[#5E0089] font-semibold">Most ordered</p>
+        <p class="display text-xl mt-1">House Combo</p>
+        <p class="text-xs text-gray-500 mt-1">8 wings · fries · 16oz moss</p>
+        <p class="text-sm font-semibold mt-2">$28</p>
+      </button>
+      <button type="button" class="open-kitchen text-left bg-white rounded-2xl p-4 shadow-sm border border-gray-100" data-kitchen="vegan-house">
+        <p class="text-[11px] text-[#1a5c3a] font-semibold">Plant ritual</p>
+        <p class="display text-xl mt-1">Sandwich + drink</p>
+        <p class="text-xs text-gray-500 mt-1">Vegan plate · 16oz moss</p>
+        <p class="text-sm font-semibold mt-2">from $24.25</p>
+      </button>
+    </div>
+    <div class="relative mb-2 pr-20">
+      <p class="text-xs font-semibold tracking-wide uppercase text-gray-500">Or swipe a house</p>
+      <div class="hint hint-late right-0 -top-1">
+        <svg viewBox="0 0 80 52" aria-hidden="true"><path pathLength="1" d="M6 26 C 28 12, 50 12, 74 26"/><path pathLength="1" d="M62 16 L76 26 L62 34"/></svg>
+        <em>swipe</em>
+      </div>
+    </div>
+    <div class="relative">
+    <div class="flex gap-3 overflow-x-auto hide-scroll snap-x snap-mandatory pb-2 -mx-4 px-4">
+    <button type="button" class="open-kitchen snap-start shrink-0 w-[78%] text-left bg-white rounded-2xl overflow-hidden shadow-sm" data-kitchen="wing-house">
+      <div class="relative h-36 bg-[#260B3A]">
+        <video class="js-autoplay absolute inset-0 w-full h-full object-cover" muted loop playsinline webkit-playsinline preload="auto" poster="assets/images/wings-honey-bbq.jpg">
+          <source src="assets/images/chicken-wing-house-hero-2.mp4" type="video/mp4">
+        </video>
+        <div class="absolute bottom-3 left-3">
+          <span class="icon-ring w-9 h-9 rounded-full bg-[#260B3A] text-white flex items-center justify-center text-sm font-semibold">W</span>
+        </div>
+      </div>
+      <div class="p-4">
+        <div class="flex items-start justify-between gap-3">
+          <div>
+            <p class="display text-2xl">Chicken Wing House</p>
+            <p class="text-sm text-gray-500 mt-0.5">Wings · Fries · Mozz · Soup · Chili · Sea moss drinks</p>
+          </div>
+          <span class="text-xs bg-[#EAD5F8] text-[#5E0089] px-2 py-1 rounded-full shrink-0">Open</span>
+        </div>
+        <p class="text-xs text-gray-500 mt-3">4.9 · 25–40 min · $8–$15 delivery · Central Florida</p>
+      </div>
+    </button>
+    <button type="button" class="open-kitchen snap-start shrink-0 w-[78%] text-left bg-white rounded-2xl overflow-hidden shadow-sm" data-kitchen="vegan-house">
+      <div class="relative h-36 bg-[#260B3A]">
+        <video class="js-autoplay absolute inset-0 w-full h-full object-cover" muted loop playsinline webkit-playsinline preload="auto" poster="assets/images/vegan-chicken-sandwich.jpg">
+          <source src="assets/images/vegan-house-hero.mp4" type="video/mp4">
+        </video>
+        <div class="absolute inset-0 bg-gradient-to-t from-[#260B3A]/40 to-transparent"></div>
+        <div class="absolute bottom-3 left-3">
+          <span class="icon-ring w-9 h-9 rounded-full bg-[#1a5c3a] text-white flex items-center justify-center text-sm font-semibold">V</span>
+        </div>
+      </div>
+      <div class="p-4">
+        <div class="flex items-start justify-between gap-3">
+          <div>
+            <p class="display text-2xl">Vegan House</p>
+            <p class="text-sm text-gray-500 mt-0.5">Plant plates · Chili · Oatmeal · Sea moss drinks</p>
+          </div>
+          <span class="text-xs bg-[#EAD5F8] text-[#5E0089] px-2 py-1 rounded-full shrink-0">Open</span>
+        </div>
+        <p class="text-xs text-gray-500 mt-3">Plant-based comfort · 25–40 min · Same licensed kitchen</p>
+      </div>
+    </button>
+    </div>
+    </div>
+    <p class="text-xs text-gray-500 px-1 mt-4">Central Florida only. Pickup free: Orlando, Winter Haven, Lake Alfred, Holiday. Gels ship from Shop.</p>
 
-<div class="sticky top-14 z-40 bg-white border-y">
-  <div class="max-w-3xl mx-auto px-4 py-2 flex gap-2 overflow-x-auto hide-scroll text-sm">
-    <a href="#featured" class="px-3 py-1.5 rounded-full bg-deep text-white whitespace-nowrap">Featured</a>
-    <a href="#wings" class="px-3 py-1.5 rounded-full bg-gray-100 whitespace-nowrap">Wings</a>
-    <a href="#sides" class="px-3 py-1.5 rounded-full bg-gray-100 whitespace-nowrap">Sides</a>
-    <a href="#bowls" class="px-3 py-1.5 rounded-full bg-gray-100 whitespace-nowrap">Bowls</a>
-    <a href="#drinks" class="px-3 py-1.5 rounded-full bg-gray-100 whitespace-nowrap">Drinks</a>
-  </div>
+    <section class="mt-8 space-y-4">
+      <div class="bg-white rounded-2xl p-5 shadow-sm">
+        <h2 class="display text-2xl">Why neighbors skip the apps</h2>
+        <ul class="mt-3 text-sm text-gray-700 space-y-2">
+          <li><span class="font-semibold">You pay the kitchen.</span> No marketplace cut sitting between you and Jane.</li>
+          <li><span class="font-semibold">One cook, one license.</span> Florida DBPR NOS5816692, 1020 W Michigan St, Orlando — not a bag mixed from three places.</li>
+          <li><span class="font-semibold">The drink is ours.</span> 16oz sea moss, distilled water, bottled that week. Apps do not pour that.</li>
+          <li><span class="font-semibold">A person answers.</span> <a class="text-[#5E0089] font-semibold" href="tel:+14077527864">407-752-7864</a> for the order in front of you.</li>
+        </ul>
+      </div>
+      <div class="bg-white rounded-2xl p-5 shadow-sm">
+        <h2 class="display text-2xl">Food near me in Orlando, Winter Haven, Lake Alfred &amp; Holiday</h2>
+        <p class="text-sm text-gray-600 mt-2">Jane’s Seamoss Creations is the licensed kitchen at 1020 W Michigan St, Orlando. Order wings, vegan plates, and weekly sea moss drinks for pickup or Central Florida delivery. Call <a class="text-[#5E0089] font-semibold" href="tel:+14077527864">407-752-7864</a>.</p>
+      </div>
+    </section>
+  </main>
 </div>
 
-<main class="max-w-3xl mx-auto px-4 py-6 pb-28">
-  <section id="featured" class="mb-8">
-    <h2 class="text-xl font-semibold mb-3">Featured</h2>
-    <button type="button" class="item-row w-full text-left bg-white rounded-2xl p-3 flex gap-3 mb-3 shadow-sm" data-id="combo-house">
-      <div class="flex-1 min-w-0">
-        <p class="font-semibold">House Combo</p>
-        <p class="text-sm text-gray-500 mt-0.5">8 wings, fries, 16oz sea moss drink</p>
-        <p class="text-sm mt-2">$28.00</p>
+<div id="view-menu" class="hidden">
+  <header class="bg-white">
+    <div class="max-w-3xl mx-auto">
+      <div class="relative h-52 md:h-64 bg-[#260B3A] overflow-hidden" id="menu-hero"></div>
+      <div class="px-4 py-5">
+        <div class="flex items-center gap-3">
+          <span id="menu-icon" class="icon-ring w-9 h-9 rounded-full bg-[#260B3A] text-white flex items-center justify-center text-sm font-semibold">W</span>
+          <div>
+            <p class="text-[11px] tracking-widest uppercase text-[#5E0089] font-semibold" id="menu-kicker">Kitchen</p>
+            <h1 class="display text-3xl" id="menu-title">Kitchen</h1>
+          </div>
+        </div>
+        <p class="text-sm text-gray-600 mt-2" id="menu-sub"></p>
+        <div class="flex flex-wrap gap-x-3 gap-y-1 text-xs text-gray-500 mt-3">
+          <span>4.9</span><span>·</span><span>25–40 min</span><span>·</span><span>$8–$15 delivery</span>
+        </div>
       </div>
-      <div class="relative w-28 h-28 shrink-0">
-        <img src="assets/images/honeybbq.jpg" alt="" class="w-28 h-28 rounded-xl object-cover">
-        <span class="absolute -bottom-2 -right-2 w-8 h-8 bg-white rounded-full shadow flex items-center justify-center text-xl leading-none">+</span>
-      </div>
-    </button>
-    <button type="button" class="item-row w-full text-left bg-white rounded-2xl p-3 flex gap-3 shadow-sm" data-id="soup">
-      <div class="flex-1 min-w-0">
-        <p class="font-semibold">Healing Bowl Combo</p>
-        <p class="text-sm text-gray-500 mt-0.5">Soup or chili + crinkle fries + 16oz moss drink</p>
-        <p class="text-sm mt-2">$42.00</p>
-      </div>
-      <div class="relative w-28 h-28 shrink-0">
-        <img src="assets/images/fries.jpg" alt="" class="w-28 h-28 rounded-xl object-cover">
-        <span class="absolute -bottom-2 -right-2 w-8 h-8 bg-white rounded-full shadow flex items-center justify-center text-xl leading-none">+</span>
-      </div>
-    </button>
-  </section>
-
-  <section id="wings" class="mb-8">
-    <h2 class="text-xl font-semibold mb-3">Wings</h2>
-    <p class="text-sm text-gray-500 mb-3">6 pcs $13.99 · pick a flavor, then a size</p>
-    <button type="button" class="item-row w-full text-left bg-white rounded-2xl p-3 flex gap-3 mb-3 shadow-sm" data-id="lemon-pepper">
-      <div class="flex-1 min-w-0">
-        <p class="font-semibold">Lemon Pepper Wings</p>
-        <p class="text-sm text-gray-500 mt-0.5">Crispy wings seasoned with a zesty blend of lemon and cracked black pepper for a bright, tangy flavor.</p>
-        <p class="text-sm mt-2">$13.99</p>
-      </div>
-      <div class="relative w-28 h-28 shrink-0">
-        <img src="assets/images/lemonpepper.jpg" alt="Lemon Pepper Wings" class="w-28 h-28 rounded-xl object-cover">
-        <span class="absolute -bottom-2 -right-2 w-8 h-8 bg-white rounded-full shadow flex items-center justify-center text-xl">+</span>
-      </div>
-    </button>
-    <button type="button" class="item-row w-full text-left bg-white rounded-2xl p-3 flex gap-3 mb-3 shadow-sm" data-id="honey-bbq">
-      <div class="flex-1 min-w-0">
-        <p class="font-semibold">Honey BBQ Wings</p>
-        <p class="text-sm text-gray-500 mt-0.5">Succulent wings coated in a rich honey barbecue glaze, balancing sweet and smoky flavors in every bite.</p>
-        <p class="text-sm mt-2">$13.99</p>
-      </div>
-      <div class="relative w-28 h-28 shrink-0">
-        <img src="assets/images/honeybbq.jpg" alt="Honey BBQ Wings" class="w-28 h-28 rounded-xl object-cover">
-        <span class="absolute -bottom-2 -right-2 w-8 h-8 bg-white rounded-full shadow flex items-center justify-center text-xl">+</span>
-      </div>
-    </button>
-    <button type="button" class="item-row w-full text-left bg-white rounded-2xl p-3 flex gap-3 mb-3 shadow-sm" data-id="mango-habanero">
-      <div class="flex-1 min-w-0">
-        <p class="font-semibold">Mango Habanero Wings</p>
-        <p class="text-sm text-gray-500 mt-0.5">Crispy wings tossed in a sweet and spicy mango habanero sauce, blending tropical fruitiness with a fiery kick.</p>
-        <p class="text-sm mt-2">$13.99</p>
-      </div>
-      <div class="relative w-28 h-28 shrink-0">
-        <img src="assets/images/mango habenero.jpg" alt="Mango Habanero Wings" class="w-28 h-28 rounded-xl object-cover">
-        <span class="absolute -bottom-2 -right-2 w-8 h-8 bg-white rounded-full shadow flex items-center justify-center text-xl">+</span>
-      </div>
-    </button>
-    <button type="button" class="item-row w-full text-left bg-white rounded-2xl p-3 flex gap-3 shadow-sm" data-id="cajun">
-      <div class="flex-1 min-w-0">
-        <p class="font-semibold">Cajun Wings</p>
-        <p class="text-sm text-gray-500 mt-0.5">Crispy chicken wings tossed in a bold, smoky Cajun spice blend for a spicy, flavorful kick.</p>
-        <p class="text-sm mt-2">$13.99</p>
-      </div>
-      <div class="relative w-28 h-28 shrink-0">
-        <img src="assets/images/cajunwings.jpg" alt="Cajun Wings" class="w-28 h-28 rounded-xl object-cover">
-        <span class="absolute -bottom-2 -right-2 w-8 h-8 bg-white rounded-full shadow flex items-center justify-center text-xl">+</span>
-      </div>
-    </button>
-  </section>
-
-<section id="sides" class="mb-8">
-    <h2 class="text-xl font-semibold mb-3">Sides</h2>
-    <button type="button" class="item-row w-full text-left bg-white rounded-2xl p-3 flex gap-3 mb-3 shadow-sm" data-id="fries-reg">
-      <div class="flex-1"><p class="font-semibold">Crinkle Cut Fries</p><p class="text-sm text-gray-500 mt-0.5">Scratch kitchen</p><p class="text-sm mt-2">$6.00</p></div>
-      <div class="relative w-24 h-24 shrink-0"><img src="assets/images/fries.jpg" alt="" class="w-24 h-24 rounded-xl object-cover"><span class="absolute -bottom-2 -right-2 w-8 h-8 bg-white rounded-full shadow flex items-center justify-center text-xl">+</span></div>
-    </button>
-    <button type="button" class="item-row w-full text-left bg-white rounded-2xl p-3 flex gap-3 mb-3 shadow-sm" data-id="fries-lg">
-      <div class="flex-1"><p class="font-semibold">Large Crinkle Fries</p><p class="text-sm text-gray-500 mt-0.5">Share basket</p><p class="text-sm mt-2">$9.00</p></div>
-      <div class="relative w-24 h-24 shrink-0"><img src="assets/images/fries.jpg" alt="" class="w-24 h-24 rounded-xl object-cover"><span class="absolute -bottom-2 -right-2 w-8 h-8 bg-white rounded-full shadow flex items-center justify-center text-xl">+</span></div>
-    </button>
-    <button type="button" class="item-row w-full text-left bg-white rounded-2xl p-3 flex gap-3 shadow-sm" data-id="mozz">
-      <div class="flex-1"><p class="font-semibold">Mozzarella Sticks</p><p class="text-sm text-gray-500 mt-0.5">6 pieces, hot</p><p class="text-sm mt-2">$8.00</p></div>
-      <div class="relative w-24 h-24 shrink-0"><img src="assets/images/winghouse-mozz.jpg" alt="" class="w-24 h-24 rounded-xl object-cover"><span class="absolute -bottom-2 -right-2 w-8 h-8 bg-white rounded-full shadow flex items-center justify-center text-xl">+</span></div>
-    </button>
-  </section>
-
-  <section id="bowls" class="mb-8">
-    <h2 class="text-xl font-semibold mb-3">Bowls</h2>
-    <button type="button" class="item-row w-full text-left bg-white rounded-2xl p-3 flex gap-3 mb-3 shadow-sm" data-id="soup">
-      <div class="flex-1"><p class="font-semibold">Sea Moss Chicken Healing Soup</p><p class="text-sm text-gray-500 mt-0.5">Organic chicken, sea moss, onion, peppers, cayenne, celery, turmeric, ginger, garlic, distilled water</p><p class="text-sm mt-2">$14.00</p></div>
-      <div class="relative w-24 h-24 shrink-0"><img src="assets/images/winghouse-soup.jpg" alt="" class="w-24 h-24 rounded-xl object-cover"><span class="absolute -bottom-2 -right-2 w-8 h-8 bg-white rounded-full shadow flex items-center justify-center text-xl">+</span></div>
-    </button>
-    <button type="button" class="item-row w-full text-left bg-white rounded-2xl p-3 flex gap-3 shadow-sm" data-id="chili">
-      <div class="flex-1"><p class="font-semibold">Vegan Chili</p><p class="text-sm text-gray-500 mt-0.5">Vegan chili beans, onions, ginger, herbs, spices, sea moss</p><p class="text-sm mt-2">$12.00</p></div>
-      <div class="relative w-24 h-24 shrink-0"><img src="assets/images/winghouse-chili.jpg" alt="" class="w-24 h-24 rounded-xl object-cover"><span class="absolute -bottom-2 -right-2 w-8 h-8 bg-white rounded-full shadow flex items-center justify-center text-xl">+</span></div>
-    </button>
-  </section>
-
-  <section id="drinks">
-    <h2 class="text-xl font-semibold mb-3">Sea moss drinks</h2>
-    <div class="relative h-44 rounded-2xl overflow-hidden mb-4 bg-deep">
-      <video class="absolute inset-0 w-full h-full object-cover" autoplay muted loop playsinline>
-        <source src="assets/images/janes-seamoss-juice-hero-2.mp4" type="video/mp4">
-      </video>
     </div>
-    <button type="button" class="item-row w-full text-left bg-white rounded-2xl p-3 flex gap-3 mb-3 shadow-sm" data-id="drink-mango">
-      <div class="flex-1"><p class="font-semibold">Jane's Sea Moss Drink 16oz</p><p class="text-sm text-gray-500 mt-0.5">Your bottle · fresh weekly</p><p class="text-sm mt-2">$10.00</p></div>
-      <div class="relative w-24 h-24 shrink-0"><img src="assets/images/i170i.jpg" alt="" class="w-24 h-24 rounded-xl object-cover"><span class="absolute -bottom-2 -right-2 w-8 h-8 bg-white rounded-full shadow flex items-center justify-center text-xl">+</span></div>
-    </button>
-    <button type="button" class="item-row w-full text-left bg-white rounded-2xl p-3 flex gap-3 shadow-sm" data-id="drink-line">
-      <div class="flex-1"><p class="font-semibold">Sea Moss Juice Line 16oz</p><p class="text-sm text-gray-500 mt-0.5">Berry, mango, citrus, greens</p><p class="text-sm mt-2">$10.00</p></div>
-      <div class="relative w-24 h-24 shrink-0"><img src="assets/images/sea-moss-juices.jpg" alt="" class="w-24 h-24 rounded-xl object-cover"><span class="absolute -bottom-2 -right-2 w-8 h-8 bg-white rounded-full shadow flex items-center justify-center text-xl">+</span></div>
-    </button>
-  </section>
-</section>
-</main>
+  </header>
+  <div class="sticky top-14 z-40 bg-white border-y">
+    <div class="max-w-3xl mx-auto px-4 py-2 flex gap-2 overflow-x-auto hide-scroll text-sm" id="menu-tabs"></div>
+  </div>
+  <main class="relative max-w-3xl mx-auto px-4 py-6 pb-28" id="menu-sections"></main>
+</div>
+
+<a href="tel:+14077527864" class="fixed bottom-24 right-4 z-[60] w-14 h-14 rounded-full bg-[#5E0089] text-white shadow-xl flex items-center justify-center text-xs font-semibold tracking-wide" aria-label="Call Jane 407-752-7864">Call</a>
 
 <div id="cart-bar" class="hidden fixed bottom-0 inset-x-0 z-50 px-4 pb-5">
-  <button type="button" id="open-cart-bar" class="max-w-3xl mx-auto w-full bg-deep text-white rounded-2xl py-4 px-5 flex justify-between font-semibold shadow-xl">
+  <button type="button" id="open-cart-bar" class="max-w-3xl mx-auto w-full bg-[#260B3A] text-white rounded-2xl py-4 px-5 flex justify-between font-semibold shadow-xl">
     <span>View cart · <span id="bar-count">0</span></span>
     <span id="bar-total">$0.00</span>
   </button>
@@ -203,19 +310,19 @@ window.addEventListener('load', function() {
           <h3 id="m-name" class="text-2xl font-semibold"></h3>
           <p id="m-desc" class="text-sm text-gray-500 mt-1"></p>
         </div>
-        <button type="button" id="m-close" class="text-3xl leading-none px-2">×</button>
+        <button type="button" id="m-close" class="text-3xl leading-none px-2">&times;</button>
       </div>
       <div id="m-sauce-wrap" class="hidden mt-5">
-        <p class="font-semibold text-sm">Choose Size <span class="text-amber-700 font-normal">Required · Select 1</span></p>
+        <p class="font-semibold text-sm">Choose Size <span class="text-amber-700 font-normal">Required</span></p>
         <div class="mt-2 space-y-2" id="m-sauces"></div>
       </div>
       <div class="flex items-center justify-between mt-6">
         <div class="flex items-center gap-3 border rounded-full px-3 py-1">
-          <button type="button" id="qty-minus" class="text-2xl w-8">−</button>
+          <button type="button" id="qty-minus" class="text-2xl w-8">-</button>
           <span id="m-qty" class="w-6 text-center font-semibold">1</span>
           <button type="button" id="qty-plus" class="text-2xl w-8">+</button>
         </div>
-        <button type="button" id="m-add" class="bg-purple text-white px-6 py-3 rounded-full font-semibold">Add · $0.00</button>
+        <button type="button" id="m-add" class="bg-[#5E0089] text-white px-6 py-3 rounded-full font-semibold">Add · $0.00</button>
       </div>
     </div>
   </div>
@@ -225,20 +332,46 @@ window.addEventListener('load', function() {
   <div class="sheet bg-white w-full max-w-md max-h-[90vh] overflow-y-auto rounded-t-3xl md:rounded-3xl p-5">
     <div class="flex justify-between items-center mb-4">
       <h3 class="text-xl font-semibold">Cart</h3>
-      <button type="button" id="cart-close" class="text-3xl leading-none">×</button>
+      <button type="button" id="cart-close" class="text-3xl leading-none">&times;</button>
     </div>
+    <p id="cart-kitchen" class="text-xs text-gray-500 mb-3"></p>
     <div id="cart-lines" class="space-y-3 text-sm"></div>
     <div class="flex justify-between text-lg font-semibold mt-6">
       <span>Subtotal</span>
       <span id="cart-sub">$0.00</span>
     </div>
-    <p class="text-xs text-gray-500 mt-2">Delivery $8–$15 by ZIP is added at checkout.</p>
-    <button type="button" id="checkout-btn" class="mt-4 w-full bg-purple hover:bg-deep text-white py-4 rounded-2xl font-semibold">Go to checkout</button>
+    <p class="text-sm font-semibold mt-6 mb-3 text-center">How do you want it?</p>
+    <div class="relative grid grid-cols-1 gap-3">
+      <div class="hint hint-check left-2 -top-8">
+        <svg viewBox="0 0 80 52" aria-hidden="true"><path pathLength="1" d="M16 4 C 12 20, 20 34, 40 44"/><path pathLength="1" d="M30 40 L40 46 L32 32"/></svg>
+        <em>pick one</em>
+      </div>
+      <button type="button" id="opt-pickup" class="led-btn led-glow text-lg">Free store pickup</button>
+      <button type="button" id="opt-delivery" class="led-btn led-purple text-lg">Delivery</button>
+    </div>
+    <p class="text-[11px] text-gray-500 text-center mt-3">Pickup: Orlando · Winter Haven · Lake Alfred · Holiday</p>
+    <div id="zip-panel" class="hidden relative mt-5 p-4 rounded-2xl bg-[#260B3A] text-white">
+      <div class="hint hint-check hint-white right-4 top-2">
+        <svg viewBox="0 0 80 52" aria-hidden="true"><path pathLength="1" d="M18 8 C 28 8, 58 14, 70 36"/><path pathLength="1" d="M58 32 L72 38 L60 44"/></svg>
+        <em>address</em>
+      </div>
+      <p class="text-sm font-semibold">Where should we bring it?</p>
+      <p class="text-xs text-[#EAD5F8] mt-1">Saved places or Use my location. Central Florida only.</p>
+      <div id="saved-places" class="mt-3 flex flex-wrap gap-2"></div>
+      <button type="button" id="use-location" class="mt-3 w-full rounded-2xl border border-[#EAD5F8] text-[#EAD5F8] py-3 text-sm font-semibold">Use my location</button>
+      <input type="text" id="order-street" autocomplete="street-address" placeholder="Street address" class="mt-3 w-full border-0 rounded-2xl px-4 py-3 text-sm text-[#260B3A]">
+      <div class="mt-2 grid grid-cols-3 gap-2">
+        <input type="text" id="order-city" autocomplete="address-level2" placeholder="City" class="col-span-2 border-0 rounded-2xl px-4 py-3 text-sm text-[#260B3A]">
+        <input type="text" id="order-state" autocomplete="address-level1" placeholder="FL" maxlength="2" class="border-0 rounded-2xl px-4 py-3 text-sm text-[#260B3A] uppercase">
+      </div>
+      <input type="text" id="order-zip" inputmode="numeric" maxlength="5" autocomplete="postal-code" placeholder="5-digit ZIP" class="mt-2 w-full border-0 rounded-2xl px-4 py-3 text-sm text-[#260B3A]">
+      <p id="zip-msg" class="text-xs mt-2 text-[#EAD5F8]">Drivers need the street. We remember it for next time.</p>
+      <button type="button" id="checkout-btn" class="mt-4 w-full led-btn led-purple">Confirm delivery · checkout</button>
+    </div>
   </div>
 </div>
 
 <script>
-const MENU_ID = 'wing-house-2026-09';
 const SIZES = [
   { label: '6 Pcs', price: 13.99 },
   { label: '10 Pcs', price: 20.99 },
@@ -246,30 +379,86 @@ const SIZES = [
   { label: '18 Pcs', price: 36.99 },
   { label: '25 Pcs', price: 50.99 }
 ];
-const ITEMS = {
-  'combo-house': { name: 'House Combo', desc: '8 wings, crinkle fries, 16oz sea moss drink', price: 28, img: 'assets/images/wings-honey-bbq.jpg', size: false },
-  'lemon-pepper': { name: 'Lemon Pepper Wings', desc: 'Crispy wings seasoned with a zesty blend of lemon and cracked black pepper for a bright, tangy flavor.', price: 13.99, img: 'assets/images/wings-lemon-pepper.jpg', size: true },
-  'honey-bbq': { name: 'Honey BBQ Wings', desc: 'Succulent wings coated in a rich honey barbecue glaze, balancing sweet and smoky flavors in every bite.', price: 13.99, img: 'assets/images/wings-honey-bbq.jpg', size: true },
-  'mango-habanero': { name: 'Mango Habanero Wings', desc: 'Crispy wings tossed in a sweet and spicy mango habanero sauce, blending tropical fruitiness with a fiery kick.', price: 13.99, img: 'assets/images/wings-mango-habanero.jpg', size: true },
-  'cajun': { name: 'Cajun Wings', desc: 'Crispy chicken wings tossed in a bold, smoky Cajun spice blend for a spicy, flavorful kick.', price: 13.99, img: 'assets/images/wings-cajun.jpg', size: true },
-  'fries-reg': { name: 'Crinkle Cut Fries', desc: 'Scratch-kitchen drop', price: 6, img: 'assets/images/winghouse-fries.jpg', size: false },
-  'fries-lg': { name: 'Large Crinkle Fries', desc: 'Share basket', price: 9, img: 'assets/images/winghouse-fries.jpg', size: false },
-  'mozz': { name: 'Mozzarella Sticks', desc: '6 pieces, hot', price: 8, img: 'assets/images/winghouse-mozz.jpg', size: false },
-  'soup': { name: 'Sea Moss Chicken Healing Soup', desc: 'Organic chicken, sea moss, onion, peppers, cayenne, celery, turmeric, ginger, garlic, distilled water', price: 14, img: 'assets/images/winghouse-soup.jpg', size: false },
-  'chili': { name: 'Vegan Chili', desc: 'Vegan chili beans, onions, ginger, herbs, spices, sea moss', price: 12, img: 'assets/images/winghouse-chili.jpg', size: false },
-  'drink-mango': { name: 'Jane\'s Sea Moss Drink 16oz', desc: 'Your bottle · fresh weekly', price: 10, img: 'assets/images/janes-drink-hand.jpg', size: false },
-  'drink-line': { name: 'Sea Moss Juice Line 16oz', desc: 'Berry, mango, citrus, greens', price: 10, img: 'assets/images/sea-moss-juices.jpg', size: false }
+const KITCHENS = {
+  'wing-house': {
+    id: 'wing-house',
+    name: 'Chicken Wing House',
+    icon: 'W',
+    iconBg: 'bg-[#260B3A]',
+    kicker: 'This month’s kitchen',
+    sub: 'Wings · Crinkle fries · Mozz sticks · Healing soup · Vegan chili · Sea moss drinks',
+    hero: '<video class="js-autoplay absolute inset-0 w-full h-full object-cover" muted loop playsinline webkit-playsinline preload="auto" poster="assets/images/wings-honey-bbq.jpg"><source src="assets/images/chicken-wing-house-hero-2.mp4" type="video/mp4"></video>',
+    tabs: [
+      { href: '#featured', label: 'Featured' },
+      { href: '#wings', label: 'Wings' },
+      { href: '#sides', label: 'Sides' },
+      { href: '#bowls', label: 'Bowls' },
+      { href: '#drinks', label: 'Drinks' }
+    ],
+    items: {
+      'combo-house': { name: 'House Combo', desc: '8 wings, crinkle fries, 16oz sea moss drink', price: 28, img: 'assets/images/wings-honey-bbq.jpg', size: false, section: 'featured' },
+      'combo-bowl': { name: 'Healing Bowl Combo', desc: 'Soup or chili + crinkle fries + 16oz moss drink', price: 42, img: 'assets/images/winghouse-fries.jpg', size: false, section: 'featured' },
+      'lemon-pepper': { name: 'Lemon Pepper Wings', desc: 'Crispy wings with lemon and cracked black pepper.', price: 13.99, img: 'assets/images/wings-lemon-pepper.jpg', size: true, section: 'wings' },
+      'honey-bbq': { name: 'Honey BBQ Wings', desc: 'Honey barbecue glaze, sweet and smoky.', price: 13.99, img: 'assets/images/wings-honey-bbq.jpg', size: true, section: 'wings' },
+      'mango-habanero': { name: 'Mango Habanero Wings', desc: 'Sweet mango heat with a habanero kick.', price: 13.99, img: 'assets/images/wings-mango-habanero.jpg', size: true, section: 'wings' },
+      'cajun': { name: 'Cajun Wings', desc: 'Bold, smoky Cajun spice blend.', price: 13.99, img: 'assets/images/wings-cajun.jpg', size: true, section: 'wings' },
+      'fries-reg': { name: 'Crinkle Cut Fries', desc: 'Scratch kitchen', price: 6, img: 'assets/images/winghouse-fries.jpg', size: false, section: 'sides' },
+      'fries-lg': { name: 'Large Crinkle Fries', desc: 'Share basket', price: 9, img: 'assets/images/winghouse-fries.jpg', size: false, section: 'sides' },
+      'mozz': { name: 'Mozzarella Sticks', desc: '6 pieces, hot', price: 8, img: 'assets/images/winghouse-mozz.jpg', size: false, section: 'sides' },
+      'soup': { name: 'Sea Moss Chicken Healing Soup', desc: 'Organic chicken, sea moss, onion, peppers, cayenne, celery, turmeric, ginger, garlic, distilled water', price: 14, img: 'assets/images/winghouse-soup.jpg', size: false, section: 'bowls' },
+      'chili': { name: 'Vegan Chili', desc: 'Chili beans, onions, ginger, herbs, spices, sea moss', price: 12, img: 'assets/images/winghouse-chili.jpg', size: false, section: 'bowls' },
+      'drink-mango': { name: "Jane's Sea Moss Drink 16oz", desc: 'Your bottle · fresh weekly', price: 10, img: 'assets/images/janes-drink-hand.jpg', size: false, section: 'drinks' },
+      'drink-line': { name: 'Sea Moss Juice Line 16oz', desc: 'Berry, mango, citrus, greens', price: 10, img: 'assets/images/sea-moss-juices.jpg', size: false, section: 'drinks' }
+    },
+    sections: [
+      { id: 'featured', title: 'Featured' },
+      { id: 'wings', title: 'Wings', note: '6 pcs $13.99 · pick a flavor, then a size' },
+      { id: 'sides', title: 'Sides' },
+      { id: 'bowls', title: 'Bowls' },
+      { id: 'drinks', title: 'Sea moss drinks' }
+    ]
+  },
+  'vegan-house': {
+    id: 'vegan-house',
+    name: 'Vegan House',
+    icon: 'V',
+    iconBg: 'bg-[#1a5c3a]',
+    kicker: 'Plant-based comfort, made fresh',
+    sub: 'Vegan plates · chili · strawberry oatmeal · Jane’s 16oz sea moss drink',
+    hero: '<video class="js-autoplay absolute inset-0 w-full h-full object-cover" muted loop playsinline webkit-playsinline preload="auto" poster="assets/images/vegan-chicken-sandwich.jpg"><source src="assets/images/vegan-house-hero.mp4" type="video/mp4"></video>',
+    tabs: [
+      { href: '#plates', label: 'Plates' },
+      { href: '#bowls', label: 'Bowls' },
+      { href: '#sweet', label: 'Sweet' },
+      { href: '#drinks', label: 'Drinks' }
+    ],
+    items: {
+      'vegan-chicken': { name: 'Vegan Chicken Sandwich + Fries', desc: 'Plant-based chicken sandwich with a side of fries.', price: 14.25, img: 'assets/images/vegan-chicken-sandwich.jpg', size: false, section: 'plates' },
+      'vegan-burger': { name: 'Vegan Burger + Fries', desc: 'Plant-based burger stacked and served with fries.', price: 14.25, img: 'assets/images/vegan-chicken-sandwich.jpg', size: false, section: 'plates' },
+      'vegan-spaghetti': { name: 'Vegan Spaghetti Bowl', desc: 'Hearty plant-based bowl. Scratch-kitchen comfort.', price: 15.50, img: 'assets/images/vegan-spaghetti.jpg', size: false, section: 'plates' },
+      'vegan-chili': { name: 'Vegan Chili', desc: 'Chili beans, onions, ginger, herbs, spices + sea moss.', price: 10.50, img: 'assets/images/vegan-chili-bowl.jpg', size: false, section: 'bowls' },
+      'vegan-oatmeal': { name: 'Strawberry Oatmeal Dessert', desc: 'Warm oatmeal with strawberry filling. Sweet finish.', price: 4.50, img: 'assets/images/vegan-oatmeal.jpg', size: false, section: 'sweet' },
+      'vegan-drink': { name: "Jane's Sea Moss Drink 16oz", desc: 'Fresh weekly · berry, mango, citrus, greens', price: 10.00, img: 'assets/images/janes-drink-hand.jpg', size: false, section: 'drinks' }
+    },
+    sections: [
+      { id: 'plates', title: 'Vegan plates' },
+      { id: 'bowls', title: 'Bowls' },
+      { id: 'sweet', title: 'Sweet finish' },
+      { id: 'drinks', title: 'Add a drink' }
+    ]
+  }
 };
 
+let currentKitchen = null;
 let cart = [];
-try { cart = JSON.parse(localStorage.getItem('cart') || '[]'); } catch (e) { cart = []; }
+try { cart = JSON.parse(localStorage.getItem('janeLocalCart') || '[]'); } catch (e) { cart = []; }
 if (!Array.isArray(cart)) cart = [];
-
 let active = null;
 let qty = 1;
+let pickedSize = SIZES[0];
 
 function saveCart() {
-  localStorage.setItem('cart', JSON.stringify(cart));
+  localStorage.setItem('janeLocalCart', JSON.stringify(cart));
   renderCartUI();
 }
 function renderCartUI() {
@@ -279,6 +468,8 @@ function renderCartUI() {
   document.getElementById('bar-count').textContent = count;
   document.getElementById('bar-total').textContent = '$' + total.toFixed(2);
   document.getElementById('cart-bar').classList.toggle('hidden', count === 0);
+  const kitchenName = cart[0] && cart[0].kitchenName ? cart[0].kitchenName : '';
+  document.getElementById('cart-kitchen').textContent = kitchenName ? ('Ordering from ' + kitchenName) : '';
   const lines = document.getElementById('cart-lines');
   lines.innerHTML = cart.length ? cart.map(function(i, idx) {
     return '<div class="flex justify-between gap-3 border-b pb-2"><div><p class="font-medium">' + i.name + '</p><p class="text-xs text-gray-500">' + (i.details || '') + '</p></div><div class="text-right"><p>$' + Number(i.price).toFixed(2) + '</p><button type="button" class="text-red-500 text-xs remove-line" data-i="' + idx + '">Remove</button></div></div>';
@@ -291,13 +482,13 @@ function renderCartUI() {
     });
   });
 }
-let pickedSize = SIZES[0];
 function unitPrice() {
   if (active && active.size) return pickedSize.price;
   return active ? active.price : 0;
 }
 function openItem(id) {
-  active = ITEMS[id];
+  if (!currentKitchen) return;
+  active = currentKitchen.items[id];
   if (!active) return;
   qty = 1;
   pickedSize = SIZES[0];
@@ -325,10 +516,72 @@ function openItem(id) {
   document.getElementById('item-modal').classList.remove('hidden');
 }
 function closeItem() { document.getElementById('item-modal').classList.add('hidden'); }
-
-document.querySelectorAll('.item-row').forEach(function(btn) {
-  btn.addEventListener('click', function() { openItem(btn.getAttribute('data-id')); });
+function renderKitchen(id) {
+  const k = KITCHENS[id];
+  if (!k) { showFeed(); return; }
+  currentKitchen = k;
+  document.getElementById('view-feed').classList.add('hidden');
+  document.getElementById('view-menu').classList.remove('hidden');
+  document.getElementById('nav-back').classList.remove('hidden');
+  document.getElementById('nav-home').classList.add('hidden');
+  document.getElementById('nav-title').textContent = k.name;
+  document.getElementById('menu-hero').innerHTML = k.hero;
+  document.getElementById('menu-icon').textContent = k.icon;
+  document.getElementById('menu-icon').className = 'icon-ring w-9 h-9 rounded-full text-white flex items-center justify-center text-sm font-semibold ' + k.iconBg;
+  document.getElementById('menu-kicker').textContent = k.kicker;
+  document.getElementById('menu-title').textContent = k.name;
+  document.getElementById('menu-sub').textContent = k.sub;
+  document.getElementById('menu-tabs').innerHTML = k.tabs.map(function(t, i) {
+    return '<a href="' + t.href + '" class="tab-link px-3 py-1.5 rounded-full whitespace-nowrap ' + (i === 0 ? 'bg-[#260B3A] text-white' : 'bg-gray-100') + '">' + t.label + '</a>';
+  }).join('');
+  const html = k.sections.map(function(sec) {
+    const rows = Object.keys(k.items).filter(function(key) { return k.items[key].section === sec.id; }).map(function(key) {
+      const it = k.items[key];
+      return '<button type="button" class="item-row w-full text-left bg-white rounded-2xl p-3 flex gap-3 mb-3 shadow-sm" data-id="' + key + '">' +
+        '<div class="flex-1 min-w-0"><p class="font-semibold">' + it.name + '</p><p class="text-sm text-gray-500 mt-0.5">' + it.desc + '</p><p class="text-sm mt-2">$' + it.price.toFixed(2) + '</p></div>' +
+        '<div class="relative w-28 h-28 shrink-0"><img src="' + it.img + '" alt="" class="w-28 h-28 rounded-xl object-cover"><span class="absolute -bottom-2 -right-2 w-8 h-8 bg-white rounded-full shadow flex items-center justify-center text-xl leading-none">+</span></div></button>';
+    }).join('');
+    return '<section id="' + sec.id + '" class="mb-8"><h2 class="text-xl font-semibold mb-3">' + sec.title + '</h2>' +
+      (sec.note ? '<p class="text-sm text-gray-500 mb-3">' + sec.note + '</p>' : '') + rows + '</section>';
+  }).join('');
+  document.getElementById('menu-sections').innerHTML = html;
+  var firstRow = document.querySelector('#menu-sections .item-row');
+  if (firstRow && !document.getElementById('menu-hint')) {
+    var hint = document.createElement('div');
+    hint.id = 'menu-hint';
+    hint.className = 'hint right-6 -mt-2';
+    hint.innerHTML = '<svg viewBox="0 0 80 52" aria-hidden="true"><path pathLength="1" d="M10 12 C 18 40, 48 44, 68 28"/><path pathLength="1" d="M58 22 L68 28 L56 34"/></svg><em>tap + to add</em>';
+    document.getElementById('menu-sections').prepend(hint);
+  }
+  document.querySelectorAll('.item-row').forEach(function(btn) {
+    btn.addEventListener('click', function() { openItem(btn.getAttribute('data-id')); });
+  });
+  window.scrollTo(0, 0);
+  playAutoVideos();
+}
+function showFeed() {
+  currentKitchen = null;
+  document.getElementById('view-menu').classList.add('hidden');
+  document.getElementById('view-feed').classList.remove('hidden');
+  document.getElementById('nav-back').classList.add('hidden');
+  document.getElementById('nav-home').classList.remove('hidden');
+  document.getElementById('nav-title').textContent = 'Local Menu';
+  if (location.hash && !KITCHENS[location.hash.replace('#','')]) {}
+  window.scrollTo(0, 0);
+}
+function route() {
+  const id = (location.hash || '').replace('#', '');
+  if (KITCHENS[id]) renderKitchen(id);
+  else showFeed();
+}
+document.querySelectorAll('.open-kitchen').forEach(function(btn) {
+  btn.addEventListener('click', function() { location.hash = btn.getAttribute('data-kitchen'); });
 });
+document.getElementById('nav-back').addEventListener('click', function() {
+  location.hash = '';
+  showFeed();
+});
+window.addEventListener('hashchange', route);
 document.getElementById('m-close').addEventListener('click', closeItem);
 document.getElementById('item-modal').addEventListener('click', function(e) {
   if (e.target.id === 'item-modal') closeItem();
@@ -344,33 +597,62 @@ document.getElementById('qty-plus').addEventListener('click', function() {
   document.getElementById('m-add').textContent = 'Add · $' + (unitPrice() * qty).toFixed(2);
 });
 document.getElementById('m-add').addEventListener('click', function() {
-  if (!active) return;
+  if (!active || !currentKitchen) return;
+  if (cart.length && cart[0].kitchenId && cart[0].kitchenId !== currentKitchen.id) {
+    if (!confirm('Your cart has items from ' + cart[0].kitchenName + '. Start a new cart for ' + currentKitchen.name + '?')) return;
+    cart = [];
+  }
   cart.push({
-    id: 'winghouse-' + Date.now(),
+    id: currentKitchen.id + '-' + Date.now(),
     name: qty + '× ' + active.name,
     price: unitPrice() * qty,
-    details: (active.size ? pickedSize.label + ' · ' : '') + 'Wing House · ' + MENU_ID
+    details: (active.size ? pickedSize.label + ' · ' : '') + currentKitchen.name,
+    kitchenId: currentKitchen.id,
+    kitchenName: currentKitchen.name
   });
   saveCart();
   closeItem();
 });
-
-function openCart() { document.getElementById('cart-modal').classList.remove('hidden'); renderCartUI(); }
+function openCart() {
+  document.getElementById('cart-modal').classList.remove('hidden');
+  document.getElementById('zip-panel').classList.add('hidden');
+  document.getElementById('opt-delivery').classList.remove('on');
+  document.getElementById('opt-pickup').classList.remove('on');
+  document.getElementById('opt-pickup').dataset.picked = '';
+  renderCartUI();
+}
 function closeCart() { document.getElementById('cart-modal').classList.add('hidden'); }
 document.getElementById('nav-cart-btn').addEventListener('click', openCart);
 document.getElementById('open-cart-bar').addEventListener('click', openCart);
 document.getElementById('cart-close').addEventListener('click', closeCart);
-
-document.getElementById('checkout-btn').addEventListener('click', async function() {
-  if (!cart.length) return;
-  var btn = this;
+const CF_NEAR = ['327', '328', '329', '347'];
+const CF_FAR = ['335', '336', '338', '346'];
+function centralFloridaFee(zip) {
+  if (!zip || !/^\d{5}$/.test(zip)) return null;
+  var prefix = zip.substring(0, 3);
+  if (CF_NEAR.indexOf(prefix) !== -1) return 8;
+  if (CF_FAR.indexOf(prefix) !== -1) return 15;
+  return null;
+}
+function setZipMsg(text, ok) {
+  var el = document.getElementById('zip-msg');
+  el.textContent = text;
+  el.className = 'text-xs mt-2 ' + (ok ? 'text-emerald-300' : 'text-rose-300');
+}
+function showZipPanel(show) {
+  document.getElementById('zip-panel').classList.toggle('hidden', !show);
+  document.getElementById('opt-delivery').classList.toggle('on', !!show);
+  document.getElementById('opt-pickup').classList.toggle('on', !show && document.getElementById('opt-pickup').dataset.picked === '1');
+}
+async function startCheckout(payCart, extra, btn, resetLabel) {
+  if (!payCart.length) return;
   btn.textContent = 'Connecting…';
   btn.disabled = true;
   try {
     var response = await fetch('https://janesse-seamoss-backend.onrender.com/create-checkout-session', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ cart: cart })
+      body: JSON.stringify(Object.assign({ cart: payCart }, extra || {}))
     });
     var data = await response.json();
     if (!response.ok) throw new Error(data.error || 'Checkout error');
@@ -379,12 +661,246 @@ document.getElementById('checkout-btn').addEventListener('click', async function
   } catch (err) {
     console.error(err);
     alert('Checkout could not start. Try again.');
-    btn.textContent = 'Go to checkout';
+    btn.textContent = resetLabel;
     btn.disabled = false;
   }
+}
+document.getElementById('opt-pickup').addEventListener('click', function() {
+  if (!cart.length) return;
+  this.dataset.picked = '1';
+  document.getElementById('opt-delivery').classList.remove('on');
+  this.classList.add('on');
+  showZipPanel(false);
+  var payCart = cart.filter(function(i) {
+    return i.id !== 'delivery-fee' && i.id !== 'pickup' && i.id !== 'delivery-address';
+  }).concat([{
+    id: 'pickup',
+    name: 'Free store pickup',
+    price: 0,
+    details: 'Orlando · Winter Haven · Lake Alfred · Holiday',
+    kitchenId: cart[0].kitchenId,
+    kitchenName: cart[0].kitchenName
+  }]);
+  startCheckout(payCart, { fulfillment: 'pickup' }, this, 'Free store pickup');
 });
-
+var PLACE_KEY = 'janeDeliveryPlaces';
+function loadPlaces() {
+  try {
+    var list = JSON.parse(localStorage.getItem(PLACE_KEY) || '[]');
+    return Array.isArray(list) ? list : [];
+  } catch (e) { return []; }
+}
+function savePlace(place) {
+  if (!place || !place.street || !place.zip) return;
+  var list = loadPlaces().filter(function(p) {
+    return !(p.street === place.street && p.zip === place.zip);
+  });
+  list.unshift(place);
+  localStorage.setItem(PLACE_KEY, JSON.stringify(list.slice(0, 4)));
+}
+function fillAddress(place) {
+  document.getElementById('order-street').value = place.street || '';
+  document.getElementById('order-city').value = place.city || '';
+  document.getElementById('order-state').value = place.state || 'FL';
+  document.getElementById('order-zip').value = place.zip || '';
+}
+function renderSavedPlaces() {
+  var box = document.getElementById('saved-places');
+  var list = loadPlaces();
+  if (!list.length) {
+    box.innerHTML = '';
+    return;
+  }
+  box.innerHTML = list.map(function(p, i) {
+    var label = (p.city ? p.city + ' · ' : '') + p.street;
+    return '<button type="button" class="saved-place text-left text-xs bg-white/10 border border-[#EAD5F8]/40 rounded-full px-3 py-2" data-i="' + i + '">' + label + '</button>';
+  }).join('');
+  box.querySelectorAll('.saved-place').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      fillAddress(list[+btn.getAttribute('data-i')]);
+      setZipMsg('Using your saved place.', true);
+    });
+  });
+}
+function readAddressForm() {
+  var street = (document.getElementById('order-street').value || '').trim();
+  var city = (document.getElementById('order-city').value || '').trim();
+  var state = ((document.getElementById('order-state').value || 'FL').trim() || 'FL').toUpperCase();
+  var zip = (document.getElementById('order-zip').value || '').replace(/\D/g, '').slice(0, 5);
+  document.getElementById('order-zip').value = zip;
+  document.getElementById('order-state').value = state;
+  return { street: street, city: city, state: state, zip: zip, line: [street, city, state, zip].filter(Boolean).join(', ') };
+}
+document.getElementById('opt-delivery').addEventListener('click', function() {
+  if (!cart.length) return;
+  document.getElementById('opt-pickup').dataset.picked = '';
+  document.getElementById('opt-pickup').classList.remove('on');
+  this.classList.add('on');
+  showZipPanel(true);
+  renderSavedPlaces();
+  var last = loadPlaces()[0];
+  if (last) fillAddress(last);
+  else document.getElementById('order-street').focus();
+});
+document.getElementById('use-location').addEventListener('click', function() {
+  var btn = this;
+  if (!navigator.geolocation) {
+    setZipMsg('Location is not available on this phone. Type the street.');
+    return;
+  }
+  btn.textContent = 'Finding you…';
+  navigator.geolocation.getCurrentPosition(function(pos) {
+    var lat = pos.coords.latitude;
+    var lon = pos.coords.longitude;
+    fetch('https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=' + lat + '&longitude=' + lon + '&localityLanguage=en')
+      .then(function(r) { return r.json(); })
+      .then(function(data) {
+        fillAddress({
+          street: [data.streetNumber, data.streetName].filter(Boolean).join(' '),
+          city: data.city || data.locality || '',
+          state: (data.principalSubdivisionCode || 'FL').replace(/^US-/, '').slice(0, 2),
+          zip: (data.postcode || '').replace(/\D/g, '').slice(0, 5)
+        });
+        if (!document.getElementById('order-street').value) {
+          setZipMsg('We found the city. Add the house number and street.');
+        } else {
+          setZipMsg('Location filled. Check it, then confirm.', true);
+        }
+        btn.textContent = 'Use my location';
+      })
+      .catch(function() {
+        setZipMsg('Could not read the map. Type the street.');
+        btn.textContent = 'Use my location';
+      });
+  }, function() {
+    setZipMsg('Allow location, or type the street.');
+    btn.textContent = 'Use my location';
+  }, { enableHighAccuracy: true, timeout: 12000 });
+});
+document.getElementById('checkout-btn').addEventListener('click', function() {
+  if (!cart.length) return;
+  var addr = readAddressForm();
+  var fee = centralFloridaFee(addr.zip);
+  if (!addr.street || addr.street.length < 5) {
+    setZipMsg('Add the street so the driver can find the door.');
+    document.getElementById('order-street').focus();
+    return;
+  }
+  if (!fee) {
+    setZipMsg('Not in our delivery map. Try pickup or a Central Florida ZIP.');
+    return;
+  }
+  savePlace(addr);
+  setZipMsg('Delivering to ' + addr.line + ' · $' + fee.toFixed(2), true);
+  var payCart = cart.filter(function(i) { return i.id !== 'delivery-fee' && i.id !== 'pickup' && i.id !== 'delivery-address'; }).concat([
+    {
+      id: 'delivery-fee',
+      name: 'Central Florida delivery',
+      price: fee,
+      details: addr.line,
+      kitchenId: cart[0].kitchenId,
+      kitchenName: cart[0].kitchenName
+    },
+    {
+      id: 'delivery-address',
+      name: 'Deliver to',
+      price: 0,
+      details: addr.line,
+      kitchenId: cart[0].kitchenId,
+      kitchenName: cart[0].kitchenName
+    }
+  ]);
+  startCheckout(payCart, {
+    zip: addr.zip,
+    fulfillment: 'delivery',
+    address: addr,
+    shipping: { name: 'Delivery', address: { line1: addr.street, city: addr.city, state: addr.state, postal_code: addr.zip, country: 'US' } }
+  }, this, 'Confirm delivery · checkout');
+});
+function answerAsk() {
+  var q = (document.getElementById('kitchen-ask').value || '').toLowerCase();
+  var box = document.getElementById('ask-reply');
+  var msg = 'Pick Wing House or Vegan House, add a 16oz drink, then your ZIP. Stuck? Call 407-752-7864.';
+  if (/vegan|plant|chili|oatmeal|spaghetti|burger/.test(q)) {
+    msg = 'Vegan House — plant sandwich or burger $14.25, spaghetti $15.50, sea moss chili $10.50, oatmeal $4.50, 16oz drink $10. Swipe to the green V card.';
+    location.hash = 'vegan-house';
+  } else if (/wing|lemon|bbq|cajun|habanero|fries|soup/.test(q)) {
+    msg = 'Chicken Wing House — 6pc from $13.99, house combo $28, soup $14, fries $6. Open the W card.';
+    location.hash = 'wing-house';
+  } else if (/moss|drink|juice|clean|mineral/.test(q)) {
+    msg = 'Every kitchen pours Jane’s 16oz sea moss drink, $10, fresh weekly. Add it after you pick a plate.';
+  } else if (/zip|deliver|pickup|orlando|haven|holiday/.test(q)) {
+    msg = 'Delivery only for Central Florida ZIPs (327, 328, 329, 347, 335, 336, 338, 346). Free pickup in Orlando, Winter Haven, Lake Alfred, Holiday.';
+  }
+  box.textContent = msg;
+  box.classList.remove('hidden');
+}
+document.getElementById('kitchen-ask-btn').addEventListener('click', answerAsk);
+document.getElementById('kitchen-ask').addEventListener('keydown', function(e) {
+  if (e.key === 'Enter') { e.preventDefault(); answerAsk(); }
+});
+var videosMayPlay = false;
+var videoClock = null;
+var videoObs = null;
+function armVideo(v) {
+  v.muted = true;
+  v.defaultMuted = true;
+  v.volume = 0;
+  v.playsInline = true;
+  v.setAttribute('muted', '');
+  v.setAttribute('playsinline', '');
+  v.setAttribute('webkit-playsinline', '');
+  if (videoObs) videoObs.observe(v);
+}
+function kickPlay(v) {
+  if (!v) return;
+  armVideo(v);
+  var run = function() {
+    var p = v.play();
+    if (p && p.catch) p.catch(function() {});
+  };
+  if (v.readyState >= 2) run();
+  else v.addEventListener('canplay', run, { once: true });
+}
+function playAutoVideos() {
+  document.querySelectorAll('video.js-autoplay').forEach(armVideo);
+  if (videosMayPlay) {
+    document.querySelectorAll('video.js-autoplay').forEach(kickPlay);
+    return;
+  }
+  if (videoClock) clearTimeout(videoClock);
+  videoClock = setTimeout(function() {
+    videosMayPlay = true;
+    document.querySelectorAll('video.js-autoplay').forEach(kickPlay);
+  }, 2000);
+}
+if ('IntersectionObserver' in window) {
+  videoObs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (!videosMayPlay) return;
+      if (e.isIntersecting) kickPlay(e.target);
+      else e.target.pause();
+    });
+  }, { threshold: 0.1 });
+}
+document.addEventListener('visibilitychange', function() {
+  if (!document.hidden && videosMayPlay) {
+    document.querySelectorAll('video.js-autoplay').forEach(kickPlay);
+  }
+});
+(function liveCity() {
+  var el = document.getElementById('live-city');
+  if (!el) return;
+  var cities = ['Orlando', 'Winter Haven', 'Lake Alfred', 'Holiday'];
+  var i = 0;
+  setInterval(function() {
+    i = (i + 1) % cities.length;
+    el.textContent = cities[i];
+  }, 2800);
+})();
 renderCartUI();
+route();
+playAutoVideos();
 </script>
 </body>
 </html>
