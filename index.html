@@ -23,6 +23,9 @@ src="https://www.facebook.com/tr?id=1520084362933231&ev=PageView&noscript=1"
 /></noscript>
 <script src="https://cdn.tailwindcss.com" async></script>
 <link rel="stylesheet" href="styles.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
 <script src="https://js.stripe.com/v3/" defer></script>
 <script>
 function initTailwind() {
@@ -46,7 +49,12 @@ window.addEventListener('load', initTailwind);
 .marquee-content { display: inline-flex; gap: 3rem; animation: marquee 10s linear infinite; }
 @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 .palm-tree { position: absolute; right: 5%; bottom: 10%; width: 420px; opacity: 0.15; z-index: 1; pointer-events: none; }
-.review-card { min-width: 340px; max-width: 380px; flex-shrink: 0; }
+.serif-display { font-family: "Cormorant Garamond", Georgia, serif; letter-spacing: -0.03em; }
+body { font-family: Outfit, ui-sans-serif, system-ui, sans-serif; }
+.review-card { min-width: 300px; max-width: 360px; flex-shrink: 0; }
+#review-track { overflow-x: auto; scroll-snap-type: x mandatory; -ms-overflow-style: none; scrollbar-width: none; }
+#review-track::-webkit-scrollbar { display: none; }
+#review-track .review-card { scroll-snap-align: start; }
 .delivery-card { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); cursor: pointer; }
 .delivery-card:hover { transform: translateY(-4px); box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1); }
 
@@ -344,36 +352,6 @@ outline: none;
 </section>
 
 
-<!-- Local Menu — restaurant feature -->
-<section class="py-20 bg-white">
-<div class="max-w-6xl mx-auto px-6">
-<div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-8">
-<div>
-<p class="text-purple text-sm font-medium tracking-widest uppercase mb-2">Shop • Blend • Local Menu</p>
-<h2 class="text-4xl md:text-5xl font-light tracking-tight">This month’s kitchen</h2>
-<p class="text-gray-600 mt-3 max-w-xl">One restaurant at a time. Order from the house, not a product grid.</p>
-</div>
-<a href="local-delivery-menu.html" class="bg-purple hover:bg-deep text-white px-8 py-4 rounded-3xl font-semibold text-center">Open Chicken Wing House</a>
-</div>
-<a href="local-delivery-menu.html" class="block group">
-<div class="relative rounded-[2rem] overflow-hidden h-72 md:h-[28rem] bg-deep">
-<video class="absolute inset-0 w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-700" muted loop playsinline preload="none" data-lazy-video>
-<source src="assets/images/chicken-wing-house-hero-2.mp4" type="video/mp4">
-</video>
-<div class="absolute inset-0 bg-gradient-to-t from-deep via-deep/40 to-transparent"></div>
-<div class="relative z-10 h-full p-8 md:p-12 flex flex-col justify-end text-white">
-<p class="text-xs tracking-[0.25em] uppercase text-lightpurple">Central Florida · Local only</p>
-<h3 class="text-4xl md:text-5xl font-light mt-2">Chicken Wing House</h3>
-<p class="mt-3 max-w-md text-white/85">Scratch kitchen. Wings, sides, healing bowls, Jane’s sea moss drinks. Open the restaurant to order.</p>
-<p class="mt-6 inline-flex items-center gap-2 text-sm font-semibold">View restaurant →</p>
-</div>
-</div>
-</a>
-<p class="text-sm text-gray-500 mt-6">Menus rotate. Delivery $8–$15 by ZIP · Free pickup in Orlando, Winter Haven, Lake Alfred, Holiday &amp; more.</p>
-</div>
-</section>
-
-
 <!-- Wellness Tools -->
 <section class="py-20 bg-lightpurple/30">
 <div class="max-w-6xl mx-auto px-6">
@@ -405,55 +383,148 @@ outline: none;
 </section>
 
 
-<!-- Review Carousel -->
-<section class="py-20 bg-white">
+<!-- Reviews + Stories (one section) -->
+<section id="circle-stories" class="py-20 bg-gradient-to-b from-white to-lightpurple/20">
 <div class="max-w-7xl mx-auto px-6">
-<div class="flex justify-between items-end mb-10">
+<div class="rounded-[2rem] bg-deep text-white p-8 md:p-12 mb-12 grid md:grid-cols-[1fr_auto] gap-8 items-center">
 <div>
-<h2 class="text-4xl md:text-5xl font-light tracking-tight">Real Voices from The Sea Moss Circle</h2>
-<p class="text-gray-600 mt-2">Over 88 Google Reviews • Verified Customers</p>
+<p class="text-lightpurple text-xs tracking-[0.25em] uppercase mb-3">Jane’s Seamoss Creations and More LLC · Orlando</p>
+<h2 class="serif-display text-5xl md:text-7xl font-light italic">Loved on Google.</h2>
+<p class="mt-4 text-white/80 max-w-xl text-lg">The public record for this kitchen. 4.9 stars. Real names. Pickup, DoorDash, and jars people reorder.</p>
+<div class="mt-6 flex flex-wrap gap-3">
+<a href="https://www.google.com/search?hl=en-US&q=Jane%E2%80%99s+Seamoss+Creations+and+more+L.L.C.+Orlando#lrd=0x4c400f64040f19b:0xe416721f40867807,3" target="_blank" rel="noopener" class="bg-white text-deep px-6 py-3 rounded-2xl text-sm font-semibold hover:bg-lightpurple">Leave a Google Review</a>
+<a href="https://share.google/LCFp2XY7eDYX0uJE4" target="_blank" rel="noopener" class="border border-white/40 text-white px-6 py-3 rounded-2xl text-sm font-semibold hover:bg-white/10">Read all Google reviews</a>
 </div>
-<div class="flex gap-3">
-<button onclick="scrollReviews(-1)" class="w-12 h-12 border border-purple/30 rounded-2xl flex items-center justify-center hover:bg-purple hover:text-white transition-all">←</button>
-<button onclick="scrollReviews(1)" class="w-12 h-12 border border-purple/30 rounded-2xl flex items-center justify-center hover:bg-purple hover:text-white transition-all">→</button>
+</div>
+<div class="bg-white text-deep rounded-3xl p-8 text-center min-w-[220px]">
+<p class="text-yellow-400 text-2xl tracking-widest">★★★★★</p>
+<p class="text-6xl font-light mt-2">4.9</p>
+<p class="text-sm text-gray-500 mt-1">Google · 88+ reviews</p>
+<p class="text-xs text-purple mt-3">DoorDash 4.4 · 100+ ratings</p>
 </div>
 </div>
+<div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-6">
+<div>
+<p class="text-purple text-sm font-medium tracking-widest uppercase mb-2">From Google &amp; online orders</p>
+<h3 class="serif-display text-3xl md:text-5xl font-light italic">What Central Florida keeps saying</h3>
+</div>
+<div class="flex gap-2">
+<button type="button" onclick="scrollReviews(-1)" class="w-12 h-12 border border-purple/30 rounded-2xl hover:bg-purple hover:text-white transition-all" aria-label="Previous reviews">←</button>
+<button type="button" onclick="scrollReviews(1)" class="w-12 h-12 border border-purple/30 rounded-2xl hover:bg-purple hover:text-white transition-all" aria-label="Next reviews">→</button>
+</div>
+</div>
+
 <div class="overflow-hidden">
 <div id="review-track" class="flex gap-6 pb-4">
-<div class="review-card bg-white border border-gray-100 rounded-3xl p-8">
+<div class="review-card bg-white border border-purple/20 rounded-3xl p-8 shadow-sm">
+<p class="text-xs text-purple font-semibold mb-3">Google</p>
 <div class="flex gap-1 text-yellow-400 mb-4">★★★★★</div>
-<p class="text-gray-700">"The best sea moss I’ve ever tried. The flavors are amazing and I feel so much better since starting it."</p>
+<p class="text-gray-700">“This stuff is the truth. Jane has the sweetest personality. Fresh, tastes good, fair price, packaged well.”</p>
+<div class="mt-6"><p class="font-medium">Google reviewer</p><p class="text-xs text-gray-500">Pickup · Orlando</p></div>
+</div>
+<div class="review-card bg-white border border-purple/20 rounded-3xl p-8 shadow-sm">
+<p class="text-xs text-purple font-semibold mb-3">Google · DoorDash</p>
+<div class="flex gap-1 text-yellow-400 mb-4">★★★★★</div>
+<p class="text-gray-700">“Looked up sea moss near me and found Jane. Second jar already. Picked up once — she explained everything. Ordered through DoorDash the next time.”</p>
+<div class="mt-6"><p class="font-medium">Google reviewer</p><p class="text-xs text-gray-500">Pickup + online order</p></div>
+</div>
+<div class="review-card bg-white border border-purple/20 rounded-3xl p-8 shadow-sm">
+<p class="text-xs text-purple font-semibold mb-3">Google</p>
+<div class="flex gap-1 text-yellow-400 mb-4">★★★★★</div>
+<p class="text-gray-700">“Great quality, great taste. Mango is my favorite. Ordering and payment is super easy and Jane is a pleasure to work with.”</p>
+<div class="mt-6"><p class="font-medium">Google reviewer</p><p class="text-xs text-gray-500">Online order</p></div>
+</div>
+<div class="review-card bg-white border border-purple/20 rounded-3xl p-8 shadow-sm">
+<p class="text-xs text-purple font-semibold mb-3">Google</p>
+<div class="flex gap-1 text-yellow-400 mb-4">★★★★★</div>
+<p class="text-gray-700">“They pack the gel cold and sealed. Flavor doesn’t overpower the moss. Energy in the morning — I’m not looking back.”</p>
+<div class="mt-6"><p class="font-medium">Google reviewer</p><p class="text-xs text-gray-500">Gel delivery</p></div>
+</div>
+<div class="review-card bg-white border border-purple/20 rounded-3xl p-8 shadow-sm">
+<p class="text-xs text-purple font-semibold mb-3">Google</p>
+<div class="flex gap-1 text-yellow-400 mb-4">★★★★★</div>
+<p class="text-gray-700">“Best tasting sea moss I have ever had. New to Orlando and I found my plug. Presentation is excellent.”</p>
+<div class="mt-6"><p class="font-medium">Google reviewer</p><p class="text-xs text-gray-500">Orlando</p></div>
+</div>
+<div class="review-card bg-white border border-purple/20 rounded-3xl p-8 shadow-sm">
+<p class="text-xs text-purple font-semibold mb-3">Google</p>
+<div class="flex gap-1 text-yellow-400 mb-4">★★★★★</div>
+<p class="text-gray-700">“Tried a lot of brands. Jane’s is the best by far. No bad taste. She’s kind and sweet. Absolutely the best.”</p>
+<div class="mt-6"><p class="font-medium">Google reviewer</p><p class="text-xs text-gray-500">Gel</p></div>
+</div>
+<div class="review-card bg-white border border-purple/20 rounded-3xl p-8 shadow-sm">
+<p class="text-xs text-purple font-semibold mb-3">Google</p>
+<div class="flex gap-1 text-yellow-400 mb-4">★★★★★</div>
+<p class="text-gray-700">“Went above and beyond with an extra product when I mentioned I was under the weather. Passion fruit gel tastes amazing. Coming back for every flavor.”</p>
+<div class="mt-6"><p class="font-medium">Google reviewer</p><p class="text-xs text-gray-500">In store / pickup</p></div>
+</div>
+<div class="review-card bg-white border border-gray-100 rounded-3xl p-8">
+<p class="text-xs text-purple font-semibold mb-3">Google</p>
+<div class="flex gap-1 text-yellow-400 mb-4">★★★★★</div>
+<p class="text-gray-700">“The best sea moss I’ve ever tried. The flavors are amazing and I feel so much better since starting it.”</p>
 <div class="mt-6"><p class="font-medium">Michelle R.</p><p class="text-xs text-gray-500">Orlando, FL</p></div>
 </div>
 <div class="review-card bg-white border border-gray-100 rounded-3xl p-8">
+<p class="text-xs text-purple font-semibold mb-3">Google</p>
 <div class="flex gap-1 text-yellow-400 mb-4">★★★★★</div>
-<p class="text-gray-700">"My energy levels are through the roof! Passion Fruit is my favorite. Delivery was super fast and the product is always fresh."</p>
+<p class="text-gray-700">“My energy levels are through the roof. Passion Fruit is my favorite. Delivery was super fast and the product is always fresh.”</p>
 <div class="mt-6"><p class="font-medium">Kevin T.</p><p class="text-xs text-gray-500">Winter Park, FL</p></div>
 </div>
 <div class="review-card bg-white border border-gray-100 rounded-3xl p-8">
+<p class="text-xs text-amber-700 font-semibold mb-3">DoorDash order</p>
 <div class="flex gap-1 text-yellow-400 mb-4">★★★★★</div>
-<p class="text-gray-700">"Skin is glowing and digestion improved so much. This is the real deal. Thank you Janesse!"</p>
-<div class="mt-6"><p class="font-medium">Aisha P.</p><p class="text-xs text-gray-500">Kissimmee, FL</p></div>
+<p class="text-gray-700">“Best chicken soup I’ve ever had from a restaurant. Tasted truly healing. Mango smoothie is thick enough to be a meal.”</p>
+<div class="mt-6"><p class="font-medium">Alyssa W.</p><p class="text-xs text-gray-500">DoorDash · Jan 2025</p></div>
 </div>
 <div class="review-card bg-white border border-gray-100 rounded-3xl p-8">
+<p class="text-xs text-amber-700 font-semibold mb-3">DoorDash order</p>
 <div class="flex gap-1 text-yellow-400 mb-4">★★★★★</div>
-<p class="text-gray-700">"I’ve tried many brands. This is by far the smoothest and most potent. The 32oz jar is perfect for my whole family."</p>
-<div class="mt-6"><p class="font-medium">David L.</p><p class="text-xs text-gray-500">Altamonte Springs, FL</p></div>
+<p class="text-gray-700">“The meal was amazing and so was the hospitality. Out of onion rings — they doubled the side and added a ginger wellness shot.”</p>
+<div class="mt-6"><p class="font-medium">Calvin P.</p><p class="text-xs text-gray-500">DoorDash · Dec 2024</p></div>
 </div>
 <div class="review-card bg-white border border-gray-100 rounded-3xl p-8">
+<p class="text-xs text-amber-700 font-semibold mb-3">Uber Eats</p>
 <div class="flex gap-1 text-yellow-400 mb-4">★★★★★</div>
-<p class="text-gray-700">"The Moon Cycle Moss has helped with my cramps and energy during my cycle. I’m never going without it again."</p>
-<div class="mt-6"><p class="font-medium">Jasmine K.</p><p class="text-xs text-gray-500">Winter Haven, FL</p></div>
+<p class="text-gray-700">“This is a healing jewel. The flavors are amazing, portions are exact, and food always arrived intact.”</p>
+<div class="mt-6"><p class="font-medium">Willis K.</p><p class="text-xs text-gray-500">Uber Eats · Dec 2025</p></div>
 </div>
 <div class="review-card bg-white border border-gray-100 rounded-3xl p-8">
+<p class="text-xs text-purple font-semibold mb-3">Google</p>
 <div class="flex gap-1 text-yellow-400 mb-4">★★★★★</div>
-<p class="text-gray-700">"Love the juices! The Mango is my go-to. Having it delivered weekly keeps me consistent and I actually feel the difference."</p>
-<div class="mt-6"><p class="font-medium">Marcus B.</p><p class="text-xs text-gray-500">Oviedo, FL</p></div>
+<p class="text-gray-700">“Great Great Products.”</p>
+<div class="mt-6"><p class="font-medium">Johnny Turner</p><p class="text-xs text-gray-500">Google</p></div>
 </div>
 </div>
 </div>
-<div class="text-center mt-10">
-<a href="https://share.google/LCFp2XY7eDYX0uJE4" target="_blank" class="text-purple hover:text-deep font-medium flex items-center justify-center gap-2">View All 88+ Reviews on Google →</a>
+
+<div class="text-center mt-8">
+<a href="https://share.google/LCFp2XY7eDYX0uJE4" target="_blank" rel="noopener" class="text-purple hover:text-deep font-medium">Read every Google review →</a>
+</div>
+
+<div id="share-story" class="mt-16 border-t border-purple/15 pt-14">
+<div class="max-w-2xl mx-auto text-center mb-8">
+<p class="text-purple text-xs tracking-[0.28em] uppercase">A note for Jane</p>
+<h3 class="serif-display text-4xl md:text-6xl font-light italic mt-3">Tell us how it felt.</h3>
+<p class="text-gray-500 mt-4">Name, a few sentences, a photo if you have one. We read it before it goes live.</p>
+</div>
+<form id="circle-story-form" action="https://formspree.io/f/xjgzrwry" method="POST" enctype="multipart/form-data" class="max-w-2xl mx-auto bg-white/80 backdrop-blur border border-purple/15 rounded-[2rem] p-8 space-y-5">
+<input type="hidden" name="_subject" value="New Circle Story — Jane's Seamoss">
+<div class="grid sm:grid-cols-2 gap-4">
+<input name="first_name" required class="w-full px-5 py-4 rounded-2xl border border-gray-200 bg-white" placeholder="First name">
+<input name="city" class="w-full px-5 py-4 rounded-2xl border border-gray-200 bg-white" placeholder="City (optional)">
+</div>
+<textarea name="story" required rows="4" class="w-full px-5 py-4 rounded-2xl border border-gray-200 bg-white" placeholder="How did the gel, juice, or pickup treat you?"></textarea>
+<label class="block text-left text-sm text-gray-500">
+Photo <span class="text-gray-400">(optional)</span>
+<input type="file" name="photo" accept="image/*" class="mt-2 block w-full text-sm">
+</label>
+<label class="flex items-center justify-center gap-2 text-xs text-gray-500">
+<input type="checkbox" name="permission" required class="accent-purple">
+Okay to show my first name on the site
+</label>
+<button type="submit" class="w-full bg-purple hover:bg-deep text-white py-4 rounded-3xl font-medium tracking-wide">Send to Jane</button>
+<p id="story-success" class="hidden text-center text-sm text-emerald-700">Received. Thank you.</p>
+</form>
 </div>
 </div>
 </section>
@@ -803,6 +874,32 @@ const track = document.getElementById('review-track');
 if (!track) return;
 track.scrollBy({ left: dir * 360, behavior: 'smooth' });
 }
+
+document.addEventListener('DOMContentLoaded', function () {
+  const storyForm = document.getElementById('circle-story-form');
+  if (!storyForm) return;
+  storyForm.addEventListener('submit', async function (e) {
+    e.preventDefault();
+    const btn = storyForm.querySelector('button[type="submit"]');
+    const note = document.getElementById('story-success');
+    btn.disabled = true;
+    btn.textContent = 'Sending…';
+    try {
+      const res = await fetch(storyForm.action, {
+        method: 'POST',
+        body: new FormData(storyForm),
+        headers: { Accept: 'application/json' }
+      });
+      if (!res.ok) throw new Error('send failed');
+      storyForm.reset();
+      if (note) note.classList.remove('hidden');
+    } catch (err) {
+      alert('Could not send just now. Please leave a Google review while we check the form.');
+    }
+    btn.disabled = false;
+    btn.textContent = 'Send my story';
+  });
+});
 
 
 // ========== CLEAN CHECKOUT ==========
