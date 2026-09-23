@@ -5,6 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sea Moss Near Me | Wildcrafted Organic Sea Moss Florida | Janesse's Seamoss Creation</title>
 <meta name="description" content="Looking for sea moss near me? Wildcrafted, organic sea moss gels & juices made fresh weekly in Central Florida. Local pickup, healthy food delivery & US shipping. Vegan & pure. 92+ minerals.">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FoodEstablishment","name":"Jane's Seamoss Creations and More LLC","alternateName":"Jane's Seamoss Creation","url":"https://janesseamosshealing.com/","telephone":"+14077527864","address":{"@type":"PostalAddress","streetAddress":"1020 W Michigan St","addressLocality":"Orlando","addressRegion":"FL","postalCode":"32805","addressCountry":"US"},"geo":{"@type":"GeoCoordinates","addressCountry":"US"},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday"],"opens":"08:00","closes":"21:00"},{"@type":"OpeningHoursSpecification","dayOfWeek":["Friday","Saturday"],"opens":"08:00","closes":"22:00"}],"priceRange":"$$","hasCredential":"Florida DBPR NOS5816692"}
+</script>
 <!-- Meta Pixel Code -->
 <script>
 !function(f,b,e,v,n,t,s)
@@ -372,12 +375,12 @@ outline: none;
 <p class="text-gray-600 flex-1">Chat with our holistic AI guide specialized in sea moss &amp; wellness.</p>
 <div class="mt-6 text-purple font-medium group-hover:underline">Start chatting →</div>
 </div>
-<a href="pickup-delivery.html" class="group bg-gradient-to-br from-purple/5 to-lightpurple/40 border-2 border-purple/20 rounded-3xl p-10 shadow hover:shadow-2xl transition-all flex flex-col h-full">
+<button type="button" onclick="showDeliverySelector()" class="group text-left bg-gradient-to-br from-purple/5 to-lightpurple/40 border-2 border-purple/20 rounded-3xl p-10 shadow hover:shadow-2xl transition-all flex flex-col h-full">
 <div class="text-6xl mb-6">📍</div>
-<h3 class="text-3xl font-medium mb-3">Local Pickup in Orlando</h3>
-<p class="text-gray-600 flex-1">Get your sea moss the same day it's made. Maximum freshness.</p>
-<div class="mt-6 text-purple font-medium group-hover:underline">Learn more →</div>
-</a>
+<h3 class="text-3xl font-medium mb-3">Kitchen pickup · Orlando</h3>
+<p class="text-gray-600 flex-1">1020 W Michigan St, Orlando FL 32805. Mon–Thu 8–9, Fri–Sat 8–10, Sunday closed. Same-day jars when the kitchen is open.</p>
+<div class="mt-6 text-purple font-medium group-hover:underline">Choose pickup →</div>
+</button>
 </div>
 </div>
 </section>
@@ -533,6 +536,10 @@ Okay to show my first name on the site
 <!-- Footer -->
 <footer class="bg-deep text-white py-12">
 <div class="max-w-7xl mx-auto px-6 text-center">
+<p class="mb-2 font-medium">Jane’s Seamoss Creations and More LLC</p>
+<p class="mb-1">1020 W Michigan St, Orlando FL 32805</p>
+<p class="mb-2 text-sm opacity-80">Kitchen hours: Mon–Thu 8 AM–9 PM · Fri–Sat 8 AM–10 PM · Sunday closed · 407-752-7864</p>
+<p class="mb-4 text-sm">Purchased orders are eligible for kitchen pickup only at this address.</p>
 <p class="mb-4">Handcrafted in Central Florida with love and intention.</p>
 <p class="text-sm opacity-75">These statements have not been evaluated by the FDA. This product is not intended to diagnose, treat, cure, or prevent any disease.</p>
 <p class="text-sm opacity-75 mt-4">
@@ -596,8 +603,9 @@ Okay to show my first name on the site
 </div>
 <div id="pickup-card" class="delivery-card border-2 border-purple hover:border-deep rounded-3xl p-8 cursor-pointer">
 <div class="text-5xl mb-4">📍</div>
-<h3 class="text-2xl font-semibold mb-2">Free In-Store Pickup</h3>
-<p class="text-purple font-medium mb-4">Choose location &amp; time slot</p>
+<h3 class="text-2xl font-semibold mb-2">Kitchen pickup</h3>
+<p class="text-purple font-medium mb-2">1020 W Michigan St, Orlando FL 32805</p>
+<p class="text-sm text-gray-500">Mon–Thu 8 AM–9 PM · Fri–Sat 8 AM–10 PM · Sun closed</p>
 </div>
 <div id="shipping-card" class="delivery-card border-2 border-purple hover:border-deep rounded-3xl p-8 cursor-pointer">
 <div class="text-5xl mb-4">📦</div>
@@ -645,25 +653,22 @@ Okay to show my first name on the site
 <input type="email" name="email" class="w-full border border-gray-300 rounded-2xl px-4 py-3 text-sm">
 </div>
 <div>
-<label class="block text-sm font-medium mb-1">Pickup Location</label>
+<label class="block text-sm font-medium mb-1">Pickup kitchen</label>
 <select name="location" required class="w-full border border-gray-300 rounded-2xl px-4 py-3 text-sm">
-<option value="">Select a location</option>
-<option value="Orlando FL - 32811, 32839">Orlando FL (32811, 32839)</option>
-<option value="Dr. Phillips, Orlando FL - 32835">Dr. Phillips • Orlando FL (32835)</option>
-<option value="Winter Haven FL - 33880">Winter Haven FL (33880)</option>
-<option value="Lake Alfred FL">Lake Alfred FL</option>
-<option value="Pinehills FL - 32808">Pinehills FL (32808)</option>
-<option value="Holiday FL - 34690">Holiday FL (34690)</option>
-<option value="Goodyear AZ - 85338">Goodyear AZ (85338)</option>
+<option value="1020 W Michigan St, Orlando FL 32805">1020 W Michigan St, Orlando FL 32805 — licensed kitchen</option>
 </select>
+<p class="text-xs text-gray-500 mt-2">One kitchen. Same address as the Florida food license. Call 407-752-7864 if you need a same-day window.</p>
 </div>
 <div>
-<label class="block text-sm font-medium mb-1">Time Slot</label>
+<label class="block text-sm font-medium mb-1">Time slot</label>
 <select name="time" required class="w-full border border-gray-300 rounded-2xl px-4 py-3 text-sm">
-<option value="">Select time slot</option>
+<option value="">During kitchen hours</option>
+<option>Today • 10:00 AM – 1:00 PM</option>
 <option>Today • 2:00 PM – 5:00 PM</option>
+<option>Today • 5:00 PM – 8:00 PM</option>
 <option>Tomorrow • 10:00 AM – 1:00 PM</option>
 <option>Tomorrow • 2:00 PM – 5:00 PM</option>
+<option>Tomorrow • 5:00 PM – 8:00 PM</option>
 </select>
 </div>
 <div class="flex gap-3 pt-2">
