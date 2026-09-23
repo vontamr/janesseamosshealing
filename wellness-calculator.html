@@ -1,250 +1,370 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-X1G12KY1X5"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-X1G12KY1X5');
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-X1G12KY1X5');
 </script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI Sea Moss Wellness quiz| Janesse's Seamoss Creation</title>
+<title>Kitchen Protocol Quiz | Jane's Seamoss Creations</title>
+<meta name="description" content="A six-step sea moss kitchen protocol. Learn minerals, gel vs juice, and leave with a jar that matches how you feel — pickup, local delivery, or shipped.">
 <script src="https://cdn.tailwindcss.com"></script>
 <script>
-function initTailwind() {
-    tailwind.config = {
-        theme: {
-            extend: {
-                colors: {
-                    deep: '#260B3A',
-                    purple: '#5E0089',
-                    lightpurple: '#EAD5F8',
-                }
-            }
-        }
-    };
-}
-window.addEventListener('load', initTailwind);
+window.addEventListener('load', function () {
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: { deep: '#260B3A', purple: '#5E0089', lightpurple: '#EAD5F8' }
+      }
+    }
+  };
+});
 </script>
+<style>
+  .serif-display { font-family: Georgia, "Times New Roman", serif; }
+  .chip { transition: border-color .15s, background .15s, transform .15s; }
+  .chip:hover { transform: translateY(-1px); }
+  .chip.on { border-color: #5E0089; background: #EAD5F8; }
+</style>
 </head>
-<body class="bg-white text-deep font-sans antialiased">
+<body class="bg-[#faf7fc] text-deep font-sans antialiased">
 
-<nav class="bg-white border-b sticky top-0 z-50 shadow-sm">
-<div class="max-w-7xl mx-auto px-6">
-<div class="flex items-center justify-between h-20">
-<a href="index.html" class="flex items-center gap-4">
-<img src="assets/images/IMG_7251 Background Removed 2.jpeg" alt="Logo" class="h-20">
-</a>
-<div class="hidden md:flex items-center gap-10 text-sm font-medium">
-<a href="index.html" class="hover:text-purple">Home</a>
-<a href="build.html" class="hover:text-purple">Build Your Blend</a>
-<a href="shop.html" class="hover:text-purple">Shop</a>
-<a href="wellness-calculator.html" class="text-purple font-semibold">AI Wellness Quiz</a>
-</div>
-<a href="shop.html" class="bg-purple hover:bg-deep text-white px-8 py-4 rounded-3xl font-semibold">Shop Now</a>
-</div>
-</div>
+<nav class="bg-white border-b sticky top-0 z-50">
+  <div class="max-w-7xl mx-auto px-6 flex items-center justify-between h-20">
+    <a href="index.html" class="flex items-center gap-3">
+      <img src="assets/images/IMG_7251 Background Removed 2.jpeg" alt="Jane's Seamoss" class="h-16">
+    </a>
+    <div class="hidden md:flex items-center gap-8 text-sm font-medium">
+      <a href="index.html" class="hover:text-purple">Home</a>
+      <a href="shop.html" class="hover:text-purple">Shop</a>
+      <a href="build.html" class="hover:text-purple">Build Your Blend</a>
+      <a href="pickup-delivery.html" class="hover:text-purple">Delivery &amp; Shipping</a>
+      <a href="wellness-calculator.html" class="text-purple font-semibold">Kitchen Quiz</a>
+    </div>
+    <a href="shop.html" class="bg-purple hover:bg-deep text-white px-6 py-3 rounded-2xl text-sm font-semibold">Shop</a>
+  </div>
 </nav>
 
-<section class="bg-gradient-to-br from-deep to-purple py-24 text-white">
-<div class="max-w-4xl mx-auto px-6 text-center">
-<h1 class="text-5xl md:text-6xl font-light tracking-tighter mb-6">AI Sea Moss Wellness Quiz</h1>
-<p class="text-xl text-lightpurple max-w-xl mx-auto">Advanced wellness assessment • Personalized sea moss protocol based on your unique profile</p>
-</div>
+<section class="bg-gradient-to-br from-deep to-purple text-white py-16 md:py-20">
+  <div class="max-w-4xl mx-auto px-6">
+    <p class="text-lightpurple text-xs tracking-[0.28em] uppercase">Kitchen Protocol · complimentary this season</p>
+    <h1 class="serif-display text-4xl md:text-6xl font-light italic mt-4">Don’t guess the jar.</h1>
+    <p class="mt-4 text-white/80 max-w-2xl text-lg">Six steps. Real kitchen knowledge. Most guests say they notice a difference in 1–2 days — Jane’s organic process keeps nutrients and herbs in their natural state. Then we send you the jar: pickup, local delivery, or shipped.</p>
+    <div class="mt-8 grid grid-cols-3 gap-3 max-w-md text-center text-xs">
+      <div class="bg-white/10 rounded-2xl py-4"><p class="text-2xl font-light">6</p><p class="text-white/60 mt-1">guided steps</p></div>
+      <div class="bg-white/10 rounded-2xl py-4"><p class="text-2xl font-light">92+</p><p class="text-white/60 mt-1">minerals in every gel</p></div>
+      <div class="bg-white/10 rounded-2xl py-4"><p class="text-2xl font-light">1</p><p class="text-white/60 mt-1">clear next jar</p></div>
+    </div>
+  </div>
 </section>
 
-<div class="max-w-2xl mx-auto px-6 py-12">
-<div class="bg-white border border-lightpurple rounded-3xl p-10 shadow-sm">
+<div class="max-w-5xl mx-auto px-6 py-12 grid lg:grid-cols-[1fr_280px] gap-8">
+  <div>
+    <div id="quiz-card" class="bg-white border border-lightpurple rounded-[2rem] p-8 md:p-10 shadow-sm">
+      <div class="mb-8">
+        <div class="flex justify-between text-sm mb-2">
+          <span id="step-text" class="font-medium">Step 1 of 6</span>
+          <span id="progress-text" class="text-purple">0%</span>
+        </div>
+        <div class="h-2 bg-gray-100 rounded-full overflow-hidden">
+          <div id="progress-bar" class="h-2 bg-purple rounded-full transition-all" style="width:0%"></div>
+        </div>
+      </div>
 
-<!-- Progress -->
-<div class="mb-10">
-<div class="flex justify-between text-sm mb-2">
-<span id="step-text" class="font-medium">Step 1 of 6</span>
-<span id="progress-text" class="text-purple">17%</span>
-</div>
-<div class="h-2 bg-gray-100 rounded-full overflow-hidden">
-<div id="progress-bar" class="h-2 bg-purple rounded-full w-1/6 transition-all"></div>
-</div>
+      <div id="lesson" class="mb-8 bg-lightpurple/40 rounded-2xl p-5 text-sm leading-relaxed text-gray-700"></div>
+
+      <div id="step-1">
+        <h3 class="text-2xl font-medium mb-2">What do you want more of this month?</h3>
+        <p class="text-sm text-gray-500 mb-6">Choose as many as feel true. This is the first filter Jane uses in the kitchen.</p>
+        <div class="grid grid-cols-2 gap-3" id="goals-grid"></div>
+      </div>
+
+      <div id="step-2" class="hidden">
+        <h3 class="text-2xl font-medium mb-2">What is loud in the body right now?</h3>
+        <p class="text-sm text-gray-500 mb-6">Not a diagnosis. A kitchen note so we do not send you the wrong herb.</p>
+        <div class="grid grid-cols-2 gap-3" id="concerns-grid"></div>
+      </div>
+
+      <div id="step-3" class="hidden">
+        <h3 class="text-2xl font-medium mb-6">Lifestyle snapshot</h3>
+        <div class="space-y-8">
+          <div>
+            <p class="text-sm font-medium mb-3">Energy most days</p>
+            <div class="grid grid-cols-3 gap-3">
+              <button type="button" class="chip energy-btn p-5 border-2 border-gray-200 rounded-3xl" data-val="low">Low / flat</button>
+              <button type="button" class="chip energy-btn p-5 border-2 border-gray-200 rounded-3xl" data-val="moderate">Steady</button>
+              <button type="button" class="chip energy-btn p-5 border-2 border-gray-200 rounded-3xl" data-val="high">High</button>
+            </div>
+          </div>
+          <div>
+            <p class="text-sm font-medium mb-3">Sleep</p>
+            <div class="grid grid-cols-3 gap-3">
+              <button type="button" class="chip sleep-btn p-5 border-2 border-gray-200 rounded-3xl" data-val="poor">Broken</button>
+              <button type="button" class="chip sleep-btn p-5 border-2 border-gray-200 rounded-3xl" data-val="ok">Okay</button>
+              <button type="button" class="chip sleep-btn p-5 border-2 border-gray-200 rounded-3xl" data-val="good">Deep</button>
+            </div>
+          </div>
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div>
+              <label class="text-sm font-medium mb-2 block">Age range</label>
+              <select id="age" class="w-full p-4 border border-gray-300 rounded-2xl">
+                <option value="">Prefer not to say</option>
+                <option>18–24</option>
+                <option>25–34</option>
+                <option>35–44</option>
+                <option>45–54</option>
+                <option>55+</option>
+              </select>
+            </div>
+            <div>
+              <p class="text-sm font-medium mb-2">How you show up</p>
+              <div class="flex gap-2">
+                <button type="button" class="chip gender-btn flex-1 py-4 border-2 border-gray-200 rounded-2xl text-sm" data-val="female">Woman</button>
+                <button type="button" class="chip gender-btn flex-1 py-4 border-2 border-gray-200 rounded-2xl text-sm" data-val="male">Man</button>
+                <button type="button" class="chip gender-btn flex-1 py-4 border-2 border-gray-200 rounded-2xl text-sm" data-val="other">Other</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="step-4" class="hidden">
+        <h3 class="text-2xl font-medium mb-2">How do you eat?</h3>
+        <p class="text-sm text-gray-500 mb-6">Fruit gels are naturally sweetened. Herb gels are more savory. This picks the base.</p>
+        <div class="grid grid-cols-2 gap-3" id="diet-grid"></div>
+      </div>
+
+      <div id="step-5" class="hidden">
+        <h3 class="text-2xl font-medium mb-2">How do you want to take it?</h3>
+        <p class="text-sm text-gray-500 mb-6">Gel is the ritual. Juice is the grab-and-go. Both start as the same moss.</p>
+        <div class="grid sm:grid-cols-3 gap-3">
+          <button type="button" class="chip form-btn p-6 border-2 border-gray-200 rounded-3xl text-left" data-val="gel"><p class="font-medium">Gel</p><p class="text-xs text-gray-500 mt-2">Spoon. Fridge. 16oz kitchen staple.</p></button>
+          <button type="button" class="chip form-btn p-6 border-2 border-gray-200 rounded-3xl text-left" data-val="juice"><p class="font-medium">Juice</p><p class="text-xs text-gray-500 mt-2">Ready cup. Weekly rhythm.</p></button>
+          <button type="button" class="chip form-btn p-6 border-2 border-gray-200 rounded-3xl text-left" data-val="both"><p class="font-medium">Both</p><p class="text-xs text-gray-500 mt-2">Gel at home, juice when you leave.</p></button>
+        </div>
+      </div>
+
+      <div id="step-6" class="hidden">
+        <h3 class="text-2xl font-medium mb-2">How should the kitchen send it?</h3>
+        <div class="grid sm:grid-cols-3 gap-3 mb-6">
+          <button type="button" class="chip fulfill-btn p-5 border-2 border-gray-200 rounded-3xl text-left" data-val="delivery"><p class="font-medium">Local delivery</p><p class="text-xs text-gray-500 mt-1">Central Florida · new</p></button>
+          <button type="button" class="chip fulfill-btn p-5 border-2 border-gray-200 rounded-3xl text-left" data-val="ship"><p class="font-medium">Ship the jar</p><p class="text-xs text-gray-500 mt-1">Gels and juices nationwide</p></button>
+          <button type="button" class="chip fulfill-btn p-5 border-2 border-gray-200 rounded-3xl text-left" data-val="pickup"><p class="font-medium">Kitchen pickup</p><p class="text-xs text-gray-500 mt-1">1020 W Michigan St</p></button>
+        </div>
+        <label class="text-sm font-medium mb-2 block">Anything Jane should know?</label>
+        <textarea id="notes" rows="3" class="w-full p-4 border border-gray-300 rounded-2xl" placeholder="Medications, pregnancy, no mango, thyroid care, kids in the house…"></textarea>
+      </div>
+
+      <div class="flex justify-between mt-10">
+        <button type="button" onclick="prevStep()" id="back-btn" class="hidden px-6 py-3 text-purple font-medium">Back</button>
+        <button type="button" onclick="nextStep()" id="next-btn" class="ml-auto bg-purple hover:bg-deep text-white px-10 py-4 rounded-3xl font-semibold">Continue</button>
+      </div>
+    </div>
+
+    <div id="results" class="hidden"></div>
+  </div>
+
+  <aside class="space-y-4 lg:sticky lg:top-28 h-fit">
+    <div class="bg-deep text-white rounded-3xl p-6">
+      <p class="text-xs tracking-[0.2em] uppercase text-lightpurple">Why this tool</p>
+      <p class="mt-3 text-sm text-white/80 leading-relaxed">Jane’s moss is wild-harvested in Antigua and St. Lucia, gelled in a licensed Florida kitchen. The quiz is the same logic she uses when someone texts “what should I get?”</p>
+    </div>
+    <div class="bg-white border border-lightpurple rounded-3xl p-6 text-sm text-gray-600 leading-relaxed">
+      <p class="font-medium text-deep mb-2">Kitchen rules</p>
+      <p>Spoon, don’t cook the gel. Keep it cold. Most guests say they feel it in 1–2 days. Food and minerals — not a prescription.</p>
+    </div>
+  </aside>
 </div>
 
-<!-- Step 1: Goals -->
-<div id="step-1">
-<h3 class="text-2xl font-medium mb-6">What are your primary wellness goals?</h3>
-<div class="grid grid-cols-2 gap-4" id="goals-grid"></div>
-</div>
-
-<!-- Step 2: Age & Gender -->
-<div id="step-2" class="hidden">
-<h3 class="text-2xl font-medium mb-6">Basic Profile</h3>
-<div class="grid grid-cols-2 gap-6">
-<div>
-<label class="block text-sm mb-2 font-medium">Age</label>
-<input type="number" id="age" placeholder="35" class="w-full p-5 border border-gray-300 rounded-3xl text-lg">
-</div>
-<div>
-<label class="block text-sm mb-2 font-medium">Gender</label>
-<div class="flex gap-3">
-<button onclick="selectSingle(this, 'gender', 'female')" class="gender-btn flex-1 py-5 border-2 border-gray-200 rounded-3xl">Female</button>
-<button onclick="selectSingle(this, 'gender', 'male')" class="gender-btn flex-1 py-5 border-2 border-gray-200 rounded-3xl">Male</button>
-<button onclick="selectSingle(this, 'gender', 'other')" class="gender-btn flex-1 py-5 border-2 border-gray-200 rounded-3xl">Other</button>
-</div>
-</div>
-</div>
-</div>
-
-<!-- Step 3: Concerns -->
-<div id="step-3" class="hidden">
-<h3 class="text-2xl font-medium mb-6">Current symptoms or concerns <span class="text-sm text-gray-500">(select all that apply)</span></h3>
-<div class="grid grid-cols-2 gap-4" id="concerns-grid"></div>
-</div>
-
-<!-- Step 4: Energy, Sleep, Activity -->
-<div id="step-4" class="hidden">
-<h3 class="text-2xl font-medium mb-6">Lifestyle Snapshot</h3>
-<div class="space-y-8">
-<div>
-<label class="block text-sm mb-3">Energy Level</label>
-<div class="grid grid-cols-3 gap-4">
-<button onclick="selectSingle(this, 'energy', 'low')" class="energy-btn p-6 border-2 border-gray-200 rounded-3xl">Low</button>
-<button onclick="selectSingle(this, 'energy', 'moderate')" class="energy-btn p-6 border-2 border-gray-200 rounded-3xl">Moderate</button>
-<button onclick="selectSingle(this, 'energy', 'high')" class="energy-btn p-6 border-2 border-gray-200 rounded-3xl">High</button>
-</div>
-</div>
-</div>
-</div>
-
-<!-- Step 5: Diet -->
-<div id="step-5" class="hidden">
-<h3 class="text-2xl font-medium mb-6">Dietary Preferences</h3>
-<div class="grid grid-cols-2 gap-4" id="diet-grid"></div>
-</div>
-
-<!-- Step 6: Final Note -->
-<div id="step-6" class="hidden">
-<h3 class="text-2xl font-medium mb-6">Anything else we should know?</h3>
-<textarea id="notes" rows="4" class="w-full p-5 border border-gray-300 rounded-3xl resize-none" placeholder="E.g. pregnancy, medications, allergies..."></textarea>
-</div>
-
-<div class="flex justify-between mt-10">
-<button onclick="prevStep()" id="back-btn" class="hidden px-8 py-4 text-purple font-medium">← Back</button>
-<button onclick="nextStep()" id="next-btn" class="ml-auto bg-purple hover:bg-deep text-white px-10 py-4 rounded-3xl font-semibold">Continue →</button>
-</div>
-</div>
-
-<!-- Results -->
-<div id="results" class="hidden mt-12 bg-lightpurple/30 rounded-3xl p-10">
-<h3 class="text-2xl font-medium mb-6">Your Personalized Sea Moss Protocol</h3>
-<div id="recommendation-content" class="space-y-8"></div>
-</div>
-</div>
+<footer class="py-10 text-center text-xs text-gray-400 px-6">
+  Jane’s Seamoss Creations and More LLC · 1020 W Michigan St, Orlando FL 32805<br>
+  These statements have not been evaluated by the FDA. This product is not intended to diagnose, treat, cure, or prevent any disease.
+</footer>
 
 <script>
-// Variables
-let currentStep = 1;
-let goals = [], concerns = [], gender = '', energy = '', diet = '', notes = '';
+const LESSONS = {
+  1: "Sea moss is a sea vegetable with 92+ minerals — iodine, magnesium, potassium, zinc. Fruit gels add flavor and everyday ease. Herb gels add a targeted kitchen plant on top of that base.",
+  2: "If joints feel loud, blackseed oil is in Joint Relief. If the month feels heavy, Moon Cycle Moss. If you keep catching every office cold, Immunity Boost with ginger. We still start with moss, not a miracle.",
+  3: "Low energy plus poor sleep is a start-simple week: fruit gel in the morning, not five herbs at once. High energy can handle Powerhouse or Vitality.",
+  4: "Low sugar or keto? Herb gel, lemon water, skip the fruit-forward jar. Vegan is already how Jane cooks. Gluten is not in the kitchen gels.",
+  5: "Gel: 1–2 tablespoons in warm (not boiling) water or straight. Juice: drink cold the week it is made. Jane’s organic process keeps nutrients and herbs in their natural state so they move through the body quickly — most guests notice a shift in 1–2 days.",
+  6: "One licensed kitchen. Local delivery is the new door. Shipping is for every gel and juice. Pickup is 1020 W Michigan St, Orlando."
+};
 
-// Populate functions
-function populateGrid(containerId, items, targetArray, isMulti = true) {
-    const container = document.getElementById(containerId);
-    container.innerHTML = '';
-    items.forEach(text => {
-        const btn = document.createElement('button');
-        btn.className = `p-6 border-2 border-gray-200 rounded-3xl text-left hover:border-purple transition-all`;
-        btn.textContent = text;
-        btn.onclick = () => {
-            if (isMulti) {
-                if (targetArray.includes(text)) {
-                    targetArray.splice(targetArray.indexOf(text), 1);
-                    btn.classList.remove('border-purple', 'bg-lightpurple');
-                } else {
-                    targetArray.push(text);
-                    btn.classList.add('border-purple', 'bg-lightpurple');
-                }
-            } else {
-                targetArray[0] = text; // single select
-                document.querySelectorAll(`#${containerId} button`).forEach(b => b.classList.remove('border-purple', 'bg-lightpurple'));
-                btn.classList.add('border-purple', 'bg-lightpurple');
-            }
-        };
-        container.appendChild(btn);
-    });
+const GOALS = ["Energy & focus", "Everyday immunity", "Ease in the joints", "Skin & hair glow", "Steady hormones / cycle", "Digestion & gut ease"];
+const CONCERNS = ["Stiff or noisy joints", "Tired most afternoons", "Digestion off", "Skin dull or reactive", "Cycle / hormone weeks", "Always getting run down", "Brain fog / stress", "None of these"];
+const DIETS = ["No restrictions", "Vegan", "Low sugar", "Keto / low carb", "Gluten-free"];
+
+let currentStep = 1;
+const state = {
+  goals: [],
+  concerns: [],
+  gender: "",
+  energy: "",
+  sleep: "",
+  diet: "",
+  form: "gel",
+  fulfill: "delivery"
+};
+
+function chipClass(on) {
+  return "chip p-5 border-2 rounded-3xl text-left text-sm " + (on ? "on border-purple bg-lightpurple" : "border-gray-200");
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-    populateGrid('goals-grid', ["Energy & Focus", "Immunity Support", "Joint & Inflammation Relief", "Skin & Hair Health", "Thyroid Balance", "Digestion & Gut Health"], goals);
-    populateGrid('concerns-grid', ["Joint Pain / Inflammation", "Chronic Fatigue", "Digestive Issues", "Skin Concerns", "Hormonal Imbalance", "Frequent Illness"], concerns);
-    populateGrid('diet-grid', ["No restrictions", "Vegan", "Low Sugar", "Keto / Low Carb", "Gluten-Free"], [diet], false);
-    updateProgress();
-});
+function fillMulti(id, items, key) {
+  const box = document.getElementById(id);
+  box.innerHTML = "";
+  items.forEach(function (text) {
+    const b = document.createElement("button");
+    b.type = "button";
+    b.className = chipClass(state[key].indexOf(text) !== -1);
+    b.textContent = text;
+    b.onclick = function () {
+      var arr = state[key];
+      if (text === "None of these") {
+        state[key] = arr.indexOf(text) !== -1 ? [] : ["None of these"];
+      } else {
+        state[key] = arr.filter(function (x) { return x !== "None of these"; });
+        var i = state[key].indexOf(text);
+        if (i >= 0) state[key].splice(i, 1);
+        else state[key].push(text);
+      }
+      fillMulti(id, items, key);
+    };
+    box.appendChild(b);
+  });
+}
+
+function fillSingle(id, items, key) {
+  const box = document.getElementById(id);
+  box.innerHTML = "";
+  items.forEach(function (text) {
+    const b = document.createElement("button");
+    b.type = "button";
+    b.className = chipClass(state[key] === text);
+    b.textContent = text;
+    b.onclick = function () { state[key] = text; fillSingle(id, items, key); };
+    box.appendChild(b);
+  });
+}
+
+function bindGroup(cls, key) {
+  document.querySelectorAll("." + cls).forEach(function (btn) {
+    btn.onclick = function () {
+      state[key] = btn.getAttribute("data-val");
+      document.querySelectorAll("." + cls).forEach(function (b) {
+        b.classList.remove("on", "border-purple", "bg-lightpurple");
+      });
+      btn.classList.add("on", "border-purple", "bg-lightpurple");
+    };
+  });
+}
 
 function updateProgress() {
-    const progress = Math.round(((currentStep - 1) / 6) * 100);
-    document.getElementById('progress-bar').style.width = `${progress}%`;
-    document.getElementById('step-text').textContent = `Step ${currentStep} of 6`;
-    document.getElementById('progress-text').textContent = `${progress}%`;
+  var pct = Math.round(((currentStep - 1) / 6) * 100);
+  document.getElementById("progress-bar").style.width = pct + "%";
+  document.getElementById("step-text").textContent = "Step " + currentStep + " of 6";
+  document.getElementById("progress-text").textContent = pct + "%";
+  document.getElementById("lesson").textContent = LESSONS[currentStep];
+  document.getElementById("next-btn").textContent = currentStep === 6 ? "Build my protocol" : "Continue";
 }
 
 function nextStep() {
-    if (currentStep === 1 && goals.length === 0) return alert("Please select at least one goal");
-    document.getElementById(`step-${currentStep}`).classList.add('hidden');
-    currentStep++;
-    if (currentStep > 6) return showResults();
-    document.getElementById(`step-${currentStep}`).classList.remove('hidden');
-    document.getElementById('back-btn').classList.remove('hidden');
-    updateProgress();
+  if (currentStep === 1 && state.goals.length === 0) return alert("Pick at least one intention.");
+  document.getElementById("step-" + currentStep).classList.add("hidden");
+  currentStep++;
+  if (currentStep > 6) return showResults();
+  document.getElementById("step-" + currentStep).classList.remove("hidden");
+  document.getElementById("back-btn").classList.remove("hidden");
+  updateProgress();
 }
 
 function prevStep() {
-    document.getElementById(`step-${currentStep}`).classList.add('hidden');
-    currentStep--;
-    document.getElementById(`step-${currentStep}`).classList.remove('hidden');
-    if (currentStep === 1) document.getElementById('back-btn').classList.add('hidden');
-    updateProgress();
+  document.getElementById("step-" + currentStep).classList.add("hidden");
+  currentStep--;
+  document.getElementById("step-" + currentStep).classList.remove("hidden");
+  if (currentStep === 1) document.getElementById("back-btn").classList.add("hidden");
+  updateProgress();
 }
 
-function selectSingle(btn, type, value) {
-    document.querySelectorAll(`.${type}-btn`).forEach(b => b.classList.remove('border-purple', 'bg-lightpurple'));
-    btn.classList.add('border-purple', 'bg-lightpurple');
-    if (type === 'gender') gender = value;
-    if (type === 'energy') energy = value;
+function recommend() {
+  var blob = (state.goals.join(" ") + " " + state.concerns.join(" ")).toLowerCase();
+  var lowSugar = /low sugar|keto/.test((state.diet || "").toLowerCase());
+  var primary = { name: "Mango Sea Moss Gel", price: 35, why: "A daily mineral base with fruit most people finish. Vitamin A and C sit on top of the moss.", href: "shop.html", tag: "Everyday fruit gel" };
+  var second = { name: "Mango juice, 16oz weekly", price: 10, why: "Same moss, drinkable. Good when you will not spoon a gel on a busy morning.", href: "index.html", tag: "Ready cup" };
+
+  if (/joint|stiff/.test(blob)) {
+    primary = { name: "Joint Relief Gel", price: 40, why: "Moss plus blackseed oil. The kitchen joint jar — daily mineral and herb, not a pain drug.", href: "shop.html", tag: "Herb gel · $40" };
+    second = { name: "Pineapple Sea Moss Gel", price: 35, why: "Bromelain-forward fruit gel if you still want breakfast flavor.", href: "shop.html", tag: "Fruit companion" };
+  } else if (/hormone|cycle/.test(blob)) {
+    primary = { name: "Moon Cycle Moss", price: 40, why: "Built for the week the body feels heavier. Stay consistent through the month.", href: "shop.html", tag: "Herb gel · $40" };
+  } else if (/immun|run down/.test(blob)) {
+    primary = { name: "Immunity Boost Gel", price: 40, why: "Ginger on a moss base. The kitchen cold-season jar.", href: "shop.html", tag: "Herb gel · $40" };
+    second = { name: "Soursop Sea Moss Gel", price: 36, why: "Fruit-forward if ginger is too loud in the morning.", href: "shop.html", tag: "Fruit companion" };
+  } else if (/digest/.test(blob)) {
+    primary = { name: "Passionfruit Sea Moss Gel", price: 35, why: "Light and bright when the gut feels picky.", href: "shop.html", tag: "Fruit gel · $35" };
+    second = { name: "Pineapple Sea Moss Gel", price: 35, why: "Second fruit option if passionfruit is not your flavor.", href: "shop.html", tag: "Fruit companion" };
+  } else if (/skin|hair/.test(blob)) {
+    primary = { name: "Mango Sea Moss Gel", price: 35, why: "Vitamin A and C on the mineral base. Use inside.", href: "shop.html", tag: "Glow gel" };
+  } else if (/brain|fog|stress|focus/.test(blob)) {
+    primary = { name: "Brain Support Gel", price: 40, why: "Ashwagandha with moss for the week your head feels crowded.", href: "shop.html", tag: "Herb gel · $40" };
+  } else if (state.energy === "low" || /energy|tired/.test(blob)) {
+    primary = { name: "Powerhouse Gel", price: 45, why: "Shilajit on moss when energy is the whole request.", href: "shop.html", tag: "Herb gel · $45" };
+    second = { name: "Vitality Gel", price: 40, why: "A sister energy path if Powerhouse feels like too much.", href: "shop.html", tag: "Sister jar" };
+  }
+
+  if (lowSugar && primary.name.indexOf("Mango") !== -1) {
+    primary = { name: "Immunity Boost Gel", price: 40, why: "Herb path, less fruit sugar. Still a full mineral gel.", href: "shop.html", tag: "Low-sugar kitchen pick" };
+  }
+  if (state.form === "juice") {
+    second = { name: "Weekly sea moss juice · 16oz", price: 10, why: "First two weeks upfront. Pause anytime. Mango, pineapple, blackberry.", href: "index.html", tag: "Subscription" };
+  }
+  return { primary: primary, second: second };
+}
+
+function fulfillCopy() {
+  if (state.fulfill === "ship") return { label: "Ship this protocol", href: "pickup-delivery.html", note: "Gels and juices leave Michigan Street packed for the road." };
+  if (state.fulfill === "pickup") return { label: "Pick up at the kitchen", href: "pickup-delivery.html", note: "1020 W Michigan St, Orlando FL 32805. Call 407-752-7864 for a same-day window." };
+  return { label: "Get local delivery", href: "pickup-delivery.html", note: "Central Florida delivery just launched from the same licensed kitchen." };
 }
 
 function showResults() {
-    const content = document.getElementById('recommendation-content');
-    let title = "Mango Pineapple Signature Blend";
-    let insight = "This blend supports overall mineral replenishment and daily vitality.";
-
-    if (goals.some(g => g.includes("Joint") || g.includes("Inflammation"))) {
-        title = "Anti-Inflammatory Joint Protocol";
-        insight = "Targeted support for inflammation and joint comfort.";
-    } else if (goals.some(g => g.includes("Energy")) || energy === "low") {
-        title = "Sustained Energy & Vitality Protocol";
-        insight = "Optimized for natural energy without crashes.";
-    }
-
-    content.innerHTML = `
-        <div class="text-center">
-            <div class="inline-flex bg-purple/10 text-purple px-6 py-2 rounded-full text-sm mb-6">AI ANALYSIS COMPLETE • 96% Match</div>
-            <img src="assets/images/mango.jpg" class="mx-auto rounded-3xl mb-6 w-64 shadow-2xl">
-            <h4 class="text-3xl font-medium">${title}</h4>
-            <p class="text-purple font-medium mt-2">Mango Pineapple Base + Therapeutic Herbs</p>
-            <p class="mt-8 text-gray-700">${insight}</p>
-            <div class="mt-10 bg-white p-8 rounded-2xl text-left border border-lightpurple">
-                <p class="font-semibold mb-4">Your Protocol</p>
-                <ul class="space-y-4 text-sm">
-                    <li class="flex gap-3"><span class="text-green-500">✔</span> 2 tablespoons daily, first thing in the morning</li>
-                    <li class="flex gap-3"><span class="text-green-500">✔</span> Mix with warm water or lemon water</li>
-                    <li class="flex gap-3"><span class="text-green-500">✔</span> Minimum 21 days for optimal mineral absorption</li>
-                </ul>
-            </div>
-        </div>
-    `;
-    document.getElementById('results').classList.remove('hidden');
+  document.getElementById("quiz-card").classList.add("hidden");
+  var rec = recommend();
+  var f = fulfillCopy();
+  var notes = (document.getElementById("notes").value || "").trim();
+  var box = document.getElementById("results");
+  box.classList.remove("hidden");
+  box.innerHTML = '<div class="bg-white border border-purple/20 rounded-[2rem] p-8 md:p-10">' +
+    '<p class="text-purple text-xs tracking-[0.25em] uppercase">Kitchen Protocol · private to you</p>' +
+    '<h2 class="serif-display text-4xl font-light italic mt-2">Your jar has a name.</h2>' +
+    '<p class="text-gray-600 mt-3">Built from your answers. Still food. Still minerals. Still Jane’s kitchen.</p>' +
+    '<div class="mt-8 grid md:grid-cols-2 gap-6">' +
+    '<div class="border border-lightpurple rounded-3xl p-6"><p class="text-xs text-purple font-semibold">' + rec.primary.tag + '</p><h3 class="text-2xl font-medium mt-2">' + rec.primary.name + '</h3><p class="text-purple mt-1">$' + rec.primary.price + '</p><p class="text-sm text-gray-600 mt-4">' + rec.primary.why + '</p><a href="' + rec.primary.href + '" class="mt-6 inline-block bg-purple text-white px-6 py-3 rounded-2xl text-sm font-semibold">Add from Shop</a></div>' +
+    '<div class="border border-gray-100 rounded-3xl p-6 bg-lightpurple/30"><p class="text-xs text-purple font-semibold">' + rec.second.tag + '</p><h3 class="text-xl font-medium mt-2">' + rec.second.name + '</h3><p class="text-purple mt-1">$' + rec.second.price + '</p><p class="text-sm text-gray-600 mt-4">' + rec.second.why + '</p><a href="' + rec.second.href + '" class="mt-6 inline-block text-purple font-semibold text-sm">See this option</a></div></div>' +
+    '<div class="mt-8 bg-deep text-white rounded-3xl p-6"><p class="font-medium">What most guests notice</p><ul class="mt-4 space-y-2 text-sm text-white/80"><li>Most of Jane’s customers say they feel a difference in 1–2 days.</li><li>The organic kitchen process keeps nutrients and herbs in their natural state so they can move through you sooner.</li><li>1–2 tablespoons of gel in the morning, or one juice serving. Warm water — never boiling.</li><li>Fridge only. Keep going after day two so the feeling lasts.</li><li>' + f.note + '</li></ul><a href="' + f.href + '" class="mt-6 inline-block bg-white text-deep px-6 py-3 rounded-2xl text-sm font-semibold">' + f.label + '</a></div>' +
+    '<div class="mt-8 grid md:grid-cols-3 gap-4 text-sm"><div class="p-4 rounded-2xl bg-lightpurple/40"><p class="font-medium mb-1">What moss is</p><p class="text-gray-600">A sea vegetable. 92+ minerals. Not a drug.</p></div><div class="p-4 rounded-2xl bg-lightpurple/40"><p class="font-medium mb-1">Why it can feel fast</p><p class="text-gray-600">Organic prep. Herbs left in their natural state. Guests usually mention day one or two.</p></div><div class="p-4 rounded-2xl bg-lightpurple/40"><p class="font-medium mb-1">What you do</p><p class="text-gray-600">Spoon it. Keep it cold. Don’t stop after the first good morning.</p></div></div>' +
+    (notes ? '<p class="mt-6 text-sm text-gray-500">You told Jane: “' + notes.replace(/</g, "") + '”</p>' : "") +
+    '<div class="mt-8 flex flex-wrap gap-3"><a href="build.html" class="border border-purple text-purple px-5 py-3 rounded-2xl text-sm font-medium">Want it custom? Build a blend</a><button type="button" onclick="window.print()" class="border border-gray-200 px-5 py-3 rounded-2xl text-sm">Print this protocol</button></div>' +
+    '<p class="mt-6 text-xs text-gray-400">Not medical advice. If you take thyroid medication, are pregnant, or already have a clinician in the story, show them the jar before you change anything.</p></div>';
+  box.scrollIntoView({ behavior: "smooth" });
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+  fillMulti("goals-grid", GOALS, "goals");
+  fillMulti("concerns-grid", CONCERNS, "concerns");
+  fillSingle("diet-grid", DIETS, "diet");
+  bindGroup("energy-btn", "energy");
+  bindGroup("sleep-btn", "sleep");
+  bindGroup("gender-btn", "gender");
+  bindGroup("form-btn", "form");
+  bindGroup("fulfill-btn", "fulfill");
+  updateProgress();
+});
 </script>
 </body>
 </html>
