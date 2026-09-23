@@ -4,7 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sea Moss Florida | Wild-Harvested Caribbean Sea Moss – Central Florida | Janesse's Seamoss Creation</title>
-<meta name="description" content="Wild-harvested sea moss gels and juices. New Central Florida delivery. We ship every jar. Kitchen at 1020 W Michigan St, Orlando.">
+<meta name="description" content="Ask Jane's AI — a sea moss wellness guide for Central Florida. Wild-harvested Caribbean gels and juices, 92+ minerals, local delivery and shipping from Orlando.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
 
 <!-- Meta Pixel Code -->
 <script>
@@ -70,6 +73,20 @@ window.addEventListener('load', initTailwind);
 .juice-jug:hover {
     transform: scale(1.08);
 }
+.hero-video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+}
+@media (max-width: 767px) {
+    .hero-video {
+        object-fit: cover;
+        object-position: center 42%;
+    }
+}
 </style>
 </head>
 <body class="bg-white text-deep font-sans antialiased">
@@ -134,41 +151,61 @@ window.addEventListener('load', initTailwind);
 </div>
 
 <!-- Hero with harvest video + rotating typewriter -->
-<header class="min-h-screen flex items-center relative overflow-hidden">
+<header class="relative overflow-hidden flex items-center min-h-[100svh]">
     <video
-        class="absolute inset-0 w-full h-full object-cover"
+        class="hero-video pointer-events-none z-0"
         autoplay
         muted
         loop
         playsinline
+        webkit-playsinline
         preload="auto"
-        poster="assets/images/heroglass.jpg"
+        poster="assets/images/DSCF1813.JPG"
         aria-label="Wild-harvested sea moss in Antigua">
         <source src="assets/images/Janes_Seamoss_Organic_Final_v3.mp4" type="video/mp4">
     </video>
-    <div class="absolute inset-0 bg-deep/55"></div>
-    <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 lg:gap-16 items-center pt-12 pb-20 relative z-10">
-        <div class="space-y-8">
-            <div class="inline-flex items-center gap-3 bg-white/15 backdrop-blur px-6 py-3 rounded-3xl text-sm font-medium text-white border border-white/20">
+    <div class="absolute inset-0 bg-deep/60 md:bg-deep/55"></div>
+    <div class="max-w-7xl mx-auto w-full px-5 sm:px-6 grid md:grid-cols-2 gap-6 md:gap-12 lg:gap-16 items-center py-8 md:py-16 relative z-10">
+        <div class="space-y-4 md:space-y-8">
+            <div class="inline-flex items-center gap-2 md:gap-3 bg-white/15 backdrop-blur px-4 md:px-6 py-2 md:py-3 rounded-3xl text-[11px] md:text-sm font-medium text-white border border-white/20">
                 <span>🌊</span>
                 <span>Wild-Harvested • Antigua &amp; St. Lucia</span>
             </div>
-            <h1 class="text-5xl md:text-6xl lg:text-7xl font-light leading-none tracking-tighter min-h-[120px] md:min-h-[140px] text-white">
+            <h1 class="text-[2rem] leading-tight sm:text-5xl md:text-6xl lg:text-7xl font-light md:leading-none tracking-tighter min-h-[4.5rem] sm:min-h-[6rem] md:min-h-[140px] text-white">
                 <span id="typewriter"></span>
             </h1>
-            <p class="text-xl md:text-2xl text-white/90 max-w-lg">
-                Premium sea moss gels with 92+ minerals.<br>
+            <p class="text-base sm:text-xl md:text-2xl text-white/90 max-w-lg">
+                Premium sea moss gels with 92+ minerals.<br class="hidden sm:block">
                 New: local delivery in Central Florida. We ship every gel and juice.
             </p>
-            <div class="flex flex-col sm:flex-row gap-4">
-                <a href="build.html" class="bg-purple hover:bg-deep text-white px-10 py-6 rounded-3xl text-xl font-semibold transition-all active:scale-95 text-center">Build Your Blend</a>
-                <a href="shop.html" class="border-2 border-white text-white hover:bg-white hover:text-deep px-10 py-6 rounded-3xl text-xl font-medium transition-all active:scale-95 text-center">Shop Collection</a>
-                <a href="pickup-delivery.html" class="border-2 border-white/70 text-white hover:bg-white hover:text-deep px-10 py-6 rounded-3xl text-xl font-medium transition-all active:scale-95 text-center">Get it delivered</a>
+            <div class="flex flex-col sm:flex-row gap-3 md:gap-4">
+                <a href="build.html" class="bg-purple hover:bg-deep text-white px-6 py-3.5 md:px-10 md:py-6 rounded-2xl md:rounded-3xl text-base md:text-xl font-semibold transition-all active:scale-95 text-center">Build Your Blend</a>
+                <a href="shop.html" class="border-2 border-white text-white hover:bg-white hover:text-deep px-6 py-3.5 md:px-10 md:py-6 rounded-2xl md:rounded-3xl text-base md:text-xl font-medium transition-all active:scale-95 text-center">Shop Collection</a>
+                <a href="pickup-delivery.html" class="border-2 border-white/70 text-white hover:bg-white hover:text-deep px-6 py-3.5 md:px-10 md:py-6 rounded-2xl md:rounded-3xl text-base md:text-xl font-medium transition-all active:scale-95 text-center">Get it delivered</a>
             </div>
-            <a href="wellness-calculator.html" class="inline-flex items-center gap-2 text-white font-medium">Not sure which jar? Take the 2-minute quiz →</a>
+            <a href="wellness-calculator.html" class="inline-flex items-center gap-2 text-sm md:text-base text-white font-medium">Not sure which jar? Take the 2-minute quiz →</a>
         </div>
         <div class="flex justify-center md:justify-end relative z-10">
-            <img src="assets/images/heroglass.jpg" alt="Premium Caribbean Sea Moss Gel" class="rounded-3xl shadow-2xl max-w-md md:max-w-lg w-full h-auto object-cover ring-1 ring-white/20">
+            <div class="w-full max-w-md rounded-2xl md:rounded-[2rem] border border-white/25 bg-white/10 backdrop-blur-xl shadow-2xl p-5 md:p-8 text-white">
+                <p class="text-[10px] md:text-[11px] tracking-[0.28em] uppercase text-white/70">Live from the kitchen</p>
+                <p class="mt-1 md:mt-2 text-base md:text-lg font-light">Jane’s glass board</p>
+                <div class="mt-5 md:mt-8 grid grid-cols-3 gap-3 md:gap-4 text-center">
+                    <div>
+                        <p class="text-3xl md:text-4xl font-light tabular-nums" id="stat-minerals">0</p>
+                        <p class="text-[10px] md:text-[11px] text-white/60 mt-1 md:mt-2">minerals</p>
+                    </div>
+                    <div>
+                        <p class="text-3xl md:text-4xl font-light tabular-nums"><span id="stat-days">0</span>–2</p>
+                        <p class="text-[10px] md:text-[11px] text-white/60 mt-1 md:mt-2">days to feel it</p>
+                    </div>
+                    <div>
+                        <p class="text-3xl md:text-4xl font-light tabular-nums" id="stat-kitchen">0</p>
+                        <p class="text-[10px] md:text-[11px] text-white/60 mt-1 md:mt-2">Florida kitchen</p>
+                    </div>
+                </div>
+                <p class="mt-4 md:mt-8 text-xs md:text-sm text-white/75 leading-relaxed">Wild-harvested in Antigua &amp; St. Lucia. Gelled organic in Orlando. Delivery, ship, or pickup.</p>
+                <a href="wellness-calculator.html" class="mt-4 md:mt-6 inline-flex text-sm font-medium text-white/90 hover:text-white">Read your protocol →</a>
+            </div>
         </div>
     </div>
 </header>
@@ -242,6 +279,29 @@ window.addEventListener('load', initTailwind);
                 </div>
             </div>
         </div>
+    </div>
+</section>
+
+<!-- Ask Jane's AI — Grok-style bar + indexed wellness copy -->
+<section id="ask-jane" class="relative overflow-hidden py-14 md:py-20" itemscope itemtype="https://schema.org/SoftwareApplication" style="background-color:#07070c;background-image:linear-gradient(to bottom, rgba(38,11,58,.25), rgba(7,7,12,.55) 70%, #07070c), radial-gradient(ellipse 80% 60% at 50% 40%, rgba(94,0,137,.42), transparent 62%), radial-gradient(ellipse 50% 40% at 70% 20%, rgba(167,139,250,.22), transparent 50%), url('assets/images/vsit-galaxy.jpg');background-size:cover;background-position:center;">
+    <meta itemprop="name" content="Ask Jane's AI Holistic Wellness Bot">
+    <meta itemprop="applicationCategory" content="HealthApplication">
+    <meta itemprop="operatingSystem" content="Web">
+    <div class="relative max-w-3xl mx-auto px-5 text-center">
+        <p class="text-[11px] tracking-[0.35em] uppercase text-white/50">Holistic wellness AI · sea moss specialist</p>
+        <h2 class="mt-3 text-4xl md:text-6xl font-light text-white" style="font-family:'Cormorant Garamond',Georgia,serif;" itemprop="headline">Ask Jane’s AI</h2>
+        <p class="mt-4 text-white/70 text-sm md:text-base max-w-xl mx-auto leading-relaxed" itemprop="description">A holistic wellness AI bot specializing in wild-harvested sea moss and whole-body ritual — gels, juices, minerals, and how to take them. Educational, not medical advice.</p>
+        <p class="mt-3 text-[11px] md:text-xs tracking-wide text-white/45">Powered by Grok · xAI &nbsp;·&nbsp; Developed and trained by <a href="https://vsitlabs.com" target="_blank" rel="noopener" class="text-white/70 hover:text-white underline underline-offset-2">VSIT Labs</a></p>
+        <form id="ask-jane-form" class="mt-6 max-w-xl mx-auto flex items-center gap-2 rounded-full border border-white/15 bg-[#1a0d2b]/80 shadow-[0_0_48px_rgba(94,0,137,0.55)] px-2.5 py-1.5 backdrop-blur-md text-left" onsubmit="return submitAskJaneBar(event)">
+            <span class="shrink-0 w-8 h-8 rounded-full bg-gradient-to-br from-[#7c3aed] to-[#260B3A] flex items-center justify-center text-white text-xs">✦</span>
+            <div class="relative flex-1 min-w-0">
+                <span id="ask-jane-ghost" class="pointer-events-none absolute inset-0 flex items-center text-white/40 text-sm italic truncate pr-2" style="font-family:'Cormorant Garamond',Georgia,serif;"></span>
+                <input id="ask-jane-input" type="text" autocomplete="off" placeholder="" class="relative z-10 w-full bg-transparent text-white text-sm py-1.5 focus:outline-none" style="font-family:'Cormorant Garamond',Georgia,serif;">
+            </div>
+            <button type="submit" class="shrink-0 w-8 h-8 rounded-full bg-[#5E0089] hover:bg-[#7c3aed] text-white flex items-center justify-center transition-colors" aria-label="Ask Jane's AI">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </button>
+        </form>
     </div>
 </section>
 
@@ -331,19 +391,13 @@ window.addEventListener('load', initTailwind);
             <h2 class="text-4xl md:text-5xl font-light tracking-tight">Begin Your Wellness Journey</h2>
             <p class="text-gray-600 mt-4">Tools, guidance &amp; fresh sea moss — all designed to support your body’s natural intelligence.</p>
         </div>
-        <div class="grid md:grid-cols-3 gap-8">
+        <div class="grid md:grid-cols-2 gap-8">
             <a href="wellness-calculator.html" class="group bg-white rounded-3xl p-10 shadow hover:shadow-2xl transition-all flex flex-col h-full">
                 <div class="text-6xl mb-6">🧪</div>
                 <h3 class="text-3xl font-medium mb-3">Sea Moss Wellness Calculator</h3>
                 <p class="text-gray-600 flex-1">Get personalized recommendations in seconds.</p>
                 <div class="mt-6 text-purple font-medium group-hover:underline">Take the quiz →</div>
             </a>
-            <div onclick="showAIChat()" class="group bg-white rounded-3xl p-10 shadow hover:shadow-2xl transition-all flex flex-col h-full cursor-pointer">
-                <div class="text-6xl mb-6">🌿</div>
-                <h3 class="text-3xl font-medium mb-3">Ask Jane's AI</h3>
-                <p class="text-gray-600 flex-1">Chat with our holistic AI guide specialized in sea moss &amp; wellness.</p>
-                <div class="mt-6 text-purple font-medium group-hover:underline">Start chatting →</div>
-            </div>
             <a href="pickup-delivery.html" class="group bg-gradient-to-br from-purple/5 to-lightpurple/40 border-2 border-purple/20 rounded-3xl p-10 shadow hover:shadow-2xl transition-all flex flex-col h-full">
                 <div class="text-6xl mb-6">🚚</div>
                 <h3 class="text-3xl font-medium mb-3">Delivery just launched</h3>
@@ -509,8 +563,22 @@ function typeWriterEffect() {
     setTimeout(typeWriterEffect, typeSpeed);
 }
 
+function countUp(id, end, ms) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    const start = performance.now();
+    function tick(now) {
+        const t = Math.min(1, (now - start) / ms);
+        el.textContent = Math.round(end * (1 - Math.pow(1 - t, 3)));
+        if (t < 1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+}
 window.addEventListener('load', () => {
     if (typewriterElement) typeWriterEffect();
+    countUp('stat-minerals', 92, 1400);
+    countUp('stat-days', 1, 900);
+    countUp('stat-kitchen', 1, 700);
 });
 
 // ========== CART SYSTEM ==========
@@ -672,12 +740,15 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-// Jane's AI Chat
+// Jane's AI Chat — holistic sea moss specialist (Grok hook + kitchen brain)
+const JANE_AI_ENDPOINT = 'https://janesse-seamoss-backend.onrender.com/ask-jane';
+let janeChatHistory = [];
+
 function showAIChat() {
     document.getElementById('ai-chat-modal').classList.remove('hidden');
     const messagesContainer = document.getElementById('chat-messages');
     if (messagesContainer.children.length === 0) {
-        addAIMessage("Hi! I'm Jane's AI. I can help you with sea moss benefits, recipes, which blend is best for you, or any wellness questions. How can I support you today?");
+        addAIMessage("I’m Jane’s AI — a holistic wellness bot for wild-harvested sea moss. Gels, juices, minerals, daily ritual, delivery, shipping. Educational, not medical advice. What do you want from the moss today?");
     }
 }
 
@@ -703,24 +774,182 @@ function addAIMessage(message) {
     container.scrollTop = container.scrollHeight;
 }
 
-function sendMessage() {
+async function sendMessage() {
     const input = document.getElementById('chat-input');
     const message = input.value.trim();
     if (!message) return;
     addUserMessage(message);
     input.value = '';
-    setTimeout(() => {
-        let response = getAIResponse(message.toLowerCase());
-        addAIMessage(response);
-    }, 800);
+    janeChatHistory.push({ role: 'user', content: message });
+    addAIMessage('…');
+    const container = document.getElementById('chat-messages');
+    const pending = container.lastElementChild;
+    let reply = '';
+    try {
+        reply = await askJaneLive(message);
+    } catch (err) {
+        reply = getAIResponse(message);
+    }
+    if (pending) pending.textContent = reply;
+    janeChatHistory.push({ role: 'assistant', content: reply });
+    container.scrollTop = container.scrollHeight;
+}
+
+async function askJaneLive(message) {
+    const ctrl = new AbortController();
+    const t = setTimeout(function () { ctrl.abort(); }, 8000);
+    try {
+        const res = await fetch(JANE_AI_ENDPOINT, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            signal: ctrl.signal,
+            body: JSON.stringify({
+                message: message,
+                history: janeChatHistory.slice(-8),
+                source: 'janesseamosshealing.com'
+            })
+        });
+        clearTimeout(t);
+        if (!res.ok) return getAIResponse(message);
+        const data = await res.json();
+        const text = data.reply || data.message || data.content || '';
+        return text.trim() || getAIResponse(message);
+    } catch (e) {
+        clearTimeout(t);
+        return getAIResponse(message);
+    }
+}
+
+const askJanePrompts = [
+    "Which sea moss gel supports morning energy?",
+    "How do I take sea moss gel the first week?",
+    "Moon Cycle or Joint Relief — what’s the difference?",
+    "Can I get sea moss delivered in Orlando?",
+    "What minerals are in wild-harvested Irish moss?",
+    "Mango gel or sea moss juice for daily use?",
+    "Does Jane’s ship sea moss outside Central Florida?"
+];
+let askJaneGhostLive = true;
+let askJanePromptIndex = 0;
+let askJaneChar = 0;
+let askJaneDeleting = false;
+function runAskJaneGhost() {
+    const ghost = document.getElementById('ask-jane-ghost');
+    const input = document.getElementById('ask-jane-input');
+    if (!ghost || !input) return;
+    if (!askJaneGhostLive || document.activeElement === input || input.value) {
+        ghost.textContent = '';
+        setTimeout(runAskJaneGhost, 400);
+        return;
+    }
+    const phrase = askJanePrompts[askJanePromptIndex];
+    if (askJaneDeleting) {
+        askJaneChar = Math.max(0, askJaneChar - 1);
+        ghost.textContent = phrase.slice(0, askJaneChar);
+        if (askJaneChar === 0) {
+            askJaneDeleting = false;
+            askJanePromptIndex = (askJanePromptIndex + 1) % askJanePrompts.length;
+            setTimeout(runAskJaneGhost, 400);
+            return;
+        }
+        setTimeout(runAskJaneGhost, 28);
+        return;
+    }
+    askJaneChar += 1;
+    ghost.textContent = phrase.slice(0, askJaneChar);
+    if (askJaneChar >= phrase.length) {
+        askJaneDeleting = true;
+        setTimeout(runAskJaneGhost, 2200);
+        return;
+    }
+    setTimeout(runAskJaneGhost, 42);
+}
+window.addEventListener('load', function () {
+    const input = document.getElementById('ask-jane-input');
+    const ghost = document.getElementById('ask-jane-ghost');
+    if (input) {
+        input.addEventListener('focus', function () {
+            askJaneGhostLive = false;
+            if (ghost) ghost.textContent = '';
+        });
+        input.addEventListener('blur', function () {
+            if (!input.value.trim()) {
+                askJaneGhostLive = true;
+                askJaneDeleting = false;
+                askJaneChar = 0;
+            }
+        });
+        input.addEventListener('input', function () {
+            if (input.value) {
+                askJaneGhostLive = false;
+                if (ghost) ghost.textContent = '';
+            }
+        });
+    }
+    runAskJaneGhost();
+});
+
+function submitAskJaneBar(e) {
+    e.preventDefault();
+    const bar = document.getElementById('ask-jane-input');
+    const message = (bar && bar.value.trim()) || '';
+    if (!message) {
+        showAIChat();
+        return false;
+    }
+    showAIChat();
+    const modalInput = document.getElementById('chat-input');
+    if (modalInput) modalInput.value = message;
+    bar.value = '';
+    sendMessage();
+    return false;
 }
 
 function getAIResponse(message) {
-    if (message.includes('energy') || message.includes('tired')) return "Sea moss is excellent for natural energy! Many people notice improved stamina within 1–2 weeks. The Passionfruit and Mango blends are popular for daily energy.";
-    if (message.includes('skin') || message.includes('glow')) return "Sea moss supports skin health from within thanks to its high mineral content. Our Moon Cycle Moss and regular gels are great for this. Consistent use often leads to clearer, more radiant skin.";
-    if (message.includes('recipe') || message.includes('how to use')) return "You can blend it into smoothies, make a gel, or even use it in teas. Would you like a simple daily recipe recommendation?";
-    if (message.includes('best') || message.includes('recommend')) return "It depends on your goals! For general wellness, I recommend starting with Mango or Passionfruit. For hormonal support, Moon Cycle Moss is excellent. What are you hoping to improve?";
-    return "That's a great question! Sea moss is incredibly versatile. Could you tell me more about what you're looking to support (energy, digestion, skin, etc.)?";
+    const q = (message || '').toLowerCase();
+    const parts = [];
+
+    if (/who are you|what are you|grok|vsit|bot/.test(q)) {
+        parts.push("I’m Jane’s holistic wellness AI — sea moss first. Powered by Grok / xAI, developed and trained by VSIT Labs for this kitchen. I map goals to real jars, not generic supplement talk.");
+    }
+    if (/deliver|door|orlando|tampa|ship|pickup|michigan|zip/.test(q)) {
+        parts.push("Three ways: Central Florida local delivery, shipping on every gel and juice, or pickup at 1020 W Michigan St, Orlando. Website checkout is ready for those paths. Say your city and I’ll point you.");
+    }
+    if (/energy|tired|fatigue|vital/.test(q)) {
+        parts.push("For morning energy, start with Mango or Passionfruit gel — 1–2 tablespoons first thing. Guests here usually feel the mineral lift in 1–2 days because the moss stays in its raw, organic state. Pair with warm lemon water, not a huge smoothie on day one.");
+    }
+    if (/joint|inflam|soreness|workout|fitness|recover/.test(q)) {
+        parts.push("Joint Relief / herb-infused gels and the Fitness Recovery line are the kitchen pick after training. Same daily spoon. Sea moss is food with minerals — not a pain drug. Give it a consistent week.");
+    }
+    if (/hormone|cycle|moon|pms|women/.test(q)) {
+        parts.push("Moon Cycle Moss is the blend we point to for a monthly rhythm. Still 1–2 tablespoons daily. If you want a tighter map, take the 2-minute Wellness Quiz — it reads your goals and names a jar.");
+    }
+    if (/skin|glow|face|topical/.test(q)) {
+        parts.push("Two lanes: eat the fruit gels for minerals from within, and use the skincare gels on clean skin. Don’t expect a filter overnight; most people notice the face when they stay consistent.");
+    }
+    if (/juice|drink|12oz|32oz|subscribe/.test(q)) {
+        parts.push("Juices are made fresh weekly — 12oz and 32oz, one-time or a weekly subscription you can pause. Mango, passionfruit, blackberry. Better if you want something ready than scooping gel.");
+    }
+    if (/how (do|to) (i )?take|use|dose|tablespoon|recipe|smoothie|lemon/.test(q)) {
+        parts.push("Kitchen ritual: 1–2 tablespoons of gel in the morning, warm water or lemon water. 21 days is the absorption window we teach; a lot of our people say they notice something in 1–2 days. Don’t cook the gel hard — keep it living.");
+    }
+    if (/mineral|92|irish|antigua|st\.? lucia|wild/.test(q)) {
+        parts.push("Wild-harvested in Antigua and St. Lucia, gelled in our Orlando kitchen. The moss is the 92+ mineral food. We don’t grow it in a tank.");
+    }
+    if (/quiz|calculator|protocol|which (jar|blend|one)/.test(q) || (/best|recommend/.test(q) && parts.length === 0)) {
+        parts.push("If you want a named protocol, open the Sea Moss Wellness Quiz — two minutes, then it points you to a real SKU in Shop or Build Your Blend. Tell me energy, joints, cycle, skin, or daily mineral and I’ll short-list here too.");
+    }
+    if (/price|cost|how much/.test(q)) {
+        parts.push("Gels and custom blends live on Shop / Build Your Blend. Juices start at $8 for 12oz and $20 for 32oz; weekly juice is $9 per bottle on the subscription. Open Shop for current jar prices.");
+    }
+    if (/wing|vegan house|local plates|hungry|food menu/.test(q)) {
+        parts.push("Local plates is a separate Central Florida kitchen menu — not the sea moss shop. If you’re nearby and want food, it’s on the Local plates page. Everyone else: gels, juices, delivery, shipping.");
+    }
+    if (!parts.length) {
+        parts.push("Ask me like a kitchen: energy, joints, cycle, skin, how to take it, delivery, or shipping. I’ll name a Jane’s gel or juice. For a full protocol, take the Wellness Quiz on this site.");
+    }
+    parts.push("Educational only — not a diagnosis.");
+    return parts.join(' ');
 }
 
 document.addEventListener('keypress', function(e) {
