@@ -288,42 +288,52 @@ window.addEventListener('load', initTailwind);
             <h2 class="text-5xl md:text-6xl font-light tracking-tight">Sea Moss Juices</h2>
         </div>
 
-        <div class="relative max-w-4xl mx-auto">
-        <div class="absolute inset-0 z-10 rounded-[2rem] bg-white/40 backdrop-blur-[4px] flex flex-col items-center justify-center pointer-events-auto gap-3">
-            <p class="text-deep text-xs md:text-sm tracking-[0.35em] uppercase">Coming soon</p>
-            <button type="button" onclick="showJuiceSpot()" class="text-purple text-sm underline underline-offset-4">Lock my spot</button>
-        </div>
-        <div class="grid md:grid-cols-2 gap-10 pointer-events-none select-none">
+        <div class="grid md:grid-cols-2 gap-10 max-w-4xl mx-auto">
 
             <div class="border border-gray-100 rounded-3xl p-8">
                 <h3 class="text-2xl font-medium text-center">One bottle</h3>
                 <p class="text-center text-sm text-gray-500 mt-2">Tap a size</p>
                 <img src="assets/images/seamossjuice.jpg" alt="Sea moss juice" class="juice-jug mx-auto mt-6 h-40 object-contain">
                 <div class="mt-6 grid grid-cols-3 gap-2">
-                    <button type="button" class="juice-size py-3 rounded-2xl border text-sm" data-oz="12">12oz<br>$8</button>
-                    <button type="button" class="juice-size py-3 rounded-2xl border text-sm border-purple bg-purple/10" data-oz="16">16oz<br>$10</button>
-                    <button type="button" class="juice-size py-3 rounded-2xl border text-sm" data-oz="32">32oz<br>$20</button>
+                    <button type="button" onclick="setJuiceFlavor('Mango')" id="ot-flav-Mango" class="py-2 rounded-full border-2 border-purple bg-purple/10 text-purple text-xs">Mango</button>
+                    <button type="button" onclick="setJuiceFlavor('Pineapple')" id="ot-flav-Pineapple" class="py-2 rounded-full border-2 border-purple text-purple text-xs">Pineapple</button>
+                    <button type="button" onclick="setJuiceFlavor('Blackberry')" id="ot-flav-Blackberry" class="py-2 rounded-full border-2 border-purple text-purple text-xs">Blackberry</button>
+                </div>
+                <div class="mt-4 grid grid-cols-2 gap-2">
+                    <button type="button" onclick="pickJuiceSize(16)" class="juice-size py-3 rounded-2xl border text-sm" data-oz="16">16oz<br>$10</button>
+                    <button type="button" onclick="pickJuiceSize(32)" class="juice-size py-3 rounded-2xl border text-sm" data-oz="32">32oz<br>$21</button>
+                </div>
+                <div id="onetime-panel" class="hidden mt-6 text-center">
+                    <p class="font-medium"><span id="onetime-label">16oz</span> · $<span id="onetime-price">10</span></p>
+                    <div class="flex items-center justify-center gap-5 mt-4">
+                        <button type="button" onclick="changePickedQty(-1)" class="w-9 h-9 border rounded-full">−</button>
+                        <span id="onetime-qty" class="text-2xl font-semibold w-8">1</span>
+                        <button type="button" onclick="changePickedQty(1)" class="w-9 h-9 border rounded-full">+</button>
+                    </div>
+                    <button type="button" onclick="addPickedJuice()" class="mt-5 w-full border border-purple text-purple hover:bg-purple hover:text-white py-3 rounded-3xl font-semibold">Add — $<span id="onetime-total">10</span></button>
                 </div>
             </div>
 
-            <div class="border-2 border-purple rounded-3xl p-10 bg-gradient-to-br from-purple/5 to-white">
-                <div class="text-center mb-6">
-                    <h3 class="text-3xl font-semibold">Jane’s Juice Club</h3>
-                    <p class="mt-3 text-sm text-gray-600">Weekly plan. Discounted delivery when it opens.</p>
+            <div class="relative border-2 border-purple rounded-3xl overflow-hidden bg-gradient-to-b from-[#EAD5F8]/40 to-white min-h-[420px]">
+                <div class="pointer-events-none select-none p-8 md:p-10">
+                    <p class="text-[11px] tracking-[0.28em] uppercase text-purple">Weekly subscription</p>
+                    <h3 class="mt-2 text-3xl font-medium">Jane’s Juice Club</h3>
+                    <p class="mt-2 text-sm text-gray-600">Same bottle every week. Stripe bills weekly. Pause anytime.</p>
+                    <p class="mt-6 text-5xl font-light text-deep">$10<span class="text-lg text-gray-500">/week</span></p>
+                    <p class="text-sm text-gray-500">16oz · or $21/week for 32oz</p>
+                    <ul class="mt-6 text-sm text-gray-700 space-y-2 text-left">
+                        <li>Mango · Pineapple · Blackberry</li>
+                        <li>Discounted delivery on the plan</li>
+                        <li>Fresh from the Orlando kitchen</li>
+                    </ul>
+                    <div class="mt-8 w-full bg-purple text-white py-4 rounded-3xl text-center font-semibold">Subscribe weekly</div>
                 </div>
-                <div class="grid grid-cols-3 gap-2 mb-6">
-                    <button type="button" class="py-2 rounded-2xl border text-xs">12oz · $8</button>
-                    <button type="button" class="py-2 rounded-2xl border text-xs border-purple bg-purple/10">16oz · $10</button>
-                    <button type="button" class="py-2 rounded-2xl border text-xs">32oz · $20</button>
+                <div class="absolute inset-0 bg-white/50 backdrop-blur-[5px] flex flex-col items-center justify-center px-6 text-center">
+                    <p class="text-deep text-lg md:text-xl font-medium">Coming soon</p>
+                    <p class="mt-2 text-sm text-gray-600 max-w-xs">Weekly juice subscription isn’t billing yet. Lock your spot and Jane will reach you on launch day.</p>
+                    <button type="button" onclick="showJuiceSpot()" class="mt-5 bg-deep text-white px-6 py-3 rounded-full text-sm font-medium">Lock my spot</button>
                 </div>
-                <div class="flex justify-center gap-2 flex-wrap mb-6">
-                    <span class="px-4 py-2 rounded-full border-2 border-purple bg-purple/10 text-purple text-sm">Mango</span>
-                    <span class="px-4 py-2 rounded-full border-2 border-purple text-purple text-sm">Pineapple</span>
-                    <span class="px-4 py-2 rounded-full border-2 border-purple text-purple text-sm">Blackberry</span>
-                </div>
-                <p class="text-center text-4xl font-light">$10<span class="text-base">/week</span></p>
             </div>
-        </div>
         </div>
 
         <div class="max-w-xl mx-auto mt-16 border border-dashed border-purple/40 rounded-3xl p-8 text-center bg-lightpurple/20">
@@ -645,9 +655,20 @@ async function proceedToCheckout() {
     }
 }
 
-const JUICE_PRICES = { 12: 8, 16: 10, 32: 20 };
+const JUICE_PRICES = { 16: 10, 32: 21 };
 let pickedOz = 16;
 let pickedQty = 1;
+let pickedFlavor = 'Mango';
+function setJuiceFlavor(name) {
+    pickedFlavor = name;
+    ['Mango', 'Pineapple', 'Blackberry'].forEach(function (f) {
+        const el = document.getElementById('ot-flav-' + f);
+        if (!el) return;
+        el.className = f === name
+            ? 'py-2 rounded-full border-2 border-purple bg-purple/10 text-purple text-xs'
+            : 'py-2 rounded-full border-2 border-purple text-purple text-xs';
+    });
+}
 
 function pickJuiceSize(oz) {
     pickedOz = oz;
@@ -675,9 +696,9 @@ function syncPickedJuice() {
 function addPickedJuice() {
     addToCart({
         id: 'juice-' + pickedOz + '-' + Date.now(),
-        name: pickedQty + 'x ' + pickedOz + 'oz Sea Moss Juice',
+        name: pickedQty + 'x ' + pickedFlavor + ' ' + pickedOz + 'oz Sea Moss Juice',
         price: JUICE_PRICES[pickedOz] * pickedQty,
-        details: 'One-time • standard delivery'
+        details: 'One-time • ' + pickedFlavor + ' • standard delivery'
     });
 }
 
