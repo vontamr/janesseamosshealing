@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Order Food Near Me in Orlando, Winter Haven &amp; Holiday | Jane's Licensed Kitchen</title>
-<meta name="description" content="Order food near me in Orlando, Winter Haven, Lake Alfred, and Holiday. Jane's licensed kitchen: Chicken Wing House, Vegan House, and fresh sea moss drinks. Free pickup or Central Florida delivery. Call 407-752-7864.">
+<meta name="description" content="Order food near me in Orlando, Winter Haven, Lake Alfred, Holiday, and Dundee. Jane's licensed kitchen: Chicken Wing House, Vegan House, and Dundee Philly Cheesesteak. Free pickup or Central Florida delivery. Call 407-752-7864.">
 <link rel="canonical" href="https://janesseamosshealing.com/local-delivery-menu.html">
 <meta property="og:title" content="Order Food Near Me in Orlando | Jane's Licensed Kitchen">
 <meta property="og:description" content="Wings or vegan plates plus a weekly sea moss drink. Pickup free in Orlando, Winter Haven, Lake Alfred, Holiday.">
@@ -15,7 +15,7 @@
 <meta property="og:url" content="https://janesseamosshealing.com/local-delivery-menu.html">
 <meta property="og:type" content="website">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"FoodEstablishment","name":"Jane's Seamoss Creations and More LLC","alternateName":"Jane's Local Kitchens","url":"https://janesseamosshealing.com/local-delivery-menu.html","telephone":"+14077527864","address":{"@type":"PostalAddress","streetAddress":"1020 W Michigan St","addressLocality":"Orlando","addressRegion":"FL","postalCode":"32805","addressCountry":"US"},"areaServed":["Orlando FL","Winter Haven FL","Lake Alfred FL","Holiday FL","Central Florida"],"servesCuisine":["Clean food","American","Vegan","Caribbean sea moss drinks"],"hasMenu":"https://janesseamosshealing.com/local-delivery-menu.html","priceRange":"$","hasCredential":"Florida DBPR NOS5816692"}
+{"@context":"https://schema.org","@type":"FoodEstablishment","name":"Jane's Seamoss Creations and More LLC","alternateName":"Jane's Local Kitchens","url":"https://janesseamosshealing.com/local-delivery-menu.html","telephone":"+14077527864","address":{"@type":"PostalAddress","streetAddress":"1020 W Michigan St","addressLocality":"Orlando","addressRegion":"FL","postalCode":"32805","addressCountry":"US"},"areaServed":["Orlando FL","Winter Haven FL","Lake Alfred FL","Holiday FL","Dundee FL","Central Florida"],"servesCuisine":["Clean food","American","Vegan","Philly cheesesteak","Caribbean sea moss drinks"],"hasMenu":"https://janesseamosshealing.com/local-delivery-menu.html","priceRange":"$","hasCredential":"Florida DBPR NOS5816692"}
 </script>
 <script src="https://cdn.tailwindcss.com"></script>
 <script src="https://js.stripe.com/v3/" defer></script>
@@ -112,7 +112,7 @@ video { background: #260B3A; }
     <div class="max-w-3xl mx-auto px-4 pt-5 pb-4">
       <p class="eyebrow text-[11px] text-[#5E0089] font-semibold">Food near me · <span id="live-city" class="city-live">Orlando</span></p>
       <h1 class="display text-[2.15rem] sm:text-4xl mt-2">Order food near you<br><span class="live-ink italic">from Jane’s kitchen.</span></h1>
-      <p class="text-sm text-gray-600 mt-3 max-w-xl">Orlando, Winter Haven, Lake Alfred, Holiday. One licensed cook. Wings or vegan plates. Always a 16oz sea moss drink. No app fee.</p>
+      <p class="text-sm text-gray-600 mt-3 max-w-xl">Orlando, Winter Haven, Lake Alfred, Holiday, and Dundee. One licensed cook. Wings, vegan plates, or a fresh-griddled Philly. No app fee.</p>
       <ol class="mt-4 grid grid-cols-3 gap-2 text-center text-[11px] text-gray-600">
         <li class="bg-[#EAD5F8]/50 rounded-2xl py-3 px-1"><span class="block font-semibold text-[#260B3A] text-sm">1</span>Choose a house</li>
         <li class="bg-[#EAD5F8]/50 rounded-2xl py-3 px-1"><span class="block font-semibold text-[#260B3A] text-sm">2</span>Add plate + drink</li>
@@ -120,7 +120,7 @@ video { background: #260B3A; }
       </ol>
       <div class="mt-4 relative">
         <label class="sr-only" for="kitchen-ask">What are you hungry for</label>
-        <input id="kitchen-ask" type="search" placeholder="Wings, vegan, or a sea moss drink?" class="w-full rounded-2xl border border-gray-200 bg-[#fafafa] px-4 py-3 text-sm pr-24">
+        <input id="kitchen-ask" type="search" placeholder="Wings, vegan, or a Philly?" class="w-full rounded-2xl border border-gray-200 bg-[#fafafa] px-4 py-3 text-sm pr-24">
         <button type="button" id="kitchen-ask-btn" class="absolute right-2 top-1.5 text-xs bg-[#260B3A] text-white px-3 py-2 rounded-xl">Find it</button>
       </div>
       <p id="ask-reply" class="hidden mt-3 text-sm bg-[#EAD5F8]/40 rounded-2xl px-4 py-3"></p>
@@ -140,6 +140,15 @@ video { background: #260B3A; }
         <p class="display text-xl mt-1">Sandwich + drink</p>
         <p class="text-xs text-gray-500 mt-1">Vegan plate · 16oz moss</p>
         <p class="text-sm font-semibold mt-2">from $24.25</p>
+      </button>
+      <button type="button" class="open-kitchen text-left bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 col-span-2" data-kitchen="philly-house">
+        <img src="assets/images/philly-cheesesteak.jpg" alt="Loaded Philly cheesesteak with melted provolone, steak, peppers, and onions" class="w-full h-40 object-cover">
+        <div class="p-4">
+          <p class="text-[11px] text-[#8a3b12] font-semibold">Dundee · most ordered steak</p>
+          <p class="display text-xl mt-1">Dave’s Loaded Philly</p>
+          <p class="text-xs text-gray-500 mt-1">Steak, extra cheese, mushrooms, jalapeños · no drink</p>
+          <p class="text-sm font-semibold mt-2">$14</p>
+        </div>
       </button>
     </div>
     <p class="text-xs font-semibold tracking-wide uppercase text-gray-500 mb-2">Or swipe a house</p>
@@ -186,9 +195,28 @@ video { background: #260B3A; }
         <p class="text-xs text-gray-500 mt-3">Plant-based comfort · 25–40 min · Same licensed kitchen</p>
       </div>
     </div>
+    <div class="open-kitchen snap-start shrink-0 w-[78%] text-left bg-white rounded-2xl overflow-hidden shadow-sm cursor-pointer" data-kitchen="philly-house" role="button" tabindex="0">
+      <div class="relative h-36 bg-[#1c120c] pointer-events-none">
+        <img src="assets/images/phillycheese.jpg" alt="Philly cheesesteak on a toasted hoagie" class="absolute inset-0 w-full h-full object-cover">
+        <div class="absolute inset-0 bg-gradient-to-t from-[#1c120c]/50 to-transparent"></div>
+        <div class="absolute bottom-3 left-3">
+          <span class="icon-ring w-9 h-9 rounded-full bg-[#8a3b12] text-white flex items-center justify-center text-sm font-semibold">P</span>
+        </div>
+      </div>
+      <div class="p-4">
+        <div class="flex items-start justify-between gap-3">
+          <div>
+            <p class="display text-2xl">Dundee Philly</p>
+            <p class="text-sm text-gray-500 mt-0.5">Cheesesteaks · Fries · Onion rings · No drinks</p>
+          </div>
+          <span class="text-xs bg-[#f3e6d8] text-[#8a3b12] px-2 py-1 rounded-full shrink-0">Pre-order</span>
+        </div>
+        <p class="text-xs text-gray-500 mt-3">Dundee pickup · $5 within 10 miles · free over $50</p>
+      </div>
     </div>
     </div>
-    <p class="text-xs text-gray-500 px-1 mt-4">Central Florida only. Pickup free: Orlando, Winter Haven, Lake Alfred, Holiday. Gels ship from Shop.</p>
+    </div>
+    <p class="text-xs text-gray-500 px-1 mt-4">Central Florida only. Pickup free: Orlando, Winter Haven, Lake Alfred, Holiday. Dundee Philly is pickup in Dundee, or $5 delivery within 10 miles. Gels ship from Shop.</p>
 
     <section class="mt-8 space-y-4">
       <div class="bg-white rounded-2xl p-5 shadow-sm">
@@ -201,8 +229,8 @@ video { background: #260B3A; }
         </ul>
       </div>
       <div class="bg-white rounded-2xl p-5 shadow-sm">
-        <h2 class="display text-2xl">Food near me in Orlando, Winter Haven, Lake Alfred &amp; Holiday</h2>
-        <p class="text-sm text-gray-600 mt-2">Jane’s Seamoss Creations is the licensed kitchen at 1020 W Michigan St, Orlando. Order wings, vegan plates, and weekly sea moss drinks for pickup or Central Florida delivery. Call <a class="text-[#5E0089] font-semibold" href="tel:+14077527864">407-752-7864</a>.</p>
+        <h2 class="display text-2xl">Food near me in Orlando, Winter Haven, Lake Alfred, Holiday & Dundee</h2>
+        <p class="text-sm text-gray-600 mt-2">Jane’s Seamoss Creations is the licensed kitchen at 1020 W Michigan St, Orlando. Order wings, vegan plates, or a Dundee Philly for pickup or local delivery. Call <a class="text-[#5E0089] font-semibold" href="tel:+14077527864">407-752-7864</a>.</p>
       </div>
     </section>
   </main>
@@ -378,6 +406,35 @@ const KITCHENS = {
       { id: 'bowls', title: 'Bowls' },
       { id: 'sweet', title: 'Sweet finish' },
       { id: 'drinks', title: 'Add a drink' }
+    ]
+  },
+  'philly-house': {
+    id: 'philly-house',
+    name: 'Dundee Philly',
+    icon: 'P',
+    iconBg: 'bg-[#8a3b12]',
+    kicker: 'Dundee · Polk County · fresh-griddled',
+    sub: 'On-site cheesesteaks. Hours 3 PM–6 AM — text first, hours change. Must pre-order. No drinks on this menu.',
+    hero: '<img src="assets/images/phillycheese.jpg" alt="Loaded Philly cheesesteak with melted cheese, steak, peppers, and onions" class="absolute inset-0 w-full h-full object-cover">',
+    tabs: [
+      { href: '#steaks', label: 'Steaks' },
+      { href: '#sides', label: 'Sides' }
+    ],
+    items: {
+      'classic-philly': { name: 'Classic Philly', desc: 'Thin-sliced steak, onions, peppers, provolone on a toasted hoagie.', price: 12, img: 'assets/images/philly-cheesesteak.jpg', size: false, section: 'steaks' },
+      'loaded-philly': { name: "Dave's Loaded Philly", desc: 'Steak, extra cheese, mushrooms, jalapeños — Dave’s house way.', price: 14, img: 'assets/images/philly-cheesesteak.jpg', size: false, section: 'steaks' },
+      'chicken-cheesesteak': { name: 'Chicken Cheesesteak', desc: 'Grilled chicken, onions, peppers, provolone or American.', price: 12, img: 'assets/images/philly-cheesesteak.jpg', size: false, section: 'steaks' },
+      'veggie-cheesesteak': { name: 'Veggie Cheesesteak', desc: 'Peppers, onions, mushrooms, provolone on a toasted hoagie.', price: 11, img: 'assets/images/philly-cheesesteak.jpg', size: false, section: 'steaks' },
+      'philly-combo': { name: 'Philly Combo', desc: 'Any steak plus seasoned fries. Drink not included.', price: 16, img: 'assets/images/philly-cheesesteak.jpg', size: false, section: 'steaks' },
+      'seasoned-fries': { name: 'Seasoned Fries', desc: 'Hot off the griddle.', price: 3, img: 'assets/images/winghouse-fries.jpg', size: false, section: 'sides' },
+      'cheese-fries': { name: 'Cheese Fries', desc: 'Seasoned fries with melted cheese.', price: 4, img: 'assets/images/winghouse-fries.jpg', size: false, section: 'sides' },
+      'onion-rings': { name: 'Onion Rings', desc: 'Crisp rings.', price: 4, img: 'assets/images/winghouse-fries.jpg', size: false, section: 'sides' },
+      'side-salad': { name: 'Side Salad', desc: 'Cool side for the steak.', price: 4, img: 'assets/images/vegan-chili-bowl.jpg', size: false, section: 'sides' },
+      'extra-cheese': { name: 'Extra Cheese / Peppers', desc: 'Add to any steak.', price: 1.5, img: 'assets/images/philly-cheesesteak.jpg', size: false, section: 'sides' }
+    },
+    sections: [
+      { id: 'steaks', title: 'The steaks', note: 'Fresh-griddled in Dundee. Text 407-752-7864 to confirm hours.' },
+      { id: 'sides', title: 'Sides' }
     ]
   }
 };
@@ -602,7 +659,7 @@ document.getElementById('opt-pickup').addEventListener('click', function() {
     id: 'pickup',
     name: 'Free store pickup',
     price: 0,
-    details: 'Orlando · Winter Haven · Lake Alfred · Holiday',
+    details: cart[0].kitchenId === 'philly-house' ? 'Dundee pickup · must pre-order · text to confirm hours' : 'Orlando · Winter Haven · Lake Alfred · Holiday',
     kitchenId: cart[0].kitchenId,
     kitchenName: cart[0].kitchenName
   }]);
@@ -705,13 +762,19 @@ document.getElementById('use-location').addEventListener('click', function() {
 document.getElementById('checkout-btn').addEventListener('click', function() {
   if (!cart.length) return;
   var addr = readAddressForm();
-  var fee = centralFloridaFee(addr.zip);
+  var foodTotal = cart.filter(function(i) { return i.id !== 'delivery-fee' && i.id !== 'pickup' && i.id !== 'delivery-address'; }).reduce(function(s, i) { return s + Number(i.price || 0); }, 0);
+  var isPhilly = cart[0] && cart[0].kitchenId === 'philly-house';
+  var fee = isPhilly ? (foodTotal >= 50 ? 0 : 5) : centralFloridaFee(addr.zip);
   if (!addr.street || addr.street.length < 5) {
     setZipMsg('Add the street so the driver can find the door.');
     document.getElementById('order-street').focus();
     return;
   }
-  if (!fee) {
+  if (isPhilly && addr.zip && addr.zip.substring(0, 3) !== '338') {
+    setZipMsg('Dundee delivery is $5 within 10 miles (Polk / 338). Outside that, choose Dundee pickup.');
+    return;
+  }
+  if (!isPhilly && !fee && fee !== 0) {
     setZipMsg('Not in our delivery map. Try pickup or a Central Florida ZIP.');
     return;
   }
@@ -720,7 +783,7 @@ document.getElementById('checkout-btn').addEventListener('click', function() {
   var payCart = cart.filter(function(i) { return i.id !== 'delivery-fee' && i.id !== 'pickup' && i.id !== 'delivery-address'; }).concat([
     {
       id: 'delivery-fee',
-      name: 'Central Florida delivery',
+      name: isPhilly ? (fee ? 'Dundee delivery · within 10 miles' : 'Free Dundee delivery · $50+') : 'Central Florida delivery',
       price: fee,
       details: addr.line,
       kitchenId: cart[0].kitchenId,
@@ -745,17 +808,20 @@ document.getElementById('checkout-btn').addEventListener('click', function() {
 function answerAsk() {
   var q = (document.getElementById('kitchen-ask').value || '').toLowerCase();
   var box = document.getElementById('ask-reply');
-  var msg = 'Pick Wing House or Vegan House, add a 16oz drink, then your ZIP. Stuck? Call 407-752-7864.';
-  if (/vegan|plant|chili|oatmeal|spaghetti|burger/.test(q)) {
+  var msg = 'Pick Wing House, Vegan House, or Dundee Philly, then ZIP or pickup. Stuck? Call 407-752-7864.';
+  if (/philly|cheesesteak|steak|dundee|hoagie|loaded/.test(q)) {
+    msg = 'Dundee Philly — Classic $12, Dave’s Loaded $14, chicken $12, veggie $11, combo with fries $16. No drinks. Pre-order, Dundee pickup, $5 within 10 miles, free over $50.';
+    location.hash = 'philly-house';
+  } else if (/vegan|plant|chili|oatmeal|spaghetti|burger/.test(q)) {
     msg = 'Vegan House — plant sandwich or burger $14.25, spaghetti $15.50, sea moss chili $10.50, oatmeal $4.50, 16oz drink $10. Swipe to the green V card.';
     location.hash = 'vegan-house';
   } else if (/wing|lemon|bbq|cajun|habanero|fries|soup/.test(q)) {
     msg = 'Chicken Wing House — 6pc from $13.99, house combo $28, soup $14, fries $6. Open the W card.';
     location.hash = 'wing-house';
   } else if (/moss|drink|juice|clean|mineral/.test(q)) {
-    msg = 'Every kitchen pours Jane’s 16oz sea moss drink, $10, fresh weekly. Add it after you pick a plate.';
+    msg = 'Wing House and Vegan House pour Jane’s 16oz sea moss drink, $10, fresh weekly. Dundee Philly does not include drinks.';
   } else if (/zip|deliver|pickup|orlando|haven|holiday/.test(q)) {
-    msg = 'Delivery only for Central Florida ZIPs (327, 328, 329, 347, 335, 336, 338, 346). Free pickup in Orlando, Winter Haven, Lake Alfred, Holiday.';
+    msg = 'Delivery for wings and vegan is Central Florida ZIPs (327, 328, 329, 347, 335, 336, 338, 346). Dundee Philly is $5 within 10 miles, free on $50+. Pickup in Orlando, Winter Haven, Lake Alfred, Holiday, or Dundee.';
   }
   box.textContent = msg;
   box.classList.remove('hidden');
@@ -783,7 +849,7 @@ function playAutoVideos() {
 (function liveCity() {
   var el = document.getElementById('live-city');
   if (!el) return;
-  var cities = ['Orlando', 'Winter Haven', 'Lake Alfred', 'Holiday'];
+  var cities = ['Orlando', 'Winter Haven', 'Lake Alfred', 'Holiday', 'Dundee'];
   var i = 0;
   setInterval(function() {
     i = (i + 1) % cities.length;
