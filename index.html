@@ -302,8 +302,8 @@ window.addEventListener('load', initTailwind);
                     <button type="button" onclick="setJuiceFlavor('Blackberry')" id="ot-flav-Blackberry" class="py-2 rounded-full border-2 border-purple text-purple text-xs">Blackberry</button>
                 </div>
                 <div class="mt-4 grid grid-cols-2 gap-2">
-                    <button type="button" onclick="pickJuiceSize(16)" class="juice-size py-3 rounded-2xl border text-sm" data-oz="16">16oz<br>$10</button>
-                    <button type="button" onclick="pickJuiceSize(32)" class="juice-size py-3 rounded-2xl border text-sm" data-oz="32">32oz<br>$21</button>
+                    <button type="button" onclick="pickJuiceSize(16)" ...>16oz<br>$10</button>
+                    <button type="button" onclick="pickJuiceSize(32)" ...>32oz<br>$19</button>
                 </div>
                 <div id="onetime-panel" class="hidden mt-6 text-center">
                     <p class="font-medium"><span id="onetime-label">16oz</span> · $<span id="onetime-price">10</span></p>
@@ -322,7 +322,7 @@ window.addEventListener('load', initTailwind);
                     <h3 class="mt-2 text-3xl font-medium">Jane’s Juice Club</h3>
                     <p class="mt-2 text-sm text-gray-600">Same bottle every week. Stripe bills weekly. Pause anytime.</p>
                     <p class="mt-6 text-5xl font-light text-deep">$10<span class="text-lg text-gray-500">/week</span></p>
-                    <p class="text-sm text-gray-500">16oz · or $21/week for 32oz</p>
+                    <p class="text-sm text-gray-500">16oz · or $19/week for 32oz</p>
                     <ul class="mt-6 text-sm text-gray-700 space-y-2 text-left">
                         <li>Mango · Pineapple · Blackberry</li>
                         <li>Discounted delivery on the plan</li>
@@ -666,9 +666,7 @@ async function proceedToCheckout() {
     }
 }
 
-const JUICE_PRICES = { 16: 10, 32: 21 };
-let pickedOz = 16;
-let pickedQty = 1;
+const JUICE_PRICES = { 16: 10, 32: 19 };let pickedQty = 1;
 let pickedFlavor = 'Mango';
 function setJuiceFlavor(name) {
     pickedFlavor = name;
@@ -1021,8 +1019,7 @@ function getAIResponse(message) {
         parts.push("If you want a named protocol, open the Sea Moss Wellness Quiz — two minutes, then it points you to a real SKU in Shop or Build Your Blend. Tell me energy, joints, cycle, skin, or daily mineral and I’ll short-list here too.");
     }
     if (/price|cost|how much/.test(q)) {
-        parts.push("Gels and custom blends live on Shop / Build Your Blend. Juices start at $8 for 12oz and $20 for 32oz; weekly juice is $9 per bottle on the subscription. Open Shop for current jar prices.");
-    }
+        parts.push("Gels and custom blends live on Shop / Build Your Blend. Juices start at $10 for 16oz and $19 for 32oz; weekly juice is $10/week for 16oz and $19/week for 32oz. Open Shop for current jar prices.");    }
     if (/wing|vegan house|local plates|hungry|food menu/.test(q)) {
         parts.push("Local plates is a separate Central Florida kitchen menu — not the sea moss shop. If you’re nearby and want food, it’s on the Local plates page. Everyone else: gels, juices, delivery, shipping.");
     }
