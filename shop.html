@@ -4,7 +4,24 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Shop | Jane's Seamoss Creation</title>
-<meta name="description" content="Wild-harvested sea moss gels • Naturally sweetened by bees • No added sweeteners">
+<meta name="description" content="Shop wild-harvested Caribbean sea moss gels and juices from Jane's Seamoss Creation. 92+ minerals, made fresh weekly in our licensed Orlando kitchen. Fruit, herb, and custom blends.">
+<meta name="keywords" content="sea moss gel, sea moss juice, Irish moss, Caribbean sea moss, Orlando sea moss, wild-harvested sea moss, Jane's Seamoss">
+<meta name="author" content="Jane's Seamoss Creation">
+<link rel="canonical" href="https://janesseamosshealing.com/shop.html">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://janesseamosshealing.com/shop.html">
+<meta property="og:title" content="Shop | Jane's Seamoss Creation">
+<meta property="og:description" content="Wild-harvested Caribbean sea moss gels and juices. 92+ minerals. Made fresh weekly in Orlando. Fruit, herb, and premium blends.">
+<meta property="og:image" content="https://janesseamosshealing.com/assets/images/IMG_7251 Background Removed 2.jpeg">
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://janesseamosshealing.com/shop.html">
+<meta property="twitter:title" content="Shop | Jane's Seamoss Creation">
+<meta property="twitter:description" content="Wild-harvested Caribbean sea moss gels and juices. Made fresh weekly in Orlando.">
+<meta property="twitter:image" content="https://janesseamosshealing.com/assets/images/IMG_7251 Background Removed 2.jpeg">
 <!-- Meta Pixel Code -->
 <script>
 !function(f,b,e,v,n,t,s)
@@ -56,6 +73,12 @@ window.addEventListener('load', initTailwind);
 </style>
 </head>
 <body class="bg-white text-deep font-sans antialiased">
+
+<!-- Promo Banner (through Sun Nov 1) -->
+<div class="bg-purple text-white text-center py-3 px-4 text-sm font-medium">
+  🥤 32oz Sea Moss Juice, $21, with FREE Central FL delivery. Through Sun, Nov 1. 
+  <a href="#juices" onclick="showJuiceModal(); return false;" class="underline ml-2 font-semibold">Stock the fridge →</a>
+</div>
 
 <!-- Navigation -->
 <nav class="bg-white border-b sticky top-0 z-50 shadow-sm">
@@ -137,6 +160,7 @@ window.addEventListener('load', initTailwind);
         <button onclick="filterCategory('juice')" class="px-5 py-2 rounded-3xl hover:bg-white hover:shadow-sm transition-all">JUICES</button>
         <button onclick="filterCategory('fruit')" class="px-5 py-2 rounded-3xl hover:bg-white hover:shadow-sm transition-all">FRUIT FLAVORED</button>
         <button onclick="filterCategory('herb')" class="px-5 py-2 rounded-3xl hover:bg-white hover:shadow-sm transition-all">PREMIUM</button>
+        <button onclick="filterCategory('bundle')" class="px-5 py-2 rounded-3xl hover:bg-white hover:shadow-sm transition-all">BUNDLES</button>
         <button onclick="filterCategory('raw')" class="px-5 py-2 rounded-3xl hover:bg-white hover:shadow-sm transition-all">RAW</button>
         <button onclick="filterCategory('fitness')" class="px-5 py-2 rounded-3xl hover:bg-white hover:shadow-sm transition-all">FITNESS + WELLNESS</button>
         <button onclick="filterCategory('mens')" class="px-5 py-2 rounded-3xl hover:bg-white hover:shadow-sm transition-all">MEN’S</button>
@@ -174,10 +198,65 @@ window.addEventListener('load', initTailwind);
         <div class="mt-6 text-center">
           <h3 class="text-2xl font-light">Sea Moss Juice</h3>
           <div class="text-purple font-semibold text-xl mt-1">$10 – $21</div>
-          <p class="text-sm text-gray-600 mt-2">Fresh • Ready to drink • Naturally sweetened</p>
+          <p class="text-sm text-gray-600 mt-2">Fresh • Ready to drink • Naturally sweetened by bees. A convenient way to get your daily minerals without scooping gel. Made weekly in the Orlando kitchen.</p>
           <button onclick="showJuiceModal()" class="mt-5 w-full bg-purple hover:bg-deep text-white py-4 rounded-3xl font-medium transition-all">
             Choose Flavor & Size
           </button>
+        </div>
+      </div>
+
+      <!-- Pineapple Ginger Juice (new) -->
+      <div class="product-card group relative" data-category="juice">
+        <div class="absolute top-4 left-4 z-10">
+          <span class="bg-purple text-white text-xs font-semibold px-3 py-1 rounded-full">Limited batch</span>
+        </div>
+        <div class="overflow-hidden rounded-3xl shadow-sm bg-yellow-50 flex items-center justify-center aspect-square">
+          <span class="text-6xl">🍍</span>
+        </div>
+        <div class="mt-6 text-center">
+          <h3 class="text-2xl font-light">Pineapple Ginger</h3>
+          <div class="text-purple font-semibold text-xl mt-1">$15</div>
+          <p class="text-sm text-gray-600 mt-2">Sweet pineapple, a little ginger kick, and my sea moss. Small batch, so when it's gone, it's gone.</p>
+          <button onclick="addToCart({id:'pineapple-ginger-juice', content_id:'pineapple-ginger', name:'Pineapple Ginger Sea Moss Juice', price:15, details:'Limited batch'})" class="mt-6 w-full bg-purple hover:bg-deep text-white py-4 rounded-3xl font-medium transition-all">Grab a bottle</button>
+        </div>
+      </div>
+
+      <!-- Sea Moss Juice with Herbs (new) -->
+      <div class="product-card group" data-category="juice">
+        <div class="overflow-hidden rounded-3xl shadow-sm bg-green-50 flex items-center justify-center aspect-square">
+          <span class="text-6xl">🌿</span>
+        </div>
+        <div class="mt-6 text-center">
+          <h3 class="text-2xl font-light">Sea Moss Juice with Herbs</h3>
+          <div class="text-purple font-semibold text-xl mt-1">$18</div>
+          <p class="text-sm text-gray-600 mt-2">My sea moss juice blended with herbs. Earthy, bright, and made fresh in my Orlando kitchen.</p>
+          <button onclick="addToCart({id:'herb-juice', content_id:'herb-juice', name:'Sea Moss Juice with Herbs', price:18, details:'Herb-infused'})" class="mt-6 w-full bg-purple hover:bg-deep text-white py-4 rounded-3xl font-medium transition-all">Add to basket</button>
+        </div>
+      </div>
+
+      <!-- Stock the Fridge Bundle -->
+      <div class="product-card group" data-category="bundle">
+        <div class="overflow-hidden rounded-3xl shadow-sm bg-lightpurple/30 flex items-center justify-center aspect-square">
+          <span class="text-6xl">📦</span>
+        </div>
+        <div class="mt-6 text-center">
+          <h3 class="text-2xl font-light">Stock the Fridge</h3>
+          <div class="text-purple font-semibold text-xl mt-1">$36 <span class="text-sm line-through text-gray-400">$40</span></div>
+          <p class="text-sm text-gray-600 mt-2">Four 16oz bottles, mix your flavors. One for every day you'd otherwise skip it.</p>
+          <button onclick="addToCart({id:'stock-fridge', content_id:'stock-fridge', name:'Stock the Fridge Bundle', price:36, details:'4 × 16oz juices'})" class="mt-6 w-full bg-purple hover:bg-deep text-white py-4 rounded-3xl font-medium transition-all">Stock my fridge</button>
+        </div>
+      </div>
+
+      <!-- Gel + Juice Starter Bundle -->
+      <div class="product-card group" data-category="bundle">
+        <div class="overflow-hidden rounded-3xl shadow-sm bg-purple/10 flex items-center justify-center aspect-square">
+          <span class="text-6xl">✨</span>
+        </div>
+        <div class="mt-6 text-center">
+          <h3 class="text-2xl font-light">Gel + Juice Starter</h3>
+          <div class="text-purple font-semibold text-xl mt-1">$50 <span class="text-sm line-through text-gray-400">$56</span></div>
+          <p class="text-sm text-gray-600 mt-2">Pick any fruit gel and a 32oz juice. The easiest way to try both, made fresh this week.</p>
+          <button onclick="addToCart({id:'gel-juice-starter', content_id:'gel-juice-starter', name:'Gel + Juice Starter', price:50, details:'Any fruit gel + 32oz juice'})" class="mt-6 w-full bg-purple hover:bg-deep text-white py-4 rounded-3xl font-medium transition-all">Start my ritual</button>
         </div>
       </div>
 
@@ -209,9 +288,9 @@ window.addEventListener('load', initTailwind);
         </div>
         <div class="mt-6 text-center">
           <h3 class="text-2xl font-light">Mango</h3>
-          <div class="text-purple font-semibold text-xl mt-1">$35</div>
-          <p class="text-sm text-gray-600 mt-2">Vitamin A & C • Skin & Immune Support</p>
-          <button onclick="addToCart({id:'mango', content_id:'xd32zaotnc', name:'Mango Sea Moss Gel', price:35, details:'Vitamin A & C'})" class="mt-6 w-full bg-purple hover:bg-deep text-white py-4 rounded-3xl font-medium transition-all">Add to Cart</button>
+          <div class="text-purple font-semibold text-xl mt-1">16oz · $35</div>
+          <p class="text-sm text-gray-600 mt-2">Real mango • Smooth & tropical. Naturally rich in vitamins A and C. A bright daily spoonful that pairs well with warm lemon water or smoothies.</p>
+          <button onclick="addToCart({id:'mango', content_id:'xd32zaotnc', name:'Mango Sea Moss Gel', price:35, details:'16oz • Real mango'})" class="mt-6 w-full bg-purple hover:bg-deep text-white py-4 rounded-3xl font-medium transition-all">Add to Cart</button>
         </div>
       </div>
 
@@ -225,9 +304,9 @@ window.addEventListener('load', initTailwind);
         </div>
         <div class="mt-6 text-center">
           <h3 class="text-2xl font-light">Passionfruit</h3>
-          <div class="text-purple font-semibold text-xl mt-1">$35</div>
-          <p class="text-sm text-gray-600 mt-2">High Vitamin C • Digestion & Immunity</p>
-          <button onclick="addToCart({id:'passionfruit', content_id:'5elxshsx9x', name:'Passionfruit Sea Moss Gel', price:35, details:'Immunity'})" class="mt-6 w-full bg-purple hover:bg-deep text-white py-4 rounded-3xl font-medium transition-all">Add to Cart</button>
+          <div class="text-purple font-semibold text-xl mt-1">16oz · $35</div>
+          <p class="text-sm text-gray-600 mt-2">Real passionfruit • Tangy & bright. High in vitamin C with a lively tropical tartness. Many guests enjoy it first thing for a fresh start to the day.</p>
+          <button onclick="addToCart({id:'passionfruit', content_id:'5elxshsx9x', name:'Passionfruit Sea Moss Gel', price:35, details:'16oz • Real passionfruit'})" class="mt-6 w-full bg-purple hover:bg-deep text-white py-4 rounded-3xl font-medium transition-all">Add to Cart</button>
         </div>
       </div>
 
@@ -238,9 +317,9 @@ window.addEventListener('load', initTailwind);
         </div>
         <div class="mt-6 text-center">
           <h3 class="text-2xl font-light">Blackberry</h3>
-          <div class="text-purple font-semibold text-xl mt-1">$35</div>
-          <p class="text-sm text-gray-600 mt-2">Antioxidants • Heart, Brain & Digestion</p>
-          <button onclick="addToCart({id:'blackberry', content_id:'ml9pm6805d', name:'Blackberry Sea Moss Gel', price:35, details:'Antioxidants'})" class="mt-6 w-full bg-purple hover:bg-deep text-white py-4 rounded-3xl font-medium transition-all">Add to Cart</button>
+          <div class="text-purple font-semibold text-xl mt-1">16oz · $35</div>
+          <p class="text-sm text-gray-600 mt-2">Real blackberry • Deep berry flavor. Packed with antioxidants and a rich, juicy taste. A customer favorite for its bold color and smooth texture.</p>
+          <button onclick="addToCart({id:'blackberry', content_id:'ml9pm6805d', name:'Blackberry Sea Moss Gel', price:35, details:'16oz • Real blackberry'})" class="mt-6 w-full bg-purple hover:bg-deep text-white py-4 rounded-3xl font-medium transition-all">Add to Cart</button>
         </div>
       </div>
 
@@ -254,9 +333,9 @@ window.addEventListener('load', initTailwind);
         </div>
         <div class="mt-6 text-center">
           <h3 class="text-2xl font-light">Soursop</h3>
-          <div class="text-purple font-semibold text-xl mt-1">$36</div>
-          <p class="text-sm text-gray-600 mt-2">Antioxidants • Immune & Skin Support</p>
-          <button onclick="addToCart({id:'soursop', content_id:'5elxshsx9x', name:'Soursop Sea Moss Gel', price:36, details:'Immune Support'})" class="mt-6 w-full bg-purple hover:bg-deep text-white py-4 rounded-3xl font-medium transition-all">Add to Cart</button>
+          <div class="text-purple font-semibold text-xl mt-1">16oz · $36</div>
+          <p class="text-sm text-gray-600 mt-2">Real soursop • Creamy & Caribbean. Traditional tropical fruit with a soft, custard-like finish. Loved for its unique flavor and everyday mineral support.</p>
+          <button onclick="addToCart({id:'soursop', content_id:'5elxshsx9x', name:'Soursop Sea Moss Gel', price:36, details:'16oz • Real soursop'})" class="mt-6 w-full bg-purple hover:bg-deep text-white py-4 rounded-3xl font-medium transition-all">Add to Cart</button>
         </div>
       </div>
 
@@ -267,9 +346,9 @@ window.addEventListener('load', initTailwind);
         </div>
         <div class="mt-6 text-center">
           <h3 class="text-2xl font-light">Strawberry</h3>
-          <div class="text-purple font-semibold text-xl mt-1">$35</div>
-          <p class="text-sm text-gray-600 mt-2">Vitamin C • Heart & Immune Support</p>
-          <button onclick="addToCart({id:'strawberry', content_id:'xd32zaotnc', name:'Strawberry Sea Moss Gel', price:35, details:'Vitamin C'})" class="mt-6 w-full bg-purple hover:bg-deep text-white py-4 rounded-3xl font-medium transition-all">Add to Cart</button>
+          <div class="text-purple font-semibold text-xl mt-1">16oz · $35</div>
+          <p class="text-sm text-gray-600 mt-2">Real strawberry • Sweet & fresh. Light, fruity, and naturally sweetened by bees. An easy everyday gel that many use in morning routines.</p>
+          <button onclick="addToCart({id:'strawberry', content_id:'xd32zaotnc', name:'Strawberry Sea Moss Gel', price:35, details:'16oz • Real strawberry'})" class="mt-6 w-full bg-purple hover:bg-deep text-white py-4 rounded-3xl font-medium transition-all">Add to Cart</button>
         </div>
       </div>
 
@@ -280,9 +359,9 @@ window.addEventListener('load', initTailwind);
         </div>
         <div class="mt-6 text-center">
           <h3 class="text-2xl font-light">Pineapple</h3>
-          <div class="text-purple font-semibold text-xl mt-1">$35</div>
-          <p class="text-sm text-gray-600 mt-2">Bromelain • Anti-inflammatory & Digestion</p>
-          <button onclick="addToCart({id:'pineapple', content_id:'5elxshsx9x', name:'Pineapple Sea Moss Gel', price:35, details:'Anti-inflammatory'})" class="mt-6 w-full bg-purple hover:bg-deep text-white py-4 rounded-3xl font-medium transition-all">Add to Cart</button>
+          <div class="text-purple font-semibold text-xl mt-1">16oz · $35</div>
+          <p class="text-sm text-gray-600 mt-2">Real pineapple • Juicy & sunny. Contains natural bromelain and a bright tropical taste. Refreshing on its own or blended into warm drinks.</p>
+          <button onclick="addToCart({id:'pineapple', content_id:'5elxshsx9x', name:'Pineapple Sea Moss Gel', price:35, details:'16oz • Real pineapple'})" class="mt-6 w-full bg-purple hover:bg-deep text-white py-4 rounded-3xl font-medium transition-all">Add to Cart</button>
         </div>
       </div>
 
@@ -296,9 +375,9 @@ window.addEventListener('load', initTailwind);
         </div>
         <div class="mt-6 text-center">
           <h3 class="text-2xl font-light">Moon Cycle Moss</h3>
-          <div class="text-purple font-semibold text-xl mt-1">$40</div>
-          <p class="text-sm text-gray-600 mt-2">Hormonal balance • Energy • Comfort</p>
-          <button onclick="addToCart({id:'mooncycle', content_id:'y9115pg998', name:'Moon Cycle Moss', price:40, details:'Hormonal Balance & Wellness'})" class="mt-6 w-full bg-purple hover:bg-deep text-white py-4 rounded-3xl font-medium transition-all">Add to Cart</button>
+          <div class="text-purple font-semibold text-xl mt-1">16oz · $40</div>
+          <p class="text-sm text-gray-600 mt-2">My women's favorite blend • Made with care for your monthly routine. Soft, nourishing, and crafted for consistent daily use during your cycle.</p>
+          <button onclick="addToCart({id:'mooncycle', content_id:'y9115pg998', name:'Moon Cycle Moss', price:40, details:'16oz • Women\'s favorite'})" class="mt-6 w-full bg-purple hover:bg-deep text-white py-4 rounded-3xl font-medium transition-all">Add to Cart</button>
         </div>
       </div>
 
@@ -308,10 +387,10 @@ window.addEventListener('load', initTailwind);
                   <img src="assets/images/bloodpressure.jpg" alt="Blood Pressure Balance Gel" class="w-full aspect-square object-cover">
                 </div>
                 <div class="mt-6 text-center">
-                  <h3 class="text-2xl font-light">Blood Pressure Balance</h3>
-                  <div class="text-purple font-semibold text-xl mt-1">$40</div>
-                  <p class="text-sm text-gray-600 mt-2">Bladderwrack • Cardiovascular Support</p>
-                  <button onclick="addToCart({id:'bloodpressure', content_id:'y9115pg998', name:'Blood Pressure Balance', price:40, details:'Cardiovascular'})" class="mt-6 w-full bg-purple hover:bg-deep text-white py-4 rounded-3xl font-medium transition-all">Add to Cart</button>
+                  <h3 class="text-2xl font-light">Bladderwrack Blend</h3>
+                  <div class="text-purple font-semibold text-xl mt-1">16oz · $40</div>
+                  <p class="text-sm text-gray-600 mt-2">Bladderwrack • Sea moss • Earthy & mineral-rich. A classic sea vegetable pairing that brings natural iodine and a briny depth. Traditional kitchen staple for mineral-focused routines.</p>
+                  <button onclick="addToCart({id:'bloodpressure', content_id:'y9115pg998', name:'Bladderwrack Blend', price:40, details:'16oz • Bladderwrack'})" class="mt-6 w-full bg-purple hover:bg-deep text-white py-4 rounded-3xl font-medium transition-all">Add to Cart</button>
                 </div>
               </div>
         
@@ -322,9 +401,9 @@ window.addEventListener('load', initTailwind);
                 </div>
                 <div class="mt-6 text-center">
                   <h3 class="text-2xl font-light">Vitality</h3>
-                  <div class="text-purple font-semibold text-xl mt-1">$40</div>
-                  <p class="text-sm text-gray-600 mt-2">Horny Goat Weed • Energy & Libido</p>
-                  <button onclick="addToCart({id:'vitality', content_id:'y9115pg998', name:'Vitality Gel', price:40, details:'Energy & Libido'})" class="mt-6 w-full bg-purple hover:bg-deep text-white py-4 rounded-3xl font-medium transition-all">Add to Cart</button>
+                  <div class="text-purple font-semibold text-xl mt-1">16oz · $40</div>
+                  <p class="text-sm text-gray-600 mt-2">Horny goat weed • Sea moss • A men's favorite. Traditional herb with a mild earthy taste. Often chosen for daily energy and vitality support.</p>
+                  <button onclick="addToCart({id:'vitality', content_id:'y9115pg998', name:'Vitality Gel', price:40, details:'16oz • Horny goat weed'})" class="mt-6 w-full bg-purple hover:bg-deep text-white py-4 rounded-3xl font-medium transition-all">Add to Cart</button>
                 </div>
               </div>
         
@@ -338,9 +417,9 @@ window.addEventListener('load', initTailwind);
                 </div>
                 <div class="mt-6 text-center">
                   <h3 class="text-2xl font-light">Powerhouse</h3>
-                  <div class="text-purple font-semibold text-xl mt-1">$45</div>
-                  <p class="text-sm text-gray-600 mt-2">Shilajit • Deep Energy & Vitality</p>
-                  <button onclick="addToCart({id:'powerhouse', content_id:'y9115pg998', name:'Powerhouse Gel', price:45, details:'Energy & Vitality'})" class="mt-6 w-full bg-purple hover:bg-deep text-white py-4 rounded-3xl font-medium transition-all">Add to Cart</button>
+                  <div class="text-purple font-semibold text-xl mt-1">16oz · $45</div>
+                  <p class="text-sm text-gray-600 mt-2">Shilajit • Sea moss • My premium blend. Traditional mountain resin that adds rich, smoky depth and supports mineral absorption in the gel.</p>
+                  <button onclick="addToCart({id:'powerhouse', content_id:'y9115pg998', name:'Powerhouse Gel', price:45, details:'16oz • Shilajit'})" class="mt-6 w-full bg-purple hover:bg-deep text-white py-4 rounded-3xl font-medium transition-all">Add to Cart</button>
                 </div>
               </div>
         
@@ -350,10 +429,10 @@ window.addEventListener('load', initTailwind);
                   <img src="assets/images/immunity.jpg" alt="Immunity Boost Gel" class="w-full aspect-square object-cover">
                 </div>
                 <div class="mt-6 text-center">
-                  <h3 class="text-2xl font-light">Immunity Boost</h3>
-                  <div class="text-purple font-semibold text-xl mt-1">$40</div>
-                  <p class="text-sm text-gray-600 mt-2">Ginger • Immune & Anti-inflammatory</p>
-                  <button onclick="addToCart({id:'immunity', content_id:'y9115pg998', name:'Immunity Boost Gel', price:40, details:'Immune Support'})" class="mt-6 w-full bg-purple hover:bg-deep text-white py-4 rounded-3xl font-medium transition-all">Add to Cart</button>
+                  <h3 class="text-2xl font-light">Ginger Blend</h3>
+                  <div class="text-purple font-semibold text-xl mt-1">16oz · $40</div>
+                  <p class="text-sm text-gray-600 mt-2">Ginger • Sea moss • Warm & zesty. Fresh ginger brings a gentle heat and traditional digestive comfort. Great for cool mornings.</p>
+                  <button onclick="addToCart({id:'immunity', content_id:'y9115pg998', name:'Ginger Blend', price:40, details:'16oz • Ginger'})" class="mt-6 w-full bg-purple hover:bg-deep text-white py-4 rounded-3xl font-medium transition-all">Add to Cart</button>
                 </div>
               </div>
         
@@ -363,10 +442,10 @@ window.addEventListener('load', initTailwind);
                   <img src="assets/images/jointrelief.jpg" alt="Joint Relief Gel" class="w-full aspect-square object-cover">
                 </div>
                 <div class="mt-6 text-center">
-                  <h3 class="text-2xl font-light">Joint Relief</h3>
-                  <div class="text-purple font-semibold text-xl mt-1">$40</div>
-                  <p class="text-sm text-gray-600 mt-2">Blackseed Oil • Anti-inflammatory</p>
-                  <button onclick="addToCart({id:'joint', content_id:'y9115pg998', name:'Joint Relief Gel', price:40, details:'Joint Support'})" class="mt-6 w-full bg-purple hover:bg-deep text-white py-4 rounded-3xl font-medium transition-all">Add to Cart</button>
+                  <h3 class="text-2xl font-light">Black Seed Blend</h3>
+                  <div class="text-purple font-semibold text-xl mt-1">16oz · $40</div>
+                  <p class="text-sm text-gray-600 mt-2">Black seed oil • Sea moss • Bold & nutty. Cold-pressed black seed oil with a peppery finish. A traditional blend chosen for everyday wellness.</p>
+                  <button onclick="addToCart({id:'joint', content_id:'y9115pg998', name:'Black Seed Blend', price:40, details:'16oz • Black seed oil'})" class="mt-6 w-full bg-purple hover:bg-deep text-white py-4 rounded-3xl font-medium transition-all">Add to Cart</button>
                 </div>
               </div>
         
@@ -376,10 +455,10 @@ window.addEventListener('load', initTailwind);
                   <img src="assets/images/brainsupport.jpg" alt="Brain Support Gel" class="w-full aspect-square object-cover">
                 </div>
                 <div class="mt-6 text-center">
-                  <h3 class="text-2xl font-light">Brain Support</h3>
-                  <div class="text-purple font-semibold text-xl mt-1">$40</div>
-                  <p class="text-sm text-gray-600 mt-2">Ashwagandha • Stress Relief & Focus</p>
-                  <button onclick="addToCart({id:'brain', content_id:'y9115pg998', name:'Brain Support Gel', price:40, details:'Stress & Focus'})" class="mt-6 w-full bg-purple hover:bg-deep text-white py-4 rounded-3xl font-medium transition-all">Add to Cart</button>
+                  <h3 class="text-2xl font-light">Ashwagandha Blend</h3>
+                  <div class="text-purple font-semibold text-xl mt-1">16oz · $40</div>
+                  <p class="text-sm text-gray-600 mt-2">Ashwagandha • Sea moss • A calm-morning ritual. Traditional adaptogen with a mild earthy taste. Many enjoy it as part of a steady daily spoon.</p>
+                  <button onclick="addToCart({id:'brain', content_id:'y9115pg998', name:'Ashwagandha Blend', price:40, details:'16oz • Ashwagandha'})" class="mt-6 w-full bg-purple hover:bg-deep text-white py-4 rounded-3xl font-medium transition-all">Add to Cart</button>
                 </div>
               </div>
         
@@ -417,8 +496,9 @@ window.addEventListener('load', initTailwind);
           <div class="max-w-7xl mx-auto px-6 text-center">
             <p class="mb-6 text-lg">Handcrafted with intention in Central Florida</p>
             <p class="text-sm opacity-75 max-w-md mx-auto">
-              These statements have not been evaluated by the FDA. This product is not intended to diagnose, treat, cure, or prevent any disease.
+              These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure, or prevent any disease.
             </p>
+            <p class="text-sm mt-4 opacity-75">Craving it on the app? Find my kitchen on DoorDash as Doty Maes Munchies →</p>
             <p class="mt-10 text-[11px] opacity-40"><a href="local-delivery-menu.html" title="Local plates" class="hover:opacity-80">Local plates</a></p>
             <div class="mt-6 text-xs opacity-60">
               © 2026 Janesse's Seamoss Creation • Built by VSIT Solutions
@@ -466,6 +546,10 @@ window.addEventListener('load', initTailwind);
               <button onclick="hideCartModal()" class="text-4xl text-gray-400 hover:text-deep">×</button>
             </div>
             <div id="cart-items" class="flex-1 overflow-auto p-6"></div>
+            <div id="cart-upsell" class="px-6 pb-2 text-sm text-purple hidden">
+              Pair it with a juice? Add a 16oz juice — $10 
+              <button onclick="addToCart({id:'juice-16-addon', name:'16oz Sea Moss Juice', price:10, details:'Add-on'}); hideCartModal();" class="ml-2 underline font-medium">Add juice</button>
+            </div>
             <div class="p-6 border-t">
               <div class="flex justify-between text-xl mb-6">
                 <span>Total</span>
@@ -475,7 +559,7 @@ window.addEventListener('load', initTailwind);
                 Proceed to Secure Checkout →
               </button>
               <p class="text-center text-xs text-gray-500 mt-3">
-                Fresh weekly • 88+ 5-star reviews • Love it or we’ll make it right
+                Fresh weekly • Love it or we'll make it right
               </p>
             </div>
           </div>
@@ -665,6 +749,11 @@ window.addEventListener('load', initTailwind);
             itemsContainer.appendChild(div);
           });
           document.getElementById('cart-total').textContent = '$' + total.toFixed(2);
+          // Upsell logic
+          const hasGel = cart.some(i => (i.name || '').toLowerCase().includes('gel') && !(i.name || '').toLowerCase().includes('juice'));
+          const hasJuice = cart.some(i => (i.name || '').toLowerCase().includes('juice'));
+          const upsell = document.getElementById('cart-upsell');
+          if (upsell) upsell.classList.toggle('hidden', !(hasGel && !hasJuice));
           modal.classList.remove('hidden');
         }
         
@@ -698,7 +787,7 @@ window.addEventListener('load', initTailwind);
             await stripe.redirectToCheckout({ sessionId: data.id });
           } catch (error) {
             console.error(error);
-            alert("⚠️ We couldn't connect to secure checkout. Please try again.");
+            alert("Hmm, checkout didn't load. Please try again, or call/text me at 407-752-7864 and I'll take your order.");
           }
         }
         
@@ -904,5 +993,7 @@ window.addEventListener('load', initTailwind);
           observer.observe(rawVideo);
         }
         </script>
+        <!-- Klaviyo -->
+        <script async type="text/javascript" src="https://static.klaviyo.com/onsite/js/VswzCA/klaviyo.js"></script>
         </body>
         </html>

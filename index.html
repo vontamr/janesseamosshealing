@@ -10,6 +10,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
 
 <!-- Meta Pixel Code -->
+<!-- IMPORTANT: Confirm this Pixel ID is connected to ad account 502129583636994 in Meta Events Manager.
+     Current ID in code: 1520084362933231. Replace if Jane provides a different one from Events Manager. -->
 <script>
 !function(f,b,e,v,n,t,s)
 {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -633,6 +635,15 @@ async function proceedToCheckout() {
     if (cart.length === 0) {
         alert("Your cart is empty.");
         return;
+    }
+    // InitiateCheckout
+    if (typeof fbq === 'function') {
+        const total = cart.reduce((sum, i) => sum + (i.price || 0), 0);
+        fbq('track', 'InitiateCheckout', {
+            value: total,
+            currency: 'USD',
+            num_items: cart.length
+        });
     }
     try {
         const hasSub = cart.some(function (i) { return i.subscription; });

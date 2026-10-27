@@ -1,6 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<!-- Meta Pixel Code -->
+<!-- IMPORTANT: Confirm this Pixel ID is connected to ad account 502129583636994 in Meta Events Manager.
+     Current ID in code: 1520084362933231. Replace if Jane provides a different one from Events Manager. -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1520084362933231');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1520084362933231&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+
     <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-X1G12KY1X5"></script>
 <script>
@@ -9,7 +29,7 @@
   gtag('js', new Date());
 
   gtag('config', 'G-X1G12KY1X5');
-</script> x
+</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Personalized Sea Moss Consultation | Janesse's Seamoss Creation</title>
@@ -84,6 +104,7 @@ window.addEventListener('load', initTailwind);
             
             <a href="https://calendly.com/officialseamosscreations/30min" 
                target="_blank"
+               onclick="if(typeof fbq==='function')fbq('track','Lead');"
                class="inline-block bg-purple hover:bg-deep text-white text-xl font-semibold px-16 py-7 rounded-3xl transition-all active:scale-95 shadow-lg">
                 SECURE MY SPOT NOW
             </a>
