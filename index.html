@@ -23,15 +23,23 @@ s.parentNode.insertBefore(t,s)}(window, document,'script',
 'https://connect.facebook.net/en_US/fbevents.js');
 fbq('init', '1520084362933231');
 fbq('track', 'PageView');
+
+
+
+
 </script>
 <noscript><img height="1" width="1" style="display:none"
 src="https://www.facebook.com/tr?id=1520084362933231&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
 
-<script src="https://cdn.tailwindcss.com" async></script>
+<script src="https://cdn.tailwindcss.com" async>
+
+</script>
 <link rel="stylesheet" href="styles.css">
-<script src="https://js.stripe.com/v3/" defer></script>
+<script src="https://js.stripe.com/v3/" defer>
+
+</script>
 
 <script>
 function initTailwind() {
@@ -49,6 +57,8 @@ function initTailwind() {
     };
 }
 window.addEventListener('load', initTailwind);
+
+
 </script>
 
 <style>
@@ -367,57 +377,37 @@ window.addEventListener('load', initTailwind);
     </div>
 </section>
 
-<!-- Review Carousel -->
+<!-- Real People Photo Drop -->
 <section class="py-20 bg-white">
-    <div class="max-w-7xl mx-auto px-6">
-        <div class="flex justify-between items-end mb-10">
-            <div>
-                <h2 class="text-4xl md:text-5xl font-light tracking-tight">Real Voices from The Sea Moss Circle</h2>
-                <p class="text-gray-600 mt-2">Notes from Central Florida guests</p>
-            </div>
-            <div class="flex gap-3">
-                <button onclick="scrollReviews(-1)" class="w-12 h-12 border border-purple/30 rounded-2xl flex items-center justify-center hover:bg-purple hover:text-white transition-all">←</button>
-                <button onclick="scrollReviews(1)" class="w-12 h-12 border border-purple/30 rounded-2xl flex items-center justify-center hover:bg-purple hover:text-white transition-all">→</button>
-            </div>
-        </div>
-        <div class="overflow-hidden">
-            <div id="review-track" class="flex gap-6 pb-4">
-                <div class="review-card bg-white border border-gray-100 rounded-3xl p-8">
-                    <div class="flex gap-1 text-yellow-400 mb-4">★★★★★</div>
-                    <p class="text-gray-700">"The best sea moss I’ve ever tried. The flavors are amazing and I feel so much better since starting it."</p>
-                    <div class="mt-6"><p class="font-medium">Michelle R.</p><p class="text-xs text-gray-500">Orlando, FL</p></div>
+    <div class="max-w-4xl mx-auto px-6 text-center">
+        <h2 class="text-4xl md:text-5xl font-light tracking-tight">Drop Your Photo in The Circle</h2>
+        <p class="text-gray-600 mt-3 max-w-lg mx-auto">Share a real photo of you with Jane’s sea moss — in your kitchen, on your counter, or mid-spoon. We’ll feature real people, not stock quotes.</p>
+        
+        <form id="photo-drop-form" action="https://formspree.io/f/xjgzrwry" method="POST" enctype="multipart/form-data" class="mt-10 bg-lightpurple/20 border border-purple/20 rounded-3xl p-8 md:p-12">
+            <div class="grid md:grid-cols-2 gap-6 text-left">
+                <div>
+                    <label class="block text-sm font-medium mb-2">Your Name</label>
+                    <input type="text" name="name" required class="w-full border border-gray-300 rounded-2xl px-4 py-3 text-sm focus:border-purple focus:outline-none">
                 </div>
-                <div class="review-card bg-white border border-gray-100 rounded-3xl p-8">
-                    <div class="flex gap-1 text-yellow-400 mb-4">★★★★★</div>
-                    <p class="text-gray-700">"My energy levels are through the roof! Passion Fruit is my favorite. Delivery was super fast and the product is always fresh."</p>
-                    <div class="mt-6"><p class="font-medium">Kevin T.</p><p class="text-xs text-gray-500">Winter Park, FL</p></div>
-                </div>
-                <div class="review-card bg-white border border-gray-100 rounded-3xl p-8">
-                    <div class="flex gap-1 text-yellow-400 mb-4">★★★★★</div>
-                    <p class="text-gray-700">"Skin is glowing and digestion improved so much. This is the real deal. Thank you Janesse!"</p>
-                    <div class="mt-6"><p class="font-medium">Aisha P.</p><p class="text-xs text-gray-500">Kissimmee, FL</p></div>
-                </div>
-                <div class="review-card bg-white border border-gray-100 rounded-3xl p-8">
-                    <div class="flex gap-1 text-yellow-400 mb-4">★★★★★</div>
-                    <p class="text-gray-700">"I’ve tried many brands. This is by far the smoothest and most potent. The 32oz jar is perfect for my whole family."</p>
-                    <div class="mt-6"><p class="font-medium">David L.</p><p class="text-xs text-gray-500">Altamonte Springs, FL</p></div>
-                </div>
-                <div class="review-card bg-white border border-gray-100 rounded-3xl p-8">
-                    <div class="flex gap-1 text-yellow-400 mb-4">★★★★★</div>
-                    <p class="text-gray-700">"The Moon Cycle Moss has helped with my cramps and energy during my cycle. I’m never going without it again."</p>
-                    <div class="mt-6"><p class="font-medium">Jasmine K.</p><p class="text-xs text-gray-500">Winter Haven, FL</p></div>
-                </div>
-                <div class="review-card bg-white border border-gray-100 rounded-3xl p-8">
-                    <div class="flex gap-1 text-yellow-400 mb-4">★★★★★</div>
-                    <p class="text-gray-700">"Love the juices! The Mango is my go-to. Having it delivered weekly keeps me consistent and I actually feel the difference."</p>
-                    <div class="mt-6"><p class="font-medium">Marcus B.</p><p class="text-xs text-gray-500">Oviedo, FL</p></div>
+                <div>
+                    <label class="block text-sm font-medium mb-2">City (optional)</label>
+                    <input type="text" name="city" class="w-full border border-gray-300 rounded-2xl px-4 py-3 text-sm focus:border-purple focus:outline-none">
                 </div>
             </div>
-        </div>
-        <div class="text-center mt-10">
-            <a href="wellness-calculator.html" class="text-purple hover:text-deep font-medium flex items-center justify-center gap-2">
-                Find your jar with the quiz →
-            </a>
+            <div class="mt-6 text-left">
+                <label class="block text-sm font-medium mb-2">Photo</label>
+                <input type="file" name="photo" accept="image/*" required class="w-full text-sm file:mr-4 file:py-3 file:px-6 file:rounded-2xl file:border-0 file:bg-purple file:text-white file:font-medium hover:file:bg-deep">
+            </div>
+            <div class="mt-6 text-left">
+                <label class="block text-sm font-medium mb-2">Short note (optional)</label>
+                <textarea name="note" rows="3" placeholder="What’s in the photo? Which flavor?" class="w-full border border-gray-300 rounded-2xl px-4 py-3 text-sm focus:border-purple focus:outline-none"></textarea>
+            </div>
+            <button type="submit" class="mt-8 w-full md:w-auto bg-purple hover:bg-deep text-white px-10 py-4 rounded-3xl font-semibold transition-all">Drop my photo</button>
+            <p class="text-xs text-gray-500 mt-4">By submitting you give Jane’s Seamoss permission to feature your photo on the site. We’ll only use it with your name and city if you include them.</p>
+        </form>
+        
+        <div id="photo-success" class="hidden mt-8 bg-emerald-50 border border-emerald-200 text-emerald-800 rounded-2xl p-6">
+            Photo received. Thank you — we’ll review it and may feature it in The Circle.
         </div>
     </div>
 </section>
@@ -796,10 +786,7 @@ function addCustomWeeklySubscription() {
     addToCart(item);
 }
 
-function scrollReviews(direction) {
-    const track = document.getElementById('review-track');
-    track.scrollBy({ left: direction * 380, behavior: 'smooth' });
-}
+
 
 // Mobile Menu + Load Cart
 document.addEventListener('DOMContentLoaded', function() {
@@ -1035,9 +1022,30 @@ document.addEventListener('keypress', function(e) {
         sendMessage();
     }
 });
+
+
 </script>
 
 <!-- 100% privacy-first analytics -->
-<script async src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
+<script async src="https://scripts.simpleanalyticscdn.com/latest.js">
+
+
+document.getElementById('photo-drop-form')?.addEventListener('submit', function(e) {
+    e.preventDefault();
+    const form = this;
+    const success = document.getElementById('photo-success');
+    fetch(form.action, { method: 'POST', body: new FormData(form), headers: { Accept: 'application/json' } })
+        .then(res => {
+            if (res.ok) {
+                form.reset();
+                form.classList.add('hidden');
+                if (success) success.classList.remove('hidden');
+            } else {
+                alert('Something went wrong. Please try again or text 407-752-7864.');
+            }
+        })
+        .catch(() => alert('Something went wrong. Please try again or text 407-752-7864.'));
+});
+</script>
 </body>
 </html>
